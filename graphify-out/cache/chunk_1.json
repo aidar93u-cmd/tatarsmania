@@ -1,0 +1,393 @@
+{
+  "nodes": [
+    {
+      "id": "tatarsmania_project",
+      "label": "TATARSMANIA Project",
+      "file_type": "document",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "index_html_file",
+      "label": "index.html (Main Page)",
+      "file_type": "document",
+      "source_file": "index.html"
+    },
+    {
+      "id": "about_html_file",
+      "label": "about.html (About Page)",
+      "file_type": "document",
+      "source_file": "about.html"
+    },
+    {
+      "id": "style_css",
+      "label": "css/style.css",
+      "file_type": "document",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "main_js",
+      "label": "js/main.js",
+      "file_type": "code",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "swiper_lib",
+      "label": "Swiper JS Library",
+      "file_type": "code",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "swiper_css",
+      "label": "swiper-bundle.min.css",
+      "file_type": "code",
+      "source_file": "index.html"
+    },
+    {
+      "id": "jquery_js",
+      "label": "jquery.min.js",
+      "file_type": "code",
+      "source_file": "about.html"
+    },
+    {
+      "id": "index_hero_swiper",
+      "label": "Hero Swiper",
+      "file_type": "code",
+      "source_file": "index.html"
+    },
+    {
+      "id": "index_categories_swiper",
+      "label": "Categories Small Swiper",
+      "file_type": "code",
+      "source_file": "index.html"
+    },
+    {
+      "id": "index_collections_swiper",
+      "label": "Collections Swiper",
+      "file_type": "code",
+      "source_file": "index.html"
+    },
+    {
+      "id": "css_tokens",
+      "label": "CSS Design Tokens",
+      "file_type": "document",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "token_graphite",
+      "label": "--graphite (#212121)",
+      "file_type": "document",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "token_copper",
+      "label": "--copper (#bf6e34)",
+      "file_type": "document",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "token_circe",
+      "label": "TEST Circe (Primary Font)",
+      "file_type": "document",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "base_font_size_12",
+      "label": "Base Font-size 12px",
+      "file_type": "document",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "rationale_12px",
+      "label": "Rationale: 12px intentional per design",
+      "file_type": "document",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "readme_file",
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_colors",
+      "label": "Design System Colors",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_fonts",
+      "label": "Design System Fonts",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_white",
+      "label": "--white (#fff)",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_gray_light",
+      "label": "--gray-light (#f3f3f3)",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "figma_mcp",
+      "label": "Figma MCP Bridge",
+      "file_type": "code",
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "index_promo_1",
+      "label": "promo-1.jpg",
+      "file_type": "image",
+      "source_file": "index.html"
+    },
+    {
+      "id": "index_hero_bg",
+      "label": "hero-bg.jpg",
+      "file_type": "image",
+      "source_file": "index.html"
+    }
+  ],
+  "edges": [
+    {
+      "source": "index_html_file",
+      "target": "swiper_css",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html"
+    },
+    {
+      "source": "index_html_file",
+      "target": "style_css",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html"
+    },
+    {
+      "source": "about_html_file",
+      "target": "style_css",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "about.html"
+    },
+    {
+      "source": "about_html_file",
+      "target": "jquery_js",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "about.html"
+    },
+    {
+      "source": "about_html_file",
+      "target": "main_js",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "about.html"
+    },
+    {
+      "source": "about_html_file",
+      "target": "index_html_file",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "about.html"
+    },
+    {
+      "source": "tatarsmania_project",
+      "target": "index_html_file",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "tatarsmania_project",
+      "target": "about_html_file",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "main_js",
+      "target": "swiper_lib",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "css_tokens",
+      "target": "token_graphite",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "css_tokens",
+      "target": "token_copper",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "css_tokens",
+      "target": "token_circe",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "rationale_12px",
+      "target": "base_font_size_12",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "readme_file",
+      "target": "readme_colors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "source": "readme_file",
+      "target": "readme_fonts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "source": "readme_colors",
+      "target": "readme_white",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "source": "readme_colors",
+      "target": "readme_gray_light",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    },
+    {
+      "source": "index_html_file",
+      "target": "main_js",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "index_html_file",
+      "target": "about_html_file",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9
+    },
+    {
+      "source": "swiper_css",
+      "target": "swiper_lib",
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "index.html"
+    },
+    {
+      "source": "css_tokens",
+      "target": "readme_colors",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "tatarsmania_project",
+      "target": "figma_mcp",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "source": "index_html_file",
+      "target": "index_hero_bg",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html"
+    },
+    {
+      "source": "index_html_file",
+      "target": "index_promo_1",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "swiper_ecosystem",
+      "label": "Swiper Integration Ecosystem",
+      "nodes": [
+        "index_hero_swiper",
+        "index_categories_swiper",
+        "index_collections_swiper",
+        "swiper_lib"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "index.html"
+    },
+    {
+      "id": "design_tokens_collection",
+      "label": "CSS Design Tokens Collection",
+      "nodes": [
+        "token_graphite",
+        "token_copper",
+        "readme_white",
+        "readme_gray_light",
+        "token_circe"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "AGENTS.md"
+    },
+    {
+      "id": "shared_styles",
+      "label": "Shared Stylesheet Usage",
+      "nodes": [
+        "index_html_file",
+        "about_html_file",
+        "style_css"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
