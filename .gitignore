@@ -1,0 +1,5 @@
+node_modules/
+.graphify_python
+graphify-out/
+*.png
+!assets/images/*.png
