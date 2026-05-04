@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ТАТАРСМАНИЯ</title>
-    <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 </head>
 <body>
 
@@ -282,9 +283,9 @@
             </div>
             <div class="about-production__video" style="background-image: url('assets/images/video-placeholder.jpg')">
                 <div class="about-production__video-overlay"></div>
-                <button class="about-production__play-btn" aria-label="Воспроизвести видео">
+                <a data-fancybox data-src="#videoModal" class="about-production__play-btn" aria-label="Воспроизвести видео">
                     <svg width="18" height="36" viewBox="0 0 18 36" fill="none"><path d="M0 0l18 18L0 36V0z" fill="#fff"/></svg>
-                </button>
+                </a>
             </div>
             <div class="about-production__stat">
                 <div class="about-production__stat-number">50к<span class="plus-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -622,7 +623,6 @@
                     </div>
                 </div>
             </div>
-            </div>
         </div>
     </div>
 </section>
@@ -660,7 +660,9 @@
                 <p class="promo-card__desc">Выберите диван из коллекции премиум — upgrade обивки до категории «люкс» за наш счёт! Роскошь деталей имеет значение.</p>
             </div>
         </div>
-        <a href="#" class="btn btn-promo">Все акции</a>
+        <div class="promo-btn">
+            <a href="#" class="btn btn-promo">Все акции</a>
+        </div>
     </div>
 </section>
 
@@ -689,14 +691,22 @@
                             <h3 class="collections__name">COSMO</h3>
                             <p class="collections__desc">Технологичность и динамичный футуризм. Модульные системы, трансформеры, модели с подсветкой<br>и инновационными материалами.</p>
                             <div class="collections__thumbs">
-                                <div class="collections__thumb" style="background-image: url('assets/images/collection-cosmo-1.jpg')"></div>
-                                <div class="collections__thumb" style="background-image: url('assets/images/collection-cosmo-2.jpg')"></div>
-                                <div class="collections__thumb" style="background-image: url('assets/images/collection-cosmo-3.jpg')"></div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-1.jpg">
+                                </div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-2.jpg">
+                                </div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-3.jpg">
+                                </div>
                             </div>
                             <a href="#" class="btn btn-link">Подробнее</a>
                         </div>
                         <div class="collections__right">
-                            <div class="collections__right-image" style="background-image: url('assets/images/collection-cosmo-main.jpg')"></div>
+                            <div class="collections__right-image">
+                                <img src="assets/images/collection-cosmo-main.jpg">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -706,14 +716,22 @@
                             <h3 class="collections__name">NORDIC</h3>
                             <p class="collections__desc">Скандинавская простота и функциональность. Натуральные материалы, мягкие формы<br>и спокойные тона для уютного дома.</p>
                             <div class="collections__thumbs">
-                                <div class="collections__thumb collections__thumb--alt" style="background-image: url('assets/images/collection-cosmo-2.jpg')"></div>
-                                <div class="collections__thumb collections__thumb--alt" style="background-image: url('assets/images/collection-cosmo-3.jpg')"></div>
-                                <div class="collections__thumb collections__thumb--alt" style="background-image: url('assets/images/collection-cosmo-1.jpg')"></div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-1.jpg">
+                                </div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-2.jpg">
+                                </div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-3.jpg">
+                                </div>
                             </div>
                             <a href="#" class="btn btn-link">Подробнее</a>
                         </div>
                         <div class="collections__right">
-                            <div class="collections__right-image collections__right-image--alt" style="background-image: url('assets/images/collection-cosmo-main.jpg')"></div>
+                            <div class="collections__right-image">
+                                <img src="assets/images/collection-cosmo-main.jpg">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -723,14 +741,22 @@
                             <h3 class="collections__name">LUXE</h3>
                             <p class="collections__desc">Премиальные материалы и безупречное исполнение. Коллекция для тех, кто ценит роскошь<br>в каждой детали интерьера.</p>
                             <div class="collections__thumbs">
-                                <div class="collections__thumb collections__thumb--alt2" style="background-image: url('assets/images/collection-cosmo-3.jpg')"></div>
-                                <div class="collections__thumb collections__thumb--alt2" style="background-image: url('assets/images/collection-cosmo-1.jpg')"></div>
-                                <div class="collections__thumb collections__thumb--alt2" style="background-image: url('assets/images/collection-cosmo-2.jpg')"></div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-1.jpg">
+                                </div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-2.jpg">
+                                </div>
+                                <div class="collections__thumb">
+                                    <img src="assets/images/collection-cosmo-3.jpg">
+                                </div>
                             </div>
                             <a href="#" class="btn btn-link">Подробнее</a>
                         </div>
                         <div class="collections__right">
-                            <div class="collections__right-image collections__right-image--alt2" style="background-image: url('assets/images/collection-cosmo-main.jpg')"></div>
+                            <div class="collections__right-image">
+                                <img src="assets/images/collection-cosmo-main.jpg">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -781,74 +807,165 @@
 <!-- ===== SHOWROOMS ===== -->
 <section class="showrooms">
     <div class="container">
-        <div class="showrooms__header">
-            <h2 class="showrooms__title">шоурумы</h2>
-        </div>
+        <h2 class="showrooms__title">шоурумы</h2>
         <div class="showrooms__content">
-            <div class="showrooms__cards">
-                <div class="showroom-card">
+            <div class="showrooms__list" id="showroomList">
+                <div class="showroom-card" data-open="10:00" data-close="22:00">
                     <div class="showroom-card__info">
                         <h3 class="showroom-card__name">Чистопольская</h3>
-                        <p class="showroom-card__address">г. Казань, Чистопольская 16/16<br>Ежедневно 10:00-22:00</p>
+                        <p class="showroom-card__address">г. Казань, Чистопольская 16/16</p>
+                        <p class="showroom-card__hours">Ежедневно 10:00-22:00</p>
                         <a href="tel:+78435280844" class="showroom-card__phone">+7 (843) 528-08-44</a>
-                        <span class="showroom-card__status showroom-card__status--open">Открыто</span>
+                        <span class="showroom-card__status"></span>
                     </div>
                     <div class="showroom-card__photos">
-                        <div class="showroom-card__photo" style="background-image: url('assets/images/showroom-1a.jpg')"></div>
-                        <div class="showroom-card__photo" style="background-image: url('assets/images/showroom-1b.jpg')"></div>
-                        <div class="showroom-card__photo" style="background-image: url('assets/images/showroom-1c.jpg')"></div>
+                        <a data-fancybox="showroom-1" href="assets/images/showroom-1a.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-1a.jpg" alt="Чистопольская - фото 1">
+                        </a>
+                        <a data-fancybox="showroom-1" href="assets/images/showroom-1b.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-1b.jpg" alt="Чистопольская - фото 2">
+                        </a>
+                        <a data-fancybox="showroom-1" href="assets/images/showroom-1c.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-1c.jpg" alt="Чистопольская - фото 3">
+                        </a>
                     </div>
-                    <a href="#" class="btn btn-nav">
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1C4.79 1 3 2.79 3 5c0 4 4 8 4 8s4-4 4-8c0-2.21-1.79-4-4-4zm0 5.5A1.5 1.5 0 1 1 7 5a1.5 1.5 0 0 1 0 3z" fill="#212121"/></svg>
+                    <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn btn-nav">
+                        <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121"/>
+</svg>
                         ПОСТРОИТЬ МАРШРУТ
                     </a>
                 </div>
-                <div class="showroom-divider"></div>
-                <div class="showroom-card">
+                <div class="showroom-card" data-open="10:00" data-close="18:00">
                     <div class="showroom-card__info">
                         <h3 class="showroom-card__name">Проспект Победы</h3>
-                        <p class="showroom-card__address">г. Казань, Проспект Победы 230<br>Ежедневно 10:00-18:00</p>
+                        <p class="showroom-card__address">г. Казань, Проспект Победы 230</p>
+                        <p class="showroom-card__hours">Ежедневно 10:00-18:00</p>
                         <a href="tel:+78435706345" class="showroom-card__phone">+7 (843) 570-63-45</a>
-                        <span class="showroom-card__status showroom-card__status--closed">Закрыто</span>
+                        <span class="showroom-card__status"></span>
                     </div>
                     <div class="showroom-card__photos">
-                        <div class="showroom-card__photo" style="background-image: url('assets/images/showroom-2a.jpg')"></div>
-                        <div class="showroom-card__photo" style="background-image: url('assets/images/showroom-2b.jpg')"></div>
-                        <div class="showroom-card__photo" style="background-image: url('assets/images/showroom-2c.jpg')"></div>
-                        <div class="showroom-card__photo" style="background-image: url('assets/images/showroom-2d.jpg')"></div>
+                        <a data-fancybox="showroom-2" href="assets/images/showroom-2a.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2a.jpg" alt="Проспект Победы - фото 1">
+                        </a>
+                        <a data-fancybox="showroom-2" href="assets/images/showroom-2b.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2b.jpg" alt="Проспект Победы - фото 2">
+                        </a>
+                        <a data-fancybox="showroom-2" href="assets/images/showroom-2c.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2c.jpg" alt="Проспект Победы - фото 3">
+                        </a>
+                        <a data-fancybox="showroom-2" href="assets/images/showroom-2d.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2d.jpg" alt="Проспект Победы - фото 4">
+                        </a>
                     </div>
-                    <a href="#" class="btn btn-nav">
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1C4.79 1 3 2.79 3 5c0 4 4 8 4 8s4-4 4-8c0-2.21-1.79-4-4-4zm0 5.5A1.5 1.5 0 1 1 7 5a1.5 1.5 0 0 1 0 3z" fill="#212121"/></svg>
+                    <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn btn-nav">
+                        <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121"/>
+</svg>
+                        ПОСТРОИТЬ МАРШРУТ
+                    </a>
+                </div>
+                <div class="showroom-card" data-open="10:00" data-close="21:00">
+                    <div class="showroom-card__info">
+                        <h3 class="showroom-card__name">Баумана</h3>
+                        <p class="showroom-card__address">г. Казань, ул. Баумана 44</p>
+                        <p class="showroom-card__hours">Ежедневно 10:00-21:00</p>
+                        <a href="tel:+78432000001" class="showroom-card__phone">+7 (843) 200-00-01</a>
+                        <span class="showroom-card__status"></span>
+                    </div>
+                    <div class="showroom-card__photos">
+                        <a data-fancybox="showroom-3" href="assets/images/showroom-1a.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-1a.jpg" alt="Баумана - фото 1">
+                        </a>
+                        <a data-fancybox="showroom-3" href="assets/images/showroom-1b.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-1b.jpg" alt="Баумана - фото 2">
+                        </a>
+                    </div>
+                    <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn btn-nav">
+                        <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121"/>
+</svg>
+                        ПОСТРОИТЬ МАРШРУТ
+                    </a>
+                </div>
+                <div class="showroom-card" data-open="09:00" data-close="20:00">
+                    <div class="showroom-card__info">
+                        <h3 class="showroom-card__name">Савиново</h3>
+                        <p class="showroom-card__address">г. Казань, ул. Савинова 47</p>
+                        <p class="showroom-card__hours">Пн-Вс 09:00-20:00</p>
+                        <a href="tel:+78432000002" class="showroom-card__phone">+7 (843) 200-00-02</a>
+                        <span class="showroom-card__status"></span>
+                    </div>
+                    <div class="showroom-card__photos">
+                        <a data-fancybox="showroom-4" href="assets/images/showroom-2a.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2a.jpg" alt="Савиново - фото 1">
+                        </a>
+                        <a data-fancybox="showroom-4" href="assets/images/showroom-2b.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2b.jpg" alt="Савиново - фото 2">
+                        </a>
+                        <a data-fancybox="showroom-4" href="assets/images/showroom-2c.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2c.jpg" alt="Савиново - фото 3">
+                        </a>
+                    </div>
+                    <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn btn-nav">
+                        <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121"/>
+</svg>
+                        ПОСТРОИТЬ МАРШРУТ
+                    </a>
+                </div>
+                <div class="showroom-card" data-open="10:00" data-close="21:00">
+                    <div class="showroom-card__info">
+                        <h3 class="showroom-card__name">Меридиан</h3>
+                        <p class="showroom-card__address">г. Казань, ул. Меридианная 3</p>
+                        <p class="showroom-card__hours">Ежедневно 10:00-21:00</p>
+                        <a href="tel:+78432000003" class="showroom-card__phone">+7 (843) 200-00-03</a>
+                        <span class="showroom-card__status"></span>
+                    </div>
+                    <div class="showroom-card__photos">
+                        <a data-fancybox="showroom-5" href="assets/images/showroom-1c.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-1c.jpg" alt="Меридиан - фото 1">
+                        </a>
+                        <a data-fancybox="showroom-5" href="assets/images/showroom-2d.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2d.jpg" alt="Меридиан - фото 2">
+                        </a>
+                    </div>
+                    <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn btn-nav">
+                        <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121"/>
+</svg>
+                        ПОСТРОИТЬ МАРШРУТ
+                    </a>
+                </div>
+                <div class="showroom-card" data-open="10:00" data-close="20:00">
+                    <div class="showroom-card__info">
+                        <h3 class="showroom-card__name">Горки</h3>
+                        <p class="showroom-card__address">г. Казань, ул. Горьковская 12</p>
+                        <p class="showroom-card__hours">Пн-Сб 10:00-20:00</p>
+                        <a href="tel:+78432000004" class="showroom-card__phone">+7 (843) 200-00-04</a>
+                        <span class="showroom-card__status"></span>
+                    </div>
+                    <div class="showroom-card__photos">
+                        <a data-fancybox="showroom-6" href="assets/images/showroom-1a.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-1a.jpg" alt="Горки - фото 1">
+                        </a>
+                        <a data-fancybox="showroom-6" href="assets/images/showroom-2b.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-2b.jpg" alt="Горки - фото 2">
+                        </a>
+                        <a data-fancybox="showroom-6" href="assets/images/showroom-1c.jpg" class="showroom-card__photo">
+                            <img src="assets/images/showroom-1c.jpg" alt="Горки - фото 3">
+                        </a>
+                    </div>
+                    <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn btn-nav">
+                        <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121"/>
+</svg>
                         ПОСТРОИТЬ МАРШРУТ
                     </a>
                 </div>
             </div>
             <div class="showrooms__map">
-                <div class="showrooms__map-placeholder" style="background-image: url('assets/images/showroom-1a.jpg')"></div>
-                <div class="showrooms__map-controls">
-                    <div class="showrooms__map-zoom">
-                        <button class="showrooms__map-zoom-btn" aria-label="Приблизить">
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3v8" stroke="#212121" stroke-width="1.5"/></svg>
-                        </button>
-                        <button class="showrooms__map-zoom-btn" aria-label="Отдалить">
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8" stroke="#212121" stroke-width="1.5"/></svg>
-                        </button>
-                    </div>
-                    <button class="showrooms__map-locate" aria-label="Моё местоположение">
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 0v4M7 10v4M0 7h4M10 7h4M7 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" stroke="#212121" stroke-width="1.2"/></svg>
-                    </button>
-                </div>
-                <div class="showrooms__map-pin" style="left: 40%; top: 50%;">
-                    <div class="showrooms__map-pin-tip">
-                        <p>г. Казань, Чистопольская 16/15<br>Ежедневно 10:00-22:00</p>
-                        <a href="tel:+78435280844">+7 (843) 528-08-44</a>
-                        <span class="showroom-card__status showroom-card__status--open">Открыто</span>
-                    </div>
-                    <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 20 12 20s12-11 12-20C24 5.37 18.63 0 12 0zm0 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10z" fill="#212121"/><path d="M12 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" fill="#fff"/></svg>
-                </div>
-                <div class="showrooms__map-pin" style="left: 70%; top: 30%;">
-                    <svg width="24" height="32" viewBox="0 0 24 32" fill="none"><path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 20 12 20s12-11 12-20C24 5.37 18.63 0 12 0zm0 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10z" fill="#212121"/><path d="M12 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" fill="#fff"/></svg>
-                </div>
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Adefault&amp;source=constructor&amp;ll=49.106414%2C55.796127&amp;z=11&amp;pt=49.106414%2C55.796127%2Cpm2rdm%2C49.126414%2C55.786127%2Cpm2rdm%2C49.116414%2C55.806127%2Cpm2rdm" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -1039,8 +1156,16 @@
     </div>
 </footer>
 
+<!-- ===== HIDDEN VIDEO MODAL ===== -->
+<div id="videoModal" style="display:none; max-width:800px;">
+    <video controls autoplay width="800" poster="assets/images/video-placeholder.jpg">
+        <source src="assets/images/tatars-crop2.mp4" type="video/mp4">
+    </video>
+</div>
+
 <!-- ===== SCRIPTS ===== -->
-<script src="node_modules/swiper/swiper-bundle.min.js"></script>
+<script src="js/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="js/main.js"></script>
 
 </body>
