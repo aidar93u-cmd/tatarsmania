@@ -1,0 +1,313 @@
+/* ===================================
+   CATALOG PAGE
+   =================================== */
+
+
+/* ===== CATEGORIES L ===== */
+.catalog-cat-l {
+    padding: 0 var(--gutter);
+}
+
+.catalog-cat-l__grid {
+    display: grid;
+    grid-template-columns: 711px 711px;
+    gap: 6px;
+}
+
+.cat-card-l {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    min-height: 462px;
+    background-image: url('../images/catalog-categories-l.jpg');
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    transition: opacity 0.4s ease;
+}
+
+.cat-card-l--left {
+    background-position: left center;
+}
+
+.cat-card-l--right {
+    background-position: right center;
+}
+
+.cat-card-l:hover {
+    opacity: 0.9;
+}
+
+/* ===== CATEGORIES S ===== */
+.catalog-cat-s {
+    padding: 0 var(--gutter);
+}
+
+.catalog-cat-s__title {
+    font-family: var(--font3);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--graphite);
+    margin: 0 0 70px;
+    text-align: center;
+}
+
+.catalog-cat-s__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 352px);
+    gap: 6px;
+    margin-bottom: 70px;
+}
+
+.cat-card-s {
+    display: block;
+    overflow: hidden;
+}
+
+.cat-card-s img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.cat-card-s:hover img {
+    transform: scale(1.03);
+}
+.catalog-cat-s__show-all .btn-link {
+    position: relative;
+}
+.catalog-cat-s__show-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalog-cat-s__show-all span {
+    transform: none;
+    font-size: 12px;
+    opacity: 0.40;
+    font-weight: 500;
+    position: absolute;
+    right: 17px;
+    top: 7px;
+}
+
+/* ===== CATEGORIES ROOMS ===== */
+.catalog-cat-rooms {
+    padding: 0 var(--gutter);
+}
+
+.catalog-cat-rooms__title {
+    font-family: var(--font3);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--graphite);
+    margin: 0 0 70px;
+    text-align: center;
+}
+
+.catalog-cat-rooms__grid {
+    display: grid;
+    grid-template-columns: 711px 711px;
+    gap: 6px;
+}
+
+/* ===== CATALOG COLLECTIONS ===== */
+.catalog-collections {
+    padding: 0 var(--gutter);
+}
+
+.catalog-collections__title {
+    font-family: var(--font3);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--graphite);
+    margin: 0 0 70px;
+    text-align: center;
+}
+
+.catalog-collections__swiper {
+    position: relative;
+}
+
+.collections-swiper--catalog {
+    border-radius: 0;
+    overflow: visible;
+}
+
+.collections-swiper--catalog .collections-swiper__slide-inner {
+    display: grid;
+    grid-template-columns: 711px 711px;
+    gap: 6px;
+}
+
+.collections-swiper--catalog .collections-swiper__left {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 0 179px;
+    min-height: 710px;
+}
+
+.collections-swiper--catalog .collections-swiper__text {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    text-align: center;
+}
+
+.collections-swiper--catalog .collections-swiper__name {
+    font-family: var(--font3);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--graphite);
+    margin: 0;
+}
+
+.collections-swiper--catalog .collections-swiper__desc {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--graphite);
+    line-height: 140%;
+    margin: 0;
+}
+
+.collections-swiper--catalog .collections-swiper__thumbs {
+    display: flex;
+    gap: 6px;
+}
+
+.collections-swiper--catalog .collections-swiper__thumb {
+    width: 128px;
+    height: 167px;
+    background-size: cover;
+    background-position: center;
+}
+
+.collections-swiper--catalog .collections-swiper__more {
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--graphite);
+    text-decoration: none;
+}
+
+.collections-swiper--catalog .collections-swiper__right {
+    position: relative;
+    overflow: hidden;
+}
+
+.collections-swiper--catalog .collections-swiper__right-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    min-height: 710px;
+}
+
+.catalog-collections__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding-top: 45px;
+    height: 49px;
+}
+
+.catalog-collections__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 555px;
+    background-color: var(--graphite);
+    opacity: 0.20;
+    cursor: pointer;
+    transition: opacity 0.4s;
+}
+
+.catalog-collections__dot--active {
+    opacity: 1;
+}
+
+.catalog-collections__nav {
+    position: absolute;
+    top: 46px;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 20px 14px;
+    pointer-events: none;
+}
+
+.catalog-collections__arrow {
+    pointer-events: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.catalog-collections__all {
+    display: block;
+    text-align: center;
+    font-family: var(--font1);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--graphite);
+    text-decoration: none;
+    margin-top: 70px;
+}
+
+/* ===================================
+   RESPONSIVE — CATALOG
+   =================================== */
+@media (max-width: 1440px) {
+    .catalog-cat-l__grid,
+    .catalog-cat-rooms__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .catalog-cat-s__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .collections-swiper--catalog .collections-swiper__slide-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1200px) {
+    .catalog-cat-s__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .catalog-cat-l__grid,
+    .catalog-cat-rooms__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-cat-s__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .collections-swiper--catalog .collections-swiper__slide-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .collections-swiper--catalog .collections-swiper__left {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .collections-swiper--catalog .collections-swiper__right-bg {
+        min-height: 400px;
+    }
+}
+
