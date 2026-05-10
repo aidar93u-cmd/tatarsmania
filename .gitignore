@@ -1,5 +1,8 @@
 node_modules/
 .graphify_python
 graphify-out/
-*.png
-!assets/images/*.png
+AGENTS.node_modules
+opencode.json
+package.json
+package-lock.json
+README.md
