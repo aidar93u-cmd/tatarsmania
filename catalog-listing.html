@@ -4,17 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Диваны — Каталог | ТАТАРСМАНИЯ</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <link rel="preload" href="assets/fonts/TEST-circe_regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="assets/fonts/TEST-circe_medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="assets/fonts/TEST-circe-contrast_text-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="assets/fonts/TEST-circe-contrast_text-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/aos.css" />
   <link rel="stylesheet" href="css/catalog.css" />
   <link rel="stylesheet" href="css/catalog-listing.css" />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
   />
-</head>
-<body>
-
 <body class="page">
+</head>
 <!-- ===== PRELOADER ===== -->
 <div class="preloader" id="preloader">
     <div class="logo-wrapper">
@@ -24,6 +27,8 @@
     <div class="curtain curtain-close"></div>
 </div>
 
+<!-- ===== HEADER GROUP ===== -->
+<div class="header-group white-header">
 <!-- ===== TOP BAR ===== -->
 <div class="topbar">
     <div class="topbar__left">
@@ -90,21 +95,22 @@
         </a>
     </div>
 </header>
+</div>
 
 
 <!-- ===== page TITLE / BREADCRUMBS ===== -->
 <section class="page-title">
     <div class="container">
         <div class="page-title__inner">
-            <div class="page-title__crumbs">
+            <div class="page-title__crumbs" data-aos="fade-up" data-aos-delay="200">
                 <a href="index.html" class="page-title__crumb">Главная</a>
                 <span class="page-title__sep">/</span>
                 <a href="catalog.html" class="page-title__crumb">Каталог</a>
                 <span class="page-title__sep">/</span>
                 <span class="page-title__crumb page-title__crumb--current">Европейская мебель</span>
             </div>
-            <h1 class="h3 page-title__heading">Европейская мебель</h1>
-            <span class="page-title__count">Всего 3100 предложений</span>
+            <h1 class="h3 page-title__heading" data-aos="fade-up" data-aos-delay="400">Европейская мебель</h1>
+            <span class="page-title__count" data-aos="fade-up" data-aos-delay="600">Всего 3100 предложений</span>
         </div>
     </div>
 </section>
@@ -113,7 +119,7 @@
     <!-- Subcategories -->
     <section class="catalog-listing__subcategories">
       <div class="container">
-        <div class="catalog-listing__subcategory-row">
+        <div class="catalog-listing__subcategory-row" data-aos="fade-up" data-aos-delay="200">
           <a href="#" class="btn-subcategories"># кресла <span class="btn-secondary__count">+12</span></a>
           <a href="#" class="btn-subcategories"># диваны <span class="btn-secondary__count">+3100</span></a>     
           <a href="#" class="btn-subcategories"># Кровати <span class="btn-secondary__count">+12</span></a>
@@ -347,7 +353,7 @@
           <div class="catalog-listing__products">
             <div class="catalog-listing__product-grid">
               <!-- Card 1 -->
-              <article class="product-card catalog__card" data-filter-id="product-1">
+              <article class="product-card catalog__card" data-filter-id="product-1" data-aos="fade-up" data-aos-delay="200">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -372,8 +378,8 @@
                     </div>
                     <button class="product-card__fav" aria-label="В избранное">
                       <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" fill="#212121" fill-opacity="0.2"/>
-</svg>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" fill="#212121" fill-opacity="0.2"/>
+                      </svg>
 
                     </button>
                   </div>
@@ -399,7 +405,7 @@
               </article>
 
               <!-- Card 2 -->
-              <article class="product-card catalog__card" data-filter-id="product-2">
+              <article class="product-card catalog__card" data-filter-id="product-2" data-aos="fade-up" data-aos-delay="400">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -417,8 +423,8 @@
                     </div>
                     <button class="product-card__fav" aria-label="В избранное">
                       <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" fill="#212121" fill-opacity="0.2"/>
-</svg>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" fill="#212121" fill-opacity="0.2"/>
+                      </svg>
 
                     </button>
                   </div>
@@ -443,7 +449,7 @@
               </article>
 
               <!-- Card 3 -->
-              <article class="product-card catalog__card" data-filter-id="product-3">
+              <article class="product-card catalog__card" data-filter-id="product-3" data-aos="fade-up" data-aos-delay="600">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -489,7 +495,7 @@
               </article>
 
               <!-- Card 4 -->
-              <article class="product-card catalog__card" data-filter-id="product-4">
+              <article class="product-card catalog__card" data-filter-id="product-4" data-aos="fade-up" data-aos-delay="200">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -535,7 +541,7 @@
               </article>
 
               <!-- Card 5 -->
-              <article class="product-card catalog__card" data-filter-id="product-5">
+              <article class="product-card catalog__card" data-filter-id="product-5" data-aos="fade-up" data-aos-delay="400">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -579,7 +585,7 @@
               </article>
 
               <!-- Card 6 -->
-              <article class="product-card catalog__card" data-filter-id="product-6">
+              <article class="product-card catalog__card" data-filter-id="product-6" data-aos="fade-up" data-aos-delay="600">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -627,7 +633,7 @@
               </article>
 
               <!-- Card 7 -->
-              <article class="product-card catalog__card" data-filter-id="product-7">
+              <article class="product-card catalog__card" data-filter-id="product-7" data-aos="fade-up" data-aos-delay="200">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -671,7 +677,7 @@
               </article>
 
               <!-- Card 8 -->
-              <article class="product-card catalog__card" data-filter-id="product-8">
+              <article class="product-card catalog__card" data-filter-id="product-8" data-aos="fade-up" data-aos-delay="400">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -717,7 +723,7 @@
               </article>
 
               <!-- Card 9 -->
-              <article class="product-card catalog__card" data-filter-id="product-9">
+              <article class="product-card catalog__card" data-filter-id="product-9" data-aos="fade-up" data-aos-delay="600">
                 <a href="#" class="product-card__inner">
                   <div class="product-card__image-wrap">
                     <div class="product-card__image">
@@ -927,7 +933,7 @@
             </div>
 
             <!-- Pagination -->
-            <div class="catalog-listing__pagination">
+            <div class="catalog-listing__pagination" data-aos="fade-up" data-aos-delay="200">
               <span class="catalog-listing__pagination-info">Показано 9 из 100</span>
               <button class="btn catalog-listing__load-more" id="catalog-listing__load-more">загрузить еще</button>
               <nav class="catalog-listing__page-nav">
@@ -940,7 +946,7 @@
             </div>
 
             <!-- Bottom Subcategories -->
-            <section class="catalog-listing__subcategories catalog-listing__bottom-subcategories">
+            <section class="catalog-listing__subcategories catalog-listing__bottom-subcategories" data-aos="fade-up" data-aos-delay="400">
               <div class="container">
                 <div class="catalog-listing__subcategory-row">
                   <a href="#" class="btn-subcategories"># кресла <span class="btn-secondary__count">+12</span></a>
@@ -1062,6 +1068,7 @@
   <script src="js/swiper-bundle.min.js"></script>
   <script src="js/fancybox.umd.js"></script>
   <script src="js/jquery.min.js"></script>
+  <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
   <script src="js/catalog-listing.js"></script>
 </body>

@@ -11,6 +11,18 @@
     }, 2500);
 })();
 
+function initAOS() {
+	if (typeof AOS === 'undefined') return
+
+	AOS.init({
+		duration: 500,
+		easing: 'ease-out-cubic',
+		offset: 0,
+		once: true,
+	})
+}
+
+document.addEventListener('DOMContentLoaded', initAOS)
 document.addEventListener('DOMContentLoaded', function() {
 	// ===== FANCYBOX INIT =====
 	if (typeof Fancybox !== 'undefined') {
@@ -51,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		fixedBlock.className = 'header-fixed'
 		const topbarClone = topbar.cloneNode(true)
 		const headerClone = header.cloneNode(true)
+		// Remove duplicate id from cloned catalog button
+		var clonedBtn = headerClone.querySelector('#catalogBtn');
+		if (clonedBtn) clonedBtn.removeAttribute('id');
 		fixedBlock.appendChild(topbarClone)
 		fixedBlock.appendChild(headerClone)
 		document.body.appendChild(fixedBlock)
