@@ -1,68 +1,126 @@
 /* ===== MEGA MENU ===== */
-document.addEventListener('DOMContentLoaded', function() {
-    const catalogBtn = document.getElementById('catalogBtn');
-    const megaMenu = document.getElementById('megaMenu');
-    const megaMenuOverlay = document.getElementById('megaMenuOverlay');
+(function() {
+    'use strict';
 
-    function closeMegaMenu() {
-        if (megaMenu) {
-            megaMenu.classList.remove('mega-menu--open');
-            document.body.style.overflow = '';
-        }
-        // Reset catalog button to hamburger (both original and cloned)
-        document.querySelectorAll('.header__catalog-btn').forEach(btn => {
-            const svg = btn.querySelector('svg');
-            if (svg) {
-                svg.innerHTML = '<rect x="0" y="4.5" width="13" height="1" fill="#fff"/><rect x="0" y="7.5" width="13" height="1" fill="#fff"/>';
+    var megaMenu = document.getElementById('megaMenu');
+    var megaMenuOverlay = document.getElementById('megaMenuOverlay');
+
+    /* ---------- helpers ---------- */
+    function setCatalogBtnIcon(type) {
+        document.querySelectorAll('.header__catalog-btn').forEach(function(btn) {
+            var svg = btn.querySelector('svg');
+            if (!svg) return;
+            if (type === 'close') {
+                svg.innerHTML = '<line x1="1" y1="1" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="1" x2="1" y2="12" stroke="currentColor" stroke-width="1.5"/>';
+            } else {
+                svg.innerHTML = '<rect x="0" y="4.5" width="13" height="1" fill="currentColor"/><rect x="0" y="7.5" width="13" height="1" fill="currentColor"/>';
             }
         });
-        // Reset active states
-        document.querySelectorAll('.mega-menu__nav-item').forEach(item => item.classList.remove('mega-menu__nav-item--active'));
-        document.querySelectorAll('.mega-menu__level2').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.mega-menu__level3').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.mega-menu__banner').forEach(el => el.classList.remove('visible'));
+    }
+
+    function getMenuTop() {
+        var hf = document.querySelector('.header-fixed');
+        if (hf && hf.classList.contains('header-fixed--visible')) {
+            return hf.getBoundingClientRect().bottom;
+        }
+        var header = document.querySelector('.header');
+        return header ? (header.getBoundingClientRect().bottom+1): 0;
+    }
+
+    function closeMegaMenu() {
+        if (!megaMenu) return;
+        megaMenu.classList.remove('mega-menu--open');
+        setCatalogBtnIcon('hamburger');
+        document.querySelector('.header-group')?.classList.remove('white-header');
     }
 
     function openMegaMenu() {
-        if (megaMenu) {
-            megaMenu.classList.add('mega-menu--open');
-            document.body.style.overflow = 'hidden';
+        if (!megaMenu) return;
+        var top = getMenuTop();
+        megaMenu.style.top = top + 'px';
+        var container = megaMenu.querySelector('.mega-menu__container');
+      //  if (container) container.style.maxHeight = 'calc(100vh - ' + top + 'px)';
+        megaMenu.classList.add('mega-menu--open');
+        setCatalogBtnIcon('close');
+        document.querySelector('.header-group')?.classList.add('white-header');
+    }
+
+    function toggleMegaMenu() {
+        if (megaMenu.classList.contains('mega-menu--open')) {
+            closeMegaMenu();
+        } else {
+            openMegaMenu();
         }
-        // Change all catalog buttons to X
-        document.querySelectorAll('.header__catalog-btn').forEach(btn => {
-            const svg = btn.querySelector('svg');
-            if (svg) {
-                svg.innerHTML = '<line x1="1" y1="1" x2="12" y2="12" stroke="#fff" stroke-width="1.5"/><line x1="12" y1="1" x2="1" y2="12" stroke="#fff" stroke-width="1.5"/>';
-            }
+    }
+
+    /* ---------- Level 1: sidebar click ---------- */
+    function initLevel1Nav() {
+        var items = document.querySelectorAll('.mega-menu__nav-item');
+        items.forEach(function(item) {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                var panelId = this.getAttribute('data-panel');
+                if (!panelId) return;
+
+                // active state
+                items.forEach(function(i) { i.classList.remove('mega-menu__nav-item--active'); });
+                this.classList.add('mega-menu__nav-item--active');
+
+                // show/hide panels
+                document.querySelectorAll('.mega-menu__panel').forEach(function(p) { p.style.display = 'none'; });
+                var target = document.getElementById('panel-' + panelId);
+                if (target) target.style.display = '';
+
+                // show default banner, hide specific banners
+                document.querySelectorAll('.mega-menu__banner').forEach(function(b) { b.classList.remove('visible'); });
+                var def = document.getElementById('banner-default');
+                if (def) def.classList.add('visible');
+            });
         });
     }
 
-    if (catalogBtn && megaMenu) {
-        catalogBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (megaMenu.classList.contains('mega-menu--open')) {
-                closeMegaMenu();
-            } else {
-                openMegaMenu();
-            }
-        });
-    }
+    /* ---------- Type 1: Level 2 sidebar → Level 3 content ---------- */
+    function initType1Nav() {
+        var items = document.querySelectorAll('.mega-menu__type1-item');
+        items.forEach(function(item) {
+            item.addEventListener('mouseenter', function() {
+                var l3 = this.getAttribute('data-l3');
+                if (!l3) return;
 
-    // Handle cloned catalog button in header-fixed
-    const headerFixed = document.querySelector('.header-fixed');
-    if (headerFixed) {
-        const catalogBtnClone = headerFixed.querySelector('.header__catalog-btn');
-        if (catalogBtnClone && megaMenu) {
-            catalogBtnClone.addEventListener('click', function(e) {
-                e.stopPropagation();
-                if (megaMenu.classList.contains('mega-menu--open')) {
-                    closeMegaMenu();
+                // active state
+                items.forEach(function(i) { i.classList.remove('active'); });
+                this.classList.add('active');
+
+                // toggle L3 panels
+                var parent = this.closest('.mega-menu__panel--type1');
+                if (parent) {
+                    parent.querySelectorAll('.mega-menu__l3-panel').forEach(function(p) { p.classList.remove('active'); });
+                    var target = parent.querySelector('#l3-' + l3);
+                    if (target) target.classList.add('active');
+                }
+
+                // show banner for this L3 category
+                document.querySelectorAll('.mega-menu__banner').forEach(function(b) { b.classList.remove('visible'); });
+                var banner = document.querySelector('.mega-menu__banner[data-banner="' + l3 + '"]');
+                if (banner) {
+                    banner.classList.add('visible');
                 } else {
-                    openMegaMenu();
+                    var def = document.getElementById('banner-default');
+                    if (def) def.classList.add('visible');
                 }
             });
-        }
+        });
     }
+
+    /* ---------- events ---------- */
+    // Delegated click on document — handles both original and dynamically cloned catalog buttons
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.header__catalog-btn');
+        if (btn && megaMenu) {
+            e.stopPropagation();
+            toggleMegaMenu();
+        }
+    });
 
     if (megaMenuOverlay) {
         megaMenuOverlay.addEventListener('click', closeMegaMenu);
@@ -74,61 +132,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Level 1 navigation
-    document.querySelectorAll('.mega-menu__nav-item').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const level1 = this.dataset.level1;
-
-            // Update active state
-            document.querySelectorAll('.mega-menu__nav-item').forEach(i => i.classList.remove('mega-menu__nav-item--active'));
-            this.classList.add('mega-menu__nav-item--active');
-
-            // Hide all level2 and level3
-            document.querySelectorAll('.mega-menu__level2').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.mega-menu__level3').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.mega-menu__banner').forEach(el => el.classList.remove('visible'));
-
-            // Show corresponding level2
-            const level2 = document.getElementById('level2-' + level1);
-            if (level2) level2.style.display = 'flex';
-
-            // Show default banner
-            const defaultBanner = document.getElementById('banner-default');
-            if (defaultBanner) defaultBanner.classList.add('visible');
-        });
+    // Close mega menu on scroll
+    window.addEventListener('scroll', function() {
+        if (megaMenu && megaMenu.classList.contains('mega-menu--open')) {
+            closeMegaMenu();
+        }
     });
 
-    // Level 2 navigation (show level3)
-    document.querySelectorAll('.mega-menu__col-item[data-level2]').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const level2 = this.dataset.level2;
-
-            // Hide all level3
-            document.querySelectorAll('.mega-menu__level3').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.mega-menu__banner').forEach(el => el.classList.remove('visible'));
-
-            // Show corresponding level3
-            const level3 = document.getElementById('level3-' + level2);
-            if (level3) level3.style.display = 'flex';
-
-            // Show banner for this level3
-            const banner = level3 ? level3.querySelector('.mega-menu__banner') : null;
-            if (banner) banner.classList.add('visible');
-        });
-
-        // Hover effect for level2 items to show banner
-        item.addEventListener('mouseenter', function() {
-            const level2 = this.dataset.level2;
-            const level3 = document.getElementById('level3-' + level2);
-            if (level3) {
-                const banner = level3.querySelector('.mega-menu__banner');
-                if (banner) {
-                    document.querySelectorAll('.mega-menu__banner').forEach(el => el.classList.remove('visible'));
-                    banner.classList.add('visible');
-                }
-            }
-        });
-    });
-});
+    // Init navigation
+    initLevel1Nav();
+    initType1Nav();
+})();
