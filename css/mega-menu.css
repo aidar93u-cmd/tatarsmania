@@ -69,6 +69,7 @@
     transition: color 0.4s;
     cursor: pointer;
 }
+.mega-menu__link.active,
 .mega-menu__link:hover {
     color: var(--copper);
 }
@@ -108,6 +109,7 @@
 .mega-menu__banner-area {
     flex: 0 0 30%;
     padding: 36px 0;
+    border-left: 1px solid rgba(33, 33, 33, 0.1);
 }
 
 /* Banner - product card */
@@ -129,7 +131,7 @@
     background-size: cover;
     background-position: center;
     background-color: #b8a692;
-    aspect-ratio: 1 / 1.2;
+    aspect-ratio: 1 / 1;
     transition: transform 0.5s ease;
 }
 
@@ -185,13 +187,14 @@
 }
 .mega-menu__l3-panel {
     display: none;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 44px;
     padding-top: 5px;
+    columns: 2;
 }
 
 .mega-menu__l3-panel.active {
-    display: flex;
+    display: block;
 }
 
 .mega-menu__l3-section h4 {
@@ -205,9 +208,12 @@
 }
 
 .mega-menu__l3-section {
+    break-inside: avoid;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    flex: 0 0 45%;
+    margin-bottom: 40px;
 }
 
 .mega-menu__l3-section a {
