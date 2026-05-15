@@ -303,7 +303,7 @@ $(function () {
     if (!$extra.length) return;
     var hidden = $extra.css('display') === 'none' || $extra.css('display') === '';
     $extra.css('display', hidden ? 'block' : 'none');
-    $(this).text(hidden ? 'Скрыть' : 'Показать все (+12)');
+    $(this).hide();
   });
 
   /* ===== INIT ===== */

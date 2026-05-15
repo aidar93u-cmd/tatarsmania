@@ -84,15 +84,17 @@
 
 .catalog-cat-s__show-all span {
     transform: none;
-    font-size: 12px;
-    opacity: 0.40;
-    font-weight: 500;
+    font-size: 10px;
+    opacity: 0.40!important;
+    font-weight: 600;
     position: absolute;
-    right: 17px;
-    top: 7px;
-    transform: rotateX(30deg);
+    right: 20px;
+    top: 10px;
+    transform: rotateX(40deg)!important;
 }
-
+.page.catalog .page-title__inner {
+    gap: 30px;
+}
 /* ===== CATEGORIES ROOMS ===== */
 .catalog-cat-rooms {
     padding: 0 var(--gutter);

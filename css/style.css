@@ -369,7 +369,7 @@ img {
     transition: all 0.4s;
     min-width: 165px;
 }
-.btn svg{    
+.btn span+svg{    
     transform: translateX(-10px);
     opacity: 0;
     transition: all 0.4s;
@@ -400,6 +400,10 @@ img {
     background-color: var(--copper);
     color: var(--white);
 }
+
+.btn-primary svg path{
+    fill: var(--white);
+}
 .btn-white {
     background-color: var(--white);
     color: var(--graphite);
@@ -408,8 +412,11 @@ img {
     fill: var(--white);
 }
 .btn-white:hover {
-    background-color: var(--graphite);
+    background-color: var(--copper);
     color: var(--white);
+}
+.btn-white svg path{
+    fill: var(--white);
 }
 .btn-hero--primary {
     background-color: var(--white);
@@ -538,6 +545,7 @@ img {
 
 .topbar__left {
     flex-shrink: 0;
+    min-width: 19%;
 }
 
 .topbar__city {
@@ -1563,7 +1571,7 @@ body.page{
     padding: 0;
     z-index: 2;
 }
-
+.catalog-listing__products .product-card__fav,
 .product-card:hover .product-card__fav {
     opacity: 1;
 }
@@ -2270,7 +2278,7 @@ section{
 .page-title__crumbs {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 19px;
 }
 
 .page-title__crumb {
