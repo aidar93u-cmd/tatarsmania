@@ -119,11 +119,17 @@
 
 .catalog-listing__filter-bar {
   display: flex;
-  align-items: center;
+    align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 30px;
   padding: 14px 0;
   border-bottom: 1px solid #e5e5e5;
+}
+
+.catalog-listing__filter-placeholder { 
+    font-size: 12px;
+    color: #787878;
+    white-space: nowrap;
 }
 
 .catalog-listing__active-filters {
@@ -181,6 +187,7 @@
   gap: 20px;
     margin-right: 0;
     margin-left: auto;
+    min-width: 234px;
 }
 
 .catalog-listing__results {
@@ -212,9 +219,6 @@
   transition: transform 0.4s;
 }
 
-.catalog-listing__sort.active .catalog-listing__sort-trigger svg {
-  transform: rotate(180deg);
-}
 
 .catalog-listing__sort-dropdown {
     display: none;
@@ -256,7 +260,7 @@
 
 /* --- Sidebar Filters --- */
 .catalog-listing__sidebar {
-  width: 25%;
+  width: 20.8%;
   flex-shrink: 0;
 }
 
@@ -590,7 +594,7 @@
 /* Body */
 .catalog__card .product-card__body {
     padding: 20px 0;
-    padding-bottom: 48px;
+    padding-bottom: 109px;
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -621,6 +625,12 @@
 .product-card__body-colors-label{
  margin-left:10px
 }
+.product-card__price-split {
+    font-size: 12px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
 /* Hover actions — slide up */
 .catalog__card .product-card__hover-actions {
     position: absolute;
@@ -636,13 +646,13 @@
 .catalog__card .product-card__hover-actions .btn {
     min-width: calc(50% - 4px);
     padding: 12px 9px;
-}
+}/*
 .catalog__card .btn span {
     transform: translateX(0px);
     margin-bottom: -2px;
-}
+}*/
 .catalog__card:hover .product-card__hover-actions {
-  transform: translateY(0);
+    transform: translateY(-50px);
   opacity: 1;
 }
 
@@ -734,6 +744,32 @@
 .catalog-listing__page-ellipsis {
   color: #999;
   padding: 0 4px;
+}
+
+.catalog-listing__page-arrow {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background 0.4s, opacity 0.3s;
+}
+
+.catalog-listing__page-arrow:hover {
+  background: #EDEDED;
+}
+
+.catalog-listing__page-arrow svg {
+  display: block;
+}
+
+.catalog-listing__page-arrow--disabled {
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 /* --- Bottom Subcategories --- */

@@ -8,17 +8,11 @@
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/fancybox.css" />
     <link rel="stylesheet" href="css/aos.css" />
-    <link rel="preload" href="assets/fonts/TEST-circe_regular.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="assets/fonts/TEST-circe_medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="assets/fonts/TEST-circe-contrast_text-medium.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="assets/fonts/TEST-circe-contrast_text-regular.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css?ver=1" />
-    <link rel="stylesheet" href="css/catalog.css?ver=1" />
-    <link rel="stylesheet" href="css/catalog-listing.css?ver=1" />
-    <link rel="stylesheet" href="css/product-page.css?ver=1" />
+
+    <link rel="stylesheet" href="css/style.css?ver=1f" />
+    <link rel="stylesheet" href="css/catalog.css?ver=f1" />
+    <link rel="stylesheet" href="css/catalog-listing.css?ver=f1" />
+    <link rel="stylesheet" href="css/product-page.css?ver=1f" />
 </head>
 
 <body class="page">
@@ -800,6 +794,22 @@
                     </div>
                 </div>
                 <div class="product-interior__progress"></div>
+                <div class="product-interior__btn product-interior__btn--prev">
+                    <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.808 11C5.344 10.5156 4.816 9.98937 4.224 9.42141C3.632 8.85345 3.056 8.31055 2.496 7.79271C1.936 7.27487 1.432 6.81549 0.984 6.41458C0.536 6.01367 0.208 5.72134 0 5.53759V5.46241C0.208 5.29537 0.536 5.01139 0.984 4.61048C1.448 4.19286 1.952 3.73349 2.496 3.23235C3.056 2.7145 3.632 2.1716 4.224 1.60365C4.832 1.01898 5.36 0.484434 5.808 0L6 0.175399C5.76 0.609719 5.464 1.10251 5.112 1.65376C4.76 2.18831 4.416 2.72286 4.08 3.2574C3.744 3.77525 3.44 4.24298 3.168 4.66059C2.912 5.0615 2.744 5.34548 2.664 5.51253C2.744 5.66287 2.912 5.94685 3.168 6.36446C3.44 6.78208 3.744 7.24981 4.08 7.76765C4.416 8.2855 4.76 8.82004 5.112 9.3713C5.464 9.90585 5.76 10.3986 6 10.8497L5.808 11Z"
+                            fill="white" />
+                    </svg>
+
+                </div>
+                <div class="product-interior__btn product-interior__btn--next">
+                    <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0.192 11C0.656 10.5156 1.184 9.98937 1.776 9.42141C2.368 8.85345 2.944 8.31055 3.504 7.79271C4.064 7.27487 4.568 6.81549 5.016 6.41458C5.464 6.01367 5.792 5.72134 6 5.53759V5.46241C5.792 5.29537 5.464 5.01139 5.016 4.61048C4.552 4.19286 4.048 3.73349 3.504 3.23235C2.944 2.7145 2.368 2.1716 1.776 1.60365C1.168 1.01898 0.64 0.484434 0.192 0L0 0.175399C0.24 0.609719 0.536 1.10251 0.888 1.65376C1.24 2.18831 1.584 2.72286 1.92 3.2574C2.256 3.77525 2.56 4.24298 2.832 4.66059C3.088 5.0615 3.256 5.34548 3.336 5.51253C3.256 5.66287 3.088 5.94685 2.832 6.36446C2.56 6.78208 2.256 7.24981 1.92 7.76765C1.584 8.2855 1.24 8.82004 0.888 9.3713C0.536 9.90585 0.24 10.3986 0 10.8497L0.192 11Z"
+                            fill="white" />
+                    </svg>
+
+                </div>
             </div>
         </div>
     </section>
@@ -821,9 +831,7 @@
                         <div class="swiper product-other-swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <!-- Card 1: Sale + New -->
-                                        <article class="product-card catalog__card" data-filter-id="product-1"
+    <article class="product-card catalog__card" data-filter-id="product-1"
                                             data-aos="fade-up" data-aos-delay="200">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
@@ -886,8 +894,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <!-- Card 2: Sale only -->
-                                        <article class="product-card catalog__card" data-filter-id="product-2"
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2"
                                             data-aos="fade-up" data-aos-delay="400">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
@@ -940,8 +949,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <!-- Card 3: New only -->
-                                        <article class="product-card catalog__card" data-filter-id="product-3"
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3"
                                             data-aos="fade-up" data-aos-delay="600">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
@@ -998,8 +1008,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <!-- Card 4: Sale only -->
-                                        <article class="product-card catalog__card" data-filter-id="product-4"
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4"
                                             data-aos="fade-up" data-aos-delay="800">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
@@ -1052,11 +1063,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1118,7 +1127,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1171,7 +1182,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1226,7 +1239,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1277,11 +1292,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1342,7 +1355,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1393,7 +1408,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1448,7 +1465,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1499,8 +1518,7 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                             </div>
                         </div>
                         <div class="product-other__arrows">
@@ -1529,8 +1547,7 @@
                         <div class="swiper product-other-swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1592,7 +1609,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1644,7 +1663,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1700,7 +1721,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1752,11 +1775,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1818,7 +1839,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1871,7 +1894,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1926,7 +1951,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -1977,11 +2004,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2042,7 +2067,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2093,7 +2120,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2148,7 +2177,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2199,8 +2230,7 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                             </div>
                         </div>
                         <div class="product-other__arrows">
@@ -2229,8 +2259,7 @@
                         <div class="swiper product-other-swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2292,7 +2321,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2344,7 +2375,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2400,7 +2433,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2452,11 +2487,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2518,7 +2551,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2571,7 +2606,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2626,7 +2663,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2677,11 +2716,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2742,7 +2779,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2793,7 +2832,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2848,7 +2889,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2899,8 +2942,7 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                             </div>
                         </div>
                         <div class="product-other__arrows">
@@ -2929,8 +2971,7 @@
                         <div class="swiper product-other-swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -2992,7 +3033,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3044,7 +3087,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3100,7 +3145,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3152,11 +3199,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3218,7 +3263,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3271,7 +3318,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3326,7 +3375,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3377,11 +3428,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                                 <div class="swiper-slide product-other__slide">
-                                    <div class="product-other__slide-grid">
-                                        <article class="product-card catalog__card" data-filter-id="product-1">
+    <article class="product-card catalog__card" data-filter-id="product-1">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3442,7 +3491,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-2">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-2">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3493,7 +3544,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-3">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-3">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3548,7 +3601,9 @@
                                                 </div>
                                             </a>
                                         </article>
-                                        <article class="product-card catalog__card" data-filter-id="product-4">
+</div>
+<div class="swiper-slide product-other__slide">
+    <article class="product-card catalog__card" data-filter-id="product-4">
                                             <a href="#" class="product-card__inner">
                                                 <div class="product-card__image-wrap">
                                                     <div class="product-card__image">
@@ -3599,8 +3654,7 @@
                                                 </div>
                                             </a>
                                         </article>
-                                    </div>
-                                </div>
+</div>
                             </div>
                         </div>
                         <div class="product-other__arrows">
@@ -3738,9 +3792,9 @@
     <script src="js/fancybox.umd.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/aos.js"></script>
-    <script src="js/main.js?ver=1"></script>
-    <script src="js/catalog-listing.js?ver=1"></script>
-    <script src="js/product-page.js?ver=1"></script>
+    <script src="js/main.js?ver=1f"></script>
+    <script src="js/catalog-listing.js?ver=1f"></script>
+    <script src="js/product-page.js?ver=1f"></script>
 </body>
 
 </html>
