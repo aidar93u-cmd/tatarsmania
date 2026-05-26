@@ -119,6 +119,10 @@ document.addEventListener('DOMContentLoaded', function () {
       fadeEffect: { crossFade: true },
       autoplay: { delay: interiorAutoplayDelay, disableOnInteraction: false },
       speed: 600,
+      navigation: {
+        nextEl: '.product-interior__btn--next',
+        prevEl: '.product-interior__btn--prev',
+      },
       on: {
         init: function () {
           var idx = this.realIndex;
@@ -176,8 +180,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var swiperEl = tab.querySelector('.product-other-swiper');
     if (swiperEl && typeof Swiper !== 'undefined') {
       new Swiper(swiperEl, {
-        slidesPerView: 1,
-        spaceBetween: 0,
+        slidesPerView: 4,
+        slidesPerGroup: 1,
+        spaceBetween: 16,
         pagination: {
           el: tab.querySelector('.product-other__pagination'),
           clickable: true,
@@ -191,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ===== OTHER MODELS GALLERY HOVER (reuse catalog__card pattern) ===== */
-  document.querySelectorAll('.product-other__slide-grid .catalog__card').forEach(function (card) {
+  document.querySelectorAll('.product-other__slide .catalog__card').forEach(function (card) {
     var gallery = card.querySelector('.catalog__card-gallery');
     var images = gallery ? gallery.querySelectorAll('img') : [];
     var bars = card.querySelectorAll('.catalog__card-progress-bar');

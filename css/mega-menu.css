@@ -135,9 +135,7 @@
     transition: transform 0.5s ease;
 }
 
-.mega-menu__banner:hover .mega-menu__banner-image {
-    transform: scale(1.05);
-}
+
 
 .mega-menu__banner-text {
     padding-top: 8px;

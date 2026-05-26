@@ -111,19 +111,8 @@ $(function () {
         if (title === name) {
           var $minInput = $c.find('.filter-range__label:first-child .filter-range__input');
           var $maxInput = $c.find('.filter-range__label:last-child .filter-range__input');
-          if ($minInput.length) $minInput.val($minInput.attr('min') || 0);
-          if ($maxInput.length) $maxInput.val($maxInput.attr('max') || 100);
-          var $slider = $c.parent().find('.filter-range__slider');
-          if ($slider.length) {
-            var $thumbMin = $slider.find('.filter-range__thumb--min');
-            var $thumbMax = $slider.find('.filter-range__thumb--max');
-            var $fill = $slider.find('.filter-range__fill');
-            if ($thumbMin.length && $thumbMax.length && $fill.length) {
-              $thumbMin.css('left', '0%');
-              $thumbMax.css('left', '100%');
-              $fill.css('left', '0%').css('width', '100%');
-            }
-          }
+          if ($minInput.length) $minInput.val($minInput.attr('min') || 0).trigger('change');
+          if ($maxInput.length) $maxInput.val($maxInput.attr('max') || 100).trigger('change');
         }
       });
       removeFilterTag(id);
@@ -132,7 +121,9 @@ $(function () {
 
   function updateFilterBarVisibility() {
     if (!$activeFilters.length) return;
-    $activeFilters.find('.filter-tag').length ? $activeFilters.show() : $activeFilters.hide();
+    var hasTags = $activeFilters.find('.filter-tag').length;
+    hasTags ? $activeFilters.show() : $activeFilters.hide();
+    $('.catalog-listing__filter-placeholder').toggle(!hasTags);
   }
 
   function syncRangeTag(container, sectionTitle) {
@@ -187,14 +178,8 @@ $(function () {
         var $c = $(this);
         var $minInput = $c.find('.filter-range__label:first-child .filter-range__input');
         var $maxInput = $c.find('.filter-range__label:last-child .filter-range__input');
-        if ($minInput.length) $minInput.val($minInput.attr('min') || 0);
-        if ($maxInput.length) $maxInput.val($maxInput.attr('max') || 100);
-        var $slider = $c.parent().find('.filter-range__slider');
-        if ($slider.length) {
-          $slider.find('.filter-range__thumb--min').css('left', '0%');
-          $slider.find('.filter-range__thumb--max').css('left', '100%');
-          $slider.find('.filter-range__fill').css('left', '0%').css('width', '100%');
-        }
+        if ($minInput.length) $minInput.val($minInput.attr('min') || 0).trigger('change');
+        if ($maxInput.length) $maxInput.val($maxInput.attr('max') || 100).trigger('change');
       });
       $activeFilters.find('.filter-tag').remove();
       updateFilterBarVisibility();
@@ -243,6 +228,7 @@ $(function () {
     var $inputMax = $rangeContainer.find('.filter-range__label:last-child .filter-range__input');
     var absMin = parseFloat($inputMin.length ? $inputMin.attr('min') || 0 : 0);
     var absMax = parseFloat($inputMax.length ? $inputMax.attr('max') || 100 : 100);
+    var minPct = 0, maxPct = 100;
 
     function valToPct(val) {
       return ((val - absMin) / (absMax - absMin)) * 100;
@@ -253,15 +239,11 @@ $(function () {
     }
 
     function syncThumbs() {
-      $thumbMin.css('left', valToPct(parseFloat($inputMin.val())) + '%');
-      $thumbMax.css('left', valToPct(parseFloat($inputMax.val())) + '%');
-      updateFill();
-    }
-
-    function updateFill() {
-      var left = parseFloat($thumbMin.css('left')) || 0;
-      var right = parseFloat($thumbMax.css('left')) || 100;
-      $fill.css('left', left + '%').css('width', Math.max(0, right - left) + '%');
+      minPct = valToPct(parseFloat($inputMin.val()));
+      maxPct = valToPct(parseFloat($inputMax.val()));
+      $thumbMin.css('left', minPct + '%');
+      $thumbMax.css('left', maxPct + '%');
+      $fill.css('left', minPct + '%').css('width', Math.max(0, maxPct - minPct) + '%');
     }
 
     function initThumb($thumb, isMin) {
@@ -269,10 +251,11 @@ $(function () {
         var clientX = e.originalEvent && e.originalEvent.touches ? e.originalEvent.touches[0].clientX : e.clientX;
         var rect = $slider[0].getBoundingClientRect();
         var pct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
-        if (isMin) pct = Math.min(pct, parseFloat($thumbMax.css('left')) || 100);
-        else pct = Math.max(pct, parseFloat($thumbMin.css('left')) || 0);
+        if (isMin) pct = Math.min(pct, maxPct);
+        else pct = Math.max(pct, minPct);
         $thumb.css('left', pct + '%');
-        updateFill();
+        if (isMin) minPct = pct; else maxPct = pct;
+        $fill.css('left', minPct + '%').css('width', Math.max(0, maxPct - minPct) + '%');
         var newVal = pctToVal(pct);
         if (isMin) $inputMin.val(newVal);
         else $inputMax.val(newVal);
@@ -295,6 +278,10 @@ $(function () {
     initThumb($thumbMin, true);
     initThumb($thumbMax, false);
     syncThumbs();
+
+    $inputMin.add($inputMax).on('change', function () {
+      syncThumbs();
+    });
   });
 
   /* ===== SHOW MORE COLORS ===== */
@@ -328,10 +315,50 @@ $(function () {
   }
 
   /* ===== PAGINATION ===== */
+  function updateArrowState() {
+    $('.catalog-listing__page-nav').each(function () {
+      var $nav = $(this);
+      var $links = $nav.find('.catalog-listing__page-link');
+      var $prev = $nav.find('.catalog-listing__page-arrow--prev');
+      var $next = $nav.find('.catalog-listing__page-arrow--next');
+      var $active = $links.filter('.catalog-listing__page-link--active');
+      var activeIdx = $links.index($active);
+      $prev.toggleClass('catalog-listing__page-arrow--disabled', activeIdx <= 0);
+      $next.toggleClass('catalog-listing__page-arrow--disabled', activeIdx >= $links.length - 1);
+    });
+  }
+
   $(document).on('click', '.catalog-listing__page-link', function (e) {
     e.preventDefault();
     $('.catalog-listing__page-link').removeClass('catalog-listing__page-link--active');
     $(this).addClass('catalog-listing__page-link--active');
+    updateArrowState();
     showSkeleton();
   });
+
+  $(document).on('click', '.catalog-listing__page-arrow--prev:not(.catalog-listing__page-arrow--disabled)', function (e) {
+    e.preventDefault();
+    var $nav = $(this).closest('.catalog-listing__page-nav');
+    var $links = $nav.find('.catalog-listing__page-link');
+    var $active = $links.filter('.catalog-listing__page-link--active');
+    var activeIdx = $links.index($active);
+    $active.removeClass('catalog-listing__page-link--active');
+    $links.eq(activeIdx - 1).addClass('catalog-listing__page-link--active');
+    updateArrowState();
+    showSkeleton();
+  });
+
+  $(document).on('click', '.catalog-listing__page-arrow--next:not(.catalog-listing__page-arrow--disabled)', function (e) {
+    e.preventDefault();
+    var $nav = $(this).closest('.catalog-listing__page-nav');
+    var $links = $nav.find('.catalog-listing__page-link');
+    var $active = $links.filter('.catalog-listing__page-link--active');
+    var activeIdx = $links.index($active);
+    $active.removeClass('catalog-listing__page-link--active');
+    $links.eq(activeIdx + 1).addClass('catalog-listing__page-link--active');
+    updateArrowState();
+    showSkeleton();
+  });
+
+  updateArrowState();
 });

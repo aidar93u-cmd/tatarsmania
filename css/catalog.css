@@ -81,16 +81,29 @@
     align-items: center;
     justify-content: center;
 }
+.catalog-cat-s__show-all .btn span{
+    transform: translateX(-10px);
+    transition: all 0.4s;
+    margin-bottom: -2px;
+    position: relative;
+    width: 120%;
+    display: flex;
+    gap: 5px;
 
-.catalog-cat-s__show-all span {
+}
+.catalog-cat-s__show-all .btn:hover span{
+    transform: translateX(0px);
+    opacity: 1;
+}
+.catalog-cat-s__show-all div {
     transform: none;
     font-size: 10px;
-    opacity: 0.40!important;
+    opacity: 0.40 !important;
     font-weight: 600;
-    position: absolute;
+    /* position: absolute; */
     right: 20px;
     top: 10px;
-    transform: rotateX(40deg)!important;
+    transform: translateY(-2px) rotateX(40deg);
 }
 .page.catalog .page-title__inner {
     gap: 30px;
