@@ -369,6 +369,7 @@
     padding-bottom: 12px;
     justify-content: center;
     align-items: center;
+  transition: all 0.4s;
 }
 
 .product-accordion__header {
@@ -397,14 +398,14 @@
   flex-shrink: 0;
   transition: all 0.4s;
 }
-.product-accordion__icon:hover{
+.product-accordion:hover .product-accordion__icon{
   background: var(--graphite)
 }
 
 .product-accordion__icon svg line{
   transition: all 0.4s;
 }
-.product-accordion__icon:hover svg line{
+.product-accordion:hover svg line{
     stroke: #fff;
 }
 .product-accordion__icon svg {
@@ -539,18 +540,18 @@
   gap: 12px;
 }
 
-.product-file-item {
+.product-file-item a{
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 7px 0;
   border-bottom: 1px solid #dbdbdb;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: all 0.4s;
 }
 
-.product-file-item:hover {
-  opacity: 0.7;
+.product-file-item:hover a{
+  border-bottom: 1px solid var(--graphite)
 }
 
 .product-file-item__left {
