@@ -707,16 +707,18 @@ img {
 }
 .white-header .topbar svg circle,
 .white-header .header svg circle{    
-    fill: #fff;  
+    fill: #fff;    
+     stroke: rgb(0 0 0); 
 }
-
+.white-header .header svg line{    
+     stroke: rgb(0 0 0); 
+}
 .header__catalog-btn {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.05em;
     color: inherit;
     padding: 0;
     transition: color 0.4s;
@@ -770,8 +772,8 @@ img {
     gap: 26px;
 }
 .header__icon svg {
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
 }
 
 .header__icon:hover {
@@ -1606,7 +1608,6 @@ body.page{
 .product-card__fav svg path{
 fill: #21212133;
     fill-opacity: 1;
-    stroke: #21212133;
     transition: all 0.4s ;
 
 }
@@ -1614,13 +1615,11 @@ fill: #21212133;
 .product-card__fav:hover svg path{
     fill: #21212199;
     fill-opacity: 1;
-    stroke: #21212199;
 
 }
 .product-card__fav.active svg path {
     fill: #212121;
     fill-opacity: 1;
-    stroke: #212121;
 }
 
 
@@ -2073,9 +2072,7 @@ section{
     padding-bottom: 60px;
 }
 
-.showroom-card:hover {
-    background-color: #fafafa;
-}
+
 
 .showroom-card:last-child {
     border-bottom: none;
@@ -2161,6 +2158,10 @@ section{
     width: 100%;
     height: 100%;
     min-height: 710px;
+}
+
+#showroomMap [class*="-ground-pane"] {
+    filter: grayscale(1);
 }
 
 /* ===== CUSTOM MAP MARKER ===== */

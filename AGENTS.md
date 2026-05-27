@@ -15,6 +15,15 @@ Static landing page for furniture brand «ТАТАРСМАНИЯ». No build ste
 - **Images**: `assets/images/` — all backgrounds loaded via CSS `url()`
 - **Fonts**: `assets/fonts/` — 3 custom font families via `@font-face`
 
+## Yandex Map (v2.1)
+- **Script**: `index.html` loads `https://api-maps.yandex.ru/2.1/?apikey=4e547a19-4865-4cc9-ac87-48cae0f41c8e&lang=ru_RU`
+- **File**: `js/yandexmap.js` — `ymaps.ready(initYandexMap)`
+- Uses `ymaps.Map`, `customStyles` (via `options.set`), `ymaps.Placemark`
+- Grayscale: `saturation: -100` on all features, water white, road labels/POI/transit hidden
+- Markers via `ymaps.Placemark` with `default#imageWithContent` layout (pin SVG data URI)
+- Balloon via `balloonContent` prop, styled with `.map-balloon` CSS
+- Scroll zoom disabled via `map.behaviors.disable('scrollZoom')`
+
 ## Swiper Setup
 4 independent Swipers initialized in `js/main.js`:
 - `.hero-swiper` — fade effect, autoplay 5s, custom pagination/arrows
