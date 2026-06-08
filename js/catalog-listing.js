@@ -361,4 +361,100 @@ $(function () {
   });
 
   updateArrowState();
+
+  /* ===== MOBILE FILTER & SORT ===== */
+  var $mobileSortPopup = $('#mobileSortPopup');
+  var $mobileFilterDrawer = $('#mobileFilterDrawer');
+  var $mobileFilterBody = $('#mobileFilterBody');
+
+  function moveSidebarToDrawer() {
+    var $sidebar = $('.catalog-listing__sidebar');
+    if (!$sidebar.length || !$mobileFilterBody.length) return;
+    if ($mobileFilterBody.children().length) return;
+    $mobileFilterBody.append($sidebar.children());
+  }
+
+  function moveSidebarBack() {
+    var $sidebar = $('.catalog-listing__sidebar');
+    if (!$sidebar.length || !$mobileFilterBody.length) return;
+    if (!$mobileFilterBody.children().length) return;
+    $sidebar.append($mobileFilterBody.children());
+  }
+
+  function handleMobileResize() {
+    if (window.innerWidth <= 768) {
+      moveSidebarToDrawer();
+    } else {
+      moveSidebarBack();
+    }
+  }
+
+  handleMobileResize();
+  $(window).on('resize', handleMobileResize);
+
+  /* Mobile sort */
+  $('.catalog-listing__mobile-sort').on('click', function () {
+    $mobileSortPopup.addClass('open');
+  });
+  $mobileSortPopup.on('click', '.catalog-listing__mobile-sort-overlay, .catalog-listing__mobile-sort-close', function () {
+    $mobileSortPopup.removeClass('open');
+  });
+  $(document).on('click', '.catalog-listing__mobile-sort-option', function () {
+    var $this = $(this);
+    var label = $this.text().trim();
+    $('.catalog-listing__mobile-sort-option').removeClass('active');
+    $this.addClass('active');
+    $('.catalog-listing__mobile-sort-label').text(label);
+    $('.catalog-listing__sort-trigger span').text(label);
+    $mobileSortPopup.removeClass('open');
+    showSkeleton();
+  });
+
+  /* Mobile filter */
+  $('.catalog-listing__mobile-filter-btn').on('click', function () {
+    $mobileFilterDrawer.addClass('open');
+    document.body.style.overflow = 'hidden';
+  });
+  $mobileFilterDrawer.on('click', '.catalog-listing__mobile-filter-overlay, .catalog-listing__mobile-filter-close', function () {
+    $mobileFilterDrawer.removeClass('open');
+    document.body.style.overflow = '';
+  });
+  $('.catalog-listing__mobile-filter-apply').on('click', function () {
+    $mobileFilterDrawer.removeClass('open');
+    document.body.style.overflow = '';
+  });
+  $('.catalog-listing__mobile-filter-reset').on('click', function () {
+    $('.filter-checkbox input:checked, .filter-radio input:checked').each(function () {
+      $(this).prop('checked', false);
+      $(this).closest('.filter-checkbox').removeClass('filter-checkbox--checked');
+      $(this).closest('.filter-radio').removeClass('filter-radio--checked');
+    });
+    $('[data-filter-range]').each(function () {
+      var $c = $(this);
+      var $minInput = $c.find('.filter-range__label:first-child .filter-range__input');
+      var $maxInput = $c.find('.filter-range__label:last-child .filter-range__input');
+      if ($minInput.length) $minInput.val($minInput.attr('min') || 0).trigger('change');
+      if ($maxInput.length) $maxInput.val($maxInput.attr('max') || 100).trigger('change');
+    });
+    $activeFilters.find('.filter-tag').remove();
+    updateFilterBarVisibility();
+    showSkeleton();
+  });
+
+  /* Filter count badge */
+  function updateFilterCount() {
+    var count = $('.filter-checkbox input:checked, .filter-radio input:checked').length;
+    $('[data-filter-range]').each(function () {
+      var $min = $(this).find('.filter-range__label:first-child .filter-range__input');
+      var $max = $(this).find('.filter-range__label:last-child .filter-range__input');
+      if ($min.length && $max.length) {
+        var absMin = parseFloat($min.attr('min') || 0);
+        var absMax = parseFloat($max.attr('max') || 100);
+        if (parseFloat($min.val()) > absMin || parseFloat($max.val()) < absMax) count++;
+      }
+    });
+    $('.catalog-listing__mobile-filter-count').text(count || '').toggle(count > 0);
+  }
+  $(document).on('change', '.filter-checkbox input, .filter-radio input, .filter-range__input', updateFilterCount);
+  updateFilterCount();
 });

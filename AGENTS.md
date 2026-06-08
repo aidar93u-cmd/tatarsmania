@@ -9,52 +9,70 @@ Static landing page for furniture brand «ТАТАРСМАНИЯ». No build ste
 - No test/lint/typecheck scripts exist
 
 ## Architecture
-- **Entry**: `index.html` (main), `about.html` (secondary page)
-- **Styles**: `css/style.css` (~2300 lines, single file)
-- **Scripts**: `js/main.js` (DOM ready handlers + 4 Swiper instances)
+- **Entry**: `index.html` (main), `about.html` (secondary page), `catalog.html`, `product-page.html`
+- **Main styles**: `css/style.css` — all global styles
+- **Page-specific styles**: `css/catalog.css`, `css/catalog-listing.css`, `css/product-page.css`
+- **Library CSS**: `css/lib/` — `swiper-bundle.min.css`, `fancybox.css`, `aos.css`
+- **Library JS**: `js/lib/` — `swiper-bundle.min.js`, `fancybox.umd.js`, `jquery.min.js`, `aos.js`
+- **Custom JS modules** (loaded individually per page):
+  - `js/main.js` — shared (AOS init, Fancybox, Intersection Observer, smooth scroll, favorites)
+  - `js/preloader.js` — preloader animation
+  - `js/scroll-header.js` — fixed header on scroll (every page)
+  - `js/featured-tabs.js` — featured section tabs (index only)
+  - `js/showrooms.js` — showroom open/closed status (index only)
+  - `js/swipers.js` — hero + categories + collections + blog + promotions swipers
+  - `js/gallery-hover.js` — featured card + catalog card gallery on hover
+  - `js/newsletter.js` — footer email form validation
+  - `js/footer-accordion.js` — footer accordion on mobile
+  - `js/mobile-menu.js` — burger menu overlay
+  - `js/search-popup.js` — header search popup
+  - `js/mega-menu.js` — desktop catalog mega menu
+  - `js/yandexmap.js` — Yandex map
+  - `js/product-page.js` — accordions (jQuery slideToggle), mobile gallery swiper, size/color selectors, interior slider, other models swiper, fancybox
 - **Images**: `assets/images/` — all backgrounds loaded via CSS `url()`
 - **Fonts**: `assets/fonts/` — 3 custom font families via `@font-face`
 
-## Yandex Map (v2.1)
-- **Script**: `index.html` loads `https://api-maps.yandex.ru/2.1/?apikey=4e547a19-4865-4cc9-ac87-48cae0f41c8e&lang=ru_RU`
-- **File**: `js/yandexmap.js` — `ymaps.ready(initYandexMap)`
-- Uses `ymaps.Map`, `customStyles` (via `options.set`), `ymaps.Placemark`
-- Grayscale: `saturation: -100` on all features, water white, road labels/POI/transit hidden
-- Markers via `ymaps.Placemark` with `default#imageWithContent` layout (pin SVG data URI)
-- Balloon via `balloonContent` prop, styled with `.map-balloon` CSS
-- Scroll zoom disabled via `map.behaviors.disable('scrollZoom')`
+## Key Implementation Details
 
-## Swiper Setup
-4 independent Swipers initialized in `js/main.js`:
-- `.hero-swiper` — fade effect, autoplay 5s, custom pagination/arrows
-- `.categories-small-swiper` — 4 slides → 1 on mobile, responsive breakpoints
-- `.collections-swiper` — loop mode, custom pagination/arrows
-- `.blog-swiper` — same breakpoints as categories-small
+### catalog-cat-s Swiper (mobile ≤992px)
+- **File**: `catalog.html:518` — grid wrapped in `.swiper > .swiper-wrapper > .swiper-slide`
+- **CSS**: `css/catalog.css:306-333` — Swiper neutralization for ≥993px (`overflow: visible`, `display: contents` on wrapper), Swiper mode for ≤992px
+- **JS**: `js/main.js:473-505` — `initCatCatSwiper()` / `destroyCatCatSwiper()` with `slidesPerView: 1.3`, `spaceBetween: 6`, `speed: 600`, navigation arrows, dark pagination dots
+- **Pagination**: `.catalog-cat-s__pagination` reuses `.promotions__dot` classes with dark color overrides
 
-All use **custom pagination classes** (not default `.swiper-pagination-bullet`). CSS overrides are in `style.css` under `/* Swiper Custom Styles */`.
+### Catalog Listing Mobile (≤768px)
+- **File**: `css/catalog-listing.css:1159-1175`
+- `.product-card__colors` and `.product-card__price-split` hidden
+- Title: 2-line clamp with `-webkit-line-clamp: 2`
 
-## Image Convention
-- All card/section backgrounds use `background-image` in CSS, not `<img>` tags
-- Images are **individual exports** from Figma, named by component (e.g., `product-1.jpg`, `cat-sofas.jpg`)
-- Do NOT export full-section screenshots — export individual Figma component frames
-- Collections use variant suffixes (`--alt`, `--alt2`) for different slide rotations
+### Product Page Accordions
+- **File**: `js/product-page.js:1-17`
+- jQuery `slideToggle(600)` with `stop(true, true)` — replaces CSS `max-height` transition
+- Independent toggle — opening one does NOT close others
+- Default-open state: `.product-accordion--open` → content starts visible via `.show()`
 
-## Figma MCP
-- Configured in `opencode.json` using `@gethopp/figma-mcp-bridge`
-- Use `figma-bridge_save_screenshots` with **base node IDs** (format `XXXX:YYYY`, no `I:` prefix)
-- Format must match file extension (PNG→.jpg will fail, use JPG or rename after)
-- Conflicting `format` + `outputPath` extension causes errors — keep them consistent
+### Product Page Mobile (≤768px)
+- **No gallery duplication**: `.product-gallery` (desktop) is reused as swiper on mobile via JS DOM manipulation
+- **HTML**: `product-page.html`
+  - `product-mobile-title` (before `.product-content`): brand + favorite icon + product name
+  - `product-mobile-badges` (before `.product-content`): Sale/New badges + article
+  - `product-mobile-price` (inside `.product-info-bottom`): price, old price, split, production time
+- **CSS**: `css/product-page.css` — mobile-only blocks hidden on desktop, shown at ≤768px
+- **Gallery (≤768px)**: `.product-gallery` moved inside `.product-info` (first child), on mobile JS restructures it into `.swiper > .swiper-wrapper > .swiper-slide`, init Swiper with pagination. On resize >768px → destroy swiper, restore original HTML.
+- **Flex reorder** inside `.product-info` (≤768px):
+  - `order: 1` → `.product-gallery` (swiper mode)
+  - `order: 2` → `.product-sizes`
+  - `order: 3` → `.product-options`
+  - `order: 4` → `.product-mobile-price`
+  - `order: 5` → `.product-actions`
+  - `order: 6` → `.product-accordions`
+- Original `.product-title-block`, `.product-price-block` hidden with `!important`
+- `.product-info-top` / `.product-info-bottom` use `display: contents`
+- **JS**: `js/product-page.js:19-54` — mobile gallery swiper init/destroy with DOM restructuring on resize
 
-## CSS Design Tokens
-Defined in `:root`:
-- Colors: `--graphite` (#212121), `--copper` (#bf6e34), `--red`, `--green`, `--gray-light`
-- Fonts: `"TEST Circe"` (primary), `"Inter Tight"`, `"Involve"`, `"TEST Circe Contrast VF"`
-- Container: `--container-max: 1440px`, `--gutter: 20px`
-- Base font-size: `12px` (unusually small, intentional per design)
+### Yandex Map
+- **File**: `js/yandexmap.js` — loads Yandex Maps API and initializes map
 
-## Gotchas
-- `body` font-size is 12px — all spacing/sizing references assume this base
-- `.product-card:nth-child()` selectors are **scoped by parent** in some cases (e.g., `.featured__left .product-card:nth-child(3)`)
-- Legacy dot-click handler in `main.js` (lines 155-163) is a fallback for Swiper pagination — don't remove without testing
-- No mobile hamburger menu JS implemented yet — topbar desktop-only
-- Newsletter form has stub submit logic (line 207 in `main.js`)
+## Design Tokens
+- **Colors** (from CSS custom properties): `--graphite: #212121`, `--copper: #BF6E34`
+- **Gutter**: `var(--gutter)` used for horizontal padding on mobile blocks

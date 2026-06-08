@@ -1,21 +1,85 @@
 document.addEventListener('DOMContentLoaded', function () {
   /* ===== ACCORDION TOGGLE ===== */
-  var accordions = document.querySelectorAll('.product-accordion__header');
+  var $accordions = $('.product-accordion');
 
-  accordions.forEach(function (header) {
-    header.addEventListener('click', function () {
-      var accordion = this.closest('.product-accordion');
-      var isOpen = accordion.classList.contains('product-accordion--open');
-
-      document.querySelectorAll('.product-accordion').forEach(function (acc) {
-        acc.classList.remove('product-accordion--open');
-      });
-
-      if (!isOpen) {
-        accordion.classList.add('product-accordion--open');
-      }
-    });
+  $accordions.each(function () {
+    var $this = $(this);
+    if ($this.hasClass('product-accordion--open')) {
+      $this.find('.product-accordion__content').show();
+    }
   });
+
+  $('.product-accordion__header').on('click', function () {
+    var $accordion = $(this).closest('.product-accordion');
+    var $body = $accordion.find('.product-accordion__content');
+    $accordion.toggleClass('product-accordion--open');
+    $body.stop(true, true).slideToggle(600);
+  });
+
+  /* ===== MOBILE GALLERY SWIPER (reuses .product-gallery) ===== */
+  var galleryEl = document.querySelector('.product-gallery')
+  var gallerySwiper = null
+  var galleryOriginalHTML = null
+
+  function initMobileGallery() {
+    if (window.innerWidth > 768) return null
+    if (!galleryEl) return null
+    if (galleryEl.classList.contains('swiper')) return null
+
+    galleryOriginalHTML = galleryEl.innerHTML
+
+    var wrapper = document.createElement('div')
+    wrapper.className = 'swiper-wrapper'
+
+    var items = galleryEl.querySelectorAll('.product-gallery__item')
+    items.forEach(function (item) {
+      var slide = document.createElement('div')
+      slide.className = 'swiper-slide'
+      slide.appendChild(item)
+      wrapper.appendChild(slide)
+    })
+
+    galleryEl.innerHTML = ''
+    galleryEl.classList.add('swiper')
+    galleryEl.appendChild(wrapper)
+
+    var pag = document.createElement('div')
+    pag.className = 'product-gallery__pagination'
+    galleryEl.appendChild(pag)
+
+    return new Swiper(galleryEl, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      speed: 600,
+      pagination: {
+        el: '.product-gallery__pagination',
+        clickable: true,
+      },
+    })
+  }
+
+  function destroyMobileGallery() {
+    if (gallerySwiper) {
+      gallerySwiper.destroy(true, true)
+      gallerySwiper = null
+    }
+    if (galleryEl && galleryOriginalHTML) {
+      galleryEl.classList.remove('swiper')
+      galleryEl.innerHTML = galleryOriginalHTML
+      galleryOriginalHTML = null
+    }
+  }
+
+  gallerySwiper = initMobileGallery()
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth <= 768) {
+      destroyMobileGallery()
+      gallerySwiper = initMobileGallery()
+    } else {
+      destroyMobileGallery()
+    }
+  })
 
   /* ===== SIZE SELECTOR ===== */
   var sizeBtns = document.querySelectorAll('.product-size-btn');
@@ -190,6 +254,10 @@ document.addEventListener('DOMContentLoaded', function () {
         navigation: {
           prevEl: tab.querySelector('.product-other__arrow--prev'),
           nextEl: tab.querySelector('.product-other__arrow--next'),
+        },
+        breakpoints: {
+          769: { slidesPerView: 4 },
+          0: { slidesPerView: 1.2, slidesPerGroup: 1 },
         },
       });
     }
