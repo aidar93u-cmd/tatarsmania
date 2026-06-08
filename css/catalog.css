@@ -39,7 +39,7 @@
 
 /* ===== CATEGORIES S ===== */
 .catalog-cat-s {
-    padding: 0 var(--gutter);
+    padding: 0;
 }
 
 .catalog-cat-s__title {
@@ -47,8 +47,10 @@
     font-size: 24px;
     font-weight: 500;
     color: var(--graphite);
-    margin: 0 0 70px;
     text-align: center;
+}
+.catalog__header{
+    margin: 0 0 70px;
 }
 
 .catalog-cat-s__grid {
@@ -73,6 +75,18 @@
 .cat-card-s:hover img {
     transform: scale(1.03);
 }
+.catalog-cat-s__pagination {
+    padding: 20px 0 30px;
+}
+
+.catalog-cat-s__pagination .promotions__dot {
+    background-color: rgba(33, 33, 33, 0.2);
+}
+
+.catalog-cat-s__pagination .promotions__dot--active {
+    background-color: #212121;
+}
+
 .catalog-cat-s__show-all .btn-link {
     position: relative;
 }
@@ -110,7 +124,7 @@
 }
 /* ===== CATEGORIES ROOMS ===== */
 .catalog-cat-rooms {
-    padding: 0 var(--gutter);
+    padding: 0 ;
 }
 
 .catalog-cat-rooms__title {
@@ -130,7 +144,7 @@
 
 /* ===== CATALOG COLLECTIONS ===== */
 .catalog-collections {
-    padding: 0 var(--gutter);
+    padding: 0 ;
 }
 
 .catalog-collections__title {
@@ -303,14 +317,40 @@
     }
 }
 
+/* Neutralize Swiper on desktop */
+@media (min-width: 993px) {
+    .catalog-cat-s__grid.swiper {
+        overflow: visible;
+        margin-bottom: 10px;
+    }
+    .catalog-cat-s__grid .swiper-wrapper {
+        display: contents;
+    }
+    .catalog-cat-s__grid .swiper-slide {
+        width: auto !important;
+    }
+}
+
+/* Swiper mode on mobile */
+@media (max-width: 992px) {
+    .catalog-cat-s__grid.swiper {
+        overflow: visible;
+        display: block;
+        width: 100%;
+    }
+    .catalog-cat-s__grid .swiper-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .catalog-cat-s__grid .swiper-slide {
+        width: auto;
+    }
+}
+
 @media (max-width: 1024px) {
     .catalog-cat-l__grid,
     .catalog-cat-rooms__grid {
         grid-template-columns: 1fr;
-    }
-
-    .catalog-cat-s__grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .collections-swiper--catalog .collections-swiper__slide-inner {
@@ -324,6 +364,26 @@
 
     .collections-swiper--catalog .collections-swiper__right-bg {
         min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog-cat-s__title {
+        font-size: 20px;
+        text-align: left;
+    }
+    .catalog__header {
+        margin: 0 0 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .catalog-cat-rooms__title {
+        font-size: 20px;
+        margin: 0 0 30px;
+        text-align: left;
+    }
+    .catalog-cat-rooms .categories-small__card {
+        height: 200px;
     }
 }
 
