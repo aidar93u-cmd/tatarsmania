@@ -426,6 +426,9 @@ img {
 	color: var(--white);
 	transition: gap 0.4s;
 }
+.btn-promo svg path {
+	fill: var(--white);
+}
 #videoModal {
 	display: none;
 	max-width: 800px;
