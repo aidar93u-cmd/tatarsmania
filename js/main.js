@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					destroyCatCatSwiper()
 				}
 			})
-		}
+		})
 
 		document.querySelectorAll('.categories-small__dot, .collections__dot, .carousel-section__dot').forEach(function (dot) {
 			dot.addEventListener('click', function () {
