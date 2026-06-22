@@ -86,19 +86,23 @@
 
 .other-projects__title {
   text-align: center;
-  margin: 0 auto 70px;
+  margin: 0 auto 0;
 }
 
 .other-projects__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 70px;
+    position: relative;
 }
 
 .other-projects__arrows {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
 }
 
 .other-projects__arrow {
