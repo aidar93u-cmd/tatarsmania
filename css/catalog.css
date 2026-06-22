@@ -78,11 +78,11 @@
     padding: 20px 0 30px;
 }
 
-.catalog-cat-s__pagination .promotions__dot {
+.catalog-cat-s__pagination .carousel-section__dot {
     background-color: rgba(33, 33, 33, 0.2);
 }
 
-.catalog-cat-s__pagination .promotions__dot--active {
+.catalog-cat-s__pagination .carousel-section__dot--active {
     background-color: #212121;
 }
 

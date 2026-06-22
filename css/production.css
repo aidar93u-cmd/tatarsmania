@@ -247,16 +247,16 @@
     width: 235px;
     height: 307px;
 }
-.production-principles .promotions__title {
+.production-principles .carousel-section__title {
     color: var(--graphite);
 }
 
-.production-principles .promotions__grid {
+.production-principles .carousel-section__grid {
     grid-template-columns: repeat(3, 1fr);
 }
 
 @media (max-width: 992px) {
-    .production-principles .promotions__grid {
+    .production-principles .carousel-section__grid {
         grid-template-columns: 1fr;
     }
 }
@@ -561,7 +561,7 @@
         font-size: 48px;
     }
 
-    .production-principles .promotions__grid {
+    .production-principles .carousel-section__grid {
         grid-template-columns: 1fr;
     }
 
@@ -617,7 +617,7 @@
         font-size: 36px;
     }
 
-    .production-principles .promotions__title {
+    .production-principles .carousel-section__title {
         text-align: center;
     }
 
