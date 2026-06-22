@@ -263,11 +263,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  /* ===== OTHER MODELS GALLERY HOVER (reuse catalog__card pattern) ===== */
-  document.querySelectorAll('.product-other__slide .catalog__card').forEach(function (card) {
-    var gallery = card.querySelector('.catalog__card-gallery');
+  /* ===== OTHER MODELS GALLERY HOVER ===== */
+  document.querySelectorAll('.product-other__slide .product-card--default').forEach(function (card) {
+    var gallery = card.querySelector('.product-card--default__gallery');
     var images = gallery ? gallery.querySelectorAll('img') : [];
-    var bars = card.querySelectorAll('.catalog__card-progress-bar');
+    var bars = card.querySelectorAll('.product-card--default__progress-bar');
     var imageWrap = card.querySelector('.product-card__image');
     var currentZone = -1;
 

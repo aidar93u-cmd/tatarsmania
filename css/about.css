@@ -1,0 +1,456 @@
+/* ===== ABOUT HERO ===== */
+.about-hero {
+    padding: 0;
+}
+
+.about-hero__inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1440 / 700;
+    min-height: 700px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.about-hero__gradient {
+    position: absolute;
+    inset: 0;background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+
+    pointer-events: none;
+}
+
+.about-hero__texts {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    padding: 44px;
+    color: #fff;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.about-hero__title {
+    font-family: var(--font3);
+    max-width: 430px;
+}
+
+.about-hero__desc {
+    max-width: 395px;
+}
+
+/* ===== ABOUT HISTORY ===== */
+.about-history {
+    padding: 0;
+}
+
+.about-history__title {
+    font-family: var(--font3);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.about-history__slide {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1440 / 700;
+    min-height: 700px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about-history__slide-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+.about-history__slide-arrows {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.about-history__arrow {
+    pointer-events: all;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.about-history__slide-tabs {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 0;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 20px;
+    margin-bottom: 280px;
+}
+
+.about-history__tab {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #fff;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.about-history__tab--active { opacity: 1; }
+
+.about-history__slide-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    max-width: 545px;
+    padding: 0 20px;
+}
+
+.about-history__slide-year {
+    font-family: var(--font3);
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #fff;
+    display: block;
+    margin-bottom: 24px;
+}
+
+/* ===== ABOUT TEAM ===== */
+.about-team {
+    padding: 0;
+    margin-bottom: 70px;
+}
+
+.about-team__inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1440 / 800;
+    min-height: 800px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.about-team__gradient {
+    position: absolute;
+    inset: 0;background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+
+    pointer-events: none;
+}
+
+.about-team__content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 44px;
+    color: #fff;
+}
+
+.about-team__title {
+    font-family: var(--font3);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    color: #fff;
+    max-width: 285px;
+}
+
+.about-team__desc {
+    font-size: 12px;
+    line-height: 120%;
+    color: #fff;
+    max-width: 411px;
+}
+
+/* ===== ABOUT PEOPLE ===== */
+.about-people {
+    padding: 0;
+}
+
+.about-people__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    row-gap: 70px;
+}
+
+.about-people__card--hidden {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.about-people__card-photo {
+    width: 100%;
+    aspect-ratio: 345.5 / 419.39;
+    margin-bottom: 26px;
+    background-size: cover;
+    background-position: center;
+    background-color: #ededed;
+}
+
+.about-people__card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.about-people__card-name {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+    color: var(--graphite);
+}
+
+.about-people__card-role {
+    font-size: 12px;
+    line-height: 120%;
+    color: var(--graphite);
+    opacity: 0.4;
+}
+
+/* ===== ABOUT REVIEWS ===== */
+.about-reviews {
+    padding: 0;
+}
+
+.about-reviews__title {
+    font-family: var(--font3);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.about-reviews__arrows {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 20px 14px;
+}
+
+.about-reviews__arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.about-reviews__card {
+    background: #ededed;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 386px;
+}
+
+.about-reviews__card-stars {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 48px;
+}
+
+.about-reviews__card-text {
+    font-size: 12px;
+    line-height: 120%;
+    color: var(--graphite);
+}
+
+.about-reviews__card-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.about-reviews__card-title-text {
+    font-family: var(--font3);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    color: var(--graphite);
+}
+
+.about-reviews__card-desc {
+    font-size: 12px;
+    line-height: 120%;
+    color: var(--graphite);
+    opacity: 0.4;
+}
+
+.about-reviews__card-author {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.about-reviews__card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto;
+}
+
+.about-reviews__card-name {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+    color: var(--graphite);
+}
+
+.about-reviews__card-product {
+    font-size: 12px;
+    line-height: 120%;
+    color: var(--graphite);
+    opacity: 0.4;
+}
+
+.about-reviews__card-avatars {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.about-reviews__card-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #ededed;
+    margin-right: -16px;
+}
+
+.about-reviews__card-more {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+}
+
+.about-reviews__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 45px 0 0;
+}
+
+.about-reviews__pagination .swiper-pagination-bullet {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--graphite);
+    opacity: 0.2;
+    margin: 0 !important;
+}
+
+.about-reviews__pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .about-people__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero__inner {
+        aspect-ratio: auto;
+        min-height: 500px;
+    }
+
+    .about-hero__texts {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .about-history__title {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .about-history__slide {
+        aspect-ratio: auto;
+        min-height: 500px;
+    }
+
+    .about-history__slide-tabs {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+    .about-history__slide-year {
+        font-size: 36px;
+    }
+
+    .about-team__inner {
+        aspect-ratio: auto;
+        min-height: 500px;
+    }
+
+    .about-team__content {
+        padding: 20px;
+    }
+
+    .about-team__title {
+        font-size: 16px;
+    }
+
+    .about-reviews__title {
+        font-size: 18px;
+    }
+
+    .about-reviews__card--featured .about-reviews__card-title-text {
+        font-size: 16px;
+    }
+
+    .about-reviews__card-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-people__grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,447 @@
+/* ===== LOYALTY CONTENT ===== */
+.loyalty-content {
+    padding: 0;
+}
+
+.loyalty-content__layout {
+    display: flex;
+    gap: 58px;
+    align-items: flex-start;
+}
+
+/* ===== SIDEBAR ===== */
+.loyalty-content__sidebar {
+    flex: 0 0 300px;
+}
+
+.loyalty-content__nav {
+    background: #ededed;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.loyalty-content__nav-link {
+    display: block;
+    padding: 12px 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 120%;
+    color: var(--graphite);
+    border-bottom: 1px solid #dbdbdb;
+    transition: opacity 0.3s;
+}
+
+.loyalty-content__nav-link:last-child {
+    border-bottom: none;
+}
+
+.loyalty-content__nav-link:hover {
+    opacity: 0.6;
+}
+
+.loyalty-content__nav-link--active {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ===== MAIN CONTENT ===== */
+.loyalty-content__main {
+    flex: 1;
+    min-width: 0;
+}
+
+.loyalty-content__title {
+    font-family: var(--font3);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    color: var(--graphite);
+    margin-bottom: 18px;
+}
+
+.loyalty-content__subtitle {
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--graphite);
+    margin-bottom: 48px;
+}
+
+.loyalty-content__section-title {
+    font-family: var(--font3);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    color: var(--graphite);
+    margin-bottom: 18px;
+}
+
+/* ===== BANNERS ===== */
+.loyalty-content__banner {
+    position: relative;
+    width: 100%;
+    min-height: 202px;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.loyalty-content__banner--first {
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.loyalty-content__banner--second {
+    background: #ededed;
+    color: var(--graphite);
+}
+
+.loyalty-content__banner-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 10%;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.loyalty-content__banner-label--copper {
+    color: var(--copper);
+}
+
+.loyalty-content__banner-content {
+    max-width: 315px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.loyalty-content__banner-title {
+    font-family: var(--font3);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+}
+
+.loyalty-content__banner-desc {
+    font-size: 12px;
+    line-height: 120%;
+    opacity: 0.8;
+}
+
+.loyalty-content__banner-decor {
+    position: absolute;
+    right: 30px;
+    bottom: -20px;
+    font-size: 260px;
+    font-weight: 500;
+    line-height: 1;
+    color: #dbdbdb;
+    pointer-events: none;
+    user-select: none;
+    font-family: var(--font3);
+}
+
+.loyalty-content__footer-text {
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--graphite);
+    margin-top: 48px;
+}
+
+/* ===== RIGHT SIDEBAR ===== */
+.loyalty-content__sidebar--right {
+    flex: 0 0 300px;
+}
+
+.loyalty-content__contacts {
+    background: #ededed;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.loyalty-content__contacts-text {
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--graphite);
+}
+
+.loyalty-content__contacts-phone {
+    font-family: var(--font3);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+    color: var(--graphite);
+    white-space: nowrap;
+}
+
+.loyalty-content__contacts-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.loyalty-content__contacts-actions .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+.loyalty-content__contacts-actions .btn-nav {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+/* ===== LOYALTY HISTORY ===== */
+.loyalty-history {
+    padding: 0;
+}
+
+.loyalty-history__title {
+    font-family: var(--font3);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.loyalty-history__slide {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1440 / 700;
+    min-height: 700px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loyalty-history__slide-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+}
+
+.loyalty-history__slide-arrows {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.loyalty-history__arrow {
+    pointer-events: all;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.loyalty-history__slide-tabs {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 0;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 20px;
+    margin-bottom: 280px;
+}
+
+.loyalty-history__tab {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #fff;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.loyalty-history__tab--active {
+    opacity: 1;
+}
+
+.loyalty-history__slide-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    max-width: 545px;
+    padding: 0 20px;
+}
+
+.loyalty-history__slide-year {
+    font-family: var(--font3);
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #fff;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.loyalty-history__slide-text {
+    font-size: 12px;
+    line-height: 120%;
+    color: #fff;
+}
+
+.loyalty-history__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 45px 0 0;
+}
+
+.loyalty-history__pagination .swiper-pagination-bullet {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--graphite);
+    opacity: 0.2;
+    margin: 0 !important;
+}
+
+.loyalty-history__pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+    .loyalty-content__layout {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .loyalty-content__layout {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .loyalty-content__sidebar {
+        flex: none;
+        width: 100%;
+    }
+
+    .loyalty-content__nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0;
+        padding: 0;
+        background: none;
+    }
+
+    .loyalty-content__nav-link {
+        border-bottom: none;
+        border-right: 1px solid #dbdbdb;
+        padding: 12px 20px;
+        background: #ededed;
+        flex: 0 0 auto;
+    }
+
+    .loyalty-content__sidebar--right {
+        flex: none;
+        width: 100%;
+    }
+
+    .loyalty-content__banner-decor {
+        font-size: 180px;
+        right: 10px;
+        bottom: -10px;
+    }
+
+    .loyalty-history__slide-tabs {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .loyalty-content__title {
+        font-size: 18px;
+    }
+
+    .loyalty-content__section-title {
+        font-size: 18px;
+    }
+
+    .loyalty-content__banner {
+        padding: 24px var(--gutter);
+        min-height: 160px;
+    }
+
+    .loyalty-content__banner-content {
+        max-width: 100%;
+    }
+
+    .loyalty-content__banner-title {
+        font-size: 16px;
+    }
+
+    .loyalty-content__banner-decor {
+        font-size: 120px;
+    }
+
+    .loyalty-content__nav {
+        flex-direction: column;
+    }
+
+    .loyalty-content__nav-link {
+        border-right: none;
+        border-bottom: 1px solid #dbdbdb;
+    }
+
+    .loyalty-content__contacts {
+        padding: 24px var(--gutter);
+    }
+
+    .loyalty-content__contacts-phone {
+        font-size: 20px;
+    }
+
+    .loyalty-history__title {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .loyalty-history__slide {
+        aspect-ratio: auto;
+        min-height: 500px;
+    }
+
+    .loyalty-history__slide-tabs {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+    .loyalty-history__slide-year {
+        font-size: 36px;
+    }
+}
