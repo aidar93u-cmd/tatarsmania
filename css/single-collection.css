@@ -1,0 +1,188 @@
+/* ============================================
+   AURA COLLECTION PAGE
+   ============================================ */
+
+/* --- Products Grid --- */
+.single-collection-products {
+  padding: 164px 0 0;
+}
+
+.single-collection-products__title {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.single-collection-products__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1200px) {
+  .single-collection-products__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .single-collection-products__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+}
+
+/* --- Other Collections --- */
+.single-collection-other {
+  padding: 60px 0 145px;
+}
+
+.single-collection-other__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 70px;
+  position: relative;
+}
+
+.single-collection-other__title {
+  margin-bottom: 0;
+  flex: 1;
+    text-align: center;
+}
+
+.single-collection-other__header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 20px 14px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.single-collection-other__arrow {
+  width: 13px;
+  height: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s;
+}
+
+.single-collection-other__arrow:hover {
+  opacity: 0.7;
+}
+
+.single-collection-other__swiper {
+  overflow: hidden;
+}
+
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--graphite);
+  position: relative;
+}
+
+.collection-card__image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.collection-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s;
+}
+
+.collection-card:hover .collection-card__image img {
+  transform: scale(1.08);
+}
+
+.collection-card__name {
+  display: block;
+  padding: 28px 0;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: opacity 0.4s;
+}
+
+.collection-card:hover .collection-card__name {
+  opacity: 0.6;
+}
+
+.single-collection-other__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: auto;
+  margin-top: 45px;
+}
+
+.single-collection-other__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: background-color 0.4s;
+  cursor: pointer;
+  opacity: 1;
+  margin: 0;
+}
+
+.single-collection-other__dot--active {
+  background-color: var(--graphite);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+
+  .single-collection-products {
+    padding: 80px 0 0;
+  }
+
+  .single-collection-products__title {
+    margin-bottom: 40px;
+    font-size: 20px;
+  }
+
+  .single-collection-other {
+    padding: 80px 0 40px;
+  }
+
+  .single-collection-other__top {
+    padding-bottom: 30px;
+  }
+
+  .single-collection-other__title {
+    flex: 0 0 auto;
+  }
+
+  .single-collection-other__header {
+    display: none;
+  }
+
+  .single-collection-other__swiper {
+    overflow: visible;
+  }
+
+  .collection-card__image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .collection-card__name {
+    padding: 12px 0;
+    font-size: 12px;
+  }
+}

@@ -1,11 +1,11 @@
 ﻿/* ===== GALLERY HOVER — global functions, used by search-popup ===== */
-function initFeaturedCardGallery(root) {
+function initCompactCardGallery(root) {
 	root = root || document
-	root.querySelectorAll('.featured__card').forEach(function (card) {
-		var galleryEl = card.querySelector('.featured__card-gallery')
-		var progressEl = card.querySelector('.featured__card-progress')
+	root.querySelectorAll('.product-card--compact').forEach(function (card) {
+		var galleryEl = card.querySelector('.product-card--compact__gallery')
+		var progressEl = card.querySelector('.product-card--compact__progress')
 		var images = galleryEl ? galleryEl.querySelectorAll('img') : []
-		var bars = progressEl ? progressEl.querySelectorAll('.featured__card-progress-bar') : []
+		var bars = progressEl ? progressEl.querySelectorAll('.product-card--compact__progress-bar') : []
 		var count = images.length
 		if (count < 2) return
 
@@ -36,11 +36,11 @@ function initFeaturedCardGallery(root) {
 
 function initCatalogCardGallery(root) {
 	root = root || document
-	root.querySelectorAll('.catalog__card').forEach(function (card) {
-		var galleryEl = card.querySelector('.catalog__card-gallery')
-		var progressEl = card.querySelector('.catalog__card-progress')
+	root.querySelectorAll('.product-card--default').forEach(function (card) {
+		var galleryEl = card.querySelector('.product-card--default__gallery')
+		var progressEl = card.querySelector('.product-card--default__progress')
 		var images = galleryEl ? galleryEl.querySelectorAll('img') : []
-		var bars = progressEl ? progressEl.querySelectorAll('.catalog__card-progress-bar') : []
+		var bars = progressEl ? progressEl.querySelectorAll('.product-card--default__progress-bar') : []
 		var count = images.length
 		if (count < 2) return
 
@@ -185,9 +185,9 @@ document.addEventListener('DOMContentLoaded', function () {
 				if (isMobile) {
 					document.body.style.paddingTop = mobileHeaderHeight + 'px'
 				} else if (fixedBlock.classList.contains('header-fixed--hide-topbar')) {
-					document.body.style.paddingTop = headerHeight + 'px'
+				//	document.body.style.paddingTop = headerHeight + 'px'
 				} else {
-					document.body.style.paddingTop = topbarHeight + headerHeight + 'px'
+				//	document.body.style.paddingTop = topbarHeight + headerHeight + 'px'
 				}
 
 				if (!isMobile && currentScroll > lastScroll && currentScroll > scrollOffset + 50) {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	// ===== GALLERY HOVER INIT =====
-	initFeaturedCardGallery()
+	initCompactCardGallery()
 	initCatalogCardGallery()
 
 	// ===== NEWSLETTER =====
@@ -626,27 +626,27 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (item.oldPrice) {
 				prices += '<span class="product-card__price-old">' + item.oldPrice + '</span>'
 			}
-			return '<article class="product-card catalog__card">' +
-				'<a href="#" class="product-card__inner">' +
-					'<div class="product-card__image-wrap">' +
-						'<div class="product-card__image">' +
-							'<img class="product-card__image-main" src="' + item.image + '" alt="' + item.name + '" loading="lazy">' +
-							'<div class="catalog__card-gallery">' +
+			return '<article class="product-card product-card--default">' +
+				'<a href="#" class="product-card--default__inner">' +
+					'<div class="product-card--default__image-wrap">' +
+						'<div class="product-card--default__image">' +
+							'<img class="product-card--default__image-main" src="' + item.image + '" alt="' + item.name + '" loading="lazy">' +
+							'<div class="product-card--default__gallery">' +
 								'<img src="assets/images/product-1.png" data-index="0" class="active">' +
 								'<img src="assets/images/product-2.png" data-index="1">' +
 								'<img src="assets/images/product-3.png" data-index="2">' +
 							'</div>' +
 						'</div>' +
-						'<div class="catalog__card-progress">' +
-							'<div class="catalog__card-progress-bar active"></div>' +
-							'<div class="catalog__card-progress-bar"></div>' +
-							'<div class="catalog__card-progress-bar"></div>' +
+						'<div class="product-card--default__progress">' +
+							'<div class="product-card--default__progress-bar active"></div>' +
+							'<div class="product-card--default__progress-bar"></div>' +
+							'<div class="product-card--default__progress-bar"></div>' +
 						'</div>' +
 						'<div class="product-card__badges">' + badges + '</div>' +
 						'<button class="product-card__fav" aria-label="В избранное"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" fill="#212121" fill-opacity="0.2"/></svg></button>' +
 					'</div>' +
-					'<div class="product-card__body">' +
-						'<span class="product-card__title">' + item.name + '</span>' +
+					'<div class="product-card--default__body">' +
+						'<span class="product-card--default__title">' + item.name + '</span>' +
 						'<div class="product-card__colors">' +
 							'<span class="product-card__color" style="background-image: url(\'assets/images/background-color1.jpg\')"></span>' +
 							'<span class="product-card__color" style="background-image: url(\'assets/images/background-color2.jpg\')"></span>' +
@@ -654,8 +654,8 @@ document.addEventListener('DOMContentLoaded', function () {
 							'<span class="product-card__body-colors-label">20+ цветов</span>' +
 						'</div>' +
 						'<div class="product-card__price-split">' + item.month + ' в Сплит</div>' +
-						'<div class="product-card__body-prices">' + prices + '</div>' +
-						'<div class="product-card__hover-actions">' +
+						'<div class="product-card--default__body-prices">' + prices + '</div>' +
+						'<div class="product-card--default__hover-actions">' +
 							'<button class="btn btn-primary"><svg width="12" height="2" viewBox="0 0 12 2" fill="none"><path d="M2.87604 1.14134C2.20672 1.166 0.619907 1.21604 0 1.49547L1.25331 0.355529C1.6081 0.280265 2.11161 0.0394284 3.04634 0.00476976C4.17327 -0.0370151 5.31442 0.201482 6.35032 0.495039C9.08692 1.27092 11.8555 0.437224 12 0.355529L10.7467 1.61354C10.1215 1.87453 8.44463 2.35334 5.69832 1.57472C4.5756 1.25615 3.67088 1.11186 2.87604 1.14134Z" fill="white"/></svg><span>В корзину</span></button>' +
 							'<button class="btn btn-white"><svg width="12" height="2" viewBox="0 0 12 2" fill="none"><path d="M2.87604 1.14134C2.20672 1.166 0.619907 1.21604 0 1.49547L1.25331 0.355529C1.6081 0.280265 2.11161 0.0394284 3.04634 0.00476976C4.17327 -0.0370151 5.31442 0.201482 6.35032 0.495039C9.08692 1.27092 11.8555 0.437224 12 0.355529L10.7467 1.61354C10.1215 1.87453 8.44463 2.35334 5.69832 1.57472C4.5756 1.25615 3.67088 1.11186 2.87604 1.14134Z" fill="white"/></svg><span>заказать в 1 клик</span></button>' +
 						'</div>' +
@@ -809,7 +809,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	// ===== SHOWROOMS =====
-	function updateShowroomStatus() {
+	window.updateShowroomStatus = function () {
 		var now = new Date()
 		var currentMinutes = now.getHours() * 60 + now.getMinutes()
 
@@ -838,6 +838,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
-	updateShowroomStatus()
-	setInterval(updateShowroomStatus, 60000)
+	window.updateShowroomStatus()
+	setInterval(window.updateShowroomStatus, 60000)
 })

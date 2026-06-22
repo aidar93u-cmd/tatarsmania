@@ -1,0 +1,309 @@
+/* ===================================
+   Designers Page (Дизайнерам и архитекторам)
+   =================================== */
+
+/* ===== Form Horizontal ===== */
+.designers-form__inner {
+    position: relative;
+    padding: 44px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.designers-form__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 100%);
+    opacity: .3;
+    z-index: 1;
+}
+
+.designers-form__content {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.designers-form__content h3 {
+    color: var(--white);
+    margin: 0;
+}
+
+.designers-form__content p {
+    color: var(--white);
+    margin: 0;
+}
+
+.designers-form__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.designers-form__inputs {
+    display: flex;
+    gap: 6px;
+}
+
+.designers-form__field {
+    flex: 1;
+}
+
+.designers-form__input {
+    width: 100%;
+    height: 38px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,.1);
+    border: none;
+    color: var(--white);
+    outline: none;
+    font-size: 12px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.designers-form__input::placeholder {
+    color: rgba(255,255,255,.4);
+}
+
+.designers-form__submit {
+    flex-shrink: 0;
+    height: 38px;
+    padding: 12px 50px;
+    background: var(--white);
+    color: var(--graphite);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.designers-form__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.designers-form__checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.designers-form__checkbox-mark {
+    width: 12px;
+    height: 12px;
+    border: .5px solid rgba(33,33,33,.2);
+    background: var(--white);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.designers-form__checkbox input:checked + .designers-form__checkbox-mark::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--graphite);
+}
+
+/* ===== Section Header ===== */
+.designers-section__header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.designers-section__header h2 {
+    margin: 0;
+}
+
+/* ===== Partners ===== */
+.designers-partners__slider-wrap {
+    position: relative;
+}
+
+.partners-swiper {
+    overflow: hidden;
+}
+
+.designers-partners__card {
+    background: var(--gray-lighter);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center;
+    min-height: 291px;
+}
+
+.designers-partners__card-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.designers-partners__card-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.designers-partners__arrows {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    top: -53px;
+    right: 0;
+    z-index: 5;
+}
+
+.designers__arrow {
+    width: 13px;
+    height: 13px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+
+.designers__arrow:hover {
+    opacity: 0.5;
+}
+
+.designers-partners__pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    margin-top: 45px;
+    position: relative;
+    bottom: auto;
+}
+
+.designers-partners__pagination .swiper-pagination-bullet {
+    width: 4px;
+    height: 4px;
+    background: var(--graphite);
+    border-radius: 50%;
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.designers-partners__pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* ===== Projects ===== */
+.designers-projects__slider-wrap {
+    position: relative;
+}
+
+.projects-swiper {
+    overflow: hidden;
+}
+
+.designers-projects__card {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    min-height: 444.5px;
+}
+
+.designers-projects__card-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+}
+
+.designers-projects__card-body p {
+    margin: 0;
+}
+
+.designers-projects__arrows {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    top: -53px;
+    right: 0;
+    z-index: 5;
+}
+
+.designers-projects__pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    margin-top: 45px;
+    position: relative;
+    bottom: auto;
+}
+
+.designers-projects__pagination .swiper-pagination-bullet {
+    width: 4px;
+    height: 4px;
+    background: var(--graphite);
+    border-radius: 50%;
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.designers-projects__pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* ===== Mobile: ≤768px ===== */
+@media (max-width: 768px) {
+    .designers-form__inner {
+        padding: 24px var(--gutter);
+    }
+
+    .designers-form__inputs {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .designers-form__field {
+        flex: none;
+    }
+
+    .designers-form__submit {
+        width: 100%;
+    }
+
+    .designers-form__content {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .designers-section__header {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .designers-partners__arrows,
+    .designers-projects__arrows {
+        top: -50px;
+    }
+}

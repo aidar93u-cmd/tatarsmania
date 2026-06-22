@@ -399,15 +399,73 @@ $(function () {
   $mobileSortPopup.on('click', '.catalog-listing__mobile-sort-overlay, .catalog-listing__mobile-sort-close', function () {
     $mobileSortPopup.removeClass('open');
   });
-  $(document).on('click', '.catalog-listing__mobile-sort-option', function () {
-    var $this = $(this);
-    var label = $this.text().trim();
+
+  /* ===== SORT LOGIC (desktop + mobile) ===== */
+  function sortProducts(sortKey) {
+    var $grid = $('.catalog-listing__product-grid');
+    var $cards = $grid.children('.product-card');
+    if (!$cards.length) return;
+
+    var sorted = $cards.toArray().sort(function (a, b) {
+      var $a = $(a), $b = $(b);
+
+      switch (sortKey) {
+        case 'alphabet-az':
+          return $a.find('.product-card__title').text().trim().localeCompare($b.find('.product-card__title').text().trim());
+        case 'alphabet-ya':
+          return $b.find('.product-card__title').text().trim().localeCompare($a.find('.product-card__title').text().trim());
+        case 'expensive': {
+          var pa = parseFloat($a.find('.product-card__price').text().trim().replace(/[^\d]/g, '')) || 0;
+          var pb = parseFloat($b.find('.product-card__price').text().trim().replace(/[^\d]/g, '')) || 0;
+          return pb - pa;
+        }
+        case 'cheap': {
+          var pa = parseFloat($a.find('.product-card__price').text().trim().replace(/[^\d]/g, '')) || 0;
+          var pb = parseFloat($b.find('.product-card__price').text().trim().replace(/[^\d]/g, '')) || 0;
+          return pa - pb;
+        }
+        case 'collection':
+          var ca = $a.data('collection') || '';
+          var cb = $b.data('collection') || '';
+          return ca.localeCompare(cb);
+        case 'new':
+        default:
+          return 0;
+      }
+    });
+
+    $.each(sorted, function (i, el) {
+      $grid.append(el);
+    });
+  }
+
+  function onSortSelect(sortKey, label) {
+    $('.catalog-listing__sort-option').removeClass('active');
+    $('.catalog-listing__sort-option[data-sort="' + sortKey + '"]').addClass('active');
     $('.catalog-listing__mobile-sort-option').removeClass('active');
-    $this.addClass('active');
+    $('.catalog-listing__mobile-sort-option[data-sort="' + sortKey + '"]').addClass('active');
     $('.catalog-listing__mobile-sort-label').text(label);
     $('.catalog-listing__sort-trigger span').text(label);
+    sortProducts(sortKey);
+    $('.catalog-listing__sort').removeClass('active');
     $mobileSortPopup.removeClass('open');
     showSkeleton();
+  }
+
+  /* Desktop sort dropdown clicks */
+  $(document).on('click', '.catalog-listing__sort-option', function (e) {
+    e.preventDefault();
+    var sortKey = $(this).data('sort');
+    var label = $(this).text().trim();
+    onSortSelect(sortKey, label);
+  });
+
+  /* Mobile sort option clicks */
+  $(document).on('click', '.catalog-listing__mobile-sort-option', function () {
+    var $this = $(this);
+    var sortKey = $this.data('sort');
+    var label = $this.text().trim();
+    onSortSelect(sortKey, label);
   });
 
   /* Mobile filter */

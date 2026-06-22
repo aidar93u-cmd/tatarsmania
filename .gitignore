@@ -1,13 +1,39 @@
+# dependencies
 node_modules/
-.graphify_python
-graphify-out/
-AGENTS.node_modules
-opencode.json
 package.json
 package-lock.json
-README.md
+
+# AI / IDE config
+.opencode/
 .agents/
-.codegraph/
-AGENTS.md
-skills-lock.json
 .claude/
+.codegraph/
+.vscode/
+.idea/
+.cursor/
+.windsurfrules
+.github/copilot-instructions.md
+opencode.json
+AGENTS.md
+AGENTS.node_modules
+skills-lock.json
+.graphify_python
+graphify-out/
+
+# backup / temp files
+*.backup.*
+*~
+*.swp
+*.bak
+Thumbs.db
+desktop.ini
+
+# misc
+README.md
+js/main-backup.js
+assets/images/figma-search-results.jpg
+
+# old / test font files
+assets/fonts/circe*.{eot,svg,ttf,woff,woff2}
+assets/fonts/CirceContrast*.{woff,woff2}
+assets/fonts/TEST-*

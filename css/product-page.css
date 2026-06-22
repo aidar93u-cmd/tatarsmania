@@ -116,10 +116,6 @@
   fill-opacity: 1;
 
 }
-.product-card__badges {
-    z-index: 2;
-    display: flex;
-}
 .product-badges {
   margin: 0;
   display: flex;
@@ -671,7 +667,6 @@
    OTHER MODELS (Product Cards Slider)
    ============================================ */
 .product-other {
-  padding: 60px 0 150px;
 }
 
 .product-other__slider-wrap {
