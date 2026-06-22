@@ -17,9 +17,6 @@
 }
 
 .contacts-info__social-link {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 120%;
     color: var(--graphite);
     text-decoration: none;
     transition: opacity 0.3s;
@@ -37,10 +34,6 @@
 
 .contacts-info__phone,
 .contacts-info__email {
-    font-family: var(--font3);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 120%;
     color: var(--graphite);
     text-decoration: none;
     transition: opacity 0.3s;
@@ -55,8 +48,6 @@
     display: flex;
     gap: 26px;
     align-items: center;
-    font-size: 12px;
-    line-height: 120%;
     color: var(--graphite);
 }
 
@@ -98,17 +89,11 @@
 }
 
 .contacts-form__title {
-    font-family: var(--font3);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 120%;
     color: #fff;
     margin-bottom: 16px;
 }
 
 .contacts-form__desc {
-    font-size: 12px;
-    line-height: 120%;
     color: #fff;
 }
 
@@ -129,9 +114,6 @@
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(50px);
     border: none;
-    font-family: var(--font-family);
-    font-size: 12px;
-    line-height: 120%;
     color: #fff;
     outline: none;
 }
@@ -147,10 +129,6 @@
     background: #fff;
     border: none;
     cursor: pointer;
-    font-family: var(--font-family);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 120%;
     color: var(--graphite);
     display: flex;
     align-items: center;
@@ -186,8 +164,6 @@
 }
 
 .contacts-form__checkbox-text {
-    font-size: 12px;
-    line-height: 120%;
     color: #fff;
 }
 

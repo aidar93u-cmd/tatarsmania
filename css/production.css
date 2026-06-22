@@ -215,12 +215,9 @@
     align-items: flex-start;
     gap: 6px;
 }
-
 .production-numbers__number {
     font-family: var(--font3);
-    line-height: 80%;
 }
-
 .production-numbers__plus {
     display: flex;
     align-items: flex-start;
@@ -228,16 +225,13 @@
 
 .production-numbers__label {
     display: block;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 120%;
     color: var(--graphite);
 }
 
 /* ===== PRINCIPLES ===== */
 .production-principles {
     background: transparent !important;
-    padding: 0;
+ 
 }
 
 .production-principles .promo-card{
@@ -356,10 +350,6 @@
 }
 
 .production-accordion__title {
-    font-family: var(--font3);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 120%;
     color: var(--graphite);
     text-transform: uppercase;
     max-width: 360px;
@@ -422,9 +412,6 @@
 }
 
 .production-accordion__text p {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 120%;
     color: var(--graphite);
     margin-bottom: 12px;
 }
@@ -435,7 +422,7 @@
 
 /* ===== PHOTOS ===== */
 .production-photos {
-    padding: 0;
+
 }
 
 .production-photos__large {

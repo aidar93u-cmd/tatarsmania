@@ -2,43 +2,6 @@
    Partnership Page (Сотрудничество)
    =================================== */
 
-/* ===== 3-Column Layout ===== */
-.partnership__layout {
-    display: grid;
-    grid-template-columns: 300px 1fr 300px;
-    gap: var(--gutter);
-    align-items: start;
-}
-
-/* ===== Left Nav ===== */
-.partnership-nav__inner {
-    background: var(--gray-lighter);
-    padding: 38px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.partnership-nav__btn {
-    display: block;
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 0;
-    text-align: left;
-    color: var(--graphite);
-    cursor: pointer;
-    transition: color .2s;
-}
-
-.partnership-nav__btn:hover {
-    color: var(--copper);
-}
-
-.partnership-nav__btn--active {
-    color: var(--copper);
-}
-
 /* ===== Advantage Cards ===== */
 .partnership-cards {
     display: grid;
@@ -206,57 +169,6 @@
 }
 
 /* ===== Right Contacts Sidebar ===== */
-.partnership-contacts__inner {
-    background: var(--gray-lighter);
-    padding: 38px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-}
-
-.partnership-contacts__socials {
-    display: flex;
-    gap: 26px;
-    align-items: center;
-}
-
-.partnership-contacts__social-link {
-    color: var(--graphite);
-    text-decoration: none;
-    transition: color .2s;
-}
-
-.partnership-contacts__social-link:hover {
-    color: var(--copper);
-}
-
-.partnership-contacts__phone {
-    color: var(--graphite);
-    text-decoration: none;
-    display: block;
-    transition: color .2s;
-}
-
-.partnership-contacts__phone:hover {
-    color: var(--copper);
-}
-
-.partnership-contacts__email {
-    color: var(--graphite);
-    text-decoration: none;
-    display: block;
-    transition: color .2s;
-}
-
-.partnership-contacts__email:hover {
-    color: var(--copper);
-}
-
-.partnership-contacts__btn {
-    width: 100%;
-    padding: 12px 50px;
-}
-
 /* ===== Small Divider ===== */
 .divider--small {
     height: 30px;
@@ -447,24 +359,6 @@
 
 /* ===== Mobile: ≤768px ===== */
 @media (max-width: 768px) {
-    .partnership__layout {
-        grid-template-columns: 1fr;
-        gap: 6px;
-    }
-
-    .partnership-nav__inner {
-        flex-direction: row;
-        padding: 24px var(--gutter);
-        gap: 24px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .partnership-nav__btn {
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-
     .partnership-cards,
     .partnership-info-cards {
         grid-template-columns: 1fr;
@@ -477,11 +371,6 @@
 
     .partnership-card__body {
         gap: 12px;
-    }
-
-    .partnership-contacts__inner {
-        padding: 24px var(--gutter);
-        gap: 24px;
     }
 
     .partnership-form__inner {
@@ -519,37 +408,4 @@
     }
 }
 
-/* ===== Tablet: 769px–992px ===== */
-@media (max-width: 992px) and (min-width: 769px) {
-    .partnership__layout {
-        grid-template-columns: 1fr;
-    }
 
-    .partnership-nav__inner {
-        flex-direction: row;
-        gap: 24px;
-    }
-
-    .partnership-nav__btn {
-        white-space: nowrap;
-    }
-
-    .partnership-contacts__inner {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-}
-
-/* ===== Desktop Nav: sticky ===== */
-@media (min-width: 993px) {
-    .partnership-nav__inner {
-        position: sticky;
-        top: 0;
-    }
-
-    .partnership-contacts__inner {
-        position: sticky;
-        top: 0;
-    }
-}

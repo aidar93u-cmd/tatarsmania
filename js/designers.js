@@ -18,6 +18,8 @@
             slidesPerView: 5,
             slidesPerGroup: 1,
             spaceBetween: 6,
+            speed: 600,
+            loop: true,
             pagination: {
                 el: '.designers-partners__pagination',
                 type: 'bullets',
@@ -41,6 +43,8 @@
             slidesPerView: 4,
             slidesPerGroup: 1,
             spaceBetween: 6,
+            speed: 600,
+            loop: true,
             pagination: {
                 el: '.designers-projects__pagination',
                 type: 'bullets',

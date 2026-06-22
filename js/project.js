@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // ===== PROJECT GALLERY SLIDER =====
-  var sliderEl = document.querySelector('.project-slider__swiper');
+  var sliderEl = document.querySelector('.media-slider__swiper');
   if (sliderEl) {
     var projectSwiper = new Swiper(sliderEl, {
       loop: true,
@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       allowTouchMove: true,
       navigation: {
-        prevEl: '.project-slider__btn--prev',
-        nextEl: '.project-slider__btn--next',
+        prevEl: '.media-slider__btn--prev',
+        nextEl: '.media-slider__btn--next',
       },
       on: {
         init: function () {
@@ -26,18 +26,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function updateProjectProgress(swiper) {
-      var bars = document.querySelectorAll('.project-slider__progress-bar');
+      var bars = document.querySelectorAll('.media-slider__progress-bar');
       var realIndex = swiper.realIndex;
       bars.forEach(function (bar, i) {
         if (i === realIndex) {
-          bar.classList.add('project-slider__progress-bar--active');
+          bar.classList.add('media-slider__progress-bar--active');
         } else {
-          bar.classList.remove('project-slider__progress-bar--active');
+          bar.classList.remove('media-slider__progress-bar--active');
         }
       });
     }
 
-    document.querySelectorAll('.project-slider__progress-bar').forEach(function (bar, index) {
+    document.querySelectorAll('.media-slider__progress-bar').forEach(function (bar, index) {
       bar.addEventListener('click', function () {
         projectSwiper.slideToLoop(index);
       });
@@ -45,20 +45,20 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ===== OTHER MODELS SWIPER =====
-  var modelsEl = document.querySelector('.project-other-models__swiper');
+  var modelsEl = document.querySelector('.hits-swiper');
   if (modelsEl) {
     new Swiper(modelsEl, {
       slidesPerView: 4,
       slidesPerGroup: 1,
       spaceBetween: 16,
       pagination: {
-        el: '.project-other-models__pagination',
+        el: '.hits__pagination',
         type: 'bullets',
         clickable: true,
       },
       navigation: {
-        prevEl: '.project-other-models__arrow--prev',
-        nextEl: '.project-other-models__arrow--next',
+        prevEl: '.product-other__arrow--prev',
+        nextEl: '.product-other__arrow--next',
       },
       breakpoints: {
         769: { slidesPerView: 4 },

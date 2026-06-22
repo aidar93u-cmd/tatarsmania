@@ -175,6 +175,16 @@ document.addEventListener('DOMContentLoaded', function () {
 		var mobileHeaderHeight = headerMobile ? headerMobile.offsetHeight : 0
 		var lastScroll = 0
 
+		function updateStickyTop() {
+			var hf = document.querySelector('.header-fixed')
+			if (hf && hf.classList.contains('header-fixed--visible')) {
+				var rect = hf.getBoundingClientRect()
+				document.documentElement.style.setProperty('--sticky-top', rect.bottom + 'px')
+			} else {
+				document.documentElement.style.setProperty('--sticky-top', '0px')
+			}
+		}
+
 		window.addEventListener('scroll', function () {
 			var currentScroll = window.pageYOffset || document.documentElement.scrollTop
 			var isMobile = window.innerWidth <= 992
@@ -184,10 +194,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 				if (isMobile) {
 					document.body.style.paddingTop = mobileHeaderHeight + 'px'
-				} else if (fixedBlock.classList.contains('header-fixed--hide-topbar')) {
-				//	document.body.style.paddingTop = headerHeight + 'px'
-				} else {
-				//	document.body.style.paddingTop = topbarHeight + headerHeight + 'px'
 				}
 
 				if (!isMobile && currentScroll > lastScroll && currentScroll > scrollOffset + 50) {
@@ -200,8 +206,11 @@ document.addEventListener('DOMContentLoaded', function () {
 				document.body.classList.remove('header-fixed-active')
 				document.body.style.removeProperty('padding-top')
 			}
+			updateStickyTop()
 			lastScroll = currentScroll
 		})
+
+		updateStickyTop()
 	}
 
 	// ===== GALLERY HOVER INIT =====
