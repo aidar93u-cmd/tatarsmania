@@ -11,6 +11,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     border-bottom: 1px solid #DBDBDB;
+    position: relative; 
+    z-index: 1;
 }
 
 .collections-grid__tabs {
@@ -23,10 +25,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-family);
-    font-size: 12px;
-    font-weight: 500;
-    text-transform: uppercase;
     color: var(--graphite);
     background: none;
     border: none;
@@ -50,8 +48,6 @@
 }
 
 .collections-grid__count {
-    font-family: var(--font-family);
-    font-size: 12px;
     color: var(--graphite);
     opacity: 0.4;
     white-space: nowrap;
@@ -67,8 +63,6 @@
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    font-family: var(--font-family);
-    font-size: 12px;
     background: #DBDBDB;
     border: none;
     cursor: pointer;
@@ -103,8 +97,6 @@
 .collections-grid__sort-option {
     display: block;
     padding: 6px 8px;
-    font-size: 12px;
-    font-family: var(--font-family);
     color: var(--graphite);
     text-decoration: none;
     transition: background 0.4s;
@@ -116,13 +108,15 @@
 }
 
 .collections-grid__sort-option.active {
-  font-weight: 600;
+  color: var(--copper);
 }
 
 .collections-grid__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px 6px;
+    position: relative; 
+    z-index: 0;
 }
 
 .collection-card {
@@ -154,10 +148,6 @@
 .collection-card__name {
     display: block;
     padding: 28px 0;
-    font-family: var(--font-family);
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.02em;
     transition: opacity 0.4s;
 }
@@ -175,7 +165,6 @@
 }
 
 .collections-grid__pagination-info {
-  font-size: 12px;
   color: #787878;
 }
 
@@ -195,11 +184,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
   color: var(--graphite);
-  font-weight: 500;
   text-decoration: none;
-  line-height: 15px;
   border-radius: 50px;
   transition: background 0.4s, color 0.4s;
 }
@@ -243,9 +229,6 @@
 
 .collections-grid__page-arrow svg {
   display: block;
-}
-
-.product-other {
 }
 
 .product-other__slider-wrap {
@@ -340,7 +323,6 @@
 
     .collection-card__name {
         padding: 15px 0;
-        font-size: 12px;
     }
 
     .collections-grid__pagination {
@@ -379,18 +361,9 @@
         gap: 12px;
     }
 
-    .collections-grid__tab {
-        font-size: 10px;
-    }
-
-    .collections-grid__pagination-info {
-        font-size: 10px;
-    }
-
     .collections-grid__page-link {
         width: 32px;
         height: 32px;
-        font-size: 14px;
     }
 
     .collections-grid__page-arrow {

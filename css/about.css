@@ -1,6 +1,6 @@
 /* ===== ABOUT HERO ===== */
 .about-hero {
-    padding: 0;
+
 }
 
 .about-hero__inner {
@@ -34,7 +34,6 @@
 }
 
 .about-hero__title {
-    font-family: var(--font3);
     max-width: 430px;
 }
 
@@ -44,14 +43,10 @@
 
 /* ===== ABOUT HISTORY ===== */
 .about-history {
-    padding: 0;
+ 
 }
 
 .about-history__title {
-    font-family: var(--font3);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 120%;
     text-align: center;
     margin-bottom: 70px;
 }
@@ -134,10 +129,6 @@
 }
 
 .about-history__slide-year {
-    font-family: var(--font3);
-    font-size: 48px;
-    font-weight: 400;
-    line-height: 100%;
     color: #fff;
     display: block;
     margin-bottom: 24px;
@@ -145,8 +136,7 @@
 
 /* ===== ABOUT TEAM ===== */
 .about-team {
-    padding: 0;
-    margin-bottom: 70px;
+
 }
 
 .about-team__inner {
@@ -178,24 +168,18 @@
 }
 
 .about-team__title {
-    font-family: var(--font3);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 130%;
     color: #fff;
     max-width: 285px;
 }
 
 .about-team__desc {
-    font-size: 12px;
-    line-height: 120%;
     color: #fff;
     max-width: 411px;
 }
 
 /* ===== ABOUT PEOPLE ===== */
 .about-people {
-    padding: 0;
+
 }
 
 .about-people__grid {
@@ -226,29 +210,20 @@
 }
 
 .about-people__card-name {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 120%;
     color: var(--graphite);
 }
 
 .about-people__card-role {
-    font-size: 12px;
-    line-height: 120%;
     color: var(--graphite);
     opacity: 0.4;
 }
 
 /* ===== ABOUT REVIEWS ===== */
 .about-reviews {
-    padding: 0;
+
 }
 
 .about-reviews__title {
-    font-family: var(--font3);
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 120%;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -283,8 +258,6 @@
 }
 
 .about-reviews__card-text {
-    font-size: 12px;
-    line-height: 120%;
     color: var(--graphite);
 }
 
@@ -295,16 +268,10 @@
 }
 
 .about-reviews__card-title-text {
-    font-family: var(--font3);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 130%;
     color: var(--graphite);
 }
 
 .about-reviews__card-desc {
-    font-size: 12px;
-    line-height: 120%;
     color: var(--graphite);
     opacity: 0.4;
 }
@@ -323,15 +290,10 @@
 }
 
 .about-reviews__card-name {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 120%;
     color: var(--graphite);
 }
 
 .about-reviews__card-product {
-    font-size: 12px;
-    line-height: 120%;
     color: var(--graphite);
     opacity: 0.4;
 }

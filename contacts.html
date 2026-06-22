@@ -29,11 +29,13 @@
 
     <!-- ===== HEADER GROUP ===== -->
     <div class="header-group white-header">
+        <!-- ===== TOP BAR ===== -->
         <div class="topbar">
             <div class="topbar__left">
                 <span class="topbar__city">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path d="M6.5 0C3.46 0 1 2.46 1 5.5c0 4.5 5.5 7.5 5.5 7.5S12 10 12 5.5C12 2.46 9.54 0 6.5 0z" fill="#fff" />
+                        <path d="M6.5 0C3.46 0 1 2.46 1 5.5c0 4.5 5.5 7.5 5.5 7.5S12 10 12 5.5C12 2.46 9.54 0 6.5 0z"
+                            fill="#fff" />
                         <circle cx="6.5" cy="5.5" r="2" fill="#212121" />
                     </svg>
                     Москва
@@ -43,9 +45,33 @@
                 <a href="#">Коллекции</a>
                 <a href="#">Идеи</a>
                 <a href="#">Шоурумы</a>
-                <a href="#" class="has-dropdown">Сотрудничество</a>
-                <a href="#" class="has-dropdown">О компании</a>
-                <a href="#" class="has-dropdown">Покупателям</a>
+                <div class="topbar__nav-item">
+                    <a href="#" class="has-dropdown">Сотрудничество</a>
+                    <div class="topbar__dropdown">
+                        <a href="#">Оптовикам</a>
+                        <a href="#">Дизайнерам</a>
+                        <a href="#">Архитекторам</a>
+                        <a href="#">Поставщикам</a>
+                    </div>
+                </div>
+                <div class="topbar__nav-item">
+                    <a href="#" class="has-dropdown">О компании</a>
+                    <div class="topbar__dropdown">
+                        <a href="#">О бренде</a>
+                        <a href="#">Производство</a>
+                        <a href="#">Новости</a>
+                        <a href="#">Реквизиты</a>
+                    </div>
+                </div>
+                <div class="topbar__nav-item">
+                    <a href="#" class="has-dropdown">Покупателям</a>
+                    <div class="topbar__dropdown">
+                        <a href="#">Доставка и оплата</a>
+                        <a href="#">Гарантия и возврат</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Контакты</a>
+                    </div>
+                </div>
                 <a href="#">Блог</a>
             </nav>
             <div class="topbar__right">
@@ -56,299 +82,14 @@
                 <a href="#" class="topbar__phone">+7 (999) 099-00-99</a>
             </div>
         </div>
-
-        <div class="header-mobile">
-            <div class="header-mobile__left">
-                <button class="header-mobile__burger" aria-label="Меню">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <rect x="0" y="5.5" width="13" height="1" fill="currentColor" />
-                        <rect x="0" y="8.5" width="13" height="1" fill="currentColor" />
-                    </svg>
-                </button>
-                <a href="/" class="header-mobile__logo">
-                    <svg width="148" height="9" viewBox="0 0 218 13" fill="none">
-                        <path d="M123.732 10.2944C125.865 7.03523 127.999 3.77585 130.132 0.516729H131.559V13H129.765L129.765 2.64243L123.269 12.751L116.659 2.6534V13H115.772L115.772 0.516729H117.332L123.732 10.2944ZM163.77 0.516729V6.79063C164.168 6.66957 164.662 6.56917 165.041 6.49569C166.078 6.31506 167.203 6.59343 168.164 6.93222C169.049 7.24402 169.759 7.3336 170.691 7.21279C171.164 7.15153 171.883 7.03409 172.34 6.84497C172.798 6.6557 172.993 6.39452 173.05 6.08999C173.056 6.05542 173.061 6.02028 173.064 5.98497V0.516729H174.859V13H173.064V7.54273C172.411 7.75973 171.516 8.02195 170.478 8.11093C169.604 8.1815 168.61 7.91827 167.839 7.64671C166.564 7.19681 165.439 6.98697 164.222 7.66891C164.22 7.67206 164.039 7.77664 163.873 7.9628C163.84 7.99974 163.805 8.03909 163.77 8.07984V13H161.976V0.516729H163.77ZM101.779 0.477544C104.777 0.477557 107.338 1.63348 107.775 4.33055H105.789C105.511 2.35146 103.983 1.10795 101.699 1.10791C98.3037 1.10791 96.9334 3.92763 96.9334 6.71226C96.9334 9.67212 98.5222 12.3694 101.818 12.3694C103.943 12.3693 105.591 11.3009 105.968 9.19951H107.954C107.398 11.809 105.035 12.9997 101.957 12.9997C97.1719 12.9997 94.8685 10.1626 94.8685 6.69475C94.8685 3.13962 97.2712 0.477544 101.779 0.477544ZM187.165 11.1807L195.717 0.516991H197.334V12.9997H195.312V2.35376L186.76 12.9997H185.143V0.516991H187.165V11.1807ZM218 12.9997H215.978V7.52523H213.41L209.61 12.9997H207.426L211.53 7.40036C209.327 7.02595 207.952 5.8133 207.952 4.03012C207.952 1.83682 210.014 0.517022 213.128 0.516991H218V12.9997ZM15.68 1.51388H8.73695V12.9987H6.9433V1.51388H0L0.358968 0.515423H15.3213L15.68 1.51388ZM50.2407 1.51388H43.2974V12.9987H41.5034V1.51388H34.5607L34.9191 0.515423H49.8817L50.2407 1.51388ZM81.1676 0.515423C83.5006 0.515433 85.9242 2.08103 85.9242 4.649C85.9241 7.72413 83.8026 8.53144 81.0962 8.73163C79.5937 8.84254 77.7239 8.78205 76.3819 8.78205V12.9984H74.5877V0.515423H81.1676ZM31.6588 12.9982H29.8642L28.0093 9.44664C27.5303 9.69515 26.2457 10.1512 24.1412 9.40916L27.588 13.6672C27.221 13.748 25.9629 13.4989 24.1412 12.9181C22.3195 12.3372 20.1162 12.1661 19.3596 12.9982H17.6559L20.6391 7.88817C19.7365 7.25727 18.7787 6.43899 18.0407 4.91872C17.1767 3.36268 17.2632 1.41978 18.0407 0.515423H22.4624L23.3422 0.948222C22.3083 1.17404 21.5671 1.87848 21.502 3.19874C21.4056 4.80319 22.6707 6.35044 23.5832 7.22264C24.7488 8.32303 26.3169 8.91112 28.0093 9.3483L31.6588 12.9982Z" fill="#212121" />
-                    </svg>
-                </a>
-            </div>
-            <div class="header-mobile__right">
-                <button class="header-mobile__icon" aria-label="Поиск">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="0.8" />
-                        <line x1="8.5" y1="8.5" x2="12" y2="12" stroke="currentColor" stroke-width="0.8" />
-                    </svg>
-                </button>
-                <a href="#" class="header-mobile__icon" aria-label="Избранное">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" />
-                    </svg>
-                    <span class="header__badge">0</span>
-                </a>
-                <a href="" class="header-mobile__icon" aria-label="Корзина">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path d="M4.35714 4.73529V2.61765C4.35714 1.4481 5.31653 0.5 6.5 0.5C7.68347 0.5 8.64286 1.4481 8.64286 2.61765V4.73529M2.21429 3.32353H10.7857L11.5 12.5H1.5L2.21429 3.32353Z" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" />
-                    </svg>
-                    <span class="header__badge">22</span>
-                </a>
-                <a href="#" class="header-mobile__icon" aria-label="Профиль">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z" stroke="currentColor" stroke-width="0.8" />
-                        <path d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z" stroke="currentColor" stroke-width="0.8" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu__inner">
-                <div class="mobile-menu__bar">
-                    <button class="mobile-menu__back" id="mobileMenuBack" aria-label="Назад">
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                            <path d="M8.5 1.5L3.5 6.5L8.5 11.5" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <span class="mobile-menu__title" id="mobileMenuTitle">Меню</span>
-                    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть">
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                            <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)" fill="currentColor" />
-                            <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)" fill="currentColor" />
-                        </svg>
-                    </button>
-                    <div class="mobile-menu__bar-line"></div>
-                </div>
-                <div class="mobile-menu__body">
-                    <div class="mobile-menu__track" id="mobileMenuTrack">
-                        <div class="mobile-menu__level" data-level="main" data-title="Меню">
-                            <div class="mobile-menu__nav">
-                                <button class="mobile-menu__nav-item" data-level="catalog" data-title="Каталог"><span>Каталог</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <a href="#" class="mobile-menu__nav-item"><span>Коллекции</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Идеи</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Шоурумы</span></a>
-                                <button class="mobile-menu__nav-item" data-level="sotrudnichestvo" data-title="Сотрудничество"><span>Сотрудничество</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <button class="mobile-menu__nav-item" data-level="o-kompanii" data-title="О компании"><span>О компании</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <button class="mobile-menu__nav-item" data-level="pokupatelyam" data-title="Покупателям"><span>Покупателям</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <a href="#" class="mobile-menu__nav-item"><span>Блог</span></a>
-                            </div>
-                            <div class="mobile-menu__contacts">
-                                <div class="mobile-menu__contact-row">
-                                    <svg width="9" height="13" viewBox="0 0 9 13" fill="none"><path d="M4.5 0.5C2.29086 0.5 0.5 2.29086 0.5 4.5C0.5 7.5 4.5 12.5 4.5 12.5C4.5 12.5 8.5 7.5 8.5 4.5C8.5 2.29086 6.70914 0.5 4.5 0.5Z" fill="currentColor" /></svg>
-                                    <span>Москва</span>
-                                </div>
-                                <div class="mobile-menu__divider"></div>
-                                <a href="tel:+79990990099" class="mobile-menu__phone">+7 (999) 099-00-99</a>
-                                <div class="mobile-menu__socials">
-                                    <a href="#">TG</a>
-                                    <a href="#">WA*</a>
-                                    <a href="#">IG*</a>
-                                    <a href="#">MAX</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="catalog" data-title="Каталог">
-                            <div class="mobile-menu__nav">
-                                <button class="mobile-menu__nav-item" data-level="sve" data-title="Мебель собственного производства"><span>Мебель собственного производства</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <button class="mobile-menu__nav-item" data-level="evropeyskaya" data-title="Европейская мебель"><span>Европейская мебель</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <button class="mobile-menu__nav-item" data-level="rooms" data-title="Комнаты"><span>Комнаты</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <button class="mobile-menu__nav-item" data-level="collections2" data-title="Коллекции"><span>Коллекции</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <button class="mobile-menu__nav-item" data-level="new-items" data-title="Новинки"><span>Новинки</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <button class="mobile-menu__nav-item" data-level="actions2" data-title="Акции"><span>Акции</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="sve" data-title="Мебель собственного производства">
-                            <div class="mobile-menu__nav">
-                                <a href="#" class="mobile-menu__nav-item"><span>Мягкая мебель</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Корпусная мебель</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Мебель для спальни</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Мебель для гостиной</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Мебель для прихожей</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Мебель для кабинета</span></a>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="evropeyskaya" data-title="Европейская мебель">
-                            <div class="mobile-menu__nav">
-                                <a href="#" class="mobile-menu__nav-item"><span>Италия</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Германия</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Франция</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Испания</span></a>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="rooms" data-title="Комнаты">
-                            <div class="mobile-menu__nav">
-                                <button class="mobile-menu__nav-item" data-level="divany" data-title="Диваны"><span>Диваны</span><svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none"><path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" /></svg></button>
-                                <a href="#" class="mobile-menu__nav-item"><span>Кресла</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Столы</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Стулья</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Шкафы</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Кровати</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Тумбы</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Пуфы</span></a>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="divany" data-title="Диваны">
-                            <div class="mobile-menu__filters">
-                                <div class="mobile-menu__filter-group">
-                                    <div class="mobile-menu__filter-label">По назначению</div>
-                                    <div class="mobile-menu__filter-links">
-                                        <a href="#">Диваны-кровати для сна</a>
-                                        <a href="#">Диваны для гостиной</a>
-                                        <a href="#">Диваны для детской</a>
-                                        <a href="#">Диваны для кухни</a>
-                                    </div>
-                                </div>
-                                <div class="mobile-menu__filter-group">
-                                    <div class="mobile-menu__filter-label">По форме</div>
-                                    <div class="mobile-menu__filter-links">
-                                        <a href="#">Диваны прямые</a>
-                                        <a href="#">Диваны угловые</a>
-                                        <a href="#">Диваны модульные</a>
-                                        <a href="#">Диваны без подлокотников</a>
-                                    </div>
-                                </div>
-                                <div class="mobile-menu__filter-group">
-                                    <div class="mobile-menu__filter-label">По спальному месту</div>
-                                    <div class="mobile-menu__filter-links">
-                                        <a href="#">Односпальные диваны</a>
-                                        <a href="#">Полутороспальные диваны</a>
-                                        <a href="#">Двуспальные диваны</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="mobile-menu__card">
-                                <div class="mobile-menu__card-img" style="background: #f3f3f3;"></div>
-                                <div class="mobile-menu__card-title">Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)</div>
-                            </a>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="collections2" data-title="Коллекции">
-                            <div class="mobile-menu__nav">
-                                <a href="#" class="mobile-menu__nav-item"><span>Коллекция 2025</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Коллекция 2024</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Премиум</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Эко</span></a>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="new-items" data-title="Новинки">
-                            <div class="mobile-menu__nav">
-                                <a href="#" class="mobile-menu__nav-item"><span>Новинки месяца</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Скоро в продаже</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Предзаказ</span></a>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="actions2" data-title="Акции">
-                            <div class="mobile-menu__nav">
-                                <a href="#" class="mobile-menu__nav-item"><span>Распродажа</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Уценка</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Подарки</span></a>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="sotrudnichestvo" data-title="Сотрудничество">
-                            <div class="mobile-menu__nav">
-                                <a href="#" class="mobile-menu__nav-item"><span>Дизайнерам</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Архитекторам</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Для бизнеса</span></a>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="o-kompanii" data-title="О компании">
-                            <div class="mobile-menu__nav">
-                                <a href="#" class="mobile-menu__nav-item"><span>История</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Производство</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Отзывы</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Реквизиты</span></a>
-                            </div>
-                        </div>
-
-                        <div class="mobile-menu__level" data-level="pokupatelyam" data-title="Покупателям">
-                            <div class="mobile-menu__nav">
-                                <a href="#" class="mobile-menu__nav-item"><span>Доставка</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Оплата</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Возврат</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>Гарантия</span></a>
-                                <a href="#" class="mobile-menu__nav-item"><span>FAQ</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mobile-menu__footer" id="mobileMenuFooter">
-                    <button class="mobile-menu__account-btn">
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                            <path d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z" stroke="currentColor" stroke-width="0.8" />
-                            <path d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z" stroke="currentColor" stroke-width="0.8" />
-                        </svg>
-                        <span>В личный кабинет</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div id="searchPopup" style="display:none;">
-            <div class="search-popup__mobile-header">
-                <span class="search-popup__mobile-title">Поиск</span>
-                <button class="search-popup__mobile-close" type="button" data-fancybox-close aria-label="Закрыть">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <line x1="1" y1="1" x2="12" y2="12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                        <line x1="12" y1="1" x2="1" y2="12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                    </svg>
-                </button>
-            </div>
-            <form class="search-popup__form" id="searchForm" novalidate>
-                <div class="search-popup__input-wrap">
-                    <input class="search-popup__input" type="text" id="searchInput" placeholder="Введите запрос" autocomplete="off">
-                    <button class="search-popup__reset" type="button" id="searchReset" aria-label="Очистить" style="display:none;">
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                            <path d="M2 2L11 11M11 2L2 11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                        </svg>
-                    </button>
-                    <button class="search-popup__submit" type="submit" aria-label="Найти">
-                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                            <circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="0.8" />
-                            <line x1="8.5" y1="8.5" x2="12" y2="12" stroke="currentColor" stroke-width="0.8" />
-                        </svg>
-                        <div class="search-popup__spinner" style="display:none;"></div>
-                    </button>
-                </div>
-            </form>
-            <div class="search-popup__body">
-                <div class="search-popup__tags">
-                    <span class="search-popup__tags-label">Часто ищут:</span>
-                    <div class="search-popup__tags-list">
-                        <button type="button" class="search-popup__tag" data-search-tag="Диван VELVET">Диван VELVET</button>
-                        <button type="button" class="search-popup__tag" data-search-tag="LOKI">LOKI</button>
-                        <button type="button" class="search-popup__tag" data-search-tag="2-местные диваны">2-местные диваны</button>
-                        <button type="button" class="search-popup__tag" data-search-tag="AURA">AURA</button>
-                    </div>
-                </div>
-                <div class="search-popup__results-header" id="searchResultsHeader" style="display:none;"></div>
-                <div class="search-popup__empty-state" id="searchEmptyState" style="display:none;">
-                    <span class="search-popup__empty-text" id="searchEmptyText"></span>
-                    <span class="search-popup__empty-hint">Попробуйте изменить запрос</span>
-                </div>
-                <div class="search-popup__results" id="searchResults" style="display:none;">
-                    <div class="search-popup__results-grid" id="searchResultsGrid"></div>
-                </div>
-            </div>
-            <button class="search-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
-                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                    <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)" fill="currentColor" />
-                    <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)" fill="currentColor" />
-                </svg>
-            </button>
-        </div>
-
+    
+        <!-- ===== HEADER ===== -->
         <header class="header">
             <div class="header__left">
                 <button class="header__catalog-btn" id="catalogBtn">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <rect x="0" y="4.5" width="13" height="1" fill="#fff" />
-                        <rect x="0" y="7.5" width="13" height="1" fill="#fff" />
+                        <rect x="0" y="4.5" width="13" height="1" fill="currentColor" />
+                        <rect x="0" y="7.5" width="13" height="1" fill="currentColor" />
                     </svg>
                     КАТАЛОГ
                 </button>
@@ -359,27 +100,38 @@
                     </svg>
                 </button>
             </div>
-            <a href="index.html" class="header__logo">
-                <svg width="218" height="13" viewBox="0 0 218 13" fill="none">
-                    <path d="M123.732 10.2944C125.865 7.03523 127.999 3.77585 130.132 0.516729H131.559V13H129.765L129.765 2.64243L123.269 12.751L116.659 2.6534V13H115.772L115.772 0.516729H117.332L123.732 10.2944ZM163.77 0.516729V6.79063C164.168 6.66957 164.662 6.56917 165.041 6.49569C166.078 6.31506 167.203 6.59343 168.164 6.93222C169.049 7.24402 169.759 7.3336 170.691 7.21279C171.164 7.15153 171.883 7.03409 172.34 6.84497C172.798 6.6557 172.993 6.39452 173.05 6.08999C173.056 6.05542 173.061 6.02028 173.064 5.98497V0.516729H174.859V13H173.064V7.54273C172.411 7.75973 171.516 8.02195 170.478 8.11093C169.604 8.1815 168.61 7.91827 167.839 7.64671C166.564 7.19681 165.439 6.98697 164.222 7.66891C164.22 7.67206 164.039 7.77664 163.873 7.9628C163.84 7.99974 163.805 8.03909 163.77 8.07984V13H161.976V0.516729H163.77ZM101.779 0.477544C104.777 0.477557 107.338 1.63348 107.775 4.33055H105.789C105.511 2.35146 103.983 1.10795 101.699 1.10791C98.3037 1.10791 96.9334 3.92763 96.9334 6.71226C96.9334 9.67212 98.5222 12.3694 101.818 12.3694C103.943 12.3693 105.591 11.3009 105.968 9.19951H107.954C107.398 11.809 105.035 12.9997 101.957 12.9997C97.1719 12.9997 94.8685 10.1626 94.8685 6.69475C94.8685 3.13962 97.2712 0.477544 101.779 0.477544ZM187.165 11.1807L195.717 0.516991H197.334V12.9997H195.312V2.35376L186.76 12.9997H185.143V0.516991H187.165V11.1807ZM218 12.9997H215.978V7.52523H213.41L209.61 12.9997H207.426L211.53 7.40036C209.327 7.02595 207.952 5.8133 207.952 4.03012C207.952 1.83682 210.014 0.517022 213.128 0.516991H218V12.9997ZM15.68 1.51388H8.73695V12.9987H6.9433V1.51388H0L0.358968 0.515423H15.3213L15.68 1.51388ZM50.2407 1.51388H43.2974V12.9987H41.5034V1.51388H34.5607L34.9191 0.515423H49.8817L50.2407 1.51388ZM81.1676 0.515423C83.5006 0.515433 85.9242 2.08103 85.9242 4.649C85.9241 7.72413 83.8026 8.53144 81.0962 8.73163C79.5937 8.84254 77.7239 8.78205 76.3819 8.78205V12.9984H74.5877V0.515423H81.1676ZM31.6588 12.9982H29.8642L28.0093 9.44664C27.5303 9.69515 26.2457 10.1512 24.1412 9.40916L27.588 13.6672C27.221 13.748 25.9629 13.4989 24.1412 12.9181C22.3195 12.3372 20.1162 12.1661 19.3596 12.9982H17.6559L20.6391 7.88817C19.7365 7.25727 18.7787 6.43899 18.0407 4.91872C17.1767 3.36268 17.2632 1.41978 18.0407 0.515423H22.4624L23.3422 0.948222C22.3083 1.17404 21.5671 1.87848 21.502 3.19874C21.4056 4.80319 22.6707 6.35044 23.5832 7.22264C24.7488 8.32303 26.3169 8.91112 28.0093 9.3483L31.6588 12.9982Z" fill="#212121" />
+            <a href="/" class="header__logo">
+                <svg width="218" height="13" viewBox="0 0 218 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M123.732 10.2944C125.865 7.03523 127.999 3.77585 130.132 0.516729H131.559V13H129.765L129.765 2.64243L123.269 12.751L116.659 2.6534V13H115.772L115.772 0.516729H117.332L123.732 10.2944ZM163.77 0.516729V6.79063C164.168 6.66957 164.662 6.56917 165.041 6.49569C166.078 6.31506 167.203 6.59343 168.164 6.93222C169.049 7.24402 169.759 7.3336 170.691 7.21279C171.164 7.15153 171.883 7.03409 172.34 6.84497C172.798 6.6557 172.993 6.39452 173.05 6.08999C173.056 6.05542 173.061 6.02028 173.064 5.98497V0.516729H174.859V13H173.064V7.54273C172.411 7.75973 171.516 8.02195 170.478 8.11093C169.604 8.1815 168.61 7.91827 167.839 7.64671C166.564 7.19681 165.439 6.98697 164.222 7.66891C164.22 7.67206 164.039 7.77664 163.873 7.9628C163.84 7.99974 163.805 8.03909 163.77 8.07984V13H161.976V0.516729H163.77ZM101.779 0.477544C104.777 0.477557 107.338 1.63348 107.775 4.33055H105.789C105.511 2.35146 103.983 1.10795 101.699 1.10791C98.3037 1.10791 96.9334 3.92763 96.9334 6.71226C96.9334 9.67212 98.5222 12.3694 101.818 12.3694C103.943 12.3693 105.591 11.3009 105.968 9.19951H107.954C107.398 11.809 105.035 12.9997 101.957 12.9997C97.1719 12.9997 94.8685 10.1626 94.8685 6.69475C94.8685 3.13962 97.2712 0.477544 101.779 0.477544ZM187.165 11.1807L195.717 0.516991H197.334V12.9997H195.312V2.35376L186.76 12.9997H185.143V0.516991H187.165V11.1807ZM218 12.9997H215.978V7.52523H213.41L209.61 12.9997H207.426L211.53 7.40036C209.327 7.02595 207.952 5.8133 207.952 4.03012C207.952 1.83682 210.014 0.517022 213.128 0.516991H218V12.9997ZM15.68 1.51388H8.73695V12.9987H6.9433V1.51388H0L0.358968 0.515423H15.3213L15.68 1.51388ZM50.2407 1.51388H43.2974V12.9987H41.5034V1.51388H34.5607L34.9191 0.515423H49.8817L50.2407 1.51388ZM81.1676 0.515423C83.5006 0.515433 85.9242 2.08103 85.9242 4.649C85.9241 7.72413 83.8026 8.53144 81.0962 8.73163C79.5937 8.84254 77.7239 8.78205 76.3819 8.78205V12.9984H74.5877V0.515423H81.1676ZM31.6588 12.9982H29.8642L28.0093 9.44664C27.5303 9.69515 26.2457 10.1512 24.1412 9.40954C23.2813 9.10604 22.5882 8.9688 21.9791 8.99679C21.4664 9.02034 20.9991 9.16558 20.5242 9.43175L18.6497 12.9982H17.6721L24.5037 0H24.8686L31.6588 12.9982ZM67.7765 12.9982H65.9825L64.127 9.44664C63.6481 9.69515 62.3631 10.1512 60.2592 9.40954C59.3992 9.10602 58.7059 8.96878 58.0971 8.99679C57.5842 9.02036 57.1172 9.16556 56.642 9.43175L54.7672 12.9982H53.7904L60.6211 0H60.9866L67.7765 12.9982ZM154.448 12.9982H152.653L150.798 9.44664C150.319 9.69516 149.034 10.1512 146.93 9.40954C146.07 9.10603 145.377 8.96879 144.768 8.99679C144.255 9.02034 143.788 9.16558 143.313 9.43175L141.439 12.9982H140.461L147.292 0H147.657L154.448 12.9982ZM21.0896 8.35544C21.3614 8.28367 21.6412 8.24125 21.9346 8.2277C22.7982 8.18797 23.6723 8.41505 24.4661 8.69479C26.5625 9.43369 27.5305 8.82026 27.6411 8.7426L24.2742 2.29655L21.0896 8.35544ZM57.2074 8.35544C57.4795 8.28366 57.7593 8.24125 58.0527 8.2277C58.916 8.18798 59.7903 8.41506 60.5838 8.69479C62.6803 9.43377 63.6482 8.82015 63.7594 8.7426L60.3919 2.29655L57.2074 8.35544ZM143.879 8.35544C144.15 8.28369 144.43 8.24125 144.723 8.2277C145.587 8.18797 146.461 8.41504 147.255 8.69479C149.351 9.43365 150.319 8.82027 150.43 8.7426L147.063 2.29655L143.879 8.35544ZM76.3819 8.00016L80.3848 7.9999C82.1612 7.99323 84.2267 6.72525 84.2268 4.649C84.2268 2.56703 82.2617 1.29757 80.3703 1.29757H76.3819V8.00016ZM213.633 1.21241C211.45 1.21244 210.034 2.22891 210.034 4.03012C210.034 5.83108 211.429 6.82978 213.633 6.82981H215.978V1.21241H213.633Z"
+                        fill="#212121" />
                 </svg>
+    
             </a>
             <div class="header__actions">
                 <a href="#" class="header__icon" aria-label="Профиль">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z" stroke="white" stroke-width="0.8" />
-                        <path d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z" stroke="white" stroke-width="0.8" />
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
+                            stroke="white" stroke-width="0.8" />
+                        <path
+                            d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
+                            stroke="white" stroke-width="0.8" />
                     </svg>
                 </a>
                 <a href="" class="header__icon header__icon--cart" aria-label="Корзина">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path d="M4.35714 4.73529V2.61765C4.35714 1.4481 5.31653 0.5 6.5 0.5C7.68347 0.5 8.64286 1.4481 8.64286 2.61765V4.73529M2.21429 3.32353H10.7857L11.5 12.5H1.5L2.21429 3.32353Z" stroke="white" stroke-width="0.8" stroke-linecap="round" />
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.35714 4.73529V2.61765C4.35714 1.4481 5.31653 0.5 6.5 0.5C7.68347 0.5 8.64286 1.4481 8.64286 2.61765V4.73529M2.21429 3.32353H10.7857L11.5 12.5H1.5L2.21429 3.32353Z"
+                            stroke="white" stroke-width="0.8" stroke-linecap="round" />
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
                 <a href="" class="header__icon" aria-label="Избранное">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" stroke="white" stroke-width="0.8" stroke-linecap="round" />
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                            stroke="white" stroke-width="0.8" stroke-linecap="round" />
                     </svg>
                     <span class="header__badge">0</span>
                 </a>
@@ -402,32 +154,28 @@
             </div>
         </section>
 
-        <div class="divider"></div>
-
         <!-- ===== CONTACTS INFO ===== -->
         <section class="contacts-info" data-aos="fade-up" data-aos-delay="200">
             <div class="container">
                 <div class="contacts-info__inner">
                     <div class="contacts-info__socials">
-                        <a href="#" class="contacts-info__social-link">TG</a>
-                        <a href="#" class="contacts-info__social-link">WA*</a>
-                        <a href="#" class="contacts-info__social-link">IG*</a>
-                        <a href="#" class="contacts-info__social-link">MAX</a>
+                        <a href="#" class="contacts-info__social-link body-strong">TG</a>
+                        <a href="#" class="contacts-info__social-link body-strong">WA*</a>
+                        <a href="#" class="contacts-info__social-link body-strong">IG*</a>
+                        <a href="#" class="contacts-info__social-link body-strong">MAX</a>
                     </div>
                     <div class="contacts-info__row">
-                        <a href="tel:+79990990099" class="contacts-info__phone">+7 (999) 099-00-99</a>
-                        <a href="mailto:info@tatarsmania.ru" class="contacts-info__email">info@tatarsmania.ru</a>
+                        <a href="tel:+79990990099" class="contacts-info__phone h4">+7 (999) 099-00-99</a>
+                        <a href="mailto:info@tatarsmania.ru" class="contacts-info__email h4">info@tatarsmania.ru</a>
                     </div>
                     <div class="contacts-info__captions">
-                        <span class="contacts-info__address">г. Казань, Московская 13а</span>
-                        <span class="contacts-info__hours">ПН-СБ 10:00-20:00</span>
-                        <span class="contacts-info__hours">ВС 11:00-18:00</span>
+                        <span class="contacts-info__address body">г. Казань, Московская 13а</span>
+                        <span class="contacts-info__hours body">ПН-СБ 10:00-20:00</span>
+                        <span class="contacts-info__hours body">ВС 11:00-18:00</span>
                     </div>
                 </div>
             </div>
         </section>
-
-        <div class="divider"></div>
 
         <!-- ===== CONTACT FORM ===== -->
         <section class="contacts-form" data-aos="fade-up" data-aos-delay="200">
@@ -436,19 +184,19 @@
                     <div class="contacts-form__gradient"></div>
                     <div class="contacts-form__content">
                         <div class="contacts-form__texts">
-                            <h3 class="contacts-form__title">У вас есть вопросы или предложения?</h3>
-                            <p class="contacts-form__desc">Заполните форму и мы с вами свяжемся</p>
+                            <h3 class="contacts-form__title h4">У вас есть вопросы или предложения?</h3>
+                            <p class="contacts-form__desc body">Заполните форму и мы с вами свяжемся</p>
                         </div>
                         <form class="contacts-form__form" id="contactsForm" novalidate>
                             <div class="contacts-form__inputs">
                                 <div class="contacts-form__field">
-                                    <input type="text" class="contacts-form__input" placeholder="Имя*" required>
+                                    <input type="text" class="contacts-form__input body" placeholder="Имя*" required>
                                 </div>
                                 <div class="contacts-form__field">
-                                    <input type="tel" class="contacts-form__input" placeholder="+7 (___) ___-__-__*" required>
+                                    <input type="tel" class="contacts-form__input body" placeholder="+7 (___) ___-__-__*" required>
                                 </div>
                                 <div class="contacts-form__field">
-                                    <input type="email" class="contacts-form__input" placeholder="E-mail">
+                                    <input type="email" class="contacts-form__input body" placeholder="E-mail">
                                 </div>
                                 <button type="submit" class="btn contacts-form__submit">
                                     <span>Отправить</span>
@@ -457,7 +205,7 @@
                             <label class="contacts-form__checkbox">
                                 <input type="checkbox" checked>
                                 <span class="contacts-form__checkbox-mark"></span>
-                                <span class="contacts-form__checkbox-text">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных.</span>
+                                <span class="contacts-form__checkbox-text body">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных.</span>
                             </label>
                         </form>
                     </div>
@@ -466,7 +214,7 @@
         </section>
 
         <!-- ===== SHOWROOMS ===== -->
-        <section class="showrooms" data-aos="fade-up">
+        <section class="showrooms" data-aos="fade-up" data-aos-delay="200">
             <div class="container">
                 <h2 class="showrooms__title" data-aos="fade-up" data-aos-delay="200">Наши шоурумы</h2>
                 <div class="showrooms__content" data-aos="fade-up" data-aos-delay="400">
@@ -531,7 +279,7 @@
                             </a>
                         </div>
                         <div class="showroom-card" data-lat="55.7909" data-lng="49.1081" data-open="10:00" data-close="21:00">
-                            <div class="showroom-card__info">
+                            <div class="showroom-card__info" data-aos="fade-up" data-aos-delay="200">
                                 <h3 class="showroom-card__name body-upper">Баумана</h3>
                                 <div class="showroom-card__address_hours">
                                     <p class="showroom-card__address">г. Казань, ул. Баумана 44</p>
@@ -540,7 +288,7 @@
                                 <a href="tel:+78432000001" class="showroom-card__phone">+7 (843) 200-00-01</a>
                                 <span class="showroom-card__status"></span>
                             </div>
-                            <div class="showroom-card__photos">
+                            <div class="showroom-card__photos" data-aos="fade-up" data-aos-delay="400">
                                 <a data-fancybox="showroom-3" href="assets/images/showroom-1a.jpg" class="showroom-card__photo">
                                     <img src="assets/images/showroom-1a.jpg" alt="Баумана - фото 1">
                                 </a>
@@ -548,7 +296,7 @@
                                     <img src="assets/images/showroom-1b.jpg" alt="Баумана - фото 2">
                                 </a>
                             </div>
-                            <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn-yandex">
+                            <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn-yandex" data-aos="fade-up" data-aos-delay="600">
                                 <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121" />
                                 </svg>
@@ -556,7 +304,7 @@
                             </a>
                         </div>
                         <div class="showroom-card" data-lat="55.8314" data-lng="49.1738" data-open="09:00" data-close="20:00">
-                            <div class="showroom-card__info">
+                            <div class="showroom-card__info" data-aos="fade-up" data-aos-delay="200">
                                 <h3 class="showroom-card__name body-upper">Савиново</h3>
                                 <div class="showroom-card__address_hours">
                                     <p class="showroom-card__address">г. Казань, ул. Савинова 47</p>
@@ -565,7 +313,7 @@
                                 <a href="tel:+78432000002" class="showroom-card__phone">+7 (843) 200-00-02</a>
                                 <span class="showroom-card__status"></span>
                             </div>
-                            <div class="showroom-card__photos">
+                            <div class="showroom-card__photos" data-aos="fade-up" data-aos-delay="400">
                                 <a data-fancybox="showroom-4" href="assets/images/showroom-1a.jpg" class="showroom-card__photo">
                                     <img src="assets/images/showroom-1a.jpg" alt="Савиново - фото 1">
                                 </a>
@@ -576,7 +324,7 @@
                                     <img src="assets/images/showroom-1a.jpg" alt="Савиново - фото 3">
                                 </a>
                             </div>
-                            <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn-yandex">
+                            <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn-yandex" data-aos="fade-up" data-aos-delay="600">
                                 <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121" />
                                 </svg>
@@ -584,7 +332,7 @@
                             </a>
                         </div>
                         <div class="showroom-card" data-lat="55.7536" data-lng="49.1316" data-open="10:00" data-close="21:00">
-                            <div class="showroom-card__info">
+                            <div class="showroom-card__info" data-aos="fade-up" data-aos-delay="200">
                                 <h3 class="showroom-card__name body-upper">Меридиан</h3>
                                 <div class="showroom-card__address_hours">
                                     <p class="showroom-card__address">г. Казань, ул. Меридианная 3</p>
@@ -593,7 +341,7 @@
                                 <a href="tel:+78432000003" class="showroom-card__phone">+7 (843) 200-00-03</a>
                                 <span class="showroom-card__status"></span>
                             </div>
-                            <div class="showroom-card__photos">
+                            <div class="showroom-card__photos" data-aos="fade-up" data-aos-delay="400">
                                 <a data-fancybox="showroom-5" href="assets/images/showroom-1c.jpg" class="showroom-card__photo">
                                     <img src="assets/images/showroom-1c.jpg" alt="Меридиан - фото 1">
                                 </a>
@@ -601,7 +349,7 @@
                                     <img src="assets/images/showroom-1a.jpg" alt="Меридиан - фото 2">
                                 </a>
                             </div>
-                            <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn-yandex">
+                            <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn-yandex" data-aos="fade-up" data-aos-delay="600">
                                 <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121" />
                                 </svg>
@@ -609,7 +357,7 @@
                             </a>
                         </div>
                         <div class="showroom-card" data-lat="55.7954" data-lng="49.1231" data-open="10:00" data-close="20:00">
-                            <div class="showroom-card__info">
+                            <div class="showroom-card__info" data-aos="fade-up" data-aos-delay="200">
                                 <h3 class="showroom-card__name body-upper">Горки</h3>
                                 <div class="showroom-card__address_hours">
                                     <p class="showroom-card__address">г. Казань, ул. Горьковская 12</p>
@@ -618,7 +366,7 @@
                                 <a href="tel:+78432000004" class="showroom-card__phone">+7 (843) 200-00-04</a>
                                 <span class="showroom-card__status"></span>
                             </div>
-                            <div class="showroom-card__photos">
+                            <div class="showroom-card__photos" data-aos="fade-up" data-aos-delay="400">
                                 <a data-fancybox="showroom-6" href="assets/images/showroom-1c.jpg" class="showroom-card__photo">
                                     <img src="assets/images/showroom-1a.jpg" alt="Горки - фото 1">
                                 </a>
@@ -629,7 +377,7 @@
                                     <img src="assets/images/showroom-1c.jpg" alt="Горки - фото 3">
                                 </a>
                             </div>
-                            <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn-yandex">
+                            <a href="https://yandex.ru/maps/-/CDx~jK~r" target="_blank" class="btn-yandex" data-aos="fade-up" data-aos-delay="600">
                                 <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 8C3.25 8 6.5 5.46341 6.5 3.12195C6.5 1.39775 5.04493 0 3.25 0C1.45507 0 0 1.39775 0 3.12195C0 5.46341 3.25 8 3.25 8ZM3.25 4.29268C3.9231 4.29268 4.46875 3.76853 4.46875 3.12195C4.46875 2.47537 3.9231 1.95122 3.25 1.95122C2.5769 1.95122 2.03125 2.47537 2.03125 3.12195C2.03125 3.76853 2.5769 4.29268 3.25 4.29268Z" fill="#212121" />
                                 </svg>
@@ -658,19 +406,24 @@
                         <a href="https://instagram.com/" target="_blank" rel="noopener">IG*</a>
                         <a href="#" target="_blank" rel="noopener">MAX</a>
                     </div>
-                    <p class="footer__disclaimer body">*Продукт компании Meta, деятельность которой признана экстремистской и запрещена на территории РФ.</p>
+                    <p class="footer__disclaimer body">*Продукт компании Meta, деятельность которой признана
+                        экстремистской и запрещена на территории РФ.</p>
                 </div>
                 <div class="footer__right">
                     <h3 class="footer__newsletter-title">Подписывайтесь на нашу рассылку</h3>
-                    <p class="footer__newsletter-desc body">Главные новости, акции и советы по выбору мебели — одним письмом. Без спама, только польза.</p>
+                    <p class="footer__newsletter-desc body">Главные новости, акции и советы по выбору мебели — одним
+                        письмом. Без спама, только польза.</p>
                     <form class="footer__newsletter-form" id="newsletterForm" novalidate>
                         <div class="footer__email-wrap">
-                            <input type="email" class="footer__email-input" id="newsletterEmail" placeholder="E-mail*" autocomplete="email">
+                            <input type="email" class="footer__email-input" id="newsletterEmail" placeholder="E-mail*"
+                                autocomplete="email">
                             <span class="footer__email-error" id="newsletterError">Введите корректный e-mail</span>
                         </div>
                         <button type="submit" class="btn footer__subscribe-btn">
                             <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
-                                <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121" />
+                                <path
+                                    d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z"
+                                    fill="#212121" />
                             </svg>
                             <span>Подписаться</span>
                         </button>
@@ -678,7 +431,8 @@
                     <label class="footer__checkbox">
                         <input type="checkbox" checked>
                         <span class="footer__checkbox-mark"></span>
-                        <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#" target="_blank">согласие на обработку персональных данных.</a></span>
+                        <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
+                                target="_blank">согласие на обработку персональных данных.</a></span>
                     </label>
                 </div>
             </div>
@@ -691,7 +445,7 @@
                     </div>
                 </div>
                 <div class="footer__menus-right">
-                    <div class="footer__menu-col">
+                    <div class="footer__menu-col footer__menu-col--open">
                         <button class="footer__links-title" type="button">
                             <span>Каталог</span>
                             <span class="footer__accordion-icon">
@@ -704,9 +458,11 @@
                         <div class="footer__info-links">
                             <a href="#">Мебель в наличии</a>
                             <a href="#">Производство мебели</a>
-                            <a href="#">Кресла</a>
+                            <a href="#">Кресла </a>
                             <a href="#">Диваны</a>
-                            <a href="collections.html">Коллекции</a>
+                            <a href="#">Коллекции</a>
+                            <a href="#">Новинки</a>
+                            <a href="#">Sale</a>
                         </div>
                     </div>
                     <div class="footer__menu-col">
@@ -722,8 +478,9 @@
                         <div class="footer__info-links">
                             <a href="#">Условия доставки</a>
                             <a href="#">Способы оплаты</a>
-                            <a href="#">Популярные вопросы</a>
+                            <a href="#">Популярные вопросы </a>
                             <a href="#">Акции</a>
+                            <a href="#">Блог</a>
                         </div>
                     </div>
                     <div class="footer__menu-col">
@@ -743,18 +500,35 @@
                             <a href="#">Контакты</a>
                         </div>
                     </div>
+                    <div class="footer__menu-col footer__menu-col--info">
+                        <button class="footer__links-title" type="button">
+                            <span>Информация</span>
+                            <span class="footer__accordion-icon">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <line x1="6" y1="0" x2="6" y2="12" stroke="#212121" stroke-width="1.5" />
+                                    <line x1="0" y1="6" x2="12" y2="6" stroke="#212121" stroke-width="1.5" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="footer__info-links">
+                            <a href="#" class="footer__info-link">Политика конфиденциальности</a>
+                            <a href="#" class="footer__info-link">Карта сайта</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
-
+    
+    <!-- ===== FOOTER BANNER ===== -->
     <section class="footer-banner">
         <div class="footer-banner__bg" style="background-image: url('assets/images/footer.jpg');"></div>
         <div class="footer-banner__logo">
             <img src="assets/images/footer-logo.svg" alt="">
         </div>
     </section>
-
+    
+    <!-- ===== FOOTER BOTTOM ===== -->
     <div class="footer-bottom">
         <div class="container-full">
             <div class="footer-bottom__inner">

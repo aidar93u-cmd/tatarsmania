@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
     pagesEl.innerHTML = '';
     pages.forEach(function (p) {
       var btn = document.createElement('button');
-      btn.className = 'blog-pagination__page';
+      btn.className = 'blog-pagination__page body';
       if (p === currentPage) btn.classList.add('is-active');
       if (p === '...') { btn.textContent = '...'; btn.disabled = true; }
       else { btn.textContent = p; btn.addEventListener('click', function () { currentPage = p; render(); }); }
