@@ -231,60 +231,31 @@
   display: block;
 }
 
-.product-other__slider-wrap {
-    position: relative;
+.carousel-section.hits .carousel-section__header-row {
+    padding-bottom: 76px;
 }
 
-.product-other__slide {
-    height: auto;
-}
-
-.hits-swiper {
+.carousel-section.hits .carousel-section__swiper {
     overflow: hidden;
 }
 
-.product-other__title {
-    text-align: center;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 76px;
+.carousel-section.hits .carousel-section__swiper .swiper-slide {
+    height: auto;
 }
 
-.product-other__arrows {
-    display: flex;
-    gap: 20px;
-    position: absolute;
-    top: -45px;
-    right: 0;
-    z-index: 5;
-}
-
-.product-other__arrow {
-    width: 13px;
-    height: 13px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.2s;
-}
-
-.product-other__arrow:hover {
-    opacity: 0.5;
-}
-
-.hits__pagination.swiper-pagination-bullets.swiper-pagination-horizontal {
+.carousel-section.hits .carousel-section__pagination.swiper-pagination {
     display: flex;
     justify-content: center;
     gap: 6px;
-    margin-top: 16px;    
-    bottom: -60px;
+    margin-top: 16px;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: auto;
 }
 
-.hits__pagination .swiper-pagination-bullet {
+.carousel-section.hits .carousel-section__dot {
     width: 6px;
     height: 6px;
     background: var(--graphite);
@@ -293,7 +264,7 @@
     cursor: pointer;
 }
 
-.hits__pagination .swiper-pagination-bullet-active {
+.carousel-section.hits .carousel-section__dot--active {
     opacity: 1;
 }
 
@@ -329,21 +300,11 @@
         margin-top: 40px;
     }
 
-    .product-other {
-        padding: 10px 0 100px;
+    .carousel-section.hits .carousel-section__header-row {
+        padding-bottom: 30px;
     }
 
-    .product-other__title {
-        text-align: left;
-        width: 100%;
-        margin-bottom: 30px;
-    }
-
-    .product-other__arrows {
-        top: -90px;
-    }
-
-    .hits-swiper {
+    .carousel-section.hits .carousel-section__swiper {
         overflow: visible;
     }
 }
@@ -371,7 +332,7 @@
         height: 32px;
     }
 
-    .product-other__arrows {
+    .carousel-section.hits .carousel-section__nav {
         display: none;
     }
 }
