@@ -1,418 +1,567 @@
 /* ===== ABOUT HERO ===== */
 .about-hero {
-
 }
 
 .about-hero__inner {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1440 / 700;
-    min-height: 700px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1440 / 700;
+	min-height: 43.75rem;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
 }
 
 .about-hero__gradient {
-    position: absolute;
-    inset: 0;background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.7) 100%
+	);
 
-    pointer-events: none;
+	pointer-events: none;
 }
 
 .about-hero__texts {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    padding: 44px;
-    color: #fff;
-    width: 100%;
-    align-items: flex-end;
-    justify-content: space-between;
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	display: flex;
+	flex-direction: row;
+	padding: 2.75rem;
+	color: #fff;
+	width: 100%;
+	align-items: flex-end;
+	justify-content: space-between;
 }
 
 .about-hero__title {
-    max-width: 430px;
+	max-width: 26.875rem;
 }
 
 .about-hero__desc {
-    max-width: 395px;
+	max-width: 24.6875rem;
 }
 
 /* ===== ABOUT HISTORY ===== */
 .about-history {
- 
+	position: relative;
 }
 
 .about-history__title {
-    text-align: center;
-    margin-bottom: 70px;
+	text-align: center;
+	margin-bottom: 4.375rem;
+}
+
+.about-history-swiper {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
 }
 
 .about-history__slide {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1440 / 700;
-    min-height: 700px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1440 / 700;
+	min-height: 43.75rem;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
 }
 
 .about-history__slide-gradient {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-    pointer-events: none;
-}
-
-.about-history__slide-arrows {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    right: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    z-index: 3;
-    pointer-events: none;
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0.7) 0%,
+		rgba(0, 0, 0, 0.2) 50%,
+		rgba(0, 0, 0, 0.7) 100%
+	);
+	pointer-events: none;
 }
 
 .about-history__arrow {
-    pointer-events: all;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 5;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.625rem;
 }
 
-.about-history__slide-tabs {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    gap: 0;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1400px;
-    padding: 0 20px;
-    margin-bottom: 280px;
+.about-history__arrow--prev {
+	left: 1.25rem;
 }
 
-.about-history__tab {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    color: #fff;
-    opacity: 0.4;
-    transition: opacity 0.3s;
+.about-history__arrow--next {
+	right: 1.25rem;
 }
-
-.about-history__tab--active { opacity: 1; }
 
 .about-history__slide-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    color: #fff;
-    max-width: 545px;
-    padding: 0 20px;
+	position: relative;
+	z-index: 3;
+	text-align: center;
+	color: #fff;
+	max-width: 37.5rem;
+	padding: 0 1.25rem;
+	margin-bottom: 5rem;
 }
 
 .about-history__slide-year {
-    color: #fff;
-    display: block;
-    margin-bottom: 24px;
+	color: #fff;
+	display: block;
+	margin-bottom: 1.5rem;
+	font-family: var(--font3);
+}
+
+.about-history__slide-tabs {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	display: flex;
+	justify-content: center;
+	gap: 2.5rem;
+	padding: 1.875rem 1.25rem;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+}
+
+.about-history__tab {
+	display: flex;
+	gap: 0.625rem;
+	align-items: center;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	color: #fff;
+	opacity: 0.3;
+	transition: opacity 0.3s;
+}
+
+.about-history__tab:hover {
+	opacity: 0.6;
+}
+
+.about-history__tab--active {
+	opacity: 1;
+}
+
+.about-history__tab-year {
+	font-size: var(--body-base-size);
+	font-weight: 400;
+	line-height: 120%;
+}
+
+.about-history__tab-label {
+	font-size: var(--body-base-size);
+	font-weight: 400;
+	line-height: 120%;
 }
 
 /* ===== ABOUT TEAM ===== */
 .about-team {
-
 }
 
 .about-team__inner {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1440 / 800;
-    min-height: 800px;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1440 / 800;
+	min-height: 50rem;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
 }
 
 .about-team__gradient {
-    position: absolute;
-    inset: 0;background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		90deg,
+		rgba(0, 0, 0, 0.5) 0%,
+		rgba(0, 0, 0, 0) 100%
+	);
 
-    pointer-events: none;
+	pointer-events: none;
 }
 
 .about-team__content {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 44px;
-    color: #fff;
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 2.75rem;
+	color: #fff;
 }
 
 .about-team__title {
-    color: #fff;
-    max-width: 285px;
+	color: #fff;
+	max-width: 17.8125rem;
 }
 
 .about-team__desc {
-    color: #fff;
-    max-width: 411px;
+	color: #fff;
+	max-width: 25.6875rem;
 }
 
 /* ===== ABOUT PEOPLE ===== */
 .about-people {
-
 }
 
 .about-people__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-    row-gap: 70px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.375rem;
+	row-gap: 4.375rem;
 }
 
 .about-people__card--hidden {
-    visibility: hidden;
-    pointer-events: none;
+	visibility: hidden;
+	pointer-events: none;
 }
 
 .about-people__card-photo {
-    width: 100%;
-    aspect-ratio: 345.5 / 419.39;
-    margin-bottom: 26px;
-    background-size: cover;
-    background-position: center;
-    background-color: #ededed;
+	width: 100%;
+	aspect-ratio: 345.5 / 419.39;
+	margin-bottom: 1.625rem;
+	background-size: cover;
+	background-position: center;
+	background-color: #ededed;
 }
 
 .about-people__card-info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
 }
 
 .about-people__card-name {
-    color: var(--graphite);
+	color: var(--graphite);
 }
 
 .about-people__card-role {
-    color: var(--graphite);
-    opacity: 0.4;
+	color: var(--graphite);
+	opacity: 0.4;
+}
+
+.about-people__header {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 1.875rem;
+}
+.about-reviews .carousel-section__header-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+/* Neutralize Swiper on desktop */
+@media (min-width: 993px) {
+	.about-people__grid.swiper {
+		overflow: visible;
+	}
+	.about-people__grid .swiper-wrapper {
+		display: contents;
+	}
+	.about-people__grid .swiper-slide {
+		width: auto !important;
+	}
+}
+
+/* Swiper mode on mobile */
+@media (max-width: 992px) {
+	.about-people__grid.swiper {
+		overflow: visible;
+		display: block;
+		width: 100%;
+	}
+	.about-people__grid .swiper-wrapper {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	.about-people__grid .swiper-slide {
+		width: auto;
+	}
+	.swiper-slide--filler {
+		display: none;
+	}
+}
+
+.about-people__pagination {
+	display: none;
+	justify-content: center;
+	gap: 0.375rem;
+	margin-top: 1.875rem;
+}
+
+@media (max-width: 992px) {
+	.about-people__pagination {
+		display: flex;
+	}
+}
+
+.about-people__pagination .carousel-section__dot {
+	width: 0.25rem;
+	height: 0.25rem;
+	border-radius: 50%;
+	background-color: rgba(33, 33, 33, 0.2);
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.about-people__pagination .carousel-section__dot--active {
+	background-color: var(--graphite);
 }
 
 /* ===== ABOUT REVIEWS ===== */
 .about-reviews {
-
 }
 
 .about-reviews__title {
-    text-align: center;
-    margin-bottom: 10px;
+	font-family: var(--font3);
+	font-size: var(--h4-size);
+	font-weight: 500;
+	line-height: 120%;
+	text-align: center;
+	margin-bottom: 0.625rem;
 }
 
 .about-reviews__arrows {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    padding: 20px 14px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 1.25rem;
+	padding: 1.25rem 0.875rem;
 }
 
 .about-reviews__arrow {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0.625rem;
 }
 
 .about-reviews__card {
-    background: #ededed;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 386px;
+	background: #ededed;
+	padding: 1.875rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 24.125rem;
 }
 
 .about-reviews__card-stars {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 48px;
+	display: flex;
+	gap: 0.375rem;
+	margin-bottom: 3rem;
 }
 
 .about-reviews__card-text {
-    color: var(--graphite);
+	font-size: var(--body-base-size);
+	line-height: 120%;
+	color: var(--graphite);
 }
 
 .about-reviews__card-texts {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+	display: flex;
+	flex-direction: column;
+	gap: 1.125rem;
 }
 
 .about-reviews__card-title-text {
-    color: var(--graphite);
+	font-family: var(--font3);
+	font-size: var(--h5-size);
+	font-weight: 500;
+	line-height: 130%;
+	color: var(--graphite);
 }
 
 .about-reviews__card-desc {
-    color: var(--graphite);
-    opacity: 0.4;
+	font-size: var(--body-base-size);
+	line-height: 120%;
+	color: var(--graphite);
+	opacity: 0.4;
 }
 
 .about-reviews__card-author {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
 }
 
 .about-reviews__card-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top: auto;
 }
 
 .about-reviews__card-name {
-    color: var(--graphite);
+	font-size: var(--body-base-size);
+	font-weight: 500;
+	line-height: 120%;
+	color: var(--graphite);
 }
 
 .about-reviews__card-product {
-    color: var(--graphite);
-    opacity: 0.4;
+	font-size: var(--body-base-size);
+	line-height: 120%;
+	color: var(--graphite);
+	opacity: 0.4;
 }
 
 .about-reviews__card-avatars {
-    display: flex;
-    align-items: center;
-    margin-top: auto;
+	display: flex;
+	align-items: center;
+	margin-top: auto;
 }
 
 .about-reviews__card-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 3px solid #ededed;
-    margin-right: -16px;
+	width: 3.125rem;
+	height: 3.125rem;
+	border-radius: 50%;
+	border: 0.1875rem solid #ededed;
+	margin-right: -1rem;
 }
 
 .about-reviews__card-more {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid #dbdbdb;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 12px;
+	width: 3.125rem;
+	height: 3.125rem;
+	border-radius: 50%;
+	border: 0.0625rem solid #dbdbdb;
+	background: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.75rem;
 }
 
 .about-reviews__pagination {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    padding: 45px 0 0;
+	display: flex;
+	justify-content: center;
+	gap: 0.375rem;
+	padding: 2.8125rem 0 0;
 }
 
 .about-reviews__pagination .swiper-pagination-bullet {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--graphite);
-    opacity: 0.2;
-    margin: 0 !important;
+	width: 0.25rem;
+	height: 0.25rem;
+	border-radius: 50%;
+	background: var(--graphite);
+	opacity: 0.2;
+	margin: 0 !important;
 }
 
 .about-reviews__pagination .swiper-pagination-bullet-active {
-    opacity: 1;
-}
-
-@media (max-width: 992px) {
-    .about-people__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+	opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .about-hero__inner {
-        aspect-ratio: auto;
-        min-height: 500px;
-    }
+	.about-hero__inner {
+		aspect-ratio: auto;
+		min-height: 500px;
+	}
 
-    .about-hero__texts {
-        padding: 20px;
-        max-width: 100%;
-    }
+	.about-hero__texts {
+		padding: 20px;
+		max-width: 100%;
+	}
 
-    .about-history__title {
-        font-size: 18px;
-        margin-bottom: 40px;
-    }
+	.about-history__title {
+		font-size: 18px;
+		margin-bottom: 40px;
+	}
 
-    .about-history__slide {
-        aspect-ratio: auto;
-        min-height: 500px;
-    }
+	.about-history__slide {
+		aspect-ratio: auto;
+		min-height: 500px;
+	}
 
-    .about-history__slide-tabs {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-        margin-bottom: 40px;
-    }
+	.about-history__slide-year {
+		font-size: 24px;
+	}
+	.about-history__slide-text {
+		font-size: 12px;
+	}
+	.about-history__arrow--prev {
+		left: 10px;
+	}
 
-    .about-history__slide-year {
-        font-size: 36px;
-    }
+	.about-history__arrow--next {
+		right: 10px;
+	}
 
-    .about-team__inner {
-        aspect-ratio: auto;
-        min-height: 500px;
-    }
+	.about-history__slide-tabs {
+		flex-wrap: wrap;
+		gap: 12px 20px;
+		padding: 20px 16px;
+		justify-content: flex-start;
+	}
 
-    .about-team__content {
-        padding: 20px;
-    }
+	.about-history__tab-label {
+		display: none;
+	}
 
-    .about-team__title {
-        font-size: 16px;
-    }
+	.about-team__inner {
+		aspect-ratio: auto;
+		min-height: 500px;
+	}
 
-    .about-reviews__title {
-        font-size: 18px;
-    }
+	.about-reviews-swiper {
+		overflow: visible;
+	}
+	.about-team__content {
+		padding: 20px;
+	}
 
-    .about-reviews__card--featured .about-reviews__card-title-text {
-        font-size: 16px;
-    }
+	.about-team__title {
+		font-size: 16px;
+	}
 
-    .about-reviews__card-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-}
+	.about-reviews__title {
+		font-size: 18px;
+	}
 
-@media (max-width: 480px) {
-    .about-people__grid {
-        grid-template-columns: 1fr;
-    }
+	.about-reviews__card--featured .about-reviews__card-title-text {
+		font-size: 16px;
+	}
+
+	.about-reviews__card-bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+	}
+	.about-history__slide-content {
+		padding: 0 20px;
+		margin-bottom: 80px;
+		text-align: left;
+	}
+	.about-history__slide {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		text-align: left;
+
+		min-height: 600px;
+	}
+	.about-reviews .carousel-section__header-row {
+		justify-content: space-between;
+	}
+	.about-reviews__card-stars {
+		margin-bottom: 20px;
+	}
 }

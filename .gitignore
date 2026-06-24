@@ -20,6 +20,9 @@ skills-lock.json
 .graphify_python
 graphify-out/
 
+# docs (not layout)
+docs/
+
 # backup / temp files
 *.backup.*
 *~

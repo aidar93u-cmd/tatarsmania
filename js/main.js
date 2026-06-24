@@ -217,6 +217,126 @@ document.addEventListener('DOMContentLoaded', function () {
 	initCompactCardGallery()
 	initCatalogCardGallery()
 
+	// ===== CONTACTS / PARTNERSHIP FORM =====
+	var emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
+
+	document.querySelectorAll('.contacts-form__form').forEach(function (form) {
+
+		var nameInput = form.querySelector('input[type="text"]')
+		var phoneInput = form.querySelector('input[type="tel"]')
+		var emailInput = form.querySelector('input[type="email"]')
+
+		// ===== PHONE MASK =====
+		if (phoneInput) {
+			phoneInput.addEventListener('input', function () {
+				var x = this.value.replace(/\D/g, '').slice(0, 11)
+				if (x.length === 0) { this.value = ''; return }
+				var val = '+7'
+				if (x.length > 1) val += ' (' + x.slice(1, 4)
+				if (x.length >= 5) val += ') ' + x.slice(4, 7)
+				if (x.length >= 8) val += '-' + x.slice(7, 9)
+				if (x.length >= 10) val += '-' + x.slice(9, 11)
+				this.value = val
+			})
+
+			phoneInput.addEventListener('keydown', function (e) {
+				if (e.key === 'Backspace' && this.value.length <= 2) {
+					this.value = ''
+				}
+			})
+		}
+
+		form.querySelectorAll('.contacts-form__field').forEach(function (field) {
+			var err = document.createElement('span')
+			err.className = 'contacts-form__error'
+			field.appendChild(err)
+		})
+
+		function getField(input) {
+			return input ? input.closest('.contacts-form__field') : null
+		}
+
+		function getErr(input) {
+			var f = getField(input)
+			return f ? f.querySelector('.contacts-form__error') : null
+		}
+
+		function clearFormValidation() {
+			form.querySelectorAll('.contacts-form__input').forEach(function (inp) {
+				inp.classList.remove('is-invalid', 'is-valid')
+			})
+			form.querySelectorAll('.contacts-form__error').forEach(function (e) {
+				e.textContent = ''
+				e.classList.remove('contacts-form__error--visible')
+			})
+			var successMsg = form.querySelector('.contacts-form__success')
+			if (successMsg) successMsg.remove()
+		}
+
+		form.querySelectorAll('.contacts-form__input').forEach(function (inp) {
+			inp.addEventListener('input', function () {
+				this.classList.remove('is-invalid', 'is-valid')
+				var e = getErr(this)
+				if (e) { e.textContent = ''; e.classList.remove('contacts-form__error--visible') }
+				var s = form.querySelector('.contacts-form__success')
+				if (s) s.remove()
+			})
+		})
+
+		form.addEventListener('submit', function (e) {
+			e.preventDefault()
+			clearFormValidation()
+
+			var name = nameInput ? nameInput.value.trim() : ''
+			var phone = phoneInput ? phoneInput.value.trim() : ''
+			var email = emailInput ? emailInput.value.trim() : ''
+			var valid = true
+
+			if (nameInput && !name) {
+				nameInput.classList.add('is-invalid')
+				var err = getErr(nameInput)
+				if (err) { err.textContent = 'Введите имя'; err.classList.add('contacts-form__error--visible') }
+				valid = false
+			} else if (nameInput) {
+				nameInput.classList.add('is-valid')
+			}
+
+			if (phoneInput && !phone) {
+				phoneInput.classList.add('is-invalid')
+				var err = getErr(phoneInput)
+				if (err) { err.textContent = 'Введите телефон'; err.classList.add('contacts-form__error--visible') }
+				valid = false
+			} else if (phoneInput && phone.replace(/[\s()\-]/g, '').length < 10) {
+				phoneInput.classList.add('is-invalid')
+				var err = getErr(phoneInput)
+				if (err) { err.textContent = 'Введите корректный телефон'; err.classList.add('contacts-form__error--visible') }
+				valid = false
+			} else if (phoneInput) {
+				phoneInput.classList.add('is-valid')
+			}
+
+			if (emailInput && email && !emailRegex.test(email)) {
+				emailInput.classList.add('is-invalid')
+				var err = getErr(emailInput)
+				if (err) { err.textContent = 'Введите корректный e-mail'; err.classList.add('contacts-form__error--visible') }
+				valid = false
+			} else if (emailInput && email) {
+				emailInput.classList.add('is-valid')
+			}
+
+			if (!valid) return
+
+			var successEl = document.createElement('span')
+			successEl.className = 'contacts-form__success'
+			successEl.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.'
+			form.querySelector('.contacts-form__inputs').after(successEl)
+
+			if (nameInput) nameInput.value = ''
+			if (phoneInput) phoneInput.value = ''
+			if (emailInput) emailInput.value = ''
+		})
+	})
+
 	// ===== NEWSLETTER =====
 	var emailForm = document.getElementById('newsletterForm')
 	if (emailForm) {
@@ -384,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					prevEl: '.categories-small .categories-small__arrow--prev',
 				},
 				breakpoints: {
-					320: { slidesPerView: 1.5, spaceBetween: 6 },
+					320: { slidesPerView: 1.2, spaceBetween: 6 },
 					768: { slidesPerView: 2, spaceBetween: 6 },
 					1024: { slidesPerView: 3, spaceBetween: 6 },
 					1200: { slidesPerView: 4, spaceBetween: 6 },
@@ -410,33 +530,62 @@ document.addEventListener('DOMContentLoaded', function () {
 			})
 		}
 
-		document.querySelectorAll('.carousel-section.blog').forEach(function (section) {
-			var swiperEl = section.querySelector('.carousel-section__swiper')
-			if (swiperEl) {
-				new Swiper(swiperEl, {
+		document.querySelectorAll('.carousel-section').forEach(function (section) {
+			var prevEl = section.querySelector('.carousel-section__arrow--prev')
+			var nextEl = section.querySelector('.carousel-section__arrow--next')
+			var loop = section.getAttribute('data-loop') === 'true'
+
+			section.querySelectorAll('.carousel-section__swiper').forEach(function (swiperEl) {
+				var config = {
 					slidesPerView: 4,
 					spaceBetween: 6,
 					speed: 600,
+					loop: loop,
 					pagination: {
-						el: section.querySelector('.carousel-section__pagination'),
+						el: swiperEl.querySelector('.carousel-section__pagination') || swiperEl.parentElement.querySelector('.carousel-section__pagination'),
 						type: 'bullets',
 						bulletClass: 'carousel-section__dot',
 						bulletActiveClass: 'carousel-section__dot--active',
 						clickable: true,
 					},
-					navigation: {
-						nextEl: section.querySelector('.carousel-section__arrow--next'),
-						prevEl: section.querySelector('.carousel-section__arrow--prev'),
-					},
 					breakpoints: {
-						320: { slidesPerView: 1.5, spaceBetween: 6 },
+						320: { slidesPerView: 1.2, spaceBetween: 6 },
 						768: { slidesPerView: 2, spaceBetween: 6 },
 						1024: { slidesPerView: 3, spaceBetween: 6 },
 						1200: { slidesPerView: 4, spaceBetween: 6 },
 					},
-				})
-			}
+				}
+				if (prevEl && nextEl) {
+					config.navigation = { prevEl: prevEl, nextEl: nextEl }
+				}
+				new Swiper(swiperEl, config)
+			})
 		})
+
+		if (document.querySelector('.about-reviews-swiper')) {
+			new Swiper('.about-reviews-swiper', {
+				slidesPerView: 2,
+				spaceBetween: 6,
+				speed: 600,
+				pagination: {
+					el: '.about-reviews .about-reviews__pagination',
+					type: 'bullets',
+					bulletClass: 'swiper-pagination-bullet',
+					bulletActiveClass: 'swiper-pagination-bullet-active',
+					clickable: true,
+				},
+				navigation: {
+					nextEl: '.about-reviews .about-reviews__arrow--next',
+					prevEl: '.about-reviews .about-reviews__arrow--prev',
+				},
+				breakpoints: {
+					320: { slidesPerView: 1.2, spaceBetween: 6 },
+					768: { slidesPerView: 2, spaceBetween: 6 },
+					1024: { slidesPerView: 3, spaceBetween: 6 },
+					1200: { slidesPerView: 3, spaceBetween: 6 },
+				},
+			})
+		}
 
 		document.querySelectorAll('.carousel-section.promotions').forEach(function (section) {
 			var promotionsSwiperInstance = null
@@ -446,7 +595,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				var grid = section.querySelector('.carousel-section__grid')
 				if (!grid || grid.swiper) return null
 				return new Swiper(grid, {
-					slidesPerView: 1.5,
+					slidesPerView: 1.2,
 					spaceBetween: 6,
 					speed: 600,
 					navigation: {
@@ -522,6 +671,94 @@ document.addEventListener('DOMContentLoaded', function () {
 					catCatSwiperInstance = initCatCatSwiper()
 				} else {
 					destroyCatCatSwiper()
+				}
+			})
+		})
+
+		document.querySelectorAll('.about-people').forEach(function (section) {
+			var peopleSwiperInstance = null
+
+			function initPeopleSwiper() {
+				if (window.innerWidth > 992) return null
+				var grid = section.querySelector('.about-people__grid')
+				if (!grid || grid.swiper) return null
+				return new Swiper(grid, {
+					slidesPerView: 1.2,
+					spaceBetween: 6,
+					speed: 600,
+					navigation: {
+						nextEl: section.querySelector('.carousel-section__arrow--next'),
+						prevEl: section.querySelector('.carousel-section__arrow--prev'),
+					},
+					pagination: {
+						el: section.querySelector('.about-people__pagination'),
+						type: 'bullets',
+						bulletClass: 'carousel-section__dot',
+						bulletActiveClass: 'carousel-section__dot--active',
+						clickable: true,
+					},
+				})
+			}
+
+			function destroyPeopleSwiper() {
+				if (peopleSwiperInstance) {
+					peopleSwiperInstance.destroy(true, true)
+					peopleSwiperInstance = null
+				}
+			}
+
+			peopleSwiperInstance = initPeopleSwiper()
+
+			window.addEventListener('resize', function () {
+				if (window.innerWidth <= 992) {
+					destroyPeopleSwiper()
+					peopleSwiperInstance = initPeopleSwiper()
+				} else {
+					destroyPeopleSwiper()
+				}
+			})
+		})
+
+		document.querySelectorAll('.carousel-section.production-photos').forEach(function (section) {
+			var photoSwiperInstance = null
+
+			function initPhotoSwiper() {
+				if (window.innerWidth > 768) return null
+				var grid = section.querySelector('.carousel-section__grid')
+				if (!grid || grid.swiper) return null
+				return new Swiper(grid, {
+					slidesPerView: 1.2,
+					spaceBetween: 6,
+					speed: 600,
+					navigation: {
+						nextEl: section.querySelector('.carousel-section__arrow--next'),
+						prevEl: section.querySelector('.carousel-section__arrow--prev'),
+					},
+					pagination: {
+						el: section.querySelector('.carousel-section__pagination'),
+						type: 'bullets',
+						bulletClass: 'carousel-section__dot',
+						bulletActiveClass: 'carousel-section__dot--active',
+						clickable: true,
+					},
+				})
+			}
+
+			function destroyPhotoSwiper() {
+				if (photoSwiperInstance) {
+					photoSwiperInstance.destroy(true, true)
+					photoSwiperInstance = null
+				}
+			}
+
+			photoSwiperInstance = initPhotoSwiper()
+
+			window.addEventListener('resize', function () {
+				if (window.innerWidth <= 768) {
+					destroyPhotoSwiper()
+					photoSwiperInstance = initPhotoSwiper()
+				} else {
+					destroyPhotoSwiper()
 				}
 			})
 		})
@@ -735,7 +972,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			var grid = container.querySelector('.featured__grid')
 			if (!grid || grid.swiper) return null
 			return new Swiper(grid, {
-				slidesPerView: 1.5,
+				slidesPerView: 1.2,
 				spaceBetween: 6,
 				navigation: {
 					prevEl: '.featured__arrow--prev',

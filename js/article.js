@@ -1,5 +1,48 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  // ===== PHOTO S SWIPER (mobile ≤768px) =====
+  var photoSMedia = document.querySelector('.article-media--photo-s');
+  var photoSGrid = photoSMedia ? photoSMedia.querySelector('.article-photo-s__grid') : null;
+  var photoSSwiper = null;
+
+  function initPhotoSSwiper() {
+    if (window.innerWidth > 768 || !photoSGrid) return null;
+    return new Swiper(photoSGrid, {
+      slidesPerView: 1.2,
+      spaceBetween: 6,
+      speed: 600,
+      navigation: {
+        nextEl: photoSMedia.querySelector('.carousel-section__arrow--next'),
+        prevEl: photoSMedia.querySelector('.carousel-section__arrow--prev'),
+      },
+      pagination: {
+        el: photoSGrid.querySelector('.article-photo-s__pagination'),
+        type: 'bullets',
+        bulletClass: 'carousel-section__dot',
+        bulletActiveClass: 'carousel-section__dot--active',
+        clickable: true,
+      },
+    });
+  }
+
+  function destroyPhotoSSwiper() {
+    if (photoSSwiper) {
+      photoSSwiper.destroy(true, true);
+      photoSSwiper = null;
+    }
+  }
+
+  photoSSwiper = initPhotoSSwiper();
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth <= 768) {
+      destroyPhotoSSwiper();
+      photoSSwiper = initPhotoSSwiper();
+    } else {
+      destroyPhotoSSwiper();
+    }
+  });
+
   // ===== ARTICLE GALLERY SLIDER =====
   var sliderEl = document.querySelector('.media-slider__swiper');
   if (sliderEl) {
@@ -41,29 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
       bar.addEventListener('click', function () {
         articleSwiper.slideToLoop(index);
       });
-    });
-  }
-
-  // ===== HITS SWIPER =====
-  var hitsEl = document.querySelector('.hits-swiper');
-  if (hitsEl) {
-    new Swiper(hitsEl, {
-      slidesPerView: 4,
-      slidesPerGroup: 1,
-      spaceBetween: 16,
-      pagination: {
-        el: '.hits__pagination',
-        type: 'bullets',
-        clickable: true,
-      },
-      navigation: {
-        prevEl: '.product-other__arrow--prev',
-        nextEl: '.product-other__arrow--next',
-      },
-      breakpoints: {
-        769: { slidesPerView: 4 },
-        0: { slidesPerView: 1.2, slidesPerGroup: 1 },
-      },
     });
   }
 

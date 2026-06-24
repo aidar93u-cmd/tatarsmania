@@ -1,18 +1,18 @@
 /* ===== CONTACTS INFO ===== */
 .contacts-info {
-    padding: 0;
+
 }
 
 .contacts-info__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: 2rem;
 }
 
 .contacts-info__socials {
     display: flex;
-    gap: 26px;
+    gap: 1.625rem;
     align-items: center;
 }
 
@@ -28,7 +28,7 @@
 
 .contacts-info__row {
     display: flex;
-    gap: 32px;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -37,6 +37,9 @@
     color: var(--graphite);
     text-decoration: none;
     transition: opacity 0.3s;
+    font-family: var(--font3);
+    text-transform: uppercase;
+
 }
 
 .contacts-info__phone:hover,
@@ -46,21 +49,26 @@
 
 .contacts-info__captions {
     display: flex;
-    gap: 26px;
+    gap: 1.625rem;
     align-items: center;
     color: var(--graphite);
 }
 
 /* ===== CONTACTS FORM ===== */
 .contacts-form {
-    padding: 0;
+    padding-top 0;
+}
+
+.contacts-form--partnership .contacts-form__inner {
+    aspect-ratio: auto;
+    min-height: auto;
 }
 
 .contacts-form__inner {
     position: relative;
     width: 100%;
     aspect-ratio: 1440 / 255;
-    min-height: 255px;
+    min-height: 15.9375rem;
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -80,17 +88,17 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    padding: 44px;
+    padding: 2.75rem;
     color: #fff;
 }
 
 .contacts-form__texts {
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
 }
 
 .contacts-form__title {
     color: #fff;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .contacts-form__desc {
@@ -99,21 +107,44 @@
 
 .contacts-form__inputs {
     display: flex;
-    gap: 6px;
-    margin-bottom: 16px;
+    gap: 0.375rem;
+    margin-bottom: 1rem;
 }
 
 .contacts-form__field {
     flex: 1;
+    position: relative;
+}
+
+.contacts-form__error {
+    position: absolute;
+    top: calc(100% + 0.125rem);
+    left: 0;
+    font-size: var(--caption-size);
+    color: #ff6b6b;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.contacts-form__error--visible {
+    opacity: 1;
+}
+
+.contacts-form__success {
+    display: block;
+    color: #4caf50;
+    margin-top: 0.5rem;
+    font-size: var(--body-size);
 }
 
 .contacts-form__input {
     width: 100%;
-    height: 38px;
-    padding: 12px 16px;
+    height: 2.875rem;
+    padding: 0.75rem 1rem;
     background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(50px);
-    border: none;
+    backdrop-filter: blur(3.125rem);
+    border: 0.0625rem solid transparent;
     color: #fff;
     outline: none;
 }
@@ -123,27 +154,23 @@
 }
 
 .contacts-form__submit {
-    flex-shrink: 0;
-    height: 38px;
-    padding: 12px 50px;
-    background: #fff;
-    border: none;
-    cursor: pointer;
-    color: var(--graphite);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s;
+    flex: 1;
 }
 
-.contacts-form__submit:hover {
-    opacity: 0.8;
+
+
+.contacts-form__input.is-valid {
+	border-color: #4caf50;
+}
+
+.contacts-form__input.is-invalid {
+	border-color: #ff6b6b;
 }
 
 .contacts-form__checkbox {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     cursor: pointer;
 }
 
@@ -152,10 +179,10 @@
 }
 
 .contacts-form__checkbox-mark {
-    width: 12px;
-    height: 12px;
+    width: 0.75rem;
+    height: 0.75rem;
     background: #fff;
-    border: 0.5px solid rgba(33,33,33,0.2);
+    border: 0.0625rem solid #fff;
     flex-shrink: 0;
 }
 
@@ -191,26 +218,76 @@
 
     .contacts-info__phone,
     .contacts-info__email {
-        font-size: 18px;
+        font-size: 24px;
     }
 
-    .contacts-info__captions {
+        .contacts-info__captions {
         flex-direction: column;
         gap: 10px;
-        text-align: center;
+        text-align: left;
+        align-items: flex-start;
     }
-
     .contacts-form__inner {
         aspect-ratio: auto;
         min-height: auto;
+        background: #fff !important;
+        background-image: none !important;
+    }
+
+    .contacts-form__gradient {
+        display: none;
     }
 
     .contacts-form__content {
-        padding: 24px var(--gutter);
+        padding: 30px;
+        color: var(--graphite);
     }
 
     .contacts-form__title {
         font-size: 18px;
+        color: var(--graphite);
+    }
+
+    .contacts-form__desc {
+        color: var(--graphite);
+    }
+
+    .contacts-form__input {
+        background: #f5f5f5;
+        backdrop-filter: none;
+        color: var(--graphite);
+        border: 1px solid transparent;
+    }
+
+    .contacts-form__input::placeholder {
+        color: rgba(33,33,33,0.4);
+    }
+
+    .contacts-form__checkbox-text {
+        color: var(--graphite);
+        font-size: 12px;
+    }
+
+    .contacts-form__checkbox-mark {
+        background: var(--graphite);
+        border: 1px solid var(--graphite);
+    }
+
+    .contacts-form__submit {
+        background: var(--graphite);
+        color: #fff;
+    }
+
+    .contacts-form__submit:hover {
+        color: #fff;
+    }
+
+    .contacts-form__submit svg path {
+        fill: #fff;
+    }
+
+    .contacts-form__submit:hover svg path {
+        fill: #fff;
     }
 
     .contacts-form__inputs {
@@ -220,4 +297,27 @@
     .contacts-form__field {
         flex: none;
     }
+    .contacts-info__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 26px;
+        text-align: left;
+    }
+    .contacts-info__row {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+.contacts-form__checkbox-mark {
+    width: 18px;
+    height: 18px;
+    background: var(--graphite);
+    border: 1px solid var(--graphite);
+    flex-shrink: 0;
+}
+
+.contacts-form__checkbox input:checked + .contacts-form__checkbox-mark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 1920 1920'%3E%3Cpath d='M1827.701 303.065 698.835 1431.801 92.299 825.266 0 917.564 698.835 1616.4 1919.869 395.234z' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
 }

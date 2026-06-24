@@ -43,29 +43,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // ===== OTHER COLLECTIONS SWIPER =====
-  var otherSwiper = new Swiper('.single-collection-other__swiper', {
-    slidesPerView: 4,
-    spaceBetween: 16,
-    speed: 600,
-    navigation: {
-      prevEl: '.single-collection-other__arrow--prev',
-      nextEl: '.single-collection-other__arrow--next',
-    },
-    pagination: {
-      el: '.single-collection-other__dots',
-      clickable: true,
-      bulletClass: 'single-collection-other__dot',
-      bulletActiveClass: 'single-collection-other__dot--active',
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1.3,
-        spaceBetween: 8,
-      },
-      769: {
+  document.querySelectorAll('.carousel-section.collections').forEach(function (section) {
+    var swiperEl = section.querySelector('.carousel-section__swiper')
+    if (swiperEl) {
+      new Swiper(swiperEl, {
         slidesPerView: 4,
         spaceBetween: 16,
-      },
-    },
-  });
+        speed: 600,
+        navigation: {
+          prevEl: section.querySelector('.carousel-section__arrow--prev'),
+          nextEl: section.querySelector('.carousel-section__arrow--next'),
+        },
+        pagination: {
+          el: section.querySelector('.carousel-section__pagination'),
+          clickable: true,
+          bulletClass: 'carousel-section__dot',
+          bulletActiveClass: 'carousel-section__dot--active',
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1.3,
+            spaceBetween: 8,
+          },
+          769: {
+            slidesPerView: 4,
+            spaceBetween: 16,
+          },
+        },
+      })
+    }
+  })
 });

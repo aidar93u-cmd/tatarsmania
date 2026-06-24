@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
   /* ===== ACCORDION TOGGLE ===== */
   var $accordions = $('.product-accordion');
 
@@ -216,55 +216,38 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ===== OTHER MODELS TABS ===== */
-  var otherTabs = document.querySelectorAll('.product-other__nav .btn-filter');
-  var otherContents = document.querySelectorAll('.product-other__tab-content');
+  var section = document.querySelector('.carousel-section.product-other');
+  if (section) {
+    var otherTabs = section.querySelectorAll('.carousel-section__tabs .btn-filter');
+    var otherContents = section.querySelectorAll('.carousel-section__tabpanel');
 
-  otherTabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      var targetId = this.getAttribute('data-tab');
+    otherTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var targetId = this.getAttribute('data-tab');
 
-      otherTabs.forEach(function (t) {
-        t.classList.remove('btn-filter--active');
+        otherTabs.forEach(function (t) {
+          t.classList.remove('btn-filter--active');
+        });
+        this.classList.add('btn-filter--active');
+
+        otherContents.forEach(function (c) {
+          c.classList.remove('carousel-section__tabpanel--active');
+        });
+
+        var target = document.getElementById(targetId);
+        if (target) {
+          target.classList.add('carousel-section__tabpanel--active');
+          var newSwiperEl = target.querySelector('.carousel-section__swiper');
+          if (newSwiperEl && newSwiperEl.swiper) {
+            newSwiperEl.swiper.update();
+          }
+        }
       });
-      this.classList.add('btn-filter--active');
-
-      otherContents.forEach(function (c) {
-        c.classList.remove('product-other__tab-content--active');
-      });
-
-      var target = document.getElementById(targetId);
-      if (target) {
-        target.classList.add('product-other__tab-content--active');
-      }
     });
-  });
-
-  /* ===== OTHER MODELS SWIPER ===== */
-  document.querySelectorAll('.product-other__tab-content').forEach(function (tab) {
-    var swiperEl = tab.querySelector('.product-other-swiper');
-    if (swiperEl && typeof Swiper !== 'undefined') {
-      new Swiper(swiperEl, {
-        slidesPerView: 4,
-        slidesPerGroup: 1,
-        spaceBetween: 16,
-        pagination: {
-          el: tab.querySelector('.product-other__pagination'),
-          clickable: true,
-        },
-        navigation: {
-          prevEl: tab.querySelector('.product-other__arrow--prev'),
-          nextEl: tab.querySelector('.product-other__arrow--next'),
-        },
-        breakpoints: {
-          769: { slidesPerView: 4 },
-          0: { slidesPerView: 1.2, slidesPerGroup: 1 },
-        },
-      });
-    }
-  });
+  }
 
   /* ===== OTHER MODELS GALLERY HOVER ===== */
-  document.querySelectorAll('.product-other__slide .product-card--default').forEach(function (card) {
+  document.querySelectorAll('.carousel-section.product-other .product-card--default').forEach(function (card) {
     var gallery = card.querySelector('.product-card--default__gallery');
     var images = gallery ? gallery.querySelectorAll('img') : [];
     var bars = card.querySelectorAll('.product-card--default__progress-bar');
