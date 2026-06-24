@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var playBtn = videoWrap.querySelector('.production-video__play');
         var pauseBtn = videoWrap.querySelector('.production-video__pause');
         var muteBtn = videoWrap.querySelector('.production-video__mute');
-        var content = videoWrap.querySelector('.production-video__content');
+        var content = videoWrap.closest('.production-video__holder').querySelector('.production-video__content');
 
         if (video && playBtn && pauseBtn && muteBtn && content) {
             var muteIconOn = muteBtn.querySelector('.production-video__mute-on');
@@ -65,27 +65,5 @@ document.addEventListener('DOMContentLoaded', function () {
         $item.toggleClass('production-accordion__item--open');
         $body.stop(true, true).slideToggle(600);
     });
-
-    /* ===== OTHER MODELS SWIPER (hits pattern) ===== */
-    if (document.querySelector('.hits-swiper')) {
-        new Swiper('.hits-swiper', {
-            slidesPerView: 4,
-            slidesPerGroup: 1,
-            spaceBetween: 16,
-            pagination: {
-                el: '.hits__pagination',
-                type: 'bullets',
-                clickable: true,
-            },
-            navigation: {
-                prevEl: '.product-other__arrow--prev',
-                nextEl: '.product-other__arrow--next',
-            },
-            breakpoints: {
-                769: { slidesPerView: 4 },
-                0: { slidesPerView: 1.2, slidesPerGroup: 1 },
-            },
-        });
-    }
 
 });
