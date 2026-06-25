@@ -1,5 +1,5 @@
-/* ===================================
-   Partnership Page (Сотрудничество)
+﻿/* ===================================
+   Partnership Page (РЎРѕС‚СЂСѓРґРЅРёС‡РµСЃС‚РІРѕ)
    =================================== */
 
 /* ===== Advantage Cards ===== */
@@ -29,7 +29,8 @@
 	color: rgba(33, 33, 33, 0.4);
 }
 .partnership-content__subtitle {
-	margin-top: 4.375rem;
+    margin-top: 20px;
+    margin-bottom: 42px;
 }
 /* ===== Dots (Icon Counter) ===== */
 .partnership-card__dots {
@@ -51,22 +52,12 @@
 	background: var(--copper);
 }
 
-/* ===== Advantages List ===== */
-.partnership-advantages {
-	display: flex;
-	flex-direction: column;
-	gap: 0;
-}
-
-.partnership-advantages span {
-	padding: 0 0 1rem;
-}
-
-/* ===== Info Cards (3×2 grid) ===== */
+/* ===== Info Cards (3Г—2 grid) ===== */
 .partnership-info-cards {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 0.375rem;
+	margin-bottom: 72px;
 }
 
 .partnership-info-card {
@@ -102,6 +93,7 @@
 .partnership-accordions {
 	display: flex;
 	flex-direction: column;
+	margin: 40px 0;
 }
 
 .partnership-accordion {
@@ -138,12 +130,8 @@
 
 .partnership-accordion__body {
 	display: none;
-}
-
-.partnership-accordion--open .partnership-accordion__body {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
+	overflow: hidden;
+	padding-bottom: 0.75rem;
 }
 
 .partnership-accordion__body p {
@@ -214,7 +202,7 @@
 	opacity: 1;
 }
 
-/* ===== Mobile: ≤768px ===== */
+/* ===== Mobile: в‰¤768px ===== */
 @media (max-width: 768px) {
 	.partnership-cards,
 	.partnership-info-cards {
@@ -223,7 +211,7 @@
 
 	.partnership-card,
 	.partnership-info-card {
-		aspect-ratio: auto;
+        aspect-ratio: 335 / 220;
 	}
 
 	.partnership-card__body {

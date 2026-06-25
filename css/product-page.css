@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    PRODUCT PAGE
    ============================================ */
 
@@ -718,7 +718,7 @@
 	display: none;
 }
 
-/* Breadcrumbs — mobile version hidden on desktop */
+/* Breadcrumbs вЂ” mobile version hidden on desktop */
 .page-title__crumbs--mobile {
 	display: none;
 }

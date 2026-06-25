@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
 
     /* ===== VIDEO PLAY / PAUSE / MUTE ===== */
     var videoWrap = document.querySelector('.production-video__wrap');
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 video.muted = !video.muted;
                 muteIconOn.style.display = video.muted ? 'none' : 'block';
                 muteIconOff.style.display = video.muted ? 'block' : 'none';
-                muteBtn.setAttribute('aria-label', video.muted ? 'Включить звук' : 'Выключить звук');
+                muteBtn.setAttribute('aria-label', video.muted ? 'Р’РєР»СЋС‡РёС‚СЊ Р·РІСѓРє' : 'Р’С‹РєР»СЋС‡РёС‚СЊ Р·РІСѓРє');
             });
 
             videoWrap.addEventListener('click', function (e) {

@@ -1,4 +1,4 @@
-$(function () {
+﻿$(function () {
   /* ===== SKELETON LOADING ===== */
   var $productGrid = $('.catalog-listing__product-grid');
   var $skeletonGrid = $('.catalog-listing__skeleton-grid');
@@ -67,7 +67,7 @@ $(function () {
   }
 
   function createTagEl(id, text) {
-    return $('<span>').addClass('filter-tag').attr('data-filter-id', id).html(text + ' <button class="filter-tag__remove" aria-label="Удалить">&times;</button>');
+    return $('<span>').addClass('filter-tag').attr('data-filter-id', id).html(text + ' <button class="filter-tag__remove" aria-label="РЈРґР°Р»РёС‚СЊ">&times;</button>');
   }
 
   function addFilterTag(input) {
@@ -134,7 +134,7 @@ $(function () {
     var id = 'range-' + sectionTitle;
     var $tag = $activeFilters.length ? $activeFilters.find('[data-filter-id="' + id + '"]') : $();
     if ($tag.length) {
-      $tag.html(sectionTitle + ': ' + $minInput.val() + ' \u2014 ' + $maxInput.val() + ' <button class="filter-tag__remove" aria-label="Удалить">&times;</button>');
+      $tag.html(sectionTitle + ': ' + $minInput.val() + ' \u2014 ' + $maxInput.val() + ' <button class="filter-tag__remove" aria-label="РЈРґР°Р»РёС‚СЊ">&times;</button>');
     }
   }
 
@@ -154,7 +154,7 @@ $(function () {
       syncRangeTag(container, sectionTitle);
       return;
     }
-    var $tag = $('<span>').addClass('filter-tag').attr('data-filter-id', id).html(sectionTitle + ': ' + minVal + ' \u2014 ' + maxVal + ' <button class="filter-tag__remove" aria-label="Удалить">&times;</button>');
+    var $tag = $('<span>').addClass('filter-tag').attr('data-filter-id', id).html(sectionTitle + ': ' + minVal + ' \u2014 ' + maxVal + ' <button class="filter-tag__remove" aria-label="РЈРґР°Р»РёС‚СЊ">&times;</button>');
     $resetBtn.length ? $tag.insertBefore($resetBtn) : $activeFilters.append($tag);
     updateFilterBarVisibility();
   }
@@ -307,9 +307,9 @@ $(function () {
   if ($loadMore.length) {
     $loadMore.on('click', function () {
       showSkeleton();
-      $loadMore.text('Загрузка...').prop('disabled', true);
+      $loadMore.text('Р—Р°РіСЂСѓР·РєР°...').prop('disabled', true);
       setTimeout(function () {
-        $loadMore.text('загрузить еще').prop('disabled', false);
+        $loadMore.text('Р·Р°РіСЂСѓР·РёС‚СЊ РµС‰Рµ').prop('disabled', false);
       }, 1500);
     });
   }

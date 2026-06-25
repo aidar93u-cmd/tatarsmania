@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
 
-  // ===== PHOTO S SWIPER (mobile ≤768px) =====
+  // ===== PHOTO S SWIPER (mobile в‰¤768px) =====
   var photoSMedia = document.querySelector('.article-media--photo-s');
   var photoSGrid = photoSMedia ? photoSMedia.querySelector('.article-photo-s__grid') : null;
   var photoSSwiper = null;
@@ -87,4 +87,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ===== AOS REFRESH AFTER ARTICLE SWIPERS =====
+  if (typeof AOS !== 'undefined') {
+    setTimeout(function () { AOS.refresh() }, 50)
+  }
 });
