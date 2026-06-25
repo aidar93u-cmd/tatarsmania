@@ -1,4 +1,4 @@
-/* ===== MOBILE MENU ===== */
+﻿/* ===== MOBILE MENU ===== */
 document.addEventListener('DOMContentLoaded', function () {
 	var mobileMenu = document.getElementById('mobileMenu')
 	var track = document.getElementById('mobileMenuTrack')
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		var activeLevel = track.querySelector('.mobile-menu__level[data-level="' + levelId + '"]')
 		if (activeLevel) {
-			titleEl.textContent = activeLevel.getAttribute('data-title') || 'Меню'
+			titleEl.textContent = activeLevel.getAttribute('data-title') || 'РњРµРЅСЋ'
 		}
 
 		backBtn.style.display = currentIndex > 0 ? 'block' : 'none'

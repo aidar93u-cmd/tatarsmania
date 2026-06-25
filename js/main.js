@@ -98,6 +98,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
+	// ===== SIDEBAR NAV DROPDOWN (mobile) =====
+	document.addEventListener('click', function (e) {
+		var btn = e.target.closest('.sidebar-nav__dropdown-btn')
+		var dropdown = btn ? btn.closest('.sidebar-nav__dropdown') : null
+
+		// close all dropdowns
+		document.querySelectorAll('.sidebar-nav__dropdown--open').forEach(function (d) {
+			if (d !== dropdown) d.classList.remove('sidebar-nav__dropdown--open')
+		})
+
+		if (dropdown) {
+			dropdown.classList.toggle('sidebar-nav__dropdown--open')
+		}
+	})
+
 	// ===== INTERSECTION OBSERVER =====
 	var observer = new IntersectionObserver(
 		function (entries) {

@@ -1,4 +1,4 @@
-// ===== YANDEX MAP v2.1 — MARKERS & BALLOONS =====
+﻿// ===== YANDEX MAP v2.1 вЂ” MARKERS & BALLOONS =====
 ymaps.ready(initYandexMap)
 
 function initYandexMap() {
@@ -42,7 +42,7 @@ function initYandexMap() {
 
       var open = card.dataset.open
       var close = card.dataset.close
-      var statusText = 'Открыто'
+      var statusText = 'РћС‚РєСЂС‹С‚Рѕ'
       if (open && close) {
         var oh = parseInt(open.split(':')[0], 10)
         var om = parseInt(open.split(':')[1], 10)
@@ -51,7 +51,7 @@ function initYandexMap() {
         var openMin = oh * 60 + om
         var closeMin = ch * 60 + cm
         if (currentMinutes < openMin || currentMinutes >= closeMin) {
-          statusText = 'Закрыто'
+          statusText = 'Р—Р°РєСЂС‹С‚Рѕ'
         }
       }
 

@@ -16,8 +16,10 @@ package-lock.json
 opencode.json
 AGENTS.md
 AGENTS.node_modules
+AGENTS*
+skills*
 skills-lock.json
-.graphify_python
+.graphify*
 graphify-out/
 
 # docs (not layout)

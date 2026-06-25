@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
 
   var grid = document.querySelector('.blog-grid');
   if (!grid) return;
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
   function getWordEnding(n) {
     var lastDigit = n % 10;
     var lastTwo = n % 100;
-    if (lastTwo >= 11 && lastTwo <= 19) return 'ов';
+    if (lastTwo >= 11 && lastTwo <= 19) return 'РѕРІ';
     if (lastDigit === 1) return '';
-    if (lastDigit >= 2 && lastDigit <= 4) return 'а';
-    return 'ов';
+    if (lastDigit >= 2 && lastDigit <= 4) return 'Р°';
+    return 'РѕРІ';
   }
 
   function createSkeletons(count) {
@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var pageCards = filteredCards.slice(start, start + perPage);
     var totalShown = Math.min(start + perPage, filteredCards.length);
     var infoEl = document.querySelector('.blog-pagination__info');
-    if (infoEl) infoEl.textContent = 'Показано ' + totalShown + ' из ' + filteredCards.length;
+    if (infoEl) infoEl.textContent = 'РџРѕРєР°Р·Р°РЅРѕ ' + totalShown + ' РёР· ' + filteredCards.length;
     var countEl = document.querySelector('.blog-news__count');
     if (countEl) {
-      var noun = countEl.getAttribute('data-noun') || 'материал';
-      countEl.textContent = 'Найдено ' + filteredCards.length + ' ' + noun + getWordEnding(filteredCards.length);
+      var noun = countEl.getAttribute('data-noun') || 'РјР°С‚РµСЂРёР°Р»';
+      countEl.textContent = 'РќР°Р№РґРµРЅРѕ ' + filteredCards.length + ' ' + noun + getWordEnding(filteredCards.length);
     }
     updatePagination();
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tabs.forEach(function (t) { t.classList.remove('is-active'); });
       this.classList.add('is-active');
       var filter = this.textContent.trim().toLowerCase();
-      if (filter === 'все') {
+      if (filter === 'РІСЃРµ') {
         filteredCards = allCards.slice();
       } else {
         filteredCards = allCards.filter(function (c) { return getCategory(c) === filter; });
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var text = this.textContent.trim();
       document.querySelector('.blog-news__sort-text').textContent = text;
       document.querySelector('.blog-news__sort-dropdown').classList.remove('is-open');
-      var order = text === 'Сначала новые' ? -1 : text === 'Сначала старые' ? 1 : 0;
+      var order = text === 'РЎРЅР°С‡Р°Р»Р° РЅРѕРІС‹Рµ' ? -1 : text === 'РЎРЅР°С‡Р°Р»Р° СЃС‚Р°СЂС‹Рµ' ? 1 : 0;
       if (order !== 0) {
         filteredCards.sort(function (a, b) {
           return order * (getDateVal(a) < getDateVal(b) ? -1 : getDateVal(b) < getDateVal(a) ? 1 : 0);

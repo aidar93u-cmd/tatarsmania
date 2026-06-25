@@ -1,4 +1,4 @@
-/* ===================================
+﻿/* ===================================
    PRELOADER
    =================================== */
 body.preloader-active {
@@ -1044,7 +1044,7 @@ body.page {
 }
 
 /* ===================================
-   RESPONSIVE — HEADER
+   RESPONSIVE вЂ” HEADER
    =================================== */
 @media (max-width: 1200px) {
 	.topbar__nav {
@@ -1111,7 +1111,7 @@ body.page {
 	}
 }
 
-/* Mobile (≤ 768px) — full screen popup */
+/* Mobile (в‰¤ 768px) вЂ” full screen popup */
 @media (max-width: 768px) {
 	.fancybox-search-popup .fancybox__content {
 		width: 100vw;

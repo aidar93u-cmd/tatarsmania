@@ -1,118 +1,6 @@
-/* ===================================
-   Designers Page (Дизайнерам и архитекторам)
+﻿/* ===================================
+   Designers Page (Р”РёР·Р°Р№РЅРµСЂР°Рј Рё Р°СЂС…РёС‚РµРєС‚РѕСЂР°Рј)
    =================================== */
-
-/* ===== Form Horizontal ===== */
-.designers-form__inner {
-    position: relative;
-    padding: 2.75rem;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
-
-.designers-form__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 100%);
-    opacity: .3;
-    z-index: 1;
-}
-
-.designers-form__content {
-    position: relative;
-    z-index: 2;
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-}
-
-.designers-form__content h3 {
-    color: var(--white);
-    margin: 0;
-}
-
-.designers-form__content p {
-    color: var(--white);
-    margin: 0;
-}
-
-.designers-form__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-}
-
-.designers-form__inputs {
-    display: flex;
-    gap: 0.375rem;
-}
-
-.designers-form__field {
-    flex: 1;
-}
-
-.designers-form__input {
-    width: 100%;
-    height: 2.375rem;
-    padding: 0.75rem 1rem;
-    background: rgba(255,255,255,.1);
-    border: none;
-    color: var(--white);
-    outline: none;
-}
-
-.designers-form__input::placeholder {
-    color: rgba(255,255,255,.4);
-}
-
-.designers-form__submit {
-    flex-shrink: 0;
-    height: 2.375rem;
-    padding: 0.75rem 3.125rem;
-    background: var(--white);
-    color: var(--graphite);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-}
-
-.designers-form__checkbox {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    cursor: pointer;
-    align-self: flex-start;
-}
-
-.designers-form__checkbox input[type="checkbox"] {
-    display: none;
-}
-
-.designers-form__checkbox-mark {
-    width: 0.75rem;
-    height: 0.75rem;
-    border: 0.03125rem solid rgba(33,33,33,.2);
-    background: var(--white);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.designers-form__checkbox input:checked + .designers-form__checkbox-mark::after {
-    content: '';
-    width: 0.375rem;
-    height: 0.375rem;
-    background: var(--graphite);
-}
 
 /* ===== Partners ===== */
 .designers-partners__card {
@@ -121,7 +9,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
     min-height: 18.1875rem;
 }
@@ -182,30 +70,4 @@
     margin: 0;
 }
 
-/* ===== Mobile: ≤768px ===== */
-@media (max-width: 768px) {
-    .designers-form__inner {
-        padding: 24px var(--gutter);
-    }
 
-    .designers-form__inputs {
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .designers-form__field {
-        flex: none;
-    }
-
-    .designers-form__submit {
-        width: 100%;
-    }
-
-    .designers-form__content {
-        text-align: left;
-        align-items: flex-start;
-    }
-
-
-
-}
