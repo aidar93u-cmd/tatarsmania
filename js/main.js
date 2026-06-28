@@ -358,10 +358,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		var emailInput = document.getElementById('newsletterEmail')
 		var errorMsg = document.getElementById('newsletterError')
 		var emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
+		var agreeCheckbox = emailForm.parentElement.querySelector('.footer__checkbox input[type="checkbox"]')
 
 		function clearValidation() {
 			emailInput.classList.remove('is-valid', 'is-invalid')
 			errorMsg.classList.remove('visible')
+			if (agreeCheckbox) agreeCheckbox.closest('.footer__checkbox').classList.remove('is-invalid')
 			var successMsg = emailForm.querySelector('.footer__email-success')
 			if (successMsg) successMsg.remove()
 		}
@@ -373,11 +375,22 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (successMsg) successMsg.remove()
 		})
 
+		if (agreeCheckbox) {
+			agreeCheckbox.addEventListener('change', function () {
+				this.closest('.footer__checkbox').classList.remove('is-invalid')
+			})
+		}
+
 		emailForm.addEventListener('submit', function (e) {
 			e.preventDefault()
 			var email = emailInput.value.trim()
 			var successMsg = emailForm.querySelector('.footer__email-success')
 			if (successMsg) successMsg.remove()
+
+			if (agreeCheckbox && !agreeCheckbox.checked) {
+				agreeCheckbox.closest('.footer__checkbox').classList.add('is-invalid')
+				return
+			}
 
 			if (!email) {
 				emailInput.classList.remove('is-valid')
@@ -531,6 +544,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			new Swiper('.collections-swiper', {
 				loop: true,
 				speed: 600,
+				spaceBetween: 6,
 				pagination: {
 					el: '.collections .collections__pagination',
 					type: 'bullets',
@@ -1104,4 +1118,644 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.updateShowroomStatus()
 	setInterval(window.updateShowroomStatus, 60000)
+
+	/* ===== REGISTRATION POPUP ===== */
+	var regPhoneInput = document.getElementById('regPhone')
+	var regPhoneError = document.getElementById('regPhoneError')
+	var regPhoneStep3 = document.getElementById('regPhoneStep3')
+	var regStep1Next = document.getElementById('regStep1Next')
+	var regStep3Submit = document.getElementById('regStep3Submit')
+	var regCodeDesc = document.getElementById('regCodeDesc')
+	var regCodeWrap = document.getElementById('regCodeWrap')
+	var regCodeError = document.getElementById('regCodeError')
+	var regTimer = document.getElementById('regTimer')
+	var regTimerCount = document.getElementById('regTimerCount')
+	var regResend = document.getElementById('regResend')
+	var regCodeInputs
+
+	var regNameInput = document.getElementById('regName')
+	var regNameError = document.getElementById('regNameError')
+	var regSurnameInput = document.getElementById('regSurname')
+	var regSurnameError = document.getElementById('regSurnameError')
+	var regEmailInput = document.getElementById('regEmail')
+	var regEmailError = document.getElementById('regEmailError')
+
+	var regTimerInterval
+	var regTimerValue = 43
+
+	function regPhoneMask(val) {
+		var digits = val.replace(/\D/g, '')
+		if (digits.length === 0) return ''
+		var d = digits.slice(0, 11)
+		var masked = '+7'
+		if (d.length > 1) masked += ' (' + d.slice(1, 4)
+		if (d.length >= 5) masked += ') ' + d.slice(4, 7)
+		if (d.length >= 8) masked += '-' + d.slice(7, 9)
+		if (d.length >= 10) masked += '-' + d.slice(9, 11)
+		return masked
+	}
+
+	function regClearPhoneError() {
+		if (regPhoneInput) regPhoneInput.classList.remove('reg-popup__input--error')
+		if (regPhoneError) regPhoneError.classList.remove('reg-popup__error--visible')
+	}
+
+	function regShowPhoneError() {
+		if (regPhoneInput) regPhoneInput.classList.add('reg-popup__input--error')
+		if (regPhoneError) regPhoneError.classList.add('reg-popup__error--visible')
+	}
+
+	function regClearCodeError() {
+		regCodeInputs = regCodeWrap ? regCodeWrap.querySelectorAll('.reg-popup__code-input') : []
+		regCodeInputs.forEach(function (inp) { inp.classList.remove('reg-popup__code-input--error') })
+		if (regCodeError) regCodeError.classList.remove('reg-popup__error--visible')
+	}
+
+	function regShowCodeError() {
+		regCodeInputs = regCodeWrap ? regCodeWrap.querySelectorAll('.reg-popup__code-input') : []
+		regCodeInputs.forEach(function (inp) { inp.classList.add('reg-popup__code-input--error') })
+		if (regCodeError) regCodeError.classList.add('reg-popup__error--visible')
+	}
+
+	function regClearStep3Errors() {
+		if (regNameInput) regNameInput.classList.remove('reg-popup__input--error')
+		if (regNameError) regNameError.classList.remove('reg-popup__error--visible')
+		if (regSurnameInput) regSurnameInput.classList.remove('reg-popup__input--error')
+		if (regSurnameError) regSurnameError.classList.remove('reg-popup__error--visible')
+		if (regEmailInput) regEmailInput.classList.remove('reg-popup__input--error')
+		if (regEmailError) regEmailError.classList.remove('reg-popup__error--visible')
+	}
+
+	function regValidateStep3() {
+		var valid = true
+		if (!regNameInput || !regNameInput.value.trim()) {
+			if (regNameInput) regNameInput.classList.add('reg-popup__input--error')
+			if (regNameError) regNameError.classList.add('reg-popup__error--visible')
+			valid = false
+		}
+		if (!regSurnameInput || !regSurnameInput.value.trim()) {
+			if (regSurnameInput) regSurnameInput.classList.add('reg-popup__input--error')
+			if (regSurnameError) regSurnameError.classList.add('reg-popup__error--visible')
+			valid = false
+		}
+		if (regEmailInput && regEmailInput.value.trim()) {
+			var emailRe = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
+			if (!emailRe.test(regEmailInput.value.trim())) {
+				regEmailInput.classList.add('reg-popup__input--error')
+				if (regEmailError) regEmailError.classList.add('reg-popup__error--visible')
+				valid = false
+			}
+		}
+		return valid
+	}
+
+	function regGetCode() {
+		var code = ''
+		regCodeInputs = regCodeWrap ? regCodeWrap.querySelectorAll('.reg-popup__code-input') : []
+		regCodeInputs.forEach(function (inp) { code += inp.value })
+		return code
+	}
+
+	function regSubmitCode() {
+		regClearCodeError()
+		var code = regGetCode()
+		if (code.length < 6) return
+		// Simulate code verification — any 6 digits work
+		var rawPhone = regPhoneInput ? regPhoneInput.value.replace(/\D/g, '') : ''
+		var known = localStorage.getItem('reg_user_' + rawPhone)
+		if (known) {
+			// Existing user — log in directly
+			regCompleteAuth()
+		} else {
+			// New user — go to step 3
+			regGoToStep(3)
+		}
+	}
+
+	function regCompleteAuth() {
+		var rawPhone = regPhoneInput ? regPhoneInput.value.replace(/\D/g, '') : ''
+		if (rawPhone) {
+			localStorage.setItem('reg_user_' + rawPhone, 'registered')
+		}
+		// Update profile icon
+		document.querySelectorAll('.header__icon[aria-label="Профиль"], .header-mobile__icon[aria-label="Профиль"]').forEach(function (icon) {
+			icon.classList.add('header__icon--logged', 'header-mobile__icon--logged')
+		})
+		Fancybox.close()
+	}
+
+	if (regPhoneInput) {
+		regPhoneInput.addEventListener('input', function () {
+			var cursor = regPhoneInput.selectionStart
+			var prevLen = regPhoneInput.value.length
+			regPhoneInput.value = regPhoneMask(regPhoneInput.value)
+			var newLen = regPhoneInput.value.length
+			if (cursor < prevLen) {
+				var diff = newLen - prevLen
+				regPhoneInput.setSelectionRange(cursor + diff, cursor + diff)
+			}
+			regClearPhoneError()
+		})
+	}
+
+	function regGoToStep(step) {
+		document.querySelectorAll('.reg-popup__step').forEach(function (s) {
+			s.classList.toggle('reg-popup__step--active', parseInt(s.dataset.step, 10) === step)
+		})
+		// Re-trigger animation
+		var activeEl = document.querySelector('.reg-popup__step--active')
+		if (activeEl) {
+			activeEl.style.animation = 'none'
+			void activeEl.offsetWidth
+			activeEl.style.animation = ''
+		}
+		if (step === 2) {
+			if (regPhoneStep3) regPhoneStep3.value = regPhoneInput ? regPhoneInput.value : ''
+			if (regCodeDesc && regPhoneInput) {
+				regCodeDesc.textContent = 'Подтвердите номер ' + regPhoneInput.value + ', введя код из SMS:'
+			}
+			regCodeInputs = regCodeWrap ? regCodeWrap.querySelectorAll('.reg-popup__code-input') : []
+			regCodeInputs.forEach(function (inp) { inp.value = '' })
+			if (regCodeInputs.length) regCodeInputs[0].focus()
+			regClearCodeError()
+			regStartTimer()
+		}
+		if (step === 3) {
+			regClearStep3Errors()
+		}
+	}
+
+	function regStartTimer() {
+		regTimerValue = 43
+		if (regTimer) regTimer.style.display = ''
+		if (regResend) regResend.style.display = 'none'
+		clearInterval(regTimerInterval)
+		if (regTimerCount) regTimerCount.textContent = regTimerValue
+		regTimerInterval = setInterval(function () {
+			regTimerValue--
+			if (regTimerCount) regTimerCount.textContent = regTimerValue
+			if (regTimerValue <= 0) {
+				clearInterval(regTimerInterval)
+				if (regTimer) regTimer.style.display = 'none'
+				if (regResend) regResend.style.display = ''
+			}
+		}, 1000)
+	}
+
+	if (regStep1Next) {
+		regStep1Next.addEventListener('click', function () {
+			if (!regPhoneInput || regPhoneInput.value.replace(/\D/g, '').length < 11) {
+				regShowPhoneError()
+				return
+			}
+			regGoToStep(2)
+		})
+	}
+
+	if (regCodeWrap) {
+		regCodeWrap.addEventListener('input', function (e) {
+			var input = e.target
+			if (!input.classList.contains('reg-popup__code-input')) return
+			if (input.value && input.nextElementSibling && input.nextElementSibling.classList.contains('reg-popup__code-input')) {
+				input.nextElementSibling.focus()
+			}
+			regClearCodeError()
+			// Auto-submit when all 6 digits entered
+			if (regGetCode().length === 6) {
+				setTimeout(regSubmitCode, 300)
+			}
+		})
+		regCodeWrap.addEventListener('keydown', function (e) {
+			var input = e.target
+			if (!input.classList.contains('reg-popup__code-input')) return
+			if (e.key === 'Backspace' && !input.value && input.previousElementSibling && input.previousElementSibling.classList.contains('reg-popup__code-input')) {
+				input.previousElementSibling.focus()
+			}
+		})
+		regCodeWrap.addEventListener('paste', function (e) {
+			e.preventDefault()
+			var paste = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '')
+			var inputs = regCodeWrap.querySelectorAll('.reg-popup__code-input')
+			for (var i = 0; i < inputs.length && i < paste.length; i++) {
+				inputs[i].value = paste[i]
+				if (i < inputs.length - 1) inputs[i + 1].focus()
+			}
+		})
+	}
+
+	if (regResend) {
+		regResend.addEventListener('click', function () {
+			regStartTimer()
+		})
+	}
+
+	if (regStep3Submit) {
+		regStep3Submit.addEventListener('click', function () {
+			if (!regValidateStep3()) return
+			regCompleteAuth()
+		})
+	}
+
+	// Clear step 3 errors on input
+	if (regNameInput) {
+		regNameInput.addEventListener('input', function () {
+			this.classList.remove('reg-popup__input--error')
+			if (regNameError) regNameError.classList.remove('reg-popup__error--visible')
+		})
+	}
+	if (regSurnameInput) {
+		regSurnameInput.addEventListener('input', function () {
+			this.classList.remove('reg-popup__input--error')
+			if (regSurnameError) regSurnameError.classList.remove('reg-popup__error--visible')
+		})
+	}
+	if (regEmailInput) {
+		regEmailInput.addEventListener('input', function () {
+			this.classList.remove('reg-popup__input--error')
+			if (regEmailError) regEmailError.classList.remove('reg-popup__error--visible')
+		})
+	}
+
+	document.addEventListener('click', function (e) {
+		var btn = e.target.closest(
+			'a.header__icon[aria-label="Профиль"], ' +
+			'a.header-mobile__icon[aria-label="Профиль"], ' +
+			'button.mobile-menu__account-btn'
+		)
+		if (!btn) return
+		// Only intercept on pages with the popup
+		var popupEl = document.getElementById('registrationPopup')
+		if (!popupEl) return
+		e.preventDefault()
+
+		var mobileMenu = document.getElementById('mobileMenu')
+		if (mobileMenu) {
+			mobileMenu.classList.remove('mobile-menu--open')
+			document.body.style.overflow = ''
+		}
+
+		regGoToStep(1)
+		if (regPhoneInput) {
+			regPhoneInput.value = ''
+			regPhoneInput.classList.remove('reg-popup__input--error')
+		}
+		if (regPhoneError) regPhoneError.classList.remove('reg-popup__error--visible')
+		clearInterval(regTimerInterval)
+
+		Fancybox.show([{ src: '#registrationPopup', type: 'inline' }], {
+			mainClass: 'fancybox-reg-popup',
+			Toolbar: false,
+			closeButton: false,
+			on: {
+				close: function () {
+					clearInterval(regTimerInterval)
+				}
+			}
+		})
+	})
+
+	// Restore logged state on page load
+	;(function regRestoreLoggedState() {
+		var hasUser = false
+		for (var key in localStorage) {
+			if (key.indexOf('reg_user_') === 0 && localStorage.getItem(key)) {
+				hasUser = true
+				break
+			}
+		}
+		if (hasUser) {
+			document.querySelectorAll('.header__icon[aria-label="Профиль"], .header-mobile__icon[aria-label="Профиль"]').forEach(function (icon) {
+				icon.classList.add('header__icon--logged', 'header-mobile__icon--logged')
+			})
+		}
+	})()
 })
+
+/* ===== FAVORITES PAGE ===== */
+;(function () {
+	var tabs = document.querySelectorAll('.favorites__tab')
+	var gridFav = document.querySelector('.favorites__grid--fav')
+	var gridRecent = document.querySelector('.favorites__grid--recent')
+	var countEl = document.querySelector('.favorites__count')
+	var emptyFav = document.querySelector('.favorites__empty')
+	var emptyRecent = document.querySelector('.favorites__empty--recent')
+	var sortTrigger = document.querySelector('.favorites__sort-trigger')
+	var sortOptions = document.querySelector('.favorites__sort-options')
+	var sortLinks = document.querySelectorAll('.favorites__sort-option')
+
+	if (!gridFav || !gridRecent) return
+
+	var activeTab = 'favorites'
+
+	function getActiveGrid() {
+		return activeTab === 'favorites' ? gridFav : gridRecent
+	}
+
+	function getActiveEmpty() {
+		return activeTab === 'favorites' ? emptyFav : emptyRecent
+	}
+
+	function getInactiveGrid() {
+		return activeTab === 'favorites' ? gridRecent : gridFav
+	}
+
+	function getInactiveEmpty() {
+		return activeTab === 'favorites' ? emptyRecent : emptyFav
+	}
+
+	function updateEmptyState() {
+		var grid = getActiveGrid()
+		var empty = getActiveEmpty()
+		var cards = grid.querySelectorAll('.product-card--default:not([style*="display: none"])')
+		if (empty) empty.style.display = cards.length ? 'none' : ''
+	}
+
+	function updateCount() {
+		var grid = getActiveGrid()
+		var cards = grid.querySelectorAll('.product-card--default:not([style*="display: none"])')
+		if (countEl) countEl.textContent = 'Всего ' + cards.length + ' товаров'
+		updateEmptyState()
+	}
+
+	tabs.forEach(function (tab) {
+		tab.addEventListener('click', function () {
+			tabs.forEach(function (t) { t.classList.remove('favorites__tab--active') })
+			tab.classList.add('favorites__tab--active')
+			activeTab = tab.getAttribute('data-tab')
+
+			getActiveGrid().style.display = ''
+			getInactiveGrid().style.display = 'none'
+			if (getActiveEmpty()) getActiveEmpty().style.display = 'none'
+			if (getInactiveEmpty()) getInactiveEmpty().style.display = 'none'
+
+			updateCount()
+		})
+	})
+
+	// Click on active favorite → remove card (favorites grid only)
+	document.querySelector('.favorites__content').addEventListener('click', function (e) {
+		var btn = e.target.closest('.product-card__fav.active')
+		if (!btn) return
+		e.preventDefault()
+		e.stopPropagation()
+		var card = btn.closest('.product-card--default')
+		if (card) card.style.display = 'none'
+		btn.classList.remove('active')
+		updateCount()
+		if (window.updateFavBadge) window.updateFavBadge()
+	})
+
+	if (sortTrigger) {
+		sortTrigger.addEventListener('click', function (e) {
+			e.stopPropagation()
+			sortOptions.classList.toggle('favorites__sort-options--open')
+		})
+	}
+
+	document.addEventListener('click', function () {
+		if (sortOptions) sortOptions.classList.remove('favorites__sort-options--open')
+	})
+
+	if (sortOptions) {
+		sortOptions.addEventListener('click', function (e) { e.stopPropagation() })
+	}
+
+	sortLinks.forEach(function (link) {
+		link.addEventListener('click', function (e) {
+			e.preventDefault()
+			var sortKey = link.getAttribute('data-sort')
+			sortLinks.forEach(function (l) { l.style.fontWeight = '' })
+			link.style.fontWeight = '500'
+			var textEl = sortTrigger.querySelector('span')
+			if (textEl) textEl.textContent = link.textContent
+			sortOptions.classList.remove('favorites__sort-options--open')
+
+			var grid = getActiveGrid()
+			var cards = Array.from(grid.querySelectorAll('.product-card--default:not([style*="display: none"])'))
+			if (sortKey === 'default') {
+				cards.sort(function (a, b) {
+					return parseInt(a.getAttribute('data-filter-id').replace(/^(product|recent)-/, '')) - parseInt(b.getAttribute('data-filter-id').replace(/^(product|recent)-/, ''))
+				})
+			} else if (sortKey === 'alphabet-az') {
+				cards.sort(function (a, b) {
+					return a.querySelector('.product-card--default__title').textContent.trim().localeCompare(b.querySelector('.product-card--default__title').textContent.trim())
+				})
+			} else if (sortKey === 'expensive' || sortKey === 'cheap') {
+				var mul = sortKey === 'expensive' ? -1 : 1
+				cards.sort(function (a, b) {
+					var pa = parseInt((a.querySelector('.product-card__price').textContent || '').replace(/\s/g, '').replace(/[^0-9]/g, '')) || 0
+					var pb = parseInt((b.querySelector('.product-card__price').textContent || '').replace(/\s/g, '').replace(/[^0-9]/g, '')) || 0
+					return (pa - pb) * mul
+				})
+			}
+
+			cards.forEach(function (card) { grid.appendChild(card) })
+		})
+	})
+
+	if (window.updateFavBadge) window.updateFavBadge()
+})()
+
+;(function () {
+  /* ===== SHARED SLIDE TOGGLE (vanilla replacement for jQuery) ===== */
+  function slideToggle(el, duration) {
+    if (el.classList.contains('is-open')) {
+      el.style.transition = 'height ' + duration + 'ms ease';
+      el.style.height = el.scrollHeight + 'px';
+      requestAnimationFrame(function () {
+        el.style.height = '0px';
+      });
+      el.classList.remove('is-open');
+      setTimeout(function () {
+        el.style.display = 'none';
+        el.style.height = '';
+        el.style.transition = '';
+      }, duration);
+    } else {
+      el.style.display = '';
+      var full = el.scrollHeight;
+      el.style.height = '0px';
+      el.style.overflow = 'hidden';
+      el.style.transition = 'height ' + duration + 'ms ease';
+      el.classList.add('is-open');
+      requestAnimationFrame(function () {
+        el.style.height = full + 'px';
+      });
+      setTimeout(function () {
+        el.style.height = '';
+        el.style.overflow = '';
+        el.style.transition = '';
+      }, duration);
+    }
+  }
+
+  /* ===== SHARED MEDIA SLIDER (.media-slider__swiper) ===== */
+  var mediaSliderEl = document.querySelector('.media-slider__swiper');
+  if (mediaSliderEl) {
+    function updateMediaProgress(swiper) {
+      var bars = document.querySelectorAll('.media-slider__progress-bar');
+      var realIndex = swiper.realIndex;
+      bars.forEach(function (bar, i) {
+        bar.classList.toggle('media-slider__progress-bar--active', i === realIndex);
+      });
+    }
+
+    var mediaSwiper = new Swiper(mediaSliderEl, {
+      loop: true,
+      speed: 800,
+      autoplay: { delay: 5000, disableOnInteraction: true },
+      allowTouchMove: true,
+      navigation: {
+        prevEl: '.media-slider__btn--prev',
+        nextEl: '.media-slider__btn--next',
+      },
+      on: {
+        init: function () { updateMediaProgress(this) },
+        slideChange: function () { updateMediaProgress(this) },
+      },
+    });
+
+    document.querySelectorAll('.media-slider__progress-bar').forEach(function (bar, index) {
+      bar.addEventListener('click', function () {
+        mediaSwiper.slideToLoop(index);
+      });
+    });
+  }
+
+  /* ===== ACCORDION (shared across designers, production, product pages) ===== */
+  var accordionConfigs = [
+    { items: '.partnership-accordion', openClass: 'partnership-accordion--open', header: '.partnership-accordion__header', body: '.partnership-accordion__body' },
+    { items: '.production-accordion__item', openClass: 'production-accordion__item--open', header: '.production-accordion__header', body: '.production-accordion__body' },
+    { items: '.product-accordion', openClass: 'product-accordion--open', header: '.product-accordion__header', body: '.product-accordion__content' },
+  ];
+
+  accordionConfigs.forEach(function (cfg) {
+    var items = document.querySelectorAll(cfg.items);
+    items.forEach(function (item) {
+      var body = item.querySelector(cfg.body);
+      if (body) {
+        if (item.classList.contains(cfg.openClass)) {
+          body.style.display = '';
+          body.classList.add('is-open');
+          body.style.height = body.scrollHeight + 'px';
+        } else {
+          body.style.display = 'none';
+        }
+      }
+      var header = item.querySelector(cfg.header);
+      if (header && body) {
+        header.addEventListener('click', function () {
+          item.classList.toggle(cfg.openClass);
+          slideToggle(body, 600);
+        });
+      }
+    });
+  });
+
+  /* ===== LOYALTY HISTORY SWIPER (was loyalty.js) ===== */
+  var loyaltyEl = document.querySelector('.loyalty-history-swiper');
+  if (loyaltyEl) {
+    new Swiper(loyaltyEl, {
+      slidesPerView: 1, speed: 600,
+      navigation: { prevEl: '.loyalty-history__arrow--prev', nextEl: '.loyalty-history__arrow--next' },
+    });
+  }
+
+  /* ===== ABOUT HISTORY SWIPER (was about.js) ===== */
+  var aboutHistoryEl = document.querySelector('.about-history-swiper');
+  if (aboutHistoryEl) {
+    var aboutTabs = aboutHistoryEl.querySelectorAll('.about-history__tab');
+    var aboutSwiper = new Swiper(aboutHistoryEl, {
+      slidesPerView: 1, speed: 600,
+      navigation: { prevEl: '.about-history__arrow--prev', nextEl: '.about-history__arrow--next' },
+      on: { slideChange: function () {
+        aboutTabs.forEach(function (tab, i) { tab.classList.toggle('about-history__tab--active', i === aboutSwiper.activeIndex); });
+      }},
+    });
+    aboutTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () { aboutSwiper.slideTo(parseInt(tab.getAttribute('data-slide'))); });
+    });
+  }
+
+  /* ===== ARTICLE PHOTO SWIPER (was article.js) ===== */
+  var photoSMedia = document.querySelector('.article-media--photo-s');
+  var photoSGrid = photoSMedia ? photoSMedia.querySelector('.article-photo-s__grid') : null;
+  var photoSSwiper = null;
+  function initPhotoSSwiper() {
+    if (window.innerWidth > 768 || !photoSGrid) return null;
+    return new Swiper(photoSGrid, {
+      slidesPerView: 1.2, spaceBetween: 6, speed: 600,
+      navigation: { nextEl: photoSMedia.querySelector('.carousel-section__arrow--next'), prevEl: photoSMedia.querySelector('.carousel-section__arrow--prev') },
+      pagination: { el: photoSGrid.querySelector('.article-photo-s__pagination'), type: 'bullets', bulletClass: 'carousel-section__dot', bulletActiveClass: 'carousel-section__dot--active', clickable: true },
+    });
+  }
+  function destroyPhotoSSwiper() { if (photoSSwiper) { photoSSwiper.destroy(true, true); photoSSwiper = null; } }
+  photoSSwiper = initPhotoSSwiper();
+  window.addEventListener('resize', function () {
+    if (window.innerWidth <= 768) { destroyPhotoSSwiper(); photoSSwiper = initPhotoSSwiper(); }
+    else { destroyPhotoSSwiper(); }
+  });
+  if (typeof AOS !== 'undefined') { setTimeout(function () { AOS.refresh() }, 50); }
+
+  /* ===== OTHER COLLECTIONS CAROUSEL (was single-collection.js) ===== */
+  document.querySelectorAll('.carousel-section.collections').forEach(function (section) {
+    var swiperEl = section.querySelector('.carousel-section__swiper');
+    if (swiperEl) {
+      new Swiper(swiperEl, {
+        slidesPerView: 4, spaceBetween: 16, speed: 600,
+        navigation: { prevEl: section.querySelector('.carousel-section__arrow--prev'), nextEl: section.querySelector('.carousel-section__arrow--next') },
+        pagination: { el: section.querySelector('.carousel-section__pagination'), clickable: true, bulletClass: 'carousel-section__dot', bulletActiveClass: 'carousel-section__dot--active' },
+        breakpoints: { 320: { slidesPerView: 1.3, spaceBetween: 8 }, 769: { slidesPerView: 4, spaceBetween: 16 } },
+      });
+    }
+  });
+
+  /* ===== PRODUCTION VIDEO CONTROLS (was production.js) ===== */
+  var prodVideoWrap = document.querySelector('.production-video__wrap');
+  if (prodVideoWrap) {
+    var prodVideo = prodVideoWrap.querySelector('.production-video__video');
+    var prodPlay = prodVideoWrap.querySelector('.production-video__play');
+    var prodPause = prodVideoWrap.querySelector('.production-video__pause');
+    var prodMute = prodVideoWrap.querySelector('.production-video__mute');
+    var prodContent = prodVideoWrap.closest('.production-video__holder').querySelector('.production-video__content');
+    if (prodVideo && prodPlay && prodPause && prodMute && prodContent) {
+      var muteOn = prodMute.querySelector('.production-video__mute-on');
+      var muteOff = prodMute.querySelector('.production-video__mute-off');
+      prodPlay.addEventListener('click', function () { prodVideo.play(); prodVideoWrap.classList.add('is-playing'); prodContent.classList.add('is-playing'); });
+      prodPause.addEventListener('click', function () { prodVideo.pause(); prodVideoWrap.classList.remove('is-playing'); prodContent.classList.remove('is-playing'); });
+      prodMute.addEventListener('click', function () {
+        prodVideo.muted = !prodVideo.muted;
+        muteOn.style.display = prodVideo.muted ? 'none' : 'block';
+        muteOff.style.display = prodVideo.muted ? 'block' : 'none';
+        prodMute.setAttribute('aria-label', prodVideo.muted ? '\u0412\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0437\u0432\u0443\u043A' : '\u0412\u044B\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u0437\u0432\u0443\u043A');
+      });
+      prodVideoWrap.addEventListener('click', function (e) {
+        if (e.target === prodPlay || prodPlay.contains(e.target)) return;
+        if (e.target === prodPause || prodPause.contains(e.target)) return;
+        if (e.target === prodMute || prodMute.contains(e.target)) return;
+        if (prodVideo.paused) { prodVideo.play(); prodVideoWrap.classList.add('is-playing'); prodContent.classList.add('is-playing'); }
+        else { prodVideo.pause(); prodVideoWrap.classList.remove('is-playing'); prodContent.classList.remove('is-playing'); }
+      });
+    }
+  }
+
+  /* ===== PRODUCTION STEPS GSAP (was production-steps.js) ===== */
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    var stepWrappers = gsap.utils.toArray('.production-steps__card-wrapper');
+    var stepCards = gsap.utils.toArray('.production-steps__card');
+    if (stepWrappers.length) {
+      stepWrappers.forEach(function (wrapper, i) {
+        var card = stepCards[i];
+        var scale = (i !== stepCards.length - 1) ? 0.9 + 0.025 * i : 1;
+        gsap.to(card, {
+          scale: scale, x: 0, transformOrigin: 'top center', ease: 'none',
+          scrollTrigger: {
+            trigger: wrapper, start: 'top ' + (100 + 120 * i), end: 'bottom 1200',
+            endTrigger: '.production-steps__list', scrub: true, pin: wrapper, pinSpacing: false, id: i + 1,
+          },
+        });
+      });
+    }
+  }
+})()

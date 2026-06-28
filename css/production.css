@@ -2,7 +2,7 @@
    PRODUCTION PAGE
    =================================== */
 .production-page {
-    background: #f3f3f3;
+    background: var(--gray-light);
 }
 
 /* ===== VIDEO ===== */
@@ -77,7 +77,7 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    width: 1.125rem;
+    width: var(--space-18);
     height: auto;
 }
 
@@ -101,7 +101,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-24);
     transition: transform 0.4s ease, opacity 0.4s ease;
     opacity: 0;
     pointer-events: none;
@@ -124,7 +124,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-24);
     transition: transform 0.4s ease, opacity 0.4s ease;
     opacity: 0;
     position: absolute;
@@ -133,27 +133,9 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    width: 1.125rem;
+    width: var(--space-18);
     height: auto;
 }
-
-.production-video__pause svg {
-    display: block;
-}
-
-.production-video__pause:hover {
-    transform: scale(1.15);
-}
-
-.production-video__wrap.is-playing:hover .production-video__pause {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.production-video__mute {
-    position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -185,7 +167,7 @@
     max-width: calc(100% - 5rem);
     transition: opacity 0.5s ease;
     position: absolute;
-    bottom: 2.5rem;
+    bottom: var(--space-40);
     align-content: flex-end;
     align-items: flex-end;
 }
@@ -201,7 +183,7 @@
 .production-numbers__grid {
     display: flex;
     justify-content: center;
-    gap: 0.375rem;
+    gap: var(--space-6);
     max-width: 49.875rem;
     margin: 0 auto;
 }
@@ -210,7 +192,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-24);
     width: 16.375rem;
     flex-shrink: 0;
 }
@@ -218,7 +200,7 @@
 .production-numbers__number-wrap {
     display: flex;
     align-items: flex-start;
-    gap: 0.375rem;
+    gap: var(--space-6);
 }
 .production-numbers__number {
     font-family: var(--font3);
@@ -296,7 +278,7 @@
 
 .production-steps__title {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--space-40);
 }
 .production-steps__list {
     position: relative;
@@ -341,13 +323,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2.75rem;
+    padding: var(--space-44);
     color: #fff;
 }
 
 .production-steps__card-title {
     color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-8);
 }
 
 .production-steps__card-desc {
@@ -360,11 +342,11 @@
 
 .production-accordion__list {
     margin: 0 auto;
-    border-top: 1px solid #dbdbdb;
+    border-top: 1px solid var(--gray-dark-line);
 }
 
 .production-accordion__item {
-    border-bottom: 1px solid #dbdbdb;
+    border-bottom: 1px solid var(--gray-dark-line);
 }
 
 .production-accordion__header {
@@ -372,8 +354,8 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0.9375rem 1.5625rem;
-    gap: 2.625rem;
+    padding: var(--space-15) var(--space-25);
+    gap: var(--space-42);
     cursor: pointer;
 }
 
@@ -396,9 +378,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3.125rem;
-    height: 3.125rem;
-    background: #ededed;
+    width: var(--space-50);
+    height: var(--space-50);
+    background: var(--gray-lighter);
     border-radius: 50%;
     transition: background 0.4s ease;
 }
@@ -425,13 +407,13 @@
 
 .production-accordion__body {
     display: none;
-    padding: 0 1.5625rem 1.75rem;
+    padding: 0 var(--space-25) var(--space-28);
 }
 
 .production-accordion__text--cols {
     display: flex;
     justify-content: flex-end;
-    gap: 2.75rem;
+    gap: var(--space-44);
 }
 
 .production-accordion__col {
@@ -441,7 +423,7 @@
 
 .production-accordion__text p {
     color: var(--graphite);
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-12);
 }
 
 .production-accordion__text p:last-child {

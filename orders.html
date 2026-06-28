@@ -1,23 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Шоурумы — ТАТАРСМАНИЯ</title>
+    <title>РСЃС‚РѕСЂРёСЏ Р·Р°РєР°Р·РѕРІ вЂ” РўРђРўРђР РЎРњРђРќРРЇ</title>
 
     <link rel="stylesheet" href="css/lib/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/lib/aos.css" />
     <link rel="stylesheet" href="css/lib/fancybox.css" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@6/dist/simplebar.min.css">
     <link rel="stylesheet" href="css/style.css?ver=2" />
     <link rel="stylesheet" href="css/header.css?ver=1" />
     <link rel="stylesheet" href="css/footer.css?ver=1" />
-    <link rel="stylesheet" href="css/showrooms.css?ver=1" />
+    <link rel="stylesheet" href="css/account.css?ver=2" />
 </head>
-<body class="page showrooms-page">
 
+<body class="page account-page">
+
+    <!-- ===== PRELOADER ===== -->
     <div class="preloader" id="preloader">
-        <div class="preloader__spinner"></div>
+        <div class="logo-wrapper">
+            <img src="assets/images/logo.svg" alt="РўРђРўРђР РЎРњРђРќРРЇ" class="logo" />
+        </div>
+        <div class="curtain curtain-open"></div>
+        <div class="curtain curtain-close"></div>
     </div>
 
     <!-- ===== HEADER GROUP ===== -->
@@ -31,41 +38,41 @@
                             fill="#fff" />
                         <circle cx="6.5" cy="5.5" r="2" fill="#212121" />
                     </svg>
-                    Москва
+                    РњРѕСЃРєРІР°
                 </span>
             </div>
             <nav class="topbar__nav">
-                <a href="collections.html">Коллекции</a>
-                <a href="blog.html">Идеи</a>
-                <a href="showrooms.html">Шоурумы</a>
+                <a href="collections.html">РљРѕР»Р»РµРєС†РёРё</a>
+                <a href="blog.html">РРґРµРё</a>
+                <a href="showrooms.html">РЁРѕСѓСЂСѓРјС‹</a>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">Сотрудничество</a>
+                    <a href="#" class="has-dropdown">РЎРѕС‚СЂСѓРґРЅРёС‡РµСЃС‚РІРѕ</a>
                     <div class="topbar__dropdown">
-                        <a href="partnership.html">Оптовикам</a>
-                        <a href="designers.html">Дизайнерам</a>
-                        <a href="partnership.html">Архитекторам</a>
-                        <a href="partnership.html">Поставщикам</a>
+                        <a href="partnership.html">РћРїС‚РѕРІРёРєР°Рј</a>
+                        <a href="designers.html">Р”РёР·Р°Р№РЅРµСЂР°Рј</a>
+                        <a href="partnership.html">РђСЂС…РёС‚РµРєС‚РѕСЂР°Рј</a>
+                        <a href="partnership.html">РџРѕСЃС‚Р°РІС‰РёРєР°Рј</a>
                     </div>
                 </div>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">О компании</a>
+                    <a href="#" class="has-dropdown">Рћ РєРѕРјРїР°РЅРёРё</a>
                     <div class="topbar__dropdown">
-                        <a href="about.html">О бренде</a>
-                        <a href="production.html">Производство</a>
-                        <a href="blog.html">Новости</a>
-                        <a href="contacts.html">Реквизиты</a>
+                        <a href="about.html">Рћ Р±СЂРµРЅРґРµ</a>
+                        <a href="production.html">РџСЂРѕРёР·РІРѕРґСЃС‚РІРѕ</a>
+                        <a href="blog.html">РќРѕРІРѕСЃС‚Рё</a>
+                        <a href="contacts.html">Р РµРєРІРёР·РёС‚С‹</a>
                     </div>
                 </div>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">Покупателям</a>
+                    <a href="#" class="has-dropdown">РџРѕРєСѓРїР°С‚РµР»СЏРј</a>
                     <div class="topbar__dropdown">
-                        <a href="delivery.html">Доставка и оплата</a>
-                        <a href="warranty.html">Гарантия и возврат</a>
+                        <a href="delivery.html">Р”РѕСЃС‚Р°РІРєР° Рё РѕРїР»Р°С‚Р°</a>
+                        <a href="warranty.html">Р“Р°СЂР°РЅС‚РёСЏ Рё РІРѕР·РІСЂР°С‚</a>
                         <a href="delivery.html">FAQ</a>
-                        <a href="contacts.html">Контакты</a>
+                        <a href="contacts.html">РљРѕРЅС‚Р°РєС‚С‹</a>
                     </div>
                 </div>
-                <a href="blog.html">Блог</a>
+                <a href="blog.html">Р‘Р»РѕРі</a>
             </nav>
             <div class="topbar__right">
                 <a href="#">TG</a>
@@ -84,9 +91,9 @@
                         <rect x="0" y="4.5" width="13" height="1" fill="currentColor" />
                         <rect x="0" y="7.5" width="13" height="1" fill="currentColor" />
                     </svg>
-                    КАТАЛОГ
+                    РљРђРўРђР›РћР“
                 </button>
-                <button class="header__icon" aria-label="Поиск" data-label="Поиск" data-label="Поиск">
+                <button class="header__icon" aria-label="РџРѕРёСЃРє" data-label="РџРѕРёСЃРє">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                         <circle cx="5.5" cy="5.5" r="4" stroke="#fff" stroke-width="0.8" />
                         <line x1="8.5" y1="8.5" x2="12" y2="12" stroke="#fff" stroke-width="0.8" />
@@ -102,7 +109,7 @@
     
             </a>
             <div class="header__actions">
-                <a href="#" class="header__icon" aria-label="Профиль" data-label="Профиль" data-label="Профиль">
+                <a href="account.html" class="header__icon" aria-label="РџСЂРѕС„РёР»СЊ" data-label="РџСЂРѕС„РёР»СЊ">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -112,7 +119,7 @@
                             stroke="white" stroke-width="0.8" />
                     </svg>
                 </a>
-                <a href="#" class="header__icon header__icon--cart" aria-label="Корзина" data-label="Корзина" data-label="Корзина">
+                <a href="#" class="header__icon header__icon--cart" aria-label="РљРѕСЂР·РёРЅР°" data-label="РљРѕСЂР·РёРЅР°">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M4.35714 4.73529V2.61765C4.35714 1.4481 5.31653 0.5 6.5 0.5C7.68347 0.5 8.64286 1.4481 8.64286 2.61765V4.73529M2.21429 3.32353H10.7857L11.5 12.5H1.5L2.21429 3.32353Z"
@@ -120,7 +127,7 @@
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="#" class="header__icon" aria-label="Избранное" data-label="Избранное" data-label="Избранное">
+                <a href="account.html" class="header__icon" aria-label="РР·Р±СЂР°РЅРЅРѕРµ" data-label="РР·Р±СЂР°РЅРЅРѕРµ">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
@@ -130,11 +137,11 @@
                 </a>
             </div>
         </header>
-
+    
         <!-- ===== HEADER MOBILE ===== -->
         <div class="header-mobile">
             <div class="header-mobile__left">
-                <button class="header-mobile__burger" aria-label="Меню" data-label="Меню" data-label="Меню">
+                <button class="header-mobile__burger" aria-label="РњРµРЅСЋ" data-label="РњРµРЅСЋ">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0" y="5.5" width="13" height="1" fill="currentColor" />
                         <rect x="0" y="8.5" width="13" height="1" fill="currentColor" />
@@ -149,13 +156,13 @@
                 </a>
             </div>
             <div class="header-mobile__right">
-                <button class="header-mobile__icon" aria-label="Поиск" data-label="Поиск" data-label="Поиск">
+                <button class="header-mobile__icon" aria-label="РџРѕРёСЃРє" data-label="РџРѕРёСЃРє">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="0.8" />
                         <line x1="8.5" y1="8.5" x2="12" y2="12" stroke="currentColor" stroke-width="0.8" />
                     </svg>
                 </button>
-                <a href="#" class="header-mobile__icon" aria-label="Избранное" data-label="Избранное" data-label="Избранное">
+                <a href="#" class="header-mobile__icon" aria-label="РР·Р±СЂР°РЅРЅРѕРµ" data-label="РР·Р±СЂР°РЅРЅРѕРµ">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
@@ -163,7 +170,7 @@
                     </svg>
                     <span class="header__badge">0</span>
                 </a>
-                <a href="#" class="header-mobile__icon" aria-label="Корзина" data-label="Корзина" data-label="Корзина">
+                <a href="#" class="header-mobile__icon" aria-label="РљРѕСЂР·РёРЅР°" data-label="РљРѕСЂР·РёРЅР°">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M4.35714 4.73529V2.61765C4.35714 1.4481 5.31653 0.5 6.5 0.5C7.68347 0.5 8.64286 1.4481 8.64286 2.61765V4.73529M2.21429 3.32353H10.7857L11.5 12.5H1.5L2.21429 3.32353Z"
@@ -171,7 +178,7 @@
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="#" class="header-mobile__icon" aria-label="Профиль" data-label="Профиль" data-label="Профиль">
+                <a href="#" class="header-mobile__icon" aria-label="РџСЂРѕС„РёР»СЊ" data-label="РџСЂРѕС„РёР»СЊ">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -186,94 +193,142 @@
     </div>
 
     <main>
-
-        <!-- PAGE TITLE -->
+        <!-- ===== PAGE TITLE ===== -->
         <section class="page-title" data-aos="fade-up" data-aos-delay="200">
             <div class="container">
                 <div class="page-title__inner">
                     <div class="breadcrumbs breadcrumbs--center breadcrumbs--mb-none">
-                        <a href="index.html" class="breadcrumbs__link">Главная</a>
+                        <a href="index.html" class="breadcrumbs__link">Р“Р»Р°РІРЅР°СЏ</a>
                         <span class="breadcrumbs__sep">/</span>
-                        <span class="breadcrumbs__current breadcrumbs__current--faded">Шоурумы</span>
+                        <span class="breadcrumbs__current breadcrumbs__current--faded">Р›РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚</span>
                     </div>
-                    <h1 class="page-title__heading h4">Ждем вас в шоурумах TATARSMANIA</h1>
+                    <h1 class="page-title__heading h3">РСЃС‚РѕСЂРёСЏ Р·Р°РєР°Р·РѕРІ</h1>
                 </div>
             </div>
         </section>
 
-
-        <!-- CITY TABS -->
-        <section class="showrooms-tabs" data-aos="fade-up" data-aos-delay="200">
+        <!-- ===== ORDERS CONTENT ===== -->
+        <section class="account" data-aos="fade-up" data-aos-delay="200">
             <div class="container">
-                <div class="showrooms-tabs__inner">
-                    <div class="showrooms-tabs__nav">
-                        <button class="showrooms-tabs__btn showrooms-tabs__btn--active" data-city="all">Все</button>
-                        <button class="showrooms-tabs__btn" data-city="москва">Москва</button>
-                        <button class="showrooms-tabs__btn" data-city="казань">Казань</button>
-                        <button class="showrooms-tabs__btn" data-city="санкт-петербург">Санкт-Петербург</button>
-                        <button class="showrooms-tabs__btn" data-city="нижний-новгород">Нижний Новгород</button>
-                        <button class="showrooms-tabs__btn" data-city="екатеринбург">Екатеринбург</button>
-                    </div>
-                    <span class="showrooms-tabs__count" id="showroomsCount">Найдено 12 шоурумов</span>
-                </div>
-                <div class="showrooms-tabs__line"></div>
-            </div>
+                <div class="account__inner">
+                    <!-- Left sidebar navigation -->
+                    <aside class="account__sidebar">
+                        <nav class="account-nav">
+                            <a href="account.html" class="account-nav__link">Р”Р°РЅРЅС‹Рµ РїСЂРѕС„РёР»СЏ</a>
+                            <a href="orders.html" class="account-nav__link account-nav__link--active">РСЃС‚РѕСЂРёСЏ Р·Р°РєР°Р·РѕРІ</a>
+                            <a href="newsletters.html" class="account-nav__link">Р Р°СЃСЃС‹Р»РєРё</a>
+                            <a href="promocodes.html" class="account-nav__link">РџРµСЂСЃРѕРЅР°Р»СЊРЅС‹Рµ РїСЂРѕРјРѕРєРѕРґС‹</a>
+                            <div class="account-nav__logout">
+                                <a href="#" class="account-nav__link account-nav__link--logout">
+                                    РІС‹Р№С‚Рё
+                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.5 4.4375L8.5625 6.5L6.5 8.5625M8.5625 6.5H1M1 3.23301V3.20013C1 2.43006 1 2.04474 1.14987 1.75061C1.28169 1.49189 1.49189 1.28169 1.75061 1.14987C2.04474 1 2.43006 1 3.20013 1H9.80013C10.5702 1 10.9547 1 11.2488 1.14987C11.5076 1.28169 11.7185 1.49189 11.8503 1.75061C12 2.04445 12 2.42931 12 3.19788V9.80246C12 10.571 12 10.9553 11.8503 11.2492C11.7185 11.5079 11.5076 11.7185 11.2488 11.8503C10.955 12 10.5707 12 9.80212 12H3.19788C2.42931 12 2.04445 12 1.75061 11.8503C1.49189 11.7185 1.28169 11.5077 1.14987 11.249C1 10.9548 1 10.5701 1 9.8V9.76562" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </nav>
+                    </aside>
 
-            <!-- SKELETON -->
-            <div class="showrooms-skeleton" id="showroomsSkeleton">
-                <div class="container">
-                    <div class="showrooms-skeleton__grid">
-                        <div class="showrooms-skeleton__list">
-                            <div class="showrooms-skeleton__card">
-                                <div class="skeleton skeleton--title"></div>
-                                <div class="skeleton skeleton--text"></div>
-                                <div class="skeleton skeleton--text-short"></div>
-                                <div class="showrooms-skeleton__photos">
-                                    <div class="skeleton skeleton--photo"></div>
-                                    <div class="skeleton skeleton--photo"></div>
-                                    <div class="skeleton skeleton--photo"></div>
-                                </div>
+                    <!-- Right content -->
+                    <div class="account__content">
+
+                        <div class="orders-toolbar">
+                            <div class="orders-tabs">
+                                <button class="orders-tabs__btn orders-tabs__btn--active" type="button">РђРєС‚РёРІРЅС‹Рµ</button>
+                                <button class="orders-tabs__btn" type="button">Р—Р°РІРµСЂС€РµРЅРЅС‹Рµ</button>
                             </div>
-                            <div class="showrooms-skeleton__card">
-                                <div class="skeleton skeleton--title"></div>
-                                <div class="skeleton skeleton--text"></div>
-                                <div class="skeleton skeleton--text-short"></div>
-                                <div class="showrooms-skeleton__photos">
-                                    <div class="skeleton skeleton--photo"></div>
-                                    <div class="skeleton skeleton--photo"></div>
-                                    <div class="skeleton skeleton--photo"></div>
-                                </div>
-                            </div>
-                            <div class="showrooms-skeleton__card">
-                                <div class="skeleton skeleton--title"></div>
-                                <div class="skeleton skeleton--text"></div>
-                                <div class="skeleton skeleton--text-short"></div>
-                                <div class="showrooms-skeleton__photos">
-                                    <div class="skeleton skeleton--photo"></div>
-                                    <div class="skeleton skeleton--photo"></div>
-                                    <div class="skeleton skeleton--photo"></div>
-                                </div>
+                            <div class="orders-sort">
+                                <span class="orders-sort__count">Р’СЃРµРіРѕ 2 Р·Р°РєР°Р·Р°</span>
+                                <button class="orders-sort__btn" type="button">
+                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.5 4H10.5M4.5 6.5H8.5M6.5 9H6.505" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
+                                    </svg>
+                                    РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
+                                </button>
                             </div>
                         </div>
-                        <div class="showrooms-skeleton__map">
-                            <div class="skeleton skeleton--map"></div>
+
+                        <div class="orders-divider"></div>
+
+                        <a href="order-detail.html" class="orders-card">
+                            <div class="orders-card__row">
+                                <div class="orders-card__info">
+                                    <span class="orders-card__status">Р’ РѕР±СЂР°Р±РѕС‚РєРµ</span>
+                                    <div class="orders-card__details">
+                                        <p class="orders-card__ref">Р—Р°РєР°Р· в„– 120139 РѕС‚ 29.12.2025</p>
+                                        <p class="orders-card__delivery">Р”РѕСЃС‚Р°РІРєР°: Рі. РњРѕСЃРєРІР°, СѓР». РћРєС‚СЏР±СЂСЏ Рґ. 1 Рє. 3 РєРІ. 10</p>
+                                    </div>
+                                    <span class="orders-card__price">138.000 в‚Ѕ</span>
+                                </div>
+                                <div class="orders-card__gallery">
+                                    <div class="orders-card__thumb"></div>
+                                    <div class="orders-card__thumb"></div>
+                                    <div class="orders-card__thumb"></div>
+                                    <div class="orders-card__arrows">
+                                        <svg class="orders-card__arrow orders-card__arrow--prev" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                            <path d="M5 9L1 5L5 1" stroke="#212121" stroke-width="0.8"/>
+                                        </svg>
+                                        <svg class="orders-card__arrow orders-card__arrow--next" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                            <path d="M1 9L5 5L1 1" stroke="#212121" stroke-width="0.8"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="order-detail.html" class="orders-card orders-card--dashed">
+                            <div class="orders-card__row">
+                                <div class="orders-card__info">
+                                    <span class="orders-card__status">Р’ РїСѓС‚Рё</span>
+                                    <div class="orders-card__details">
+                                        <p class="orders-card__ref">Р—Р°РєР°Р· в„– 120139 РѕС‚ 29.12.2025</p>
+                                        <p class="orders-card__delivery">Р”РѕСЃС‚Р°РІРєР°: Рі. РњРѕСЃРєРІР°, СѓР». РћРєС‚СЏР±СЂСЏ Рґ. 1 Рє. 3 РєРІ. 10</p>
+                                    </div>
+                                    <span class="orders-card__price">257.300 в‚Ѕ</span>
+                                </div>
+                                <div class="orders-card__gallery">
+                                    <div class="orders-card__thumb"></div>
+                                </div>
+                            </div>
+                            <div class="orders-card__cursor">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 2L5 14.5L8.5 10.5L12.5 15.5" stroke="#212121" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <!-- Pagination -->
+                        <div class="orders__pagination">
+                            <span class="orders__pagination-info">РџРѕРєР°Р·Р°РЅРѕ 2 РёР· 12</span>
+                            <button class="btn btn-link orders__load-more" id="orders__load-more">
+                                <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.87604 1.14134C2.20672 1.166 0.619907 1.21604 0 1.49547L1.25331 0.355529C1.6081 0.280265 2.11161 0.0394284 3.04634 0.00476976C4.17327 -0.0370151 5.31442 0.201482 6.35032 0.495039C9.08692 1.27092 11.8555 0.437224 12 0.355529L10.7467 1.61354C10.1215 1.87453 8.44463 2.35334 5.69832 1.57472C4.5756 1.25615 3.67088 1.11186 2.87604 1.14134Z" fill="white" />
+                                </svg>
+                                <span>Р·Р°РіСЂСѓР·РёС‚СЊ РµС‰Рµ</span>
+                            </button>
+                            <nav class="orders__page-nav">
+                                <button class="orders__page-arrow orders__page-arrow--disabled" aria-label="РџСЂРµРґС‹РґСѓС‰Р°СЏ СЃС‚СЂР°РЅРёС†Р°" data-label="РџСЂРµРґС‹РґСѓС‰Р°СЏ СЃС‚СЂР°РЅРёС†Р°">
+                                    <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.808 11C5.344 10.5156 4.816 9.98937 4.224 9.42141 3.632 8.85345 3.056 8.31055 2.496 7.79271 1.936 7.27487 1.432 6.81549 0.984 6.41458 0.536 6.01367 0.208 5.72134 0 5.53759V5.46241C0.208 5.29537 0.536 5.01139 0.984 4.61048 1.448 4.19286 1.952 3.73349 2.496 3.23235 3.056 2.7145 3.632 2.1716 4.224 1.60365 4.832 1.01898 5.36 0.484434 5.808 0L6 0.175399C5.76 0.609719 5.464 1.10251 5.112 1.65376 4.76 2.18831 4.416 2.72286 4.08 3.2574 3.744 3.77525 3.44 4.24298 3.168 4.66059 2.912 5.0615 2.744 5.34548 2.664 5.51253C2.744 5.66287 2.912 5.94685 3.168 6.36446 3.44 6.78208 3.744 7.24981 4.08 7.76765 4.416 8.2855 4.76 8.82004 5.112 9.3713 5.464 9.90585 5.76 10.3986 6 10.8497L5.808 11Z" fill="#212121"/>
+                                    </svg>
+                                </button>
+                                <a href="#" class="orders__page-link orders__page-link--active">1</a>
+                                <a href="#" class="orders__page-link">2</a>
+                                <a href="#" class="orders__page-link">3</a>
+                                <span class="orders__page-ellipsis">...</span>
+                                <a href="#" class="orders__page-link">12</a>
+                                <button class="orders__page-arrow" aria-label="РЎР»РµРґСѓСЋС‰Р°СЏ СЃС‚СЂР°РЅРёС†Р°" data-label="РЎР»РµРґСѓСЋС‰Р°СЏ СЃС‚СЂР°РЅРёС†Р°">
+                                    <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.192 11C0.656 10.5156 1.184 9.98937 1.776 9.42141 2.368 8.85345 2.944 8.31055 3.504 7.79271 4.064 7.27487 4.568 6.81549 5.016 6.41458 5.464 6.01367 5.792 5.72134 6 5.53759V5.46241C5.792 5.29537 5.464 5.01139 5.016 4.61048 4.552 4.19286 4.048 3.73349 3.504 3.23235 2.944 2.7145 2.368 2.1716 1.776 1.60365 1.168 1.01898 0.64 0.484434 0.192 0L0 0.175399C0.24 0.609719 0.536 1.10251 0.888 1.65376 1.24 2.18831 1.584 2.72286 1.92 3.2574 2.256 3.77525 2.56 4.24298 2.832 4.66059 3.088 5.0615 3.256 5.34548 3.336 5.51253C3.256 5.66287 3.088 5.94685 2.832 6.36446 2.56 6.78208 2.256 7.24981 1.92 7.76765 1.584 8.2855 1.24 8.82004 0.888 9.3713 0.536 9.90585 0.24 10.3986 0 10.8497L0.192 11Z" fill="#212121"/>
+                                    </svg>
+                                </button>
+                            </nav>
                         </div>
+
                     </div>
                 </div>
             </div>
-
-        <!-- SHOWROOMS -->
-        <div class="showrooms" id="showroomsSection" style="display: none;">
-            <div class="container">
-                <div class="showrooms__content">
-                    <div class="showrooms__list" id="showroomList"></div>
-                    <div class="showrooms__map" data-aos="fade-up" data-aos-delay="400">
-                        <div id="showroomMap"></div>
-                    </div>
-                </div>
-            </div>
-        </div></section>
-
+        </section>
 
     </main>
 
@@ -289,48 +344,46 @@
                         <a href="https://instagram.com/" target="_blank" rel="noopener">IG*</a>
                         <a href="#" target="_blank" rel="noopener">MAX</a>
                     </div>
-                    <p class="footer__disclaimer body">*Продукт компании Meta, деятельность которой признана
-                        экстремистской и запрещена на территории РФ.</p>
+                    <p class="footer__disclaimer body">*РџСЂРѕРґСѓРєС‚ РєРѕРјРїР°РЅРёРё Meta, РґРµСЏС‚РµР»СЊРЅРѕСЃС‚СЊ РєРѕС‚РѕСЂРѕР№ РїСЂРёР·РЅР°РЅР°
+                        СЌРєСЃС‚СЂРµРјРёСЃС‚СЃРєРѕР№ Рё Р·Р°РїСЂРµС‰РµРЅР° РЅР° С‚РµСЂСЂРёС‚РѕСЂРёРё Р Р¤.</p>
                 </div>
                 <div class="footer__right">
-                    <h3 class="footer__newsletter-title">Подписывайтесь на нашу рассылку</h3>
-                    <p class="footer__newsletter-desc body">Главные новости, акции и советы по выбору мебели — одним
-                        письмом. Без спама, только польза.</p>
+                    <h3 class="footer__newsletter-title">РџРѕРґРїРёСЃС‹РІР°Р№С‚РµСЃСЊ РЅР° РЅР°С€Сѓ СЂР°СЃСЃС‹Р»РєСѓ</h3>
+                    <p class="footer__newsletter-desc body">Р“Р»Р°РІРЅС‹Рµ РЅРѕРІРѕСЃС‚Рё, Р°РєС†РёРё Рё СЃРѕРІРµС‚С‹ РїРѕ РІС‹Р±РѕСЂСѓ РјРµР±РµР»Рё вЂ” РѕРґРЅРёРј
+                        РїРёСЃСЊРјРѕРј. Р‘РµР· СЃРїР°РјР°, С‚РѕР»СЊРєРѕ РїРѕР»СЊР·Р°.</p>
                     <form class="footer__newsletter-form" id="newsletterForm" novalidate>
                         <div class="footer__email-wrap">
                             <input type="email" class="footer__email-input" id="newsletterEmail" placeholder="E-mail*"
                                 autocomplete="email">
-                            <span class="footer__email-error" id="newsletterError">Введите корректный e-mail</span>
+                            <span class="footer__email-error" id="newsletterError">Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ e-mail</span>
                         </div>
                         <button type="submit" class="btn footer__subscribe-btn">
                             <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
-                                <path
-                                    d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z"
-                                    fill="#212121" />
+                                <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121" />
                             </svg>
-                            <span>Подписаться</span>
+                            <span>РџРѕРґРїРёСЃР°С‚СЊСЃСЏ</span>
                         </button>
                     </form>
                     <label class="footer__checkbox">
                         <input type="checkbox" checked>
                         <span class="footer__checkbox-mark"></span>
-                        <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
-                                target="_blank">согласие на обработку персональных данных.</a></span>
+                        <span class="footer__checkbox-text body">РќР°Р¶РёРјР°СЏ РЅР° РєРЅРѕРїРєСѓ В«РџРѕРґРїРёСЃР°С‚СЊСЃСЏВ», РІС‹ РґР°РµС‚Рµ <a href="#"
+                                target="_blank">СЃРѕРіР»Р°СЃРёРµ РЅР° РѕР±СЂР°Р±РѕС‚РєСѓ РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РґР°РЅРЅС‹С….</a></span>
                     </label>
                 </div>
             </div>
             <div class="footer__menus">
                 <div class="footer__menus-left">
-                    <h4 class="footer__menus-title">Информация</h4>
+                    <h4 class="footer__menus-title">РРЅС„РѕСЂРјР°С†РёСЏ</h4>
                     <div class="footer__info-links">
-                        <a href="#" class="footer__info-link">Политика конфиденциальности</a>
-                        <a href="#" class="footer__info-link">Карта сайта</a>
+                        <a href="#" class="footer__info-link">РџРѕР»РёС‚РёРєР° РєРѕРЅС„РёРґРµРЅС†РёР°Р»СЊРЅРѕСЃС‚Рё</a>
+                        <a href="#" class="footer__info-link">РљР°СЂС‚Р° СЃР°Р№С‚Р°</a>
                     </div>
                 </div>
                 <div class="footer__menus-right">
                     <div class="footer__menu-col footer__menu-col--open">
                         <button class="footer__links-title" type="button">
-                            <span>Каталог</span>
+                            <span>РљР°С‚Р°Р»РѕРі</span>
                             <span class="footer__accordion-icon">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                                     <line x1="6" y1="0" x2="6" y2="12" stroke="#212121" stroke-width="1.5" />
@@ -339,18 +392,18 @@
                             </span>
                         </button>
                         <div class="footer__info-links">
-                            <a href="catalog-listing.html">Мебель в наличии</a>
-                            <a href="production.html">Производство мебели</a>
-                            <a href="catalog-listing.html">Кресла </a>
-                            <a href="catalog-listing.html">Диваны</a>
-                            <a href="collections.html">Коллекции</a>
-                            <a href="catalog-listing.html">Новинки</a>
+                            <a href="catalog-listing.html">РњРµР±РµР»СЊ РІ РЅР°Р»РёС‡РёРё</a>
+                            <a href="production.html">РџСЂРѕРёР·РІРѕРґСЃС‚РІРѕ РјРµР±РµР»Рё</a>
+                            <a href="catalog-listing.html">РљСЂРµСЃР»Р° </a>
+                            <a href="catalog-listing.html">Р”РёРІР°РЅС‹</a>
+                            <a href="collections.html">РљРѕР»Р»РµРєС†РёРё</a>
+                            <a href="catalog-listing.html">РќРѕРІРёРЅРєРё</a>
                             <a href="catalog-listing.html">Sale</a>
                         </div>
                     </div>
                     <div class="footer__menu-col">
                         <button class="footer__links-title" type="button">
-                            <span>Покупателям</span>
+                            <span>РџРѕРєСѓРїР°С‚РµР»СЏРј</span>
                             <span class="footer__accordion-icon">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                                     <line x1="6" y1="0" x2="6" y2="12" stroke="#212121" stroke-width="1.5" />
@@ -359,16 +412,16 @@
                             </span>
                         </button>
                         <div class="footer__info-links">
-                            <a href="delivery.html">Условия доставки</a>
-                            <a href="payment.html">Способы оплаты</a>
-                            <a href="delivery.html">Популярные вопросы </a>
-                            <a href="catalog-listing.html">Акции</a>
-                            <a href="blog.html">Блог</a>
+                            <a href="delivery.html">РЈСЃР»РѕРІРёСЏ РґРѕСЃС‚Р°РІРєРё</a>
+                            <a href="payment.html">РЎРїРѕСЃРѕР±С‹ РѕРїР»Р°С‚С‹</a>
+                            <a href="delivery.html">РџРѕРїСѓР»СЏСЂРЅС‹Рµ РІРѕРїСЂРѕСЃС‹ </a>
+                            <a href="catalog-listing.html">РђРєС†РёРё</a>
+                            <a href="blog.html">Р‘Р»РѕРі</a>
                         </div>
                     </div>
                     <div class="footer__menu-col">
                         <button class="footer__links-title" type="button">
-                            <span>О нас</span>
+                            <span>Рћ РЅР°СЃ</span>
                             <span class="footer__accordion-icon">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                                     <line x1="6" y1="0" x2="6" y2="12" stroke="#212121" stroke-width="1.5" />
@@ -377,15 +430,15 @@
                             </span>
                         </button>
                         <div class="footer__info-links">
-                            <a href="about.html">О компании</a>
-                            <a href="production.html">Производство</a>
-                            <a href="partnership.html">Сотрудничество</a>
-                            <a href="contacts.html">Контакты</a>
+                            <a href="about.html">Рћ РєРѕРјРїР°РЅРёРё</a>
+                            <a href="production.html">РџСЂРѕРёР·РІРѕРґСЃС‚РІРѕ</a>
+                            <a href="partnership.html">РЎРѕС‚СЂСѓРґРЅРёС‡РµСЃС‚РІРѕ</a>
+                            <a href="contacts.html">РљРѕРЅС‚Р°РєС‚С‹</a>
                         </div>
                     </div>
                     <div class="footer__menu-col footer__menu-col--info">
                         <button class="footer__links-title" type="button">
-                            <span>Информация</span>
+                            <span>РРЅС„РѕСЂРјР°С†РёСЏ</span>
                             <span class="footer__accordion-icon">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                                     <line x1="6" y1="0" x2="6" y2="12" stroke="#212121" stroke-width="1.5" />
@@ -394,15 +447,15 @@
                             </span>
                         </button>
                         <div class="footer__info-links">
-                            <a href="#" class="footer__info-link">Политика конфиденциальности</a>
-                            <a href="#" class="footer__info-link">Карта сайта</a>
+                            <a href="#" class="footer__info-link">РџРѕР»РёС‚РёРєР° РєРѕРЅС„РёРґРµРЅС†РёР°Р»СЊРЅРѕСЃС‚Рё</a>
+                            <a href="#" class="footer__info-link">РљР°СЂС‚Р° СЃР°Р№С‚Р°</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <!-- ===== FOOTER BANNER ===== -->
     <section class="footer-banner">
         <div class="footer-banner__bg" style="background-image: url('assets/images/footer.jpg');"></div>
@@ -410,14 +463,14 @@
             <img src="assets/images/footer-logo.svg" alt="">
         </div>
     </section>
-    
+
     <!-- ===== FOOTER BOTTOM ===== -->
     <div class="footer-bottom">
         <div class="container-full">
             <div class="footer-bottom__inner">
-                <p class="footer-bottom__copyright body">© 2026 ООО «ТАТАРСМАНИЯ»</p>
+                <p class="footer-bottom__copyright body">В© 2026 РћРћРћ В«РўРђРўРђР РЎРњРђРќРРЇВ»</p>
                 <div class="footer-bottom__dev">
-                    <span class="body-l">Разработка сайта</span>
+                    <span class="body-l">Р Р°Р·СЂР°Р±РѕС‚РєР° СЃР°Р№С‚Р°</span>
                     <a href="#" class="footer-bottom__dev-logo">
                         <img src="assets/images/markweber.svg" alt="">
                     </a>
@@ -426,13 +479,12 @@
         </div>
     </div>
 
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=4579c63c-367a-4aee-904a-fec6b3b34580&lang=ru_RU"></script>
     <script src="js/lib/swiper-bundle.min.js"></script>
     <script src="js/lib/aos.js"></script>
-    <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@6/dist/simplebar.min.js"></script>
     <script src="js/main.js?ver=2"></script>
     <script src="js/menu.js"></script>
-    <script src="js/showrooms-page.js?ver=1"></script>
 </body>
+
 </html>
