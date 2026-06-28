@@ -1,0 +1,156 @@
+## Surprising Connections (you probably didn't know these)
+- `Сотрудничество` ----> `Информационные страницы`  [EXTRACTED]
+   →   _Bridges community 5 → community 4_
+- `index` --references--> `about`  [1.0]
+   →   _Bridges community 3 → community 1_
+
+## Hyperedges (group relationships)
+- **all-pages** —  [INFERRED]
+- **architecture-decisions** —  [INFERRED]
+- **shared-components** —  [INFERRED]
+- **Полный путь покупателя** — page:product-page, page:payment, page:warranty, concept:shopping-flow, product:velvet, order:120139 [INFERRED 0.85]
+- **Личный кабинет — функциональная группа** — page:newsletters, page:orders, page:order-detail, page:promocodes, shared:account-sidebar, concept:account-section, promocode:welcome, promocode:second, promocode:save10, promocode:special20 [INFERRED 0.90]
+- **Продуктовая экосистема VELVET** — product:velvet, collection:aura, page:product-page, page:single-collection, page:partnership, page:order-detail, order:120139 [INFERRED 0.80]
+
+## Communities
+
+### Community 0 - "Core JS Modules"
+Cohesion: 0.07
+Nodes (21): buildProductCard(), destroyFeaturedSwiper(), getActiveEmpty(), getActiveGrid(), getErr(), getField(), initCatalogCardGallery(), initFeaturedSwiper() (+13 more)
+
+### Community 1 - "Page Styles & Libraries"
+Cohesion: 0.22
+Nodes (25): about, aos-lib, catalog, catalog-css, catalog-listing, catalog-listing-css, collections-concept, contacts (+17 more)
+
+### Community 2 - "Catalog Filtering"
+Cohesion: 0.14
+Nodes (19): addFilterTag(), addRangeTag(), createTagEl(), getFilterId(), getFilterLabel(), getSectionTitle(), getTagText(), handleMobileResize() (+11 more)
+
+### Community 3 - "Content Pages"
+Cohesion: 0.23
+Nodes (24): account, article, article-trends-2026, blog, brand-tatarsmania, city-moscow, collections, delivery (+16 more)
+
+### Community 4 - "Product Catalog"
+Cohesion: 0.13
+Nodes (17): Казань, Москва, Ростов-на-Дону, Санкт-Петербург, Информационные страницы, Процесс покупки, Оплата и возврат, Диван-кровать VELVET (+9 more)
+
+### Community 5 - "Collections (AURA)"
+Cohesion: 0.21
+Nodes (17): AURA, Личный кабинет, Заказ №120139, Рассылки, Заказ №120139, История заказов, Сотрудничество, Персональные промокоды (+9 more)
+
+### Community 6 - "Menu Navigation"
+Cohesion: 0.26
+Nodes (9): closeMegaMenu(), closeMobileMenu(), getMenuTop(), goBack(), navigateTo(), openMegaMenu(), setCatalogBtnIcon(), toggleMegaMenu() (+1 more)
+
+### Community 7 - "Showrooms Map"
+Cohesion: 0.44
+Nodes (8): buildAllMarkers(), buildCardHTML(), initShowroomsMap(), initTabs(), renderCards(), showContent(), switchTab(), updateMapMarkers()
+
+### Community 8 - "Skeleton & Pagination"
+Cohesion: 0.43
+Nodes (4): createSkeletons(), getWordEnding(), render(), updatePagination()
+
+### Community 9 - "Product Page Gallery"
+Cohesion: 0.33
+Nodes (0): 
+
+### Community 10 - "Article Gallery"
+Cohesion: 0.5
+Nodes (0): 
+
+### Community 11 - "Collections Sort"
+Cohesion: 1.0
+Nodes (2): onSortSelect(), sortCollections()
+
+### Community 12 - "Project Page"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 13 - "Single Collection"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 14 - "Yandex Map"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 15 - "About Page JS"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 16 - "Designers Page"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 17 - "Loyalty Page"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 18 - "Partnership Page"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 19 - "Production Steps"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 20 - "Production Page"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 21 - "Promocode WELCOME"
+Cohesion: 1.0
+Nodes (1): WELCOME
+
+### Community 22 - "Promocode SPECIAL20"
+Cohesion: 1.0
+Nodes (1): special20
+
+### Community 23 - "Header Group"
+Cohesion: 1.0
+Nodes (1): Header Group (topbar + header + mobile)
+
+### Community 24 - "Footer"
+Cohesion: 1.0
+Nodes (1): Footer
+
+### Community 25 - "Preloader"
+Cohesion: 1.0
+Nodes (1): Preloader
+
+### Community 26 - "Toast & Popup"
+Cohesion: 1.0
+Nodes (1): Toast и Generic Popup
+
+## Knowledge Gaps
+- **Thin community `Project Page`** (2 nodes): `project.js`, `updateProjectProgress()`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Single Collection`** (2 nodes): `single-collection.js`, `updateProgress()`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Yandex Map`** (2 nodes): `yandexmap.js`, `initYandexMap()`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `About Page JS`** (1 nodes): `about.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Designers Page`** (1 nodes): `designers.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Loyalty Page`** (1 nodes): `loyalty.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Partnership Page`** (1 nodes): `partnership.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Production Steps`** (1 nodes): `production-steps.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Production Page`** (1 nodes): `production.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Promocode WELCOME`** (1 nodes): `WELCOME`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Promocode SPECIAL20`** (1 nodes): `special20`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Header Group`** (1 nodes): `Header Group (topbar + header + mobile)`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Footer`** (1 nodes): `Footer`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Preloader`** (1 nodes): `Preloader`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Toast & Popup`** (1 nodes): `Toast и Generic Popup`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+

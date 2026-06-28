@@ -22,7 +22,7 @@
 /* --- Text sections (narrow container) --- */
 .single-product-card-section,
 .article-text {
-  margin-bottom: 4.6875rem;
+  margin-bottom: var(--space-75);
 }
 
 .article-text:last-child {
@@ -30,31 +30,31 @@
 }
 
 .article-text p {
-    margin: 0 0 1.25rem;
+    margin: 0 0 var(--space-20);
 }
 
 .article-text h5 {
-  margin: 0 0 2.75rem;
+  margin: 0 0 var(--space-44);
 }
 
 .article-text:first-of-type p:first-of-type {
-  margin-bottom: 4.5rem;
+  margin-bottom: var(--space-72);
 }
 
 .article-text ul {
     margin: 0 0 1em;
-    padding-left: 1.25rem;
+    padding-left: var(--space-20);
     list-style: disc;
 }
 
 .article-text li {
-    margin-bottom: 1.75rem;
+    margin-bottom: var(--space-28);
 }
 
 /* --- Product Card Inline --- */
 .article-product {
-  margin: 0 auto 9.375rem;
-  background: #ededed;
+  margin: 0 auto var(--space-150);
+  background: var(--gray-lighter);
 }
 
 .article-product .product-card__inner {
@@ -80,10 +80,10 @@
 
 .article-product .product-card__body {
   flex: 1;
-  padding: 0.875rem;
+  padding: var(--space-14);
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: var(--space-10);
 }
 
 .article-product .product-card__title {
@@ -91,19 +91,19 @@
 }
 
 .article-product .product-card__fav {
-  top: 0.5rem;
-  right: 0.5rem;
+  top: var(--space-8);
+  right: var(--space-8);
 }
 
 .article-product .product-card__badges {
-  top: 0.5rem;
-  left: 0.5rem;
+  top: var(--space-8);
+  left: var(--space-8);
 }
 
 .article-product .product-card__body-prices {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-8);
 }
 
 .article-product .product-card__price {
@@ -122,7 +122,7 @@
   max-width: 46rem;
   margin: 0 auto 0;
   border: none;
-  border-top: 0.0625rem solid var(--graphite);
+  border-top: var(--space-1) solid var(--graphite);
 }
 
 .article-text blockquote {
@@ -133,7 +133,7 @@
     border: none;
     background: none;
     flex-direction: column;
-    padding-left: 1.5rem;
+    padding-left: var(--space-24);
     position: relative;
 }
 
@@ -142,7 +142,7 @@
     position: absolute;
     left: 0;
     height: 100%;
-    width: 0.0625rem;
+    width: var(--space-1);
     /* flex-shrink: 0; */
     background: var(--graphite);
     /* align-self: stretch; */
@@ -151,7 +151,7 @@
 
 /* --- Media sections (full width) --- */
 .article-media {
-  margin-bottom: 4.6875rem;
+  margin-bottom: var(--space-75);
 }
 
 .article-media:last-child {
@@ -162,7 +162,7 @@
 .article-photo-m__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.375rem;
+  gap: var(--space-6);
 }
 
 .article-photo-m__grid img {
@@ -176,7 +176,7 @@
 .article-photo-s__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.375rem;
+  gap: var(--space-6);
 }
 
 .article-photo-s__grid img {
@@ -232,7 +232,7 @@
 .article-products__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.375rem;
+  gap: var(--space-6);
 }
 
 /* --- Single Product Card --- */
@@ -241,43 +241,6 @@
 .single-product-card-section .product-card__image {
     max-width: 18.75rem;
     max-height: 18.75rem;
-}
-/* --- Hits Slider (carousel-section) --- */
-.carousel-section.hits .carousel-section__header-row {
-    padding-bottom: 4.75rem;
-}
-
-.carousel-section.hits .carousel-section__swiper {
-    overflow: hidden;
-}
-
-.carousel-section.hits .carousel-section__swiper .swiper-slide {
-    height: auto;
-}
-
-.carousel-section.hits .carousel-section__pagination.swiper-pagination {
-    display: flex;
-    justify-content: center;
-    gap: 0.375rem;
-    margin-top: 1rem;
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    width: auto;
-}
-
-.carousel-section.hits .carousel-section__dot {
-    width: 0.375rem;
-    height: 0.375rem;
-    background: var(--graphite);
-    border-radius: 50%;
-    opacity: 0.2;
-    cursor: pointer;
-}
-
-.carousel-section.hits .carousel-section__dot--active {
-    opacity: 1;
 }
 /* --- Responsive --- */
 @media (max-width: 768px) {
@@ -369,7 +332,7 @@
 
 }
 
-@media (max-width: 560px) {
+@media (max-width: 480px) {
   .article-products__grid {
     grid-template-columns: repeat(1, 1fr);
     gap: 4px;

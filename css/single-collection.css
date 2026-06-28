@@ -9,13 +9,13 @@
 
 .single-collection-products__title {
   text-align: center;
-  margin-bottom: 4.375rem;
+  margin-bottom: var(--space-70);
 }
 
 .single-collection-products__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  gap: var(--space-20);
 }
 
 @media (max-width: 1200px) {
@@ -35,7 +35,7 @@
 .carousel-section.collections .carousel-section__pagination.swiper-pagination {
   display: flex;
   justify-content: center;
-  gap: 0.625rem;
+  gap: var(--space-10);
   position: relative;
   bottom: auto;
   left: auto;
@@ -72,7 +72,7 @@
 
 .collection-card__name {
   display: block;
-  padding: 1.75rem 0;
+  padding: var(--space-28) 0;
   font-family: var(--font-family);
   font-size: var(--body-l-size);
   font-weight: 500;

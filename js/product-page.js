@@ -1,21 +1,4 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
-  /* ===== ACCORDION TOGGLE ===== */
-  var $accordions = $('.product-accordion');
-
-  $accordions.each(function () {
-    var $this = $(this);
-    if ($this.hasClass('product-accordion--open')) {
-      $this.find('.product-accordion__content').show();
-    }
-  });
-
-  $('.product-accordion__header').on('click', function () {
-    var $accordion = $(this).closest('.product-accordion');
-    var $body = $accordion.find('.product-accordion__content');
-    $accordion.toggleClass('product-accordion--open');
-    $body.stop(true, true).slideToggle(600);
-  });
-
   /* ===== MOBILE GALLERY SWIPER (reuses .product-gallery) ===== */
   var galleryEl = document.querySelector('.product-gallery')
   var gallerySwiper = null
