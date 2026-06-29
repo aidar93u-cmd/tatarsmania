@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (emailForm) {
 		var emailInput = document.getElementById('newsletterEmail')
 		var errorMsg = document.getElementById('newsletterError')
-		var emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
+		var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 		var agreeCheckbox = emailForm.parentElement.querySelector(
 			'.footer__checkbox input[type="checkbox"]',
 		)
@@ -1314,8 +1314,10 @@ document.addEventListener('DOMContentLoaded', function () {
 			? regCodeWrap.querySelectorAll('.reg-popup__code-input')
 			: []
 		regCodeInputs.forEach(function (inp) {
+			inp.value = ''
 			inp.classList.add('reg-popup__code-input--error')
 		})
+		if (regCodeInputs.length) regCodeInputs[0].focus()
 		if (regCodeError) regCodeError.classList.add('reg-popup__error--visible')
 	}
 
@@ -1354,6 +1356,16 @@ document.addEventListener('DOMContentLoaded', function () {
 				valid = false
 			}
 		}
+		var consent3 = document.querySelector(
+			'[data-step="3"] .reg-popup__checkbox input[type="checkbox"]',
+		)
+		if (!consent3 || !consent3.checked) {
+			var label = consent3
+				? consent3.closest('.reg-popup__checkbox')
+				: null
+			if (label) label.classList.add('is-invalid')
+			valid = false
+		}
 		return valid
 	}
 
@@ -1372,7 +1384,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		regClearCodeError()
 		var code = regGetCode()
 		if (code.length < 6) return
-		// Simulate code verification — any 6 digits work
+		// TODO: replace with real SMS code verification
+		// Test code: 123456 is correct, anything else is wrong
+		if (code !== '123456') {
+			regShowCodeError()
+			return
+		}
 		var rawPhone = regPhoneInput ? regPhoneInput.value.replace(/\D/g, '') : ''
 		var known = localStorage.getItem('reg_user_' + rawPhone)
 		if (known) {
@@ -1401,6 +1418,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				)
 			})
 		Fancybox.close()
+		window.location.href = 'account-dashboard.html'
 	}
 
 	if (regPhoneInput) {
@@ -1479,6 +1497,13 @@ document.addEventListener('DOMContentLoaded', function () {
 				regShowPhoneError()
 				return
 			}
+			var consent = document.querySelector(
+				'[data-step="1"] .reg-popup__checkbox input[type="checkbox"]',
+			)
+			if (!consent || !consent.checked) {
+				consent.closest('.reg-popup__checkbox').classList.add('is-invalid')
+				return
+			}
 			regGoToStep(2)
 		})
 	}
@@ -1487,6 +1512,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		regCodeWrap.addEventListener('input', function (e) {
 			var input = e.target
 			if (!input.classList.contains('reg-popup__code-input')) return
+			input.value = input.value.replace(/\D/g, '')
 			if (
 				input.value &&
 				input.nextElementSibling &&
@@ -1560,6 +1586,14 @@ document.addEventListener('DOMContentLoaded', function () {
 				regEmailError.classList.remove('reg-popup__error--visible')
 		})
 	}
+
+	document.querySelectorAll('.reg-popup__checkbox input[type="checkbox"]').forEach(function (cb) {
+		cb.addEventListener('change', function () {
+			this.closest('.reg-popup__checkbox').classList.remove(
+				'is-invalid',
+			)
+		})
+	})
 
 	document.addEventListener('click', function (e) {
 		var btn = e.target.closest(

@@ -3,6 +3,9 @@ node_modules/
 package.json
 package-lock.json
 
+agent.md
+CLAUDE.md
+
 # AI / IDE config
 .opencode/
 .agents/

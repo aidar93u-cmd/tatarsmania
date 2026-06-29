@@ -1,5 +1,4 @@
-﻿!doctype html>
-<html lang="ru">
+﻿<html lang="ru">
 
 <head>
     <meta charset="UTF-8" />
@@ -45,7 +44,7 @@
                 <a href="blog.html">Идеи</a>
                 <a href="showrooms.html">Шоурумы</a>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">Сотрудничество</a>
+                    <a href="partnership.html" class="has-dropdown">Сотрудничество</a>
                     <div class="topbar__dropdown">
                         <a href="partnership.html">Оптовикам</a>
                         <a href="designers.html">Дизайнерам</a>
@@ -54,7 +53,7 @@
                     </div>
                 </div>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">О компании</a>
+                    <a href="about.html" class="has-dropdown">О компании</a>
                     <div class="topbar__dropdown">
                         <a href="about.html">О бренде</a>
                         <a href="production.html">Производство</a>
@@ -63,7 +62,7 @@
                     </div>
                 </div>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">Покупателям</a>
+                    <a href="delivery.html" class="has-dropdown">Покупателям</a>
                     <div class="topbar__dropdown">
                         <a href="delivery.html">Доставка и оплата</a>
                         <a href="warranty.html">Гарантия и возврат</a>
@@ -108,7 +107,7 @@
     
             </a>
             <div class="header__actions">
-                <a href="account-dashboard.html" class="header__icon" aria-label="Профиль" data-label="Профиль">
+                <a href="#" class="header__icon" aria-label="Профиль" data-label="Профиль">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -126,7 +125,7 @@
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="account-dashboard.html" class="header__icon" aria-label="Избранное" data-label="Избранное">
+                <a href="favorites.html" class="header__icon" aria-label="Избранное" data-label="Избранное">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
@@ -397,7 +396,7 @@
                         </button>
                     </form>
                     <label class="footer__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" required>
                         <span class="footer__checkbox-mark"></span>
                         <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
                                 target="_blank">согласие на обработку персональных данных.</a></span>
@@ -530,29 +529,7 @@
     </div>
 
     <script src="js/menu.js"></script>
-
-    <script>
-    document.querySelectorAll('[data-copy]').forEach(btn => {
-        btn.addEventListener('click', function () {
-            if (this.classList.contains('promocode-card__copy--done')) return;
-            this.classList.add('promocode-card__copy--done');
-            this.querySelector('.promocode-card__copy-text').textContent = 'Скопировано';
-            setTimeout(() => {
-                this.classList.remove('promocode-card__copy--done');
-                this.querySelector('.promocode-card__copy-text').textContent = 'Скопировать';
-            }, 2000);
-        });
-    });
-
-    const toast = document.getElementById('expiryToast');
-    const toastClose = document.getElementById('toastClose');
-    if (toast) {
-        setTimeout(() => toast.classList.add('notification-toast--visible'), 1000);
-        toastClose.addEventListener('click', () => {
-            toast.classList.remove('notification-toast--visible');
-        });
-    }
-    </script>
+    <script src="js/account.js"></script>
 
     <!-- ===== Logout Modal ===== -->
     <div class="logout-overlay" id="logoutModal">
@@ -575,8 +552,6 @@
             </div>
         </div>
     </div>
-    <script src="js/logout.js"></script>
-</body>
 
 </html>
 
