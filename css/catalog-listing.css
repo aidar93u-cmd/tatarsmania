@@ -98,6 +98,7 @@
 	margin: auto;
 	width: var(--space-13);
 	height: var(--space-13);
+    padding: 0;
 }
 
 .filter-tag__remove:hover {
@@ -261,8 +262,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: var(--space-6);
-	height: var(--space-6);
+	width: var(--space-10);
+	height: var(--space-10);
 	border: var(--space-2) solid #fff;
 	background: var(--graphite);
 	/* transform: rotate(45deg); */
@@ -406,6 +407,8 @@
 	align-items: center;
 	gap: var(--space-16);
 	margin-bottom: var(--space-60);
+}
+
 .catalog-listing__pagination-info {
 	font-size: var(--body-base-size);
 	color: var(--gray-text);
@@ -481,6 +484,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: var(--space-12);
+    justify-content: center;
 }
 
 /* --- Skeleton Loading --- */
@@ -518,6 +522,7 @@
 
 .skeleton-card__line {
 	height: var(--space-12);
+}
 .skeleton-card__colors {
 	display: flex;
 	align-items: center;
@@ -583,12 +588,10 @@
 		display: flex;
 		align-items: center;
 		gap: 6px;
-		background: none;
 		border: none;
 		cursor: pointer;
 		font-size: 12px;
 		white-space: nowrap;
-		padding: 0;
 		padding: 10px;
 		background: var(--gray-lighter);
 	}
@@ -599,8 +602,7 @@
 	}
 	.catalog-listing__mobile-filter-btn {
 		position: relative;
-		background: none;
-		border-radius: inherit;
+		border: none;
 		width: 36px;
 		height: 36px;
 		display: flex;

@@ -283,6 +283,9 @@
 .production-steps__list {
     position: relative;
     width: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
 }
 
 .production-steps__card-wrapper {
@@ -296,7 +299,7 @@
 
 .production-steps__card {
     width: 100%;
-    height: 43.75rem;
+    height: 32rem;
     overflow: hidden;
     will-change: transform;
 }
@@ -407,6 +410,9 @@
 
 .production-accordion__body {
     display: none;
+}
+
+.production-accordion__body-inner {
     padding: 0 var(--space-25) var(--space-28);
 }
 
@@ -739,10 +745,6 @@
     .carousel-section.production-photos .carousel-section__dot--active {
         background-color: var(--graphite);
     }
-    .production-accordion__body {
-        padding: 0 0px 28px;
-    }
-    
     .production-photos .carousel-section__header-row {
         justify-content: flex-end;
     }

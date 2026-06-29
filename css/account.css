@@ -168,6 +168,10 @@
     display: block;
 }
 
+.account-card__footer {
+    padding: 0 var(--space-24) var(--space-24);
+}
+
 /* ===== Fields ===== */
 .account-field {
     display: flex;
@@ -186,6 +190,43 @@
 .account-field__value {
     font-weight: 400;
     color: var(--graphite);
+}
+
+/* ===== Profile Fields ===== */
+.profile-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.profile-field__label {
+    font-size: var(--body-base-size);
+    font-weight: 500;
+    color: var(--graphite);
+    line-height: 1.2;
+}
+
+.profile-field__input {
+    width: 100%;
+    padding: var(--space-12) var(--space-16);
+    border: 0.5px solid var(--gray-dark-line);
+    font-family: var(--font-family);
+    font-size: var(--body-base-size);
+    font-weight: 400;
+    color: var(--graphite);
+    line-height: 1.2;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.profile-field__input::placeholder {
+    color: var(--graphite);
+    opacity: 0.4;
+}
+
+.profile-field__input:focus {
+    border-color: var(--copper);
 }
 
 /* ===== Addresses ===== */
@@ -1857,6 +1898,58 @@
     }
 }
 
+/* ===== Notification Toast ===== */
+.notification-toast {
+    position: fixed;
+    bottom: var(--space-24);
+    right: var(--space-24);
+    width: 21.875rem;
+    background: var(--white);
+    z-index: 1000;
+    display: none;
+}
+
+.notification-toast--visible {
+    display: block;
+}
+
+.notification-toast__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-12);
+    padding: var(--space-18) var(--space-24) 0;
+}
+
+.notification-toast__title {
+    font-size: var(--body-base-size);
+    font-weight: 500;
+    color: var(--graphite);
+    line-height: 1.2;
+}
+
+.notification-toast__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: var(--space-13);
+    height: var(--space-13);
+    flex-shrink: 0;
+}
+
+.notification-toast__desc {
+    font-size: var(--body-base-size);
+    font-weight: 400;
+    color: var(--graphite);
+    line-height: 1.4;
+    padding: var(--space-8) var(--space-24) var(--space-18);
+    margin: 0;
+}
+
 /* ===== Promocodes responsive ≤768px ===== */
 @media (max-width: 768px) {
     .promocode-card {
@@ -1867,5 +1960,154 @@
     .promocode-card__code {
         width: 100%;
         min-height: 5rem;
+    }
+}
+
+/* ===== Logout Modal ===== */
+.logout-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(33, 33, 33, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.logout-overlay--visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.logout-overlay--hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logout-modal {
+    background: #fff;
+    padding: var(--space-48);
+    max-width: 28rem;
+    width: calc(100% - var(--space-32));
+    text-align: center;
+    transform: scale(0.9) translateY(1.25rem);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.logout-modal--visible {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.logout-modal__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 auto var(--space-20);
+    border-radius: 50%;
+    background: var(--gray-lighter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-modal__icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.logout-modal__title {
+    font-family: var(--font3);
+    font-size: var(--space-20);
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin-bottom: var(--space-10);
+}
+
+.logout-modal__desc {
+    font-size: var(--body-base-size);
+    color: var(--graphite);
+    opacity: 0.7;
+    margin-bottom: var(--space-32);
+    line-height: 1.5;
+}
+
+.logout-modal__actions {
+    display: flex;
+    gap: var(--space-12);
+    justify-content: center;
+}
+
+.logout-modal__confirm,
+.logout-modal__cancel {
+    min-width: 8.75rem;
+    padding: var(--space-14) var(--space-28);
+    font-family: var(--font-family);
+    font-size: var(--body-base-size);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+}
+
+.logout-modal__confirm {
+    background: var(--graphite);
+    color: #fff;
+}
+
+.logout-modal__confirm:hover {
+    background: var(--copper);
+}
+
+.logout-modal__cancel {
+    background: transparent;
+    color: var(--graphite);
+    border: var(--space-1) solid var(--graphite);
+}
+
+.logout-modal__cancel:hover {
+    background: var(--graphite);
+    color: #fff;
+}
+
+.logout-modal__close {
+    position: absolute;
+    top: var(--space-16);
+    right: var(--space-16);
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--graphite);
+    opacity: 0.4;
+    transition: opacity 0.2s;
+}
+
+.logout-modal__close:hover {
+    opacity: 1;
+}
+
+.logout-modal__close svg {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 480px) {
+    .logout-modal {
+        padding: var(--space-32) var(--space-20);
+    }
+    .logout-modal__actions {
+        flex-direction: column;
+    }
+    .logout-modal__confirm,
+    .logout-modal__cancel {
+        width: 100%;
     }
 }

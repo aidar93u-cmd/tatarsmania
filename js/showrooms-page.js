@@ -285,7 +285,7 @@
       '" data-city="' +
       item.city +
       '">' +
-      '<div class="showroom-card__info" data-aos="fade-up" data-aos-delay="200">' +
+      '<div class="showroom-card__info">' +
       '<h3 class="showroom-card__name body-upper">' +
       item.name +
       '</h3>' +
@@ -304,12 +304,12 @@
       '</a>' +
       '<span class="showroom-card__status"></span>' +
       '</div>' +
-      '<div class="showroom-card__photos" data-aos="fade-up" data-aos-delay="400">' +
+      '<div class="showroom-card__photos">' +
       photoLinks +
       '</div>' +
       '<a href="' +
       item.mapsUrl +
-      '" target="_blank" class="btn-yandex" data-aos="fade-up" data-aos-delay="600">' +
+      '" target="_blank" class="btn-yandex">' +
       svgPin +
       'ПОСТРОИТЬ МАРШРУТ' +
       '</a>' +

@@ -7,7 +7,7 @@
   function showSkeleton() {
     if (skeletonTimer) clearTimeout(skeletonTimer);
     if (productGrid) productGrid.style.opacity = '0';
-    if (skeletonGrid) skeletonGrid.style.display = 'block';
+    if (skeletonGrid) skeletonGrid.style.display = 'grid';
     skeletonTimer = setTimeout(function () {
       if (skeletonGrid) skeletonGrid.style.display = 'none';
       if (productGrid) productGrid.style.opacity = '1';
@@ -16,7 +16,7 @@
   }
 
   if (productGrid && skeletonGrid) {
-    skeletonGrid.style.display = 'block';
+    skeletonGrid.style.display = 'grid';
     setTimeout(function () {
       skeletonGrid.style.display = 'none';
       productGrid.style.opacity = '1';
@@ -453,6 +453,9 @@
       moveSidebarToDrawer();
     } else {
       moveSidebarBack();
+      if (mobileSortPopup) mobileSortPopup.classList.remove('open');
+      if (mobileFilterDrawer) mobileFilterDrawer.classList.remove('open');
+      document.body.style.overflow = '';
     }
   }
 
@@ -461,15 +464,17 @@
 
   /* Mobile sort */
   var mobileSortBtn = document.querySelector('.catalog-listing__mobile-sort');
-  if (mobileSortBtn) {
+  if (mobileSortBtn && mobileSortPopup) {
     mobileSortBtn.addEventListener('click', function () {
       mobileSortPopup.classList.add('open');
+      document.body.style.overflow = 'hidden';
     });
   }
   if (mobileSortPopup) {
     mobileSortPopup.addEventListener('click', function (e) {
       if (e.target.closest('.catalog-listing__mobile-sort-overlay, .catalog-listing__mobile-sort-close')) {
         mobileSortPopup.classList.remove('open');
+        document.body.style.overflow = '';
       }
     });
   }
@@ -525,7 +530,10 @@
     if (triggerSpan) triggerSpan.textContent = label;
     sortProducts(sortKey);
     if (sortContainer) sortContainer.classList.remove('active');
-    if (mobileSortPopup) mobileSortPopup.classList.remove('open');
+    if (mobileSortPopup) {
+      mobileSortPopup.classList.remove('open');
+      document.body.style.overflow = '';
+    }
     showSkeleton();
   }
 
@@ -548,7 +556,7 @@
 
   /* Mobile filter */
   var mobileFilterBtn = document.querySelector('.catalog-listing__mobile-filter-btn');
-  if (mobileFilterBtn) {
+  if (mobileFilterBtn && mobileFilterDrawer) {
     mobileFilterBtn.addEventListener('click', function () {
       mobileFilterDrawer.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -591,6 +599,10 @@
       }
       updateFilterBarVisibility();
       showSkeleton();
+      if (mobileFilterDrawer) {
+        mobileFilterDrawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     });
   }
 
