@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+﻿document.addEventListener('DOMContentLoaded', function () {
 
     var tabs = document.querySelectorAll('.collections-grid__tab')
     var cards = document.querySelectorAll('.collection-card')

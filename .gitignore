@@ -30,8 +30,10 @@ docs/
 *~
 *.swp
 *.bak
+_restore.html
 Thumbs.db
 desktop.ini
+._*
 
 # misc
 README.md
@@ -42,3 +44,7 @@ assets/images/figma-search-results.jpg
 assets/fonts/circe*.{eot,svg,ttf,woff,woff2}
 assets/fonts/CirceContrast*.{woff,woff2}
 assets/fonts/TEST-*
+
+# AI temp / cache
+.graphify_python
+.graphify_uncached.txt
