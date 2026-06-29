@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿
 <html lang="ru">
 
 <head>
@@ -129,7 +129,7 @@
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="#" class="header__icon" aria-label="Избранное" data-label="Избранное">
+                <a href="favorites.html" class="header__icon" aria-label="Избранное" data-label="Избранное">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
@@ -2564,7 +2564,7 @@
                         </button>
                     </form>
                     <label class="footer__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" required>
                         <span class="footer__checkbox-mark"></span>
                         <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
                                 target="_blank">согласие на обработку персональных данных.</a></span>
@@ -2749,9 +2749,9 @@
         <div class="reg-popup">
             <div class="reg-popup__inner">
                 <!-- Step 1: Phone -->
-                <div class="reg-popup__step reg-popup__step--active" data-step="1">
+                <div class="reg-popup__step reg-popup__step-1 reg-popup__step--active" data-step="1">
                     <div class="reg-popup__layout">
-                        <div class="reg-popup__image"></div>
+                        <div class="reg-popup__image" style="background-image: url('assets/images/category3.jpg')"></div>
                         <div class="reg-popup__form">
                             <button class="reg-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -2769,9 +2769,9 @@
                                 <div class="reg-popup__footer">
                                     <button class="reg-popup__btn" type="button" id="regStep1Next">Получить код</button>
                                     <label class="reg-popup__checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" required>
                                         <span class="reg-popup__checkmark"></span>
-                                        <span class="reg-popup__checkbox-text">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных.</span>
+                                        <span class="reg-popup__checkbox-text">Нажимая на кнопку «Отправить», вы даете <a href="#" target="_blank">согласие на обработку персональных данных.</a></span>
                                     </label>
                                 </div>
                             </div>
@@ -2779,7 +2779,7 @@
                     </div>
                 </div>
                 <!-- Step 2: SMS Code -->
-                <div class="reg-popup__step" data-step="2">
+                <div class="reg-popup__step reg-popup__step-2" data-step="2">
                     <div class="reg-popup__layout reg-popup__layout--single">
                         <div class="reg-popup__form reg-popup__form--full">
                             <button class="reg-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
@@ -2799,7 +2799,7 @@
                                     <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
                                     <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
                                 </div>
-                                <div class="reg-popup__error" id="regCodeError" style="text-align:center;margin-bottom:1rem;">Неверный код. Попробуйте снова.</div>
+                                <div class="reg-popup__error" id="regCodeError" >Неверный код. Попробуйте снова.</div>
                                 <p class="reg-popup__timer" id="regTimer">Отправить код еще раз через <span id="regTimerCount">43</span> секунды</p>
                                 <button class="reg-popup__resend" type="button" id="regResend" style="display:none;">Отправить код повторно</button>
                             </div>
@@ -2807,7 +2807,7 @@
                     </div>
                 </div>
                 <!-- Step 3: Fill Data -->
-                <div class="reg-popup__step" data-step="3">
+                <div class="reg-popup__step  reg-popup__step-3" data-step="3">
                     <div class="reg-popup__layout reg-popup__layout--single">
                         <div class="reg-popup__form reg-popup__form--full">
                             <button class="reg-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
@@ -2842,9 +2842,9 @@
                                 <div class="reg-popup__footer">
                                     <button class="reg-popup__btn" type="button" id="regStep3Submit">Сохранить</button>
                                     <label class="reg-popup__checkbox">
-                                        <input type="checkbox">
+<input type="checkbox" required>
                                         <span class="reg-popup__checkmark"></span>
-                                        <span class="reg-popup__checkbox-text">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных.</span>
+                                        <span class="reg-popup__checkbox-text">Нажимая на кнопку «Отправить», вы даете <a href="#" target="_blank">согласие на обработку персональных данных.</a></span>
                                     </label>
                                 </div>
                             </div>

@@ -1,5 +1,4 @@
-﻿!doctype html>
-<html lang="ru">
+﻿<html lang="ru">
 
 <head>
     <meta charset="UTF-8" />
@@ -45,7 +44,7 @@
                 <a href="blog.html">Идеи</a>
                 <a href="showrooms.html">Шоурумы</a>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">Сотрудничество</a>
+                    <a href="partnership.html" class="has-dropdown">Сотрудничество</a>
                     <div class="topbar__dropdown">
                         <a href="partnership.html">Оптовикам</a>
                         <a href="designers.html">Дизайнерам</a>
@@ -54,7 +53,7 @@
                     </div>
                 </div>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">О компании</a>
+                    <a href="about.html" class="has-dropdown">О компании</a>
                     <div class="topbar__dropdown">
                         <a href="about.html">О бренде</a>
                         <a href="production.html">Производство</a>
@@ -63,7 +62,7 @@
                     </div>
                 </div>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">Покупателям</a>
+                    <a href="delivery.html" class="has-dropdown">Покупателям</a>
                     <div class="topbar__dropdown">
                         <a href="delivery.html">Доставка и оплата</a>
                         <a href="warranty.html">Гарантия и возврат</a>
@@ -108,7 +107,7 @@
     
             </a>
             <div class="header__actions">
-                <a href="account-dashboard.html" class="header__icon" aria-label="Профиль" data-label="Профиль">
+                <a href="#" class="header__icon" aria-label="Профиль" data-label="Профиль">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -126,7 +125,7 @@
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="account-dashboard.html" class="header__icon" aria-label="Избранное" data-label="Избранное">
+                <a href="favorites.html" class="header__icon" aria-label="Избранное" data-label="Избранное">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
@@ -199,48 +198,26 @@
                     <div class="breadcrumbs breadcrumbs--center breadcrumbs--mb-none">
                         <a href="index.html" class="breadcrumbs__link">Главная</a>
                         <span class="breadcrumbs__sep">/</span>
-                        <a href="account-orders.html" class="breadcrumbs__link">Личный кабинет</a>
-                        <span class="breadcrumbs__sep">/</span>
-                        <span class="breadcrumbs__current breadcrumbs__current--faded">Заказ № 120139 от 29.12.2025</span>
+                        <a href="account-orders.html" class="breadcrumbs__link breadcrumbs__link--faded">Личный кабинет</a>
                     </div>
-                    <h1 class="page-title__heading h3">Заказ № 120139 от 29.12.2025</h1>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== STATUS TIMELINE ===== -->
-        <section class="order-timeline" data-aos="fade-up" data-aos-delay="200">
-            <div class="container">
-                <div class="order-timeline__inner">
-                    <div class="order-timeline__steps">
-                        <div class="order-timeline__step order-timeline__step--active">
-                            <span class="order-timeline__dot"></span>
-                            <span class="order-timeline__label">Оплачен</span>
-                        </div>
-                        <div class="order-timeline__step order-timeline__step--active">
-                            <span class="order-timeline__dot"></span>
-                            <span class="order-timeline__label">В обработке</span>
-                        </div>
-                        <div class="order-timeline__step">
-                            <span class="order-timeline__dot"></span>
-                            <span class="order-timeline__label">В работе</span>
-                        </div>
-                        <div class="order-timeline__step">
-                            <span class="order-timeline__dot"></span>
-                            <span class="order-timeline__label">Готов к отправке</span>
-                        </div>
-                        <div class="order-timeline__step">
-                            <span class="order-timeline__dot"></span>
-                            <span class="order-timeline__label">В пути</span>
-                        </div>
-                        <div class="order-timeline__step">
-                            <span class="order-timeline__dot"></span>
-                            <span class="order-timeline__label">Завершен</span>
-                        </div>
+                    <h1 class="page-title__heading h4">Заказ № 120139 от 29.12.2025</h1>
+                    <div class="page-title__statuses">
+                        <span class="page-title__status page-title__status--active">Оплачен</span>
+                        <span class="page-title__status-dot page-title__status-dot--active"></span>
+                        <span class="page-title__status page-title__status--active">В обработке</span>
+                        <span class="page-title__status-dot"></span>
+                        <span class="page-title__status">В работе</span>
+                        <span class="page-title__status-dot"></span>
+                        <span class="page-title__status">Готов к отправке</span>
+                        <span class="page-title__status-dot"></span>
+                        <span class="page-title__status">В пути</span>
+                        <span class="page-title__status-dot"></span>
+                        <span class="page-title__status">Завершен</span>
                     </div>
-                    <a href="account-orders.html" class="order-timeline__back">
+                    <a href="account-orders.html" class="page-title__back">
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.5 6.5H2.5M2.5 6.5L6.5 10.5M2.5 6.5L6.5 2.5" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5 3L2 6.5L5 10" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 6.5H11" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
                         </svg>
                         К списку заказов
                     </a>
@@ -305,30 +282,36 @@
                         <!-- ===== 2. Products ===== -->
                         <div class="od-section">
                             <h2 class="od-section__title">Товары</h2>
-                            <div class="account-card">
-                                <div class="account-card__body account-card__body--no-gap">
-                                    <div class="od-product">
-                                        <div class="od-product__thumb"></div>
-                                        <div class="od-product__info">
+                            <div class="od-product-list">
+                                <div class="od-product">
+                                    <div class="od-product__thumb">
+                                        <img src="assets/images/product-1.png" alt="VELVET">
+                                    </div>
+                                    <div class="od-product__info">
+                                        <div class="od-product__info-top">
                                             <h3 class="od-product__name">VELVET</h3>
                                             <p class="od-product__desc">Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр</p>
-                                            <span class="od-product__qty">1 шт.</span>
                                         </div>
-                                        <div class="od-product__prices">
-                                            <span class="od-product__price">152.000 руб</span>
-                                            <span class="od-product__price-old">358.500 ₽</span>
-                                        </div>
+                                        <span class="od-product__qty">1 шт.</span>
                                     </div>
-                                    <div class="od-product">
-                                        <div class="od-product__thumb"></div>
-                                        <div class="od-product__info">
+                                    <div class="od-product__prices">
+                                        <span class="od-product__price-old">152.000 руб</span>
+                                        <span class="od-product__price">358.500 ₽</span>
+                                    </div>
+                                </div>
+                                <div class="od-product">
+                                    <div class="od-product__thumb">
+                                        <img src="assets/images/product-2.png" alt="LOKI">
+                                    </div>
+                                    <div class="od-product__info">
+                                        <div class="od-product__info-top">
                                             <h3 class="od-product__name">LOKI</h3>
                                             <p class="od-product__desc">Диван-кровать LOKI, 220 см, с подъёмным механизмом, микровелюр</p>
-                                            <span class="od-product__qty">1 шт.</span>
                                         </div>
-                                        <div class="od-product__prices od-product__prices--single">
-                                            <span class="od-product__price">132.500 ₽</span>
-                                        </div>
+                                        <span class="od-product__qty">1 шт.</span>
+                                    </div>
+                                    <div class="od-product__prices">
+                                        <span class="od-product__price">132.500 ₽</span>
                                     </div>
                                 </div>
                             </div>
@@ -337,42 +320,58 @@
                         <!-- ===== 3. Documentation ===== -->
                         <div class="od-section">
                             <h2 class="od-section__title">Документация</h2>
-                            <div class="account-card">
-                                <div class="account-card__body account-card__body--no-gap">
-                                    <div class="od-doc">
-                                        <span class="od-doc__name">Чек</span>
-                                        <span class="od-doc__ext">.pdf</span>
-                                        <span class="od-doc__size">1.3 мб</span>
-                                        <button class="od-doc__download" aria-label="Скачать" data-label="Скачать">
-                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6.5 1.5V9.5M6.5 9.5L3 6M6.5 9.5L10 6" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M2 11H11" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
-                                            </svg>
-                                        </button>
+                            <div class="od-doc-card">
+                                <div class="od-doc">
+                                    <div class="od-doc__row">
+                                        <div class="od-doc__left">
+                                            <span class="od-doc__name">Чек</span>
+                                            <span class="od-doc__ext">.jpg</span>
+                                        </div>
+                                        <div class="od-doc__right">
+                                            <span class="od-doc__size">1.3 мб</span>
+                                            <a href="assets/images/product-img-1.jpg" download="Чек.jpg" class="od-doc__download" aria-label="Скачать">
+                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6.5 1.5V9.5M6.5 9.5L3 6M6.5 9.5L10 6" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M2 11H11" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="od-doc__divider"></div>
-                                    <div class="od-doc">
-                                        <span class="od-doc__name">Счет на оплату</span>
-                                        <span class="od-doc__ext">.pdf</span>
-                                        <span class="od-doc__size">0.5 мб</span>
-                                        <button class="od-doc__download" aria-label="Скачать" data-label="Скачать">
-                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6.5 1.5V9.5M6.5 9.5L3 6M6.5 9.5L10 6" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M2 11H11" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
-                                            </svg>
-                                        </button>
+                                </div>
+                                <div class="od-doc">
+                                    <div class="od-doc__row">
+                                        <div class="od-doc__left">
+                                            <span class="od-doc__name">Счет на оплату</span>
+                                            <span class="od-doc__ext">.jpg</span>
+                                        </div>
+                                        <div class="od-doc__right">
+                                            <span class="od-doc__size">0.5 мб</span>
+                                            <a href="assets/images/product-img-2.jpg" download="Счет на оплату.jpg" class="od-doc__download" aria-label="Скачать">
+                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6.5 1.5V9.5M6.5 9.5L3 6M6.5 9.5L10 6" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M2 11H11" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="od-doc__divider"></div>
-                                    <div class="od-doc">
-                                        <span class="od-doc__name">УПД</span>
-                                        <span class="od-doc__ext">.pdf</span>
-                                        <span class="od-doc__size">1.8 мб</span>
-                                        <button class="od-doc__download" aria-label="Скачать" data-label="Скачать">
-                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M6.5 1.5V9.5M6.5 9.5L3 6M6.5 9.5L10 6" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M2 11H11" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
-                                            </svg>
-                                        </button>
+                                </div>
+                                <div class="od-doc">
+                                    <div class="od-doc__row">
+                                        <div class="od-doc__left">
+                                            <span class="od-doc__name">УПД</span>
+                                            <span class="od-doc__ext">.jpg</span>
+                                        </div>
+                                        <div class="od-doc__right">
+                                            <span class="od-doc__size">1.8 мб</span>
+                                            <a href="assets/images/room1.jpg" download="УПД.jpg" class="od-doc__download" aria-label="Скачать">
+                                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6.5 1.5V9.5M6.5 9.5L3 6M6.5 9.5L10 6" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M2 11H11" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -381,32 +380,28 @@
                         <!-- ===== 4. Order Summary ===== -->
                         <div class="od-section">
                             <h2 class="od-section__title">Сумма заказа</h2>
-                            <div class="account-card">
-                                <div class="account-card__body">
-                                    <div class="od-summary">
-                                        <div class="od-summary__rows">
-                                            <div class="od-summary__row">
-                                                <span class="od-summary__label">Сумма заказа:</span>
-                                                <span class="od-summary__value">491.000 ₽</span>
-                                            </div>
-                                            <div class="od-summary__row">
-                                                <span class="od-summary__label">Промокод SAVE10 (10%):</span>
-                                                <span class="od-summary__value od-summary__value--discount">-49.100 ₽</span>
-                                            </div>
-                                            <div class="od-summary__row">
-                                                <span class="od-summary__label">Вторая покупка (15%):</span>
-                                                <span class="od-summary__value od-summary__value--discount">-66.285 ₽</span>
-                                            </div>
-                                            <div class="od-summary__row">
-                                                <span class="od-summary__label">Доставка:</span>
-                                                <span class="od-summary__value">10.000 ₽</span>
-                                            </div>
-                                        </div>
-                                        <div class="od-summary__total">
-                                            <span class="od-summary__total-label">Итого:</span>
-                                            <span class="od-summary__total-value">375.615 ₽</span>
-                                        </div>
+                            <div class="od-summary-card">
+                                <div class="od-summary__rows">
+                                    <div class="od-summary__row">
+                                        <span class="od-summary__label">Сумма заказа:</span>
+                                        <span class="od-summary__value">491.000 ₽</span>
                                     </div>
+                                    <div class="od-summary__row">
+                                        <span class="od-summary__label">Промокод SAVE10 (10%):</span>
+                                        <span class="od-summary__value">-49.100 ₽</span>
+                                    </div>
+                                    <div class="od-summary__row">
+                                        <span class="od-summary__label">Вторая покупка (15%):</span>
+                                        <span class="od-summary__value">-66.285 ₽</span>
+                                    </div>
+                                    <div class="od-summary__row">
+                                        <span class="od-summary__label">Доставка:</span>
+                                        <span class="od-summary__value">10.000 ₽</span>
+                                    </div>
+                                </div>
+                                <div class="od-summary__total">
+                                    <span class="od-summary__total-label">Итого:</span>
+                                    <span class="od-summary__total-value">375.615 ₽</span>
                                 </div>
                             </div>
                         </div>
@@ -451,7 +446,7 @@
                         </button>
                     </form>
                     <label class="footer__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" required>
                         <span class="footer__checkbox-mark"></span>
                         <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
                                 target="_blank">согласие на обработку персональных данных.</a></span>
@@ -591,8 +586,38 @@
     <script src="js/lib/aos.js"></script>
     <script src="js/lib/fancybox.umd.js"></script>
     <script src="js/main.js?v=2"></script>
-    <script src="js/logout.js"></script>
+    <script src="js/account.js"></script>
     <script src="js/menu.js"></script>
+    <script>
+    document.querySelectorAll('.od-doc__download').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            var url = this.href;
+            var filename = this.download || url.split('/').pop();
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'blob';
+            xhr.onload = function() {
+                var blob = this.response;
+                if (window.navigator.msSaveBlob) {
+                    window.navigator.msSaveBlob(blob, filename);
+                    return;
+                }
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(function() { URL.revokeObjectURL(a.href); }, 1000);
+            };
+            xhr.onerror = function() {
+                window.open(url, '_blank');
+            };
+            xhr.send();
+        });
+    });
+    </script>
 </body>
 
 </html>

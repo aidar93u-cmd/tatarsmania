@@ -1910,6 +1910,57 @@ section.footer-banner {
 	color: var(--graphite);
 }
 
+.page-title__back {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-8);
+	font-family: var(--font-family);
+	font-size: var(--body-base-size);
+	color: var(--graphite);
+	text-decoration: none;
+	transition: opacity 0.3s;
+}
+.page-title__back:hover {
+	opacity: 0.6;
+}
+
+.page-title__statuses {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+}
+
+.page-title__status {
+	font-family: var(--font-family);
+	font-size: 0.625rem;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--graphite);
+	line-height: 1.05;
+}
+.page-title__status--active {
+	color: var(--copper);
+}
+
+.page-title__status-dot {
+	width: 0.125rem;
+	height: 0.125rem;
+	border-radius: 50%;
+	background: var(--graphite);
+	flex-shrink: 0;
+}
+.page-title__status-dot--active {
+	background: var(--copper);
+}
+
+.page-title .orders-card__status {
+	font-size: var(--caption-size);
+	padding: var(--space-6) var(--space-12);
+}
+
 /* ===================================
    Breadcrumbs (shared component)
    =================================== */
@@ -1947,6 +1998,10 @@ section.footer-banner {
 
 .breadcrumbs__link:hover {
 	color: var(--graphite);
+}
+
+.breadcrumbs__link--faded {
+	opacity: 0.3;
 }
 
 .breadcrumbs__sep {
@@ -3334,14 +3389,18 @@ section.footer-banner {
 
 /* ===== REGISTRATION POPUP ===== */
 .fancybox-reg-popup .fancybox__content {
-    width: 68.75rem;
     max-height: 90vh;
     background: transparent;
 }
 .fancybox-reg-popup .fancybox__content > .f-button.is-close-btn {
     display: none;
 }
-
+.reg-popup__step{
+    width: 34.375rem;
+ }
+.reg-popup__step-1{
+    width: 68.75rem;
+ }
 .reg-popup {
     font-family: "Circe", "TEST Circe", sans-serif;
     background: #fff;
@@ -3374,13 +3433,13 @@ section.footer-banner {
     min-height: 41.25rem;
 }
 .reg-popup__layout--single {
-    width: 34.375rem;
+    width: 100%;
     margin: 0 auto;
 }
 .reg-popup__image {
     width: 50%;
     flex-shrink: 0;
-    background: var(--gray-light) url('../assets/images/interier.jpg') center / cover no-repeat;
+    background: var(--gray-light) center / cover no-repeat;
 }
 .reg-popup__form {
     width: 50%;
@@ -3558,10 +3617,21 @@ section.footer-banner {
     border-width: 0 1.5px 1.5px 0;
     transform: rotate(45deg) translateY(calc(-1 * var(--space-1)));
 }
+#regCodeError{
+	text-align:center;
+	margin-bottom:1rem;
+}
 .reg-popup__checkbox-text {
     font-size: var(--space-12);
     line-height: 1.2;
     color: var(--graphite, #212121);
+}
+.reg-popup__checkbox-text a {
+		color: var(--graphite, #212121);
+		text-decoration: underline;
+}
+.reg-popup__checkbox.is-invalid .reg-popup__checkmark {
+    border-color: #dc3545;
 }
 .reg-popup__code-wrap {
     display: flex;
@@ -3613,11 +3683,10 @@ section.footer-banner {
     font-size: var(--space-12);
     font-weight: 500;
     color: var(--graphite, #212121);
+		text-transform: uppercase;
     text-align: center;
     padding: 0;
     margin: 0 0 var(--space-16);
-    text-decoration: underline;
-    text-underline-offset: 2px;
 }
 @media (max-width: 768px) {
     .reg-popup__image {
@@ -3722,25 +3791,12 @@ section.footer-banner {
     transition: color 0.4s;
 }
 
-.favorites__tab::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: currentColor;
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-}
 
 .favorites__tab--active {
     color: var(--copper);
 }
 
-.favorites__tab--active::after {
-    transform: scaleX(1);
-}
+
 
 .favorites__sort {
     display: flex;

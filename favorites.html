@@ -1,4 +1,4 @@
-﻿!doctype html>
+﻿
 <html lang="ru">
 
 <head>
@@ -45,7 +45,7 @@
                 <a href="blog.html">Идеи</a>
                 <a href="showrooms.html">Шоурумы</a>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">Сотрудничество</a>
+                    <a href="partnership.html" class="has-dropdown">Сотрудничество</a>
                     <div class="topbar__dropdown">
                         <a href="partnership.html">Оптовикам</a>
                         <a href="designers.html">Дизайнерам</a>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">О компании</a>
+                    <a href="about.html" class="has-dropdown">О компании</a>
                     <div class="topbar__dropdown">
                         <a href="about.html">О бренде</a>
                         <a href="production.html">Производство</a>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="topbar__nav-item">
-                    <a href="#" class="has-dropdown">Покупателям</a>
+                    <a href="delivery.html" class="has-dropdown">Покупателям</a>
                     <div class="topbar__dropdown">
                         <a href="delivery.html">Доставка и оплата</a>
                         <a href="warranty.html">Гарантия и возврат</a>
@@ -108,7 +108,7 @@
     
             </a>
             <div class="header__actions">
-                <a href="account-dashboard.html" class="header__icon" aria-label="Профиль" data-label="Профиль">
+                <a href="#" class="header__icon" aria-label="Профиль" data-label="Профиль">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -126,7 +126,7 @@
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="account-dashboard.html" class="header__icon" aria-label="Избранное" data-label="Избранное">
+                <a href="favorites.html" class="header__icon" aria-label="Избранное" data-label="Избранное">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
@@ -791,7 +791,7 @@
                         </button>
                     </form>
                     <label class="footer__checkbox">
-                        <input type="checkbox">
+                        <input type="checkbox" required>
                         <span class="footer__checkbox-mark"></span>
                         <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#" target="_blank">согласие на обработку персональных данных.</a></span>
                     </label>
@@ -958,116 +958,6 @@
             </svg>
         </button>
     </div>
-    <!-- ===== REGISTRATION POPUP ===== -->
-    <div id="registrationPopup" style="display:none;">
-        <div class="reg-popup">
-            <div class="reg-popup__inner">
-                <!-- Step 1: Phone -->
-                <div class="reg-popup__step reg-popup__step--active" data-step="1">
-                    <div class="reg-popup__layout">
-                        <div class="reg-popup__image"></div>
-                        <div class="reg-popup__form">
-                            <button class="reg-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
-                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                                    <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)" fill="currentColor"/>
-                                    <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)" fill="currentColor"/>
-                                </svg>
-                            </button>
-                            <div class="reg-popup__form-body">
-                                <h2 class="reg-popup__title">Войдите или зарегистрируйтесь</h2>
-                                <p class="reg-popup__desc">Введите номер и мы отправим SMS сообщение с кодом подтверждения:</p>
-                                <div class="reg-popup__field">
-                                    <input class="reg-popup__input" type="tel" id="regPhone" placeholder="+7 (___) ___-__-__" maxlength="18">
-                                    <div class="reg-popup__error" id="regPhoneError">Введите корректный номер телефона</div>
-                                </div>
-                                <div class="reg-popup__footer">
-                                    <button class="reg-popup__btn" type="button" id="regStep1Next">Получить код</button>
-                                    <label class="reg-popup__checkbox">
-                                        <input type="checkbox">
-                                        <span class="reg-popup__checkmark"></span>
-                                        <span class="reg-popup__checkbox-text">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных.</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Step 2: SMS Code -->
-                <div class="reg-popup__step" data-step="2">
-                    <div class="reg-popup__layout reg-popup__layout--single">
-                        <div class="reg-popup__form reg-popup__form--full">
-                            <button class="reg-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
-                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                                    <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)" fill="currentColor"/>
-                                    <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)" fill="currentColor"/>
-                                </svg>
-                            </button>
-                            <div class="reg-popup__form-body">
-                                <h2 class="reg-popup__title">Подтвердите номер</h2>
-                                <p class="reg-popup__desc" id="regCodeDesc">Подтвердите номер +7 (999) 123-45-67, введя код из SMS:</p>
-                                <div class="reg-popup__code-wrap" id="regCodeWrap">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1" autofocus>
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                </div>
-                                <div class="reg-popup__error" id="regCodeError" style="text-align:center;margin-bottom:1rem;">Неверный код. Попробуйте снова.</div>
-                                <p class="reg-popup__timer" id="regTimer">Отправить код еще раз через <span id="regTimerCount">43</span> секунды</p>
-                                <button class="reg-popup__resend" type="button" id="regResend" style="display:none;">Отправить код повторно</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Step 3: Fill Data -->
-                <div class="reg-popup__step" data-step="3">
-                    <div class="reg-popup__layout reg-popup__layout--single">
-                        <div class="reg-popup__form reg-popup__form--full">
-                            <button class="reg-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
-                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                                    <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)" fill="currentColor"/>
-                                    <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)" fill="currentColor"/>
-                                </svg>
-                            </button>
-                            <div class="reg-popup__form-body">
-                                <h2 class="reg-popup__title">Заполните данные</h2>
-                                <div class="reg-popup__fields-row">
-                                    <div class="reg-popup__field-group">
-                                        <label class="reg-popup__label">Имя*</label>
-                                        <input class="reg-popup__input" type="text" id="regName" placeholder="Иван">
-                                        <div class="reg-popup__error" id="regNameError">Введите имя</div>
-                                    </div>
-                                    <div class="reg-popup__field-group">
-                                        <label class="reg-popup__label">Фамилия*</label>
-                                        <input class="reg-popup__input" type="text" id="regSurname" placeholder="Иванов">
-                                        <div class="reg-popup__error" id="regSurnameError">Введите фамилию</div>
-                                    </div>
-                                </div>
-                                <div class="reg-popup__field-group">
-                                    <label class="reg-popup__label">Телефон*</label>
-                                    <input class="reg-popup__input reg-popup__input--filled" type="tel" id="regPhoneStep3" readonly>
-                                </div>
-                                <div class="reg-popup__field-group">
-                                    <label class="reg-popup__label">E-mail</label>
-                                    <input class="reg-popup__input" type="email" id="regEmail" placeholder="email@mail.com">
-                                    <div class="reg-popup__error" id="regEmailError">Введите корректный email</div>
-                                </div>
-                                <div class="reg-popup__footer">
-                                    <button class="reg-popup__btn" type="button" id="regStep3Submit">Сохранить</button>
-                                    <label class="reg-popup__checkbox">
-                                        <input type="checkbox">
-                                        <span class="reg-popup__checkmark"></span>
-                                        <span class="reg-popup__checkbox-text">Нажимая на кнопку «Отправить», вы даете согласие на обработку персональных данных.</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ===== Logout Modal ===== -->
     <div class="logout-overlay" id="logoutModal">
         <div class="logout-modal">
@@ -1095,7 +985,7 @@
     <script src="js/lib/fancybox.umd.js"></script>
     <script src="js/lib/aos.js"></script>
     <script src="js/main.js?v=2"></script>
-    <script src="js/logout.js"></script>
+    <script src="js/account.js"></script>
     <script src="js/menu.js?v=2"></script>
 
 </body>
