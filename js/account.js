@@ -759,4 +759,28 @@ document.addEventListener('DOMContentLoaded', function () {
             if (e.key === 'Escape' && overlay.classList.contains('logout-overlay--visible')) closeModal();
         });
     }
+
+    // ===== ORDER GALLERY SWIPER (dashboard) =====
+    var orderGalleries = document.querySelectorAll('.js-order-gallery')
+    if (orderGalleries.length) {
+        orderGalleries.forEach(function (el) {
+            if (el.querySelectorAll('.swiper-slide').length < 2) return
+            if (!el._galleryClickGuard) {
+                el._galleryClickGuard = true
+                el.addEventListener('click', function (e) {
+                    if (el.swiper && el.swiper.touches.diff !== 0) e.preventDefault()
+                })
+            }
+            el.swiper = new Swiper(el, {
+                slidesPerView: 3,
+                spaceBetween: 6,
+                speed: 400,
+                simulateTouch: true,
+                navigation: {
+                    nextEl: el.querySelector('.js-gallery-next'),
+                    prevEl: el.querySelector('.js-gallery-prev'),
+                },
+            })
+        })
+    }
 })
