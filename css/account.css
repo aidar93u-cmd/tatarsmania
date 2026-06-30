@@ -48,9 +48,8 @@
 .account-nav__link--logout {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    color: var(--graphite);
     gap: 10px;
+    color: var(--graphite);
 }
 
 .account-nav__link--logout svg {
@@ -520,6 +519,29 @@
     outline: 1px solid #d32f2f;
 }
 
+.popup-field {
+    position: relative;
+}
+
+.popup-field__error {
+    position: absolute;
+    bottom: -0.875rem;
+    left: 0;
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: #d32f2f;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(-0.25rem);
+    transition: opacity 0.25s, transform 0.25s;
+    pointer-events: none;
+}
+
+.popup-field__error.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .popup-btn {
     width: 100%;
     height: var(--space-38);
@@ -678,7 +700,19 @@
 .nl-form {
     display: flex;
     flex-direction: column;
+}
+
+.nl-form__body {
+    display: flex;
+    flex-direction: column;
     gap: var(--space-16);
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+.nl-form--success .nl-form__body {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.5rem);
 }
 
 .nl-form__row {
@@ -688,6 +722,7 @@
 
 .nl-form__field-wrap {
     flex: 1;
+    position: relative;
 }
 
 .nl-form__input {
@@ -702,6 +737,7 @@
     color: var(--graphite);
     line-height: 1.2;
     outline: none;
+    transition: background 0.25s, outline 0.25s;
 }
 
 .nl-form__input::placeholder {
@@ -709,49 +745,51 @@
     opacity: 0.4;
 }
 
-.nl-form__submit {
-    display: inline-flex;
+.nl-form__success {
+    display: flex;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-12) var(--space-50);
-    background: var(--graphite);
-    color: var(--white);
-    border: none;
-    font-family: var(--font-family);
-    font-size: 0.75rem;
+    gap: var(--space-12);
+    padding: var(--space-20) 0;
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition: opacity 0.35s, transform 0.35s;
+    pointer-events: none;
+}
+
+.nl-form--success .nl-form__success {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.nl-form__success span {
+    font-size: 0.875rem;
     font-weight: 500;
-    cursor: pointer;
+    color: var(--graphite);
     line-height: 1.2;
-    transition: opacity 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
 }
 
-.nl-form__submit-text {
-    transition: opacity 0.2s;
-}
-
-.nl-form__submit-loader {
+.btn__loader {
     display: none;
     width: 0.875rem;
     height: 0.875rem;
-    animation: nl-spin 0.7s linear infinite;
+    animation: btn-spin 0.7s linear infinite;
 }
 
-.nl-form__submit-loader svg {
+.btn__loader svg {
     display: block;
 }
 
-.nl-form__submit.is-loading .nl-form__submit-text {
-    opacity: 0;
-}
-
-.nl-form__submit.is-loading .nl-form__submit-loader {
+.btn.is-loading .btn__loader {
     display: block;
     position: absolute;
 }
 
-@keyframes nl-spin {
+.btn.is-loading span:first-child {
+    opacity: 0;
+}
+
+@keyframes btn-spin {
     to { transform: rotate(360deg); }
 }
 
@@ -773,14 +811,6 @@
 
 .btn--popup.is-loading span:first-of-type {
     opacity: 0;
-}
-
-.btn__loader {
-    display: none;
-    position: absolute;
-    width: 0.875rem;
-    height: 0.875rem;
-    animation: nl-spin 0.7s linear infinite;
 }
 
 .btn--popup.is-loading .btn__loader {
@@ -954,11 +984,6 @@
     border-color: #d32f2f;
 }
 
-/* NL field wrap — relative for error + loader */
-.nl-form__field-wrap {
-    position: relative;
-}
-
 .nl-form__error {
     position: absolute;
     left: 0;
@@ -983,7 +1008,7 @@
     outline: 1px solid #d32f2f;
 }
 
-.nl-form__input.is-valid {
+.nl-form__input--success {
     background: #f0fff4;
     outline: 1px solid #2e7d32;
 }
@@ -1126,7 +1151,7 @@
         flex-direction: column;
     }
 
-    .nl-form__submit {
+    .nl-form__row .btn-primary {
         width: 100%;
         justify-content: center;
     }
@@ -1341,10 +1366,6 @@
     display: block;
 }
 
-.orders-card__arrows {
-    z-index: 2;
-}
-
 .orders-card__details {
     display: flex;
     flex-direction: column;
@@ -1396,6 +1417,7 @@
     justify-content: space-between;
     pointer-events: none;
     padding: 0 var(--space-10);
+    z-index: 2;
 }
 
 .orders-card__arrow {
@@ -2292,7 +2314,7 @@
 .promocode-card__copy {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-4);
     background: none;
     border: none;
     padding: 0;
@@ -2313,6 +2335,7 @@
 
 .promocode-card__copy svg {
     flex-shrink: 0;
+    margin-top: -3px;
 }
 
 .promocode-card__copy svg rect,
@@ -2337,12 +2360,12 @@
     opacity: 0.3;
 }
 
-/* ===== Expiry notification toast ===== */
+/* ===== Notification Toast ===== */
 .notification-toast {
     position: fixed;
-    bottom: var(--space-32);
-    right: var(--space-32);
-    width: 23.4375rem;
+    bottom: var(--space-24);
+    right: var(--space-24);
+    width: 21.875rem;
     background: var(--white);
     padding: var(--space-20);
     box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.05),
@@ -2353,7 +2376,6 @@
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    gap: var(--space-24);
     transform: translateY(calc(100% + 2rem));
     opacity: 0;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
@@ -2366,30 +2388,33 @@
 
 .notification-toast__header {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
     gap: var(--space-12);
 }
 
 .notification-toast__title {
-    font-family: var(--font3);
-    font-size: var(--space-16);
+    font-size: var(--body-base-size);
     font-weight: 500;
-    line-height: 1.2;
     color: var(--graphite);
+    line-height: 1.2;
+}
+
+.notification-toast__code {
+    color: var(--copper);
 }
 
 .notification-toast__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    flex-shrink: 0;
     width: var(--space-20);
     height: var(--space-20);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-shrink: 0;
 }
 
 .notification-toast__close svg {
@@ -2397,28 +2422,18 @@
 }
 
 .notification-toast__desc {
-    font-size: var(--space-14);
+    font-size: var(--body-base-size);
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.4;
     color: var(--graphite);
+    padding: var(--space-8) 0 var(--space-18);
+    margin: 0;
 }
 
 .notification-toast__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     padding: var(--space-12) var(--space-50);
-    background: var(--graphite);
-    color: var(--white);
-    font-family: var(--font-family);
     font-size: var(--space-12);
-    font-weight: 500;
-    line-height: 1.2;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
     align-self: flex-start;
-    transition: background 0.3s;
 }
 
 @media (max-width: 768px) {
@@ -2428,58 +2443,6 @@
         left: var(--space-16);
         width: auto;
     }
-}
-
-/* ===== Notification Toast ===== */
-.notification-toast {
-    position: fixed;
-    bottom: var(--space-24);
-    right: var(--space-24);
-    width: 21.875rem;
-    background: var(--white);
-    z-index: 1000;
-    display: none;
-}
-
-.notification-toast--visible {
-    display: block;
-}
-
-.notification-toast__header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--space-12);
-    padding: var(--space-18) var(--space-24) 0;
-}
-
-.notification-toast__title {
-    font-size: var(--body-base-size);
-    font-weight: 500;
-    color: var(--graphite);
-    line-height: 1.2;
-}
-
-.notification-toast__close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    width: var(--space-13);
-    height: var(--space-13);
-    flex-shrink: 0;
-}
-
-.notification-toast__desc {
-    font-size: var(--body-base-size);
-    font-weight: 400;
-    color: var(--graphite);
-    line-height: 1.4;
-    padding: var(--space-8) var(--space-24) var(--space-18);
-    margin: 0;
 }
 
 /* ===== Promocodes responsive ≤768px ===== */

@@ -513,11 +513,13 @@
     <script src="js/lib/swiper-bundle.min.js"></script>
     <script src="js/lib/aos.js"></script>
     <script src="js/lib/fancybox.umd.js"></script>
+    <script src="js/lib/validate.min.js"></script>
+
     <script src="js/main.js?v=2"></script>
     <!-- Expiry notification toast -->
     <div class="notification-toast" id="expiryToast">
         <div class="notification-toast__header">
-            <span class="notification-toast__title">Промокод SAVE10 скоро сгорит!</span>
+            <span class="notification-toast__title">Промокод <span class="notification-toast__code">SAVE10</span> скоро сгорит!</span>
             <button class="notification-toast__close" id="toastClose" aria-label="Закрыть" data-label="Закрыть">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.28564 11.7144L11.7144 1.28564M11.7144 11.7144L1.28564 1.28564" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
@@ -525,7 +527,12 @@
             </button>
         </div>
         <p class="notification-toast__desc">Используйте его до 28 июня 2026 года и получите скидку 10% на заказ</p>
-        <a href="catalog.html" class="notification-toast__btn">В каталог</a>
+        <a href="catalog.html" class="btn btn-primary notification-toast__btn">
+            <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121"></path>
+            </svg>
+            <span>В каталог</span>
+        </a>
     </div>
 
     <script src="js/menu.js"></script>
