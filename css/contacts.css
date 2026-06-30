@@ -187,7 +187,8 @@
 }
 
 .contacts-form__checkbox input:checked + .contacts-form__checkbox-mark {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000000' viewBox='0 0 1920 1920'%3E%3Cpath d='M1827.701 303.065 698.835 1431.801 92.299 825.266 0 917.564 698.835 1616.4 1919.869 395.234z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background: #333;
+    border: var(--space-2) solid #fff;
 }
 
 .contacts-form__checkbox-text {
@@ -318,6 +319,7 @@
 }
 
 .contacts-form__checkbox input:checked + .contacts-form__checkbox-mark {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 1920 1920'%3E%3Cpath d='M1827.701 303.065 698.835 1431.801 92.299 825.266 0 917.564 698.835 1616.4 1919.869 395.234z' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background: #333;
+    border: var(--space-2) solid #fff;
 }
 }

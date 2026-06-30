@@ -316,7 +316,6 @@
 @media (min-width: 993px) {
     .catalog-cat-s__grid.swiper {
         overflow: visible;
-        margin-bottom: var(--space-10);
     }
     .catalog-cat-s__grid .swiper-wrapper {
         display: contents;

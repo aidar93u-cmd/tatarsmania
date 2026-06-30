@@ -511,7 +511,7 @@ img {
 }
 .btn-yandex {
 	display: flex;
-	align-items: flex-start;
+    align-items: baseline;
 	gap: var(--space-14);
 	font-size: var(--body-base-size);
 	font-weight: 500;
@@ -519,6 +519,10 @@ img {
 	transition: gap 0.4s;
 	justify-content: flex-start;
 	padding: 0;
+}
+.btn-yandex svg {
+	width: var(--space-7);
+	height: var(--space-8);
 }
 .btn-promo {
 	display: inline-flex;
@@ -577,11 +581,8 @@ body.page {
 .hero__bg-overlay {
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(
-		180deg,
-		rgba(0, 0, 0, 0.4) 0%,
-		rgba(0, 0, 0, 0.2) 100%
-	);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+
 }
 
 .hero__content {
@@ -712,13 +713,13 @@ body.page {
 }
 
 .categories-large__card:hover .categories-large__card-overlay {
-	background: #21212133;
+	background: #21212154;
 }
 .categories-large__card-overlay {
 	position: absolute;
 	inset: 0;
 	background: #00000033;
-	transition: transform 0.4s ease;
+	transition: all 0.4s;
 }
 
 .categories-large__card-label {
@@ -1155,7 +1156,7 @@ body.page {
 	position: absolute;
 	inset: 0;
 	background-size: cover;
-	background-position: center;
+	background-position: center bottom;
 }
 
 .promotions__bg-overlay {
@@ -2395,7 +2396,10 @@ section.footer-banner {
 	position: absolute;
 	inset: 0;
 }
-
+.carousel-section .swiper-wrapper,
+.categories-small .swiper-wrapper{
+	height: auto;
+}
 .categories-small .categories-small__pagination.swiper-pagination {
 	margin-top: var(--space-6);
 	display: flex;
@@ -2466,6 +2470,7 @@ section.footer-banner {
 .hero-swiper .swiper-button-next {
 	width: var(--space-15);
 	height: var(--space-15);
+	padding: 0;
 }
 
 .hero-swiper .swiper-button-prev::after,
@@ -3623,17 +3628,8 @@ section.footer-banner {
     transition: background 0.2s, border-color 0.2s;
 }
 .reg-popup__checkbox input:checked + .reg-popup__checkmark {
-    background: var(--graphite, #212121);
-    border-color: var(--graphite, #212121);
-}
-.reg-popup__checkbox input:checked + .reg-popup__checkmark::after {
-    content: '';
-    display: block;
-    width: var(--space-4);
-    height: var(--space-7);
-    border: solid #fff;
-    border-width: 0 1.5px 1.5px 0;
-    transform: rotate(45deg) translateY(calc(-1 * var(--space-1)));
+    background: #333;
+    border: var(--space-2) solid #fff;
 }
 #regCodeError{
 	text-align:center;
