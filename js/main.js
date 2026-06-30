@@ -1,4 +1,73 @@
-﻿/* ===== GALLERY HOVER — global functions, used by search-popup ===== */
+﻿/* ===== FormUtils (validate.js wrapper) ===== */
+;(function () {
+    if (!window.FormValidator) return
+    var hooks = FormValidator.prototype._hooks
+    hooks.rus_alpha = function (field) {
+        return /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(field.value)
+    }
+    hooks.phone = function (field) {
+        var digits = field.value.replace(/\D/g, '')
+        return digits.length >= 11 && digits.length <= 15
+    }
+    function testRule(val, rule, param) {
+        var field = { value: val }
+        if (hooks[rule]) {
+            return param != null ? hooks[rule](field, param) : hooks[rule](field)
+        }
+        return true
+    }
+    window.FormUtils = {
+        test: function (val, rules) {
+            if (!rules) return true
+            var list = rules.split('|')
+            for (var i = 0; i < list.length; i++) {
+                var r = list[i].trim()
+                if (!r) continue
+                var match = r.match(/^(.+?)\[(.+)\]$/)
+                if (!testRule(val, match ? match[1] : r, match ? match[2] : null)) return false
+            }
+            return true
+        }
+    }
+    var toastCssInjected = false
+    function injectToastCss() {
+        if (toastCssInjected) return
+        toastCssInjected = true
+        var style = document.createElement('style')
+        style.textContent =
+            '.toast-container{position:fixed;top:24px;right:24px;z-index:10000;display:flex;flex-direction:column;gap:8px;pointer-events:none}' +
+            '.toast{background:#212121;color:#fff;padding:14px 24px;font-size:.875rem;font-weight:500;line-height:1.3;border-radius:0;box-shadow:0 4px 12px rgba(0,0,0,.15);opacity:0;transform:translateX(32px) scale(.95);transition:opacity .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1);pointer-events:auto;max-width:352px}' +
+            '.toast--visible{opacity:1;transform:translateX(0) scale(1)}' +
+            '.toast--success{background:#2e7d32}' +
+            '.toast--success::before{content:"\\2713 ";font-weight:700}'
+        document.head.appendChild(style)
+    }
+    window.showToast = function (text, type) {
+        injectToastCss()
+        var container = document.getElementById('toastContainer')
+        if (!container) {
+            container = document.createElement('div')
+            container.className = 'toast-container'
+            container.id = 'toastContainer'
+            document.body.appendChild(container)
+        }
+        var toast = document.createElement('div')
+        toast.className = 'toast' + (type === 'success' ? ' toast--success' : '')
+        toast.textContent = text
+        container.appendChild(toast)
+        requestAnimationFrame(function () {
+            toast.classList.add('toast--visible')
+        })
+        setTimeout(function () {
+            toast.classList.remove('toast--visible')
+            toast.addEventListener('transitionend', function () {
+                toast.remove()
+            })
+        }, 2500)
+    }
+})()
+
+/* ===== GALLERY HOVER — global functions, used by search-popup ===== */
 function initCompactCardGallery(root) {
 	root = root || document
 	root.querySelectorAll('.product-card--compact').forEach(function (card) {
@@ -265,12 +334,17 @@ document.addEventListener('DOMContentLoaded', function () {
 	initCatalogCardGallery()
 
 	// ===== CONTACTS / PARTNERSHIP FORM =====
-	var emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
-
 	document.querySelectorAll('.contacts-form__form').forEach(function (form) {
 		var nameInput = form.querySelector('input[type="text"]')
 		var phoneInput = form.querySelector('input[type="tel"]')
 		var emailInput = form.querySelector('input[type="email"]')
+		var checkboxInput = form.querySelector('.contacts-form__checkbox input[type="checkbox"]')
+
+		if (checkboxInput) {
+			checkboxInput.addEventListener('change', function () {
+				this.closest('.contacts-form__checkbox').classList.remove('is-invalid')
+			})
+		}
 
 		// ===== PHONE MASK =====
 		if (phoneInput) {
@@ -318,8 +392,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				e.textContent = ''
 				e.classList.remove('contacts-form__error--visible')
 			})
-			var successMsg = form.querySelector('.contacts-form__success')
-			if (successMsg) successMsg.remove()
 		}
 
 		form.querySelectorAll('.contacts-form__input').forEach(function (inp) {
@@ -330,8 +402,6 @@ document.addEventListener('DOMContentLoaded', function () {
 					e.textContent = ''
 					e.classList.remove('contacts-form__error--visible')
 				}
-				var s = form.querySelector('.contacts-form__success')
-				if (s) s.remove()
 			})
 		})
 
@@ -364,7 +434,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					err.classList.add('contacts-form__error--visible')
 				}
 				valid = false
-			} else if (phoneInput && phone.replace(/[\s()\-]/g, '').length < 10) {
+			} else if (phoneInput && !FormUtils.test(phone, 'phone')) {
 				phoneInput.classList.add('is-invalid')
 				var err = getErr(phoneInput)
 				if (err) {
@@ -376,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				phoneInput.classList.add('is-valid')
 			}
 
-			if (emailInput && email && !emailRegex.test(email)) {
+			if (emailInput && email && !FormUtils.test(email, 'valid_email')) {
 				emailInput.classList.add('is-invalid')
 				var err = getErr(emailInput)
 				if (err) {
@@ -388,13 +458,14 @@ document.addEventListener('DOMContentLoaded', function () {
 				emailInput.classList.add('is-valid')
 			}
 
+			if (checkboxInput && !checkboxInput.checked) {
+				checkboxInput.closest('.contacts-form__checkbox').classList.add('is-invalid')
+				valid = false
+			}
+
 			if (!valid) return
 
-			var successEl = document.createElement('span')
-			successEl.className = 'contacts-form__success'
-			successEl.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.'
-			form.querySelector('.contacts-form__inputs').after(successEl)
-
+			showToast('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success')
 			if (nameInput) nameInput.value = ''
 			if (phoneInput) phoneInput.value = ''
 			if (emailInput) emailInput.value = ''
@@ -406,7 +477,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (emailForm) {
 		var emailInput = document.getElementById('newsletterEmail')
 		var errorMsg = document.getElementById('newsletterError')
-		var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 		var agreeCheckbox = emailForm.parentElement.querySelector(
 			'.footer__checkbox input[type="checkbox"]',
 		)
@@ -418,15 +488,11 @@ document.addEventListener('DOMContentLoaded', function () {
 				agreeCheckbox
 					.closest('.footer__checkbox')
 					.classList.remove('is-invalid')
-			var successMsg = emailForm.querySelector('.footer__email-success')
-			if (successMsg) successMsg.remove()
 		}
 
 		emailInput.addEventListener('input', function () {
 			this.classList.remove('is-invalid', 'is-valid')
 			errorMsg.classList.remove('visible')
-			var successMsg = emailForm.querySelector('.footer__email-success')
-			if (successMsg) successMsg.remove()
 		})
 
 		if (agreeCheckbox) {
@@ -438,8 +504,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		emailForm.addEventListener('submit', function (e) {
 			e.preventDefault()
 			var email = emailInput.value.trim()
-			var successMsg = emailForm.querySelector('.footer__email-success')
-			if (successMsg) successMsg.remove()
 
 			if (agreeCheckbox && !agreeCheckbox.checked) {
 				agreeCheckbox.closest('.footer__checkbox').classList.add('is-invalid')
@@ -465,12 +529,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			emailInput.classList.remove('is-invalid')
 			emailInput.classList.add('is-valid')
 			errorMsg.classList.remove('visible')
-
-			var successEl = document.createElement('span')
-			successEl.className = 'footer__email-success visible'
-			successEl.textContent = 'Спасибо! Мы будем держать вас в курсе новостей.'
-			emailForm.querySelector('.footer__email-wrap').appendChild(successEl)
-
+			showToast('Спасибо! Мы будем держать вас в курсе новостей.', 'success')
 			emailInput.value = ''
 		})
 	}
@@ -1319,17 +1378,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		return masked
 	}
 
-	function regClearPhoneError() {
-		if (regPhoneInput) regPhoneInput.classList.remove('reg-popup__input--error')
-		if (regPhoneError)
-			regPhoneError.classList.remove('reg-popup__error--visible')
-	}
-
-	function regShowPhoneError() {
-		if (regPhoneInput) regPhoneInput.classList.add('reg-popup__input--error')
-		if (regPhoneError) regPhoneError.classList.add('reg-popup__error--visible')
-	}
-
 	function regClearCodeError() {
 		regCodeInputs = regCodeWrap
 			? regCodeWrap.querySelectorAll('.reg-popup__code-input')
@@ -1350,54 +1398,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 		if (regCodeInputs.length) regCodeInputs[0].focus()
 		if (regCodeError) regCodeError.classList.add('reg-popup__error--visible')
-	}
-
-	function regClearStep3Errors() {
-		if (regNameInput) regNameInput.classList.remove('reg-popup__input--error')
-		if (regNameError) regNameError.classList.remove('reg-popup__error--visible')
-		if (regSurnameInput)
-			regSurnameInput.classList.remove('reg-popup__input--error')
-		if (regSurnameError)
-			regSurnameError.classList.remove('reg-popup__error--visible')
-		if (regEmailInput) regEmailInput.classList.remove('reg-popup__input--error')
-		if (regEmailError)
-			regEmailError.classList.remove('reg-popup__error--visible')
-	}
-
-	function regValidateStep3() {
-		var valid = true
-		if (!regNameInput || !regNameInput.value.trim()) {
-			if (regNameInput) regNameInput.classList.add('reg-popup__input--error')
-			if (regNameError) regNameError.classList.add('reg-popup__error--visible')
-			valid = false
-		}
-		if (!regSurnameInput || !regSurnameInput.value.trim()) {
-			if (regSurnameInput)
-				regSurnameInput.classList.add('reg-popup__input--error')
-			if (regSurnameError)
-				regSurnameError.classList.add('reg-popup__error--visible')
-			valid = false
-		}
-		if (regEmailInput && regEmailInput.value.trim()) {
-			var emailRe = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
-			if (!emailRe.test(regEmailInput.value.trim())) {
-				regEmailInput.classList.add('reg-popup__input--error')
-				if (regEmailError)
-					regEmailError.classList.add('reg-popup__error--visible')
-				valid = false
-			}
-		}
-		var consent3 = document.querySelector(
-			'[data-step="3"] .reg-popup__checkbox input[type="checkbox"]',
-		)
-		if (!consent3 || !consent3.checked) {
-			var label = consent3
-				? consent3.closest('.reg-popup__checkbox')
-				: null
-			if (label) label.classList.add('is-invalid')
-			valid = false
-		}
-		return valid
 	}
 
 	function regGetCode() {
@@ -1462,7 +1462,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				var diff = newLen - prevLen
 				regPhoneInput.setSelectionRange(cursor + diff, cursor + diff)
 			}
-			regClearPhoneError()
+			if (window.regClearPhoneError) window.regClearPhoneError()
 		})
 	}
 
@@ -1498,7 +1498,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			regStartTimer()
 		}
 		if (step === 3) {
-			regClearStep3Errors()
+			if (window.regClearStep3Errors) window.regClearStep3Errors()
 		}
 	}
 
@@ -1521,13 +1521,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	if (regStep1Next) {
 		regStep1Next.addEventListener('click', function () {
-			if (
-				!regPhoneInput ||
-				regPhoneInput.value.replace(/\D/g, '').length < 11
-			) {
-				regShowPhoneError()
-				return
-			}
+			if (!window.regValidatePhone || !window.regValidatePhone()) return
 			var consent = document.querySelector(
 				'[data-step="1"] .reg-popup__checkbox input[type="checkbox"]',
 			)
@@ -1590,31 +1584,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	if (regStep3Submit) {
 		regStep3Submit.addEventListener('click', function () {
-			if (!regValidateStep3()) return
+			var ok = true
+			if (window.regValidateName) { if (!window.regValidateName()) ok = false }
+			if (window.regValidateSurname) { if (!window.regValidateSurname()) ok = false }
+			if (window.regValidateEmail) { if (!window.regValidateEmail()) ok = false }
+			var consent3 = document.querySelector(
+				'[data-step="3"] .reg-popup__checkbox input[type="checkbox"]',
+			)
+			if (!consent3 || !consent3.checked) {
+				var label = consent3
+					? consent3.closest('.reg-popup__checkbox')
+					: null
+				if (label) label.classList.add('is-invalid')
+				ok = false
+			}
+			if (!ok) return
 			regCompleteAuth()
-		})
-	}
-
-	// Clear step 3 errors on input
-	if (regNameInput) {
-		regNameInput.addEventListener('input', function () {
-			this.classList.remove('reg-popup__input--error')
-			if (regNameError)
-				regNameError.classList.remove('reg-popup__error--visible')
-		})
-	}
-	if (regSurnameInput) {
-		regSurnameInput.addEventListener('input', function () {
-			this.classList.remove('reg-popup__input--error')
-			if (regSurnameError)
-				regSurnameError.classList.remove('reg-popup__error--visible')
-		})
-	}
-	if (regEmailInput) {
-		regEmailInput.addEventListener('input', function () {
-			this.classList.remove('reg-popup__input--error')
-			if (regEmailError)
-				regEmailError.classList.remove('reg-popup__error--visible')
 		})
 	}
 

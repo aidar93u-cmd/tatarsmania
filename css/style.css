@@ -157,6 +157,26 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Кастомный скроллбар (нативный) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+
 :root {
 	/* Базовый размер для 1440px */
 	font-size: 16px;
@@ -3503,9 +3523,11 @@ section.footer-banner {
     text-align: center;
 }
 .reg-popup__field {
+    position: relative;
     margin-bottom: var(--space-16);
 }
 .reg-popup__field-group {
+    position: relative;
     margin-bottom: var(--space-12);
 }
 .reg-popup__fields-row {
@@ -3555,13 +3577,18 @@ section.footer-banner {
     opacity: 1;
 }
 .reg-popup__error {
+    position: absolute;
+    top: calc(100% + var(--space-4));
+    left: 0;
+    right: 0;
     font-size: var(--space-11);
     color: #ff4635;
-    margin-top: var(--space-4);
-    display: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
 }
 .reg-popup__error--visible {
-    display: block;
+    opacity: 1;
 }
 .reg-popup__hint {
     font-size: var(--space-10);
@@ -3586,21 +3613,7 @@ section.footer-banner {
 .reg-popup__btn {
     width: 100%;
     height: var(--space-38);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--graphite, #212121);
-    color: #fff;
-    font-family: inherit;
-    font-size: var(--space-12);
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
     padding: var(--space-12) var(--space-50);
-    transition: opacity 0.2s;
-}
-.reg-popup__btn:hover {
-    opacity: 0.85;
 }
 .reg-popup__btn:disabled {
     opacity: 0.4;
@@ -3618,22 +3631,21 @@ section.footer-banner {
 .reg-popup__checkmark {
     width: var(--space-12);
     height: var(--space-12);
-    flex-shrink: 0;
-    border: 0.5px solid rgba(33,33,33,0.2);
+    flex-shrink: 0;    
+    box-shadow: 0 0px 1px  rgba(33,33,33);
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: var(--space-2);
-    transition: background 0.2s, border-color 0.2s;
+    transition: all 0.2s;
 }
 .reg-popup__checkbox input:checked + .reg-popup__checkmark {
     background: #333;
     border: var(--space-2) solid #fff;
 }
-#regCodeError{
-	text-align:center;
-	margin-bottom:1rem;
+#regCodeError {
+    text-align: center;
 }
 .reg-popup__checkbox-text {
     font-size: var(--space-12);
@@ -3645,9 +3657,12 @@ section.footer-banner {
 		text-decoration: underline;
 }
 .reg-popup__checkbox.is-invalid .reg-popup__checkmark {
-    border-color: #dc3545;
+
+    border: 1px solid #dc3545;
+    box-shadow: none;
 }
 .reg-popup__code-wrap {
+    position: relative;
     display: flex;
     gap: var(--space-12);
     justify-content: center;
@@ -3978,4 +3993,6 @@ section.footer-banner {
         font-size: var(--space-20);
     }
 }
+
+
 

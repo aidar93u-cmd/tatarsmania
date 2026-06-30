@@ -330,6 +330,9 @@
 /* ===== ABOUT REVIEWS ===== */
 .about-reviews {
 }
+.about-reviews .swiper-wrapper{
+	height: auto;
+}
 
 .about-reviews__title {
 	font-family: var(--font3);

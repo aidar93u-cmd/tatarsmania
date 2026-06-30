@@ -1,24 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ===== TOAST HELPER =====
-    function showToast(text, type) {
-        var container = document.getElementById('toastContainer')
-        if (!container) return
-        var toast = document.createElement('div')
-        toast.className = 'toast' + (type === 'success' ? ' toast--success' : '')
-        toast.textContent = text
-        container.appendChild(toast)
-        requestAnimationFrame(function () {
-            toast.classList.add('toast--visible')
-        })
-        setTimeout(function () {
-            toast.classList.remove('toast--visible')
-            toast.addEventListener('transitionend', function () {
-                toast.remove()
-            })
-        }, 2500)
-    }
-
     // ===== ADDRESS FAVORITE TOGGLE (dashboard) =====
     document.addEventListener('click', function (e) {
         var favBtn = e.target.closest('.js-address-fav')
@@ -76,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var smsPopupBtn = document.getElementById('smsPopupBtn')
     var smsPopupCheckbox = document.getElementById('smsPopupCheckbox')
 
+    var smsPopupError = document.getElementById('smsPopupError')
+
     if (smsPopup) {
         function openSmsPopup(phoneValue, phoneSpan, row) {
             smsPopupInput.value = phoneValue || ''
@@ -85,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
             smsPopupBtn.classList.remove('is-loading')
             smsPopupCheckbox.checked = false
             smsPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
+            if (smsPopupError) smsPopupError.classList.remove('visible')
             smsPopup.classList.add('popup--open')
             setTimeout(function () { smsPopupInput.focus() }, 200)
 
@@ -98,11 +82,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 smsPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
 
-                if (!FormUtils.test(val, 'required|min_length[5]')) {
+                var digits = val.replace(/\D/g, '')
+                if (digits.length < 11) {
                     smsPopupInput.classList.add('is-invalid')
+                    if (smsPopupError) { smsPopupError.textContent = 'Введите корректный номер телефона'; smsPopupError.classList.add('visible') }
                     return
                 }
                 smsPopupInput.classList.remove('is-invalid')
+                if (smsPopupError) smsPopupError.classList.remove('visible')
                 smsPopupBtn.disabled = true
                 smsPopupBtn.classList.add('is-loading')
                 setTimeout(function () {
@@ -115,12 +102,37 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 800)
             }
 
+            // Phone mask
+            function smsPhoneMask() {
+                var x = smsPopupInput.value.replace(/\D/g, '').slice(0, 11)
+                if (x.length === 0) { smsPopupInput.value = ''; return }
+                var val = '+7'
+                if (x.length > 1) val += ' (' + x.slice(1, 4)
+                if (x.length >= 5) val += ') ' + x.slice(4, 7)
+                if (x.length >= 8) val += '-' + x.slice(7, 9)
+                if (x.length >= 10) val += '-' + x.slice(9, 11)
+                smsPopupInput.value = val
+            }
+            if (!/^\+7\s/.test(smsPopupInput.value) && smsPopupInput.value) {
+                smsPopupInput.value = '+7 (' + smsPopupInput.value.replace(/\D/g, '')
+            }
+
             function onKeydown(e) {
                 if (e.key === 'Enter') onSave()
+                if (e.key === 'Backspace' && smsPopupInput.value.length <= 2) {
+                    smsPopupInput.value = ''
+                }
+            }
+
+            function onSmsInput() {
+                smsPopupInput.classList.remove('is-invalid')
+                if (smsPopupError) smsPopupError.classList.remove('visible')
+                smsPhoneMask()
             }
 
             smsPopupBtn.addEventListener('click', onSave)
             smsPopupInput.addEventListener('keydown', onKeydown)
+            smsPopupInput.addEventListener('input', onSmsInput)
             smsPopupCheckbox.addEventListener('change', function () {
                 this.closest('.popup-checkbox').classList.remove('is-invalid')
             })
@@ -128,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
             smsPopup._cleanup = function () {
                 smsPopupBtn.removeEventListener('click', onSave)
                 smsPopupInput.removeEventListener('keydown', onKeydown)
+                smsPopupInput.removeEventListener('input', onSmsInput)
             }
         }
 
@@ -147,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var emailPopupInput = document.getElementById('emailPopupInput')
     var emailPopupBtn = document.getElementById('emailPopupBtn')
     var emailPopupCheckbox = document.getElementById('emailPopupCheckbox')
+    var emailPopupError = document.getElementById('emailPopupError')
 
     if (emailPopup) {
         function openEmailPopup(emailValue, phoneSpan, row) {
@@ -157,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
             emailPopupBtn.classList.remove('is-loading')
             emailPopupCheckbox.checked = false
             emailPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
+            if (emailPopupError) emailPopupError.classList.remove('visible')
             emailPopup.classList.add('popup--open')
             setTimeout(function () { emailPopupInput.focus() }, 200)
 
@@ -172,9 +187,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (!FormUtils.test(val, 'required|valid_email')) {
                     emailPopupInput.classList.add('is-invalid')
+                    if (emailPopupError) { emailPopupError.textContent = 'Введите корректный e-mail'; emailPopupError.classList.add('visible') }
                     return
                 }
                 emailPopupInput.classList.remove('is-invalid')
+                if (emailPopupError) emailPopupError.classList.remove('visible')
                 emailPopupBtn.disabled = true
                 emailPopupBtn.classList.add('is-loading')
                 setTimeout(function () {
@@ -191,8 +208,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (e.key === 'Enter') onSave()
             }
 
+            function onEmailInput() {
+                emailPopupInput.classList.remove('is-invalid')
+                if (emailPopupError) emailPopupError.classList.remove('visible')
+            }
+
             emailPopupBtn.addEventListener('click', onSave)
             emailPopupInput.addEventListener('keydown', onKeydown)
+            emailPopupInput.addEventListener('input', onEmailInput)
             emailPopupCheckbox.addEventListener('change', function () {
                 this.closest('.popup-checkbox').classList.remove('is-invalid')
             })
@@ -200,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
             emailPopup._cleanup = function () {
                 emailPopupBtn.removeEventListener('click', onSave)
                 emailPopupInput.removeEventListener('keydown', onKeydown)
+                emailPopupInput.removeEventListener('input', onEmailInput)
             }
         }
 
@@ -273,7 +297,21 @@ document.addEventListener('DOMContentLoaded', function () {
             profilePopup.classList.add('popup--open')
             setTimeout(function () { profileFirstNameInput.focus() }, 200)
 
-            var inputHandlers = []
+            // Phone mask for profile popup
+            var profilePhoneHandler = function () {
+                var x = profilePhoneInput.value.replace(/\D/g, '').slice(0, 11)
+                if (x.length === 0) { profilePhoneInput.value = ''; return }
+                var val = '+7'
+                if (x.length > 1) val += ' (' + x.slice(1, 4)
+                if (x.length >= 5) val += ') ' + x.slice(4, 7)
+                if (x.length >= 8) val += '-' + x.slice(7, 9)
+                if (x.length >= 10) val += '-' + x.slice(9, 11)
+                profilePhoneInput.value = val
+            }
+
+            var inputHandlers = [{ el: profilePhoneInput, handler: profilePhoneHandler }]
+            profilePhoneInput.addEventListener('input', profilePhoneHandler)
+
             profileValidators.forEach(function (item) {
                 var handler = function () { validateProfileInput(item) }
                 inputHandlers.push({ el: item.el, handler: handler })
@@ -448,6 +486,16 @@ document.addEventListener('DOMContentLoaded', function () {
             addressPopup.classList.add('popup--open')
             setTimeout(function () { addressNameInput.focus() }, 200)
 
+            // Digit-only filter for numeric fields
+            var digitFields = [addressEntranceInput, addressFloorInput, addressApartmentInput]
+            var digitHandlers = {}
+            digitFields.forEach(function (el) {
+                if (!el) return
+                var handler = function () { el.value = el.value.replace(/\D/g, '') }
+                digitHandlers[el.id] = handler
+                el.addEventListener('input', handler)
+            })
+
             var inputHandlers = []
             addressValidators.forEach(function (item) {
                 var handler = function () { validateAddressInput(item) }
@@ -525,6 +573,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 addressApartmentInput.removeEventListener('keydown', onKeydown)
                 inputHandlers.forEach(function (h) {
                     h.el.removeEventListener('input', h.handler)
+                })
+                Object.keys(digitHandlers).forEach(function (id) {
+                    var el = document.getElementById(id)
+                    if (el) el.removeEventListener('input', digitHandlers[id])
                 })
             }
         }
@@ -649,62 +701,72 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ===== NEWSLETTER SUBSCRIPTION FORM =====
-    var form = document.querySelector('.nl-form')
-    if (form) {
-        var input = form.querySelector('.nl-form__input')
-        var error = form.querySelector('.nl-form__error')
-        var agreeCheckbox = form.querySelector('.footer__checkbox input[type="checkbox"]')
+    var nlForm = document.querySelector('.nl-form')
+    if (nlForm) {
+        var nlInput = nlForm.querySelector('.nl-form__input')
+        var nlError = nlForm.querySelector('.nl-form__error')
+        var nlCheckbox = nlForm.querySelector('.footer__checkbox input[type="checkbox"]')
 
-        if (input && error) {
-            if (agreeCheckbox) {
-                agreeCheckbox.addEventListener('change', function () {
-                    this.closest('.footer__checkbox').classList.remove('is-invalid')
-                })
-            }
+        function clearNlState() {
+            if (nlInput) nlInput.classList.remove('is-invalid', 'nl-form__input--success')
+            if (nlError) nlError.classList.remove('visible')
+        }
 
-            input.addEventListener('input', function () {
-                this.classList.remove('is-invalid', 'is-valid')
-                error.classList.remove('visible')
-            })
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault()
-                var email = input.value.trim()
-                var submitBtn = form.querySelector('.nl-form__submit')
-
-                input.classList.remove('is-invalid', 'is-valid')
-                error.classList.remove('visible')
-                if (agreeCheckbox)
-                    agreeCheckbox.closest('.footer__checkbox').classList.remove('is-invalid')
-
-                if (agreeCheckbox && !agreeCheckbox.checked) {
-                    agreeCheckbox.closest('.footer__checkbox').classList.add('is-invalid')
-                    return
+        if (nlInput && nlError) {
+            nlInput.addEventListener('input', clearNlState)
+            nlInput.addEventListener('blur', function () {
+                if (!nlInput.value.trim()) return
+                if (!FormUtils.test(nlInput.value.trim(), 'valid_email')) {
+                    nlInput.classList.add('is-invalid')
+                    nlError.textContent = 'Введите корректный e-mail'
+                    nlError.classList.add('visible')
+                } else {
+                    nlInput.classList.remove('is-invalid')
+                    nlInput.classList.add('nl-form__input--success')
+                    nlError.classList.remove('visible')
                 }
-
-                if (!email) {
-                    input.classList.add('is-invalid')
-                    error.classList.add('visible')
-                    return
-                }
-
-                if (!FormUtils.test(email, 'valid_email')) {
-                    input.classList.add('is-invalid')
-                    error.classList.add('visible')
-                    return
-                }
-
-                input.classList.add('is-valid')
-                submitBtn.classList.add('is-loading')
-
-                setTimeout(function () {
-                    submitBtn.classList.remove('is-loading')
-                    showToast('Вы подписались на рассылку', 'success')
-                    input.value = ''
-                    input.classList.remove('is-valid')
-                }, 1200)
             })
         }
+
+        if (nlCheckbox) {
+            nlCheckbox.addEventListener('change', function () {
+                this.closest('.footer__checkbox').classList.remove('is-invalid')
+            })
+        }
+
+        nlForm.addEventListener('submit', function (e) {
+            e.preventDefault()
+            clearNlState()
+            if (nlCheckbox) nlCheckbox.closest('.footer__checkbox').classList.remove('is-invalid')
+
+            var email = nlInput ? nlInput.value.trim() : ''
+
+            if (nlCheckbox && !nlCheckbox.checked) {
+                nlCheckbox.closest('.footer__checkbox').classList.add('is-invalid')
+                return
+            }
+
+            if (!FormUtils.test(email, 'required')) {
+                nlInput.classList.add('is-invalid')
+                nlError.textContent = 'Введите e-mail'
+                nlError.classList.add('visible')
+                return
+            }
+
+            if (!FormUtils.test(email, 'valid_email')) {
+                nlInput.classList.add('is-invalid')
+                nlError.textContent = 'Введите корректный e-mail'
+                nlError.classList.add('visible')
+                return
+            }
+
+            var submitBtn = nlForm.querySelector('.btn-primary')
+            submitBtn.classList.add('is-loading')
+            setTimeout(function () {
+                submitBtn.classList.remove('is-loading')
+                showToast('Вы подписались на рассылку', 'success')
+            }, 1200)
+        })
     }
 
     // ===== LOGOUT MODAL =====

@@ -299,27 +299,36 @@
                                 <h2 class="account-section__title">Подписывайтесь на нашу рассылку</h2>
                             <div class="account-card">
                                 <div class="account-card__body">
-                                    <p class="nl-desc">Главные новости, акции и советы по выбору мебели — одним письмом. Без спама, только польза</p>
+                                    <p class="nl-desc">Главные новости, акции и советы по выбору мебели — одним письмом. Без спама, только польза.</p>
                                     <form class="nl-form" novalidate>
-                                        <div class="nl-form__row">
-                                            <div class="nl-form__field-wrap">
-                                                <input type="email" class="nl-form__input" placeholder="E-mail*" autocomplete="email">
-                                                <span class="nl-form__error">Введите корректный e-mail</span>
+                                        <div class="nl-form__body">
+                                            <div class="nl-form__row">
+                                                <div class="nl-form__field-wrap">
+                                                    <input type="email" name="email" class="nl-form__input" placeholder="E-mail*" autocomplete="email">
+                                                    <span class="nl-form__error">Введите корректный e-mail</span>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <span>Подписаться</span>
+                                                    <span class="btn__loader">
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                                            <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="30" stroke-dashoffset="10"/>
+                                                        </svg>
+                                                    </span>
+                                                </button>
                                             </div>
-                                            <button type="submit" class="btn nl-form__submit">
-                                                <span class="nl-form__submit-text">Подписаться</span>
-                                                <span class="nl-form__submit-loader">
-                                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                                        <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="30" stroke-dashoffset="10"/>
-                                                    </svg>
-                                                </span>
-                                            </button>
+                                            <label class="footer__checkbox">
+                                                <input type="checkbox" name="agree" required>
+                                                <span class="footer__checkbox-mark"></span>
+                                                <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#" target="_blank">согласие на обработку персональных данных</a></span>
+                                            </label>
                                         </div>
-                                        <label class="footer__checkbox">
-                                            <input type="checkbox" required>
-                                            <span class="footer__checkbox-mark"></span>
-                                            <span class="footer__checkbox-text body">Нажимая на кнопку «Подписаться», вы даете <a href="#" target="_blank">согласие на обработку персональных данных</a></span>
-                                        </label>
+                                        <div class="nl-form__success">
+                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                                <circle cx="16" cy="16" r="16" fill="#2e7d32"/>
+                                                <path d="M9 17l4 4 10-10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            <span>Вы успешно подписались!</span>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -497,9 +506,10 @@
                 <p class="popup-desc">Укажите номер телефона, на который будут приходить уведомления об акциях и новых поступлениях. На указанный номер будет отправлен SMS-код подтверждения</p>
                 <div class="popup-field">
                     <input type="tel" class="popup-input" id="smsPopupInput" placeholder="+7 (___) ___-__-__" maxlength="18">
+                    <span class="popup-field__error" id="smsPopupError">Введите номер телефона</span>
                 </div>
                 <label class="popup-checkbox">
-                    <input type="checkbox" id="smsPopupCheckbox">
+                    <input type="checkbox" id="smsPopupCheckbox" required>
                     <span class="popup-checkbox-mark"></span>
                     <span class="popup-checkbox-text">Нажимая на кнопку «Подтвердить», вы даете <a href="#" target="_blank">согласие на обработку персональных данных</a></span>
                 </label>
@@ -523,9 +533,10 @@
                 <p class="popup-desc">Укажите новый e-mail, на который будут приходить уведомления об акциях и новых поступлениях</p>
                 <div class="popup-field">
                     <input type="email" class="popup-input" id="emailPopupInput" placeholder="example@mail.com">
+                    <span class="popup-field__error" id="emailPopupError">Введите корректный e-mail</span>
                 </div>
                 <label class="popup-checkbox">
-                    <input type="checkbox" id="emailPopupCheckbox">
+                    <input type="checkbox" id="emailPopupCheckbox" required>
                     <span class="popup-checkbox-mark"></span>
                     <span class="popup-checkbox-text">Нажимая на кнопку «Сохранить», вы даете <a href="#" target="_blank">согласие на обработку персональных данных</a></span>
                 </label>
@@ -569,6 +580,8 @@
     <script src="js/lib/swiper-bundle.min.js"></script>
     <script src="js/lib/aos.js"></script>
     <script src="js/lib/fancybox.umd.js"></script>
+    <script src="js/lib/validate.min.js"></script>
+
     <script src="js/main.js?v=2"></script>
     <script src="js/menu.js"></script>
     <script src="js/account.js"></script>
