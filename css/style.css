@@ -3543,6 +3543,9 @@ section.footer-banner {
 .reg-popup__input--error {
     border-color: #ff4635;
 }
+.reg-popup__input--success {
+    border-color: #57aa42;
+}
 .reg-popup__input--filled {
     opacity: 1;
 }
@@ -3554,6 +3557,21 @@ section.footer-banner {
 }
 .reg-popup__error--visible {
     display: block;
+}
+.reg-popup__hint {
+    font-size: var(--space-10);
+    color: var(--gray-text, #787878);
+    margin-top: var(--space-4);
+    display: none;
+}
+.reg-popup__hint--visible {
+    display: block;
+}
+.reg-popup__field-group.is-valid .reg-popup__input {
+    border-color: #57aa42;
+}
+.reg-popup__field-group.is-invalid .reg-popup__input {
+    border-color: #ff4635;
 }
 .reg-popup__footer {
     display: flex;
