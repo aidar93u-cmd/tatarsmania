@@ -73,38 +73,43 @@ function initCatalogCardGallery(root) {
 	})
 }
 
-// ===== PRELOADER =====
-var preloader = document.getElementById('preloader')
+document.addEventListener('DOMContentLoaded', function () {
+	// ===== PRELOADER (homepage only, once per session) =====
+	var preloader = document.getElementById('preloader')
+	var preloaderActive = false
 
-function hidePreloader() {
-	if (preloader && !preloader.classList.contains('fade-out')) {
-		preloader.classList.add('fade-out')
-		document.body.classList.remove('preloader-active')
+	if (preloader && document.body.classList.contains('home')) {
+		if (sessionStorage.getItem('preloaderShown')) {
+			preloader.style.display = 'none'
+		} else {
+			preloaderActive = true
+			document.body.classList.add('preloader-active')
+			sessionStorage.setItem('preloaderShown', '1')
+			setTimeout(function () {
+				preloader.classList.add('fade-out')
+				document.body.classList.remove('preloader-active')
+				preloaderActive = false
+				initHeroSwiper && initHeroSwiper()
+			}, 2500)
+		}
+	} else if (preloader) {
+		preloader.style.display = 'none'
 	}
-}
 
-// Skip preloader when returning from bfcache (back/forward navigation)
-window.addEventListener('pageshow', function (event) {
-	if (event.persisted) {
-		if (preloader) {
+	// Skip preloader on bfcache restore (back/forward)
+	window.addEventListener('pageshow', function (e) {
+		if (e.persisted && preloader && !preloader.classList.contains('fade-out')) {
 			preloader.classList.add('fade-out')
-			preloader.style.pointerEvents = 'none'
 			document.body.classList.remove('preloader-active')
 		}
-	}
-})
+	})
 
-if (preloader) {
-	document.body.classList.add('preloader-active')
-
-	// Hide on window load (all resources ready)
-	window.addEventListener('load', hidePreloader)
-
-	// Fallback: hide after 800ms even if load hasn't fired
-	setTimeout(hidePreloader, 800)
-}
-
-document.addEventListener('DOMContentLoaded', function () {
+	// Hide badge when count is 0
+	document.querySelectorAll('.header__badge').forEach(function (badge) {
+		if (badge.textContent.trim() === '0' || badge.textContent.trim() === '') {
+			badge.style.display = 'none'
+		}
+	})
 
 	// ===== AOS =====
 	if (typeof AOS !== 'undefined') {
@@ -449,7 +454,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				return
 			}
 
-			if (!emailRegex.test(email)) {
+			if (!FormUtils.test(email, 'valid_email')) {
 				emailInput.classList.remove('is-valid')
 				emailInput.classList.add('is-invalid')
 				errorMsg.textContent = 'Введите корректный e-mail'
@@ -482,9 +487,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 
 	// ===== SWIPERS =====
+	var initHeroSwiper
 	if (typeof Swiper !== 'undefined') {
-		var heroSwiperEl = document.querySelector('.hero-swiper')
-		if (heroSwiperEl) {
+		initHeroSwiper = function () {
+			var heroSwiperEl = document.querySelector('.hero-swiper')
+			if (!heroSwiperEl) return
 			var AUTOPLAY_DELAY = 5000
 			var heroProgressEl = document.querySelector('.hero__progress')
 			var heroSlideCount = heroSwiperEl.querySelectorAll(
@@ -570,6 +577,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				})
 			}
 		}
+
+		if (!preloaderActive) initHeroSwiper()
 
 		if (document.querySelector('.categories-small-swiper')) {
 			new Swiper('.categories-small-swiper', {
@@ -1355,6 +1364,42 @@ document.addEventListener('DOMContentLoaded', function () {
 			regEmailError.classList.remove('reg-popup__error--visible')
 	}
 
+	function regValidateStep3() {
+		var valid = true
+		if (!regNameInput || !regNameInput.value.trim()) {
+			if (regNameInput) regNameInput.classList.add('reg-popup__input--error')
+			if (regNameError) regNameError.classList.add('reg-popup__error--visible')
+			valid = false
+		}
+		if (!regSurnameInput || !regSurnameInput.value.trim()) {
+			if (regSurnameInput)
+				regSurnameInput.classList.add('reg-popup__input--error')
+			if (regSurnameError)
+				regSurnameError.classList.add('reg-popup__error--visible')
+			valid = false
+		}
+		if (regEmailInput && regEmailInput.value.trim()) {
+			var emailRe = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/
+			if (!emailRe.test(regEmailInput.value.trim())) {
+				regEmailInput.classList.add('reg-popup__input--error')
+				if (regEmailError)
+					regEmailError.classList.add('reg-popup__error--visible')
+				valid = false
+			}
+		}
+		var consent3 = document.querySelector(
+			'[data-step="3"] .reg-popup__checkbox input[type="checkbox"]',
+		)
+		if (!consent3 || !consent3.checked) {
+			var label = consent3
+				? consent3.closest('.reg-popup__checkbox')
+				: null
+			if (label) label.classList.add('is-invalid')
+			valid = false
+		}
+		return valid
+	}
+
 	function regGetCode() {
 		var code = ''
 		regCodeInputs = regCodeWrap
@@ -1387,7 +1432,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	window.regCompleteAuth = function regCompleteAuth() {
+	function regCompleteAuth() {
 		var rawPhone = regPhoneInput ? regPhoneInput.value.replace(/\D/g, '') : ''
 		if (rawPhone) {
 			localStorage.setItem('reg_user_' + rawPhone, 'registered')
@@ -1421,7 +1466,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
-	window.regGoToStep = function regGoToStep(step) {
+	function regGoToStep(step) {
 		document.querySelectorAll('.reg-popup__step').forEach(function (s) {
 			s.classList.toggle(
 				'reg-popup__step--active',
@@ -1476,6 +1521,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	if (regStep1Next) {
 		regStep1Next.addEventListener('click', function () {
+			if (
+				!regPhoneInput ||
+				regPhoneInput.value.replace(/\D/g, '').length < 11
+			) {
+				regShowPhoneError()
+				return
+			}
+			var consent = document.querySelector(
+				'[data-step="1"] .reg-popup__checkbox input[type="checkbox"]',
+			)
+			if (!consent || !consent.checked) {
+				consent.closest('.reg-popup__checkbox').classList.add('is-invalid')
+				return
+			}
 			regGoToStep(2)
 		})
 	}
@@ -1531,7 +1590,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	if (regStep3Submit) {
 		regStep3Submit.addEventListener('click', function () {
+			if (!regValidateStep3()) return
 			regCompleteAuth()
+		})
+	}
+
+	// Clear step 3 errors on input
+	if (regNameInput) {
+		regNameInput.addEventListener('input', function () {
+			this.classList.remove('reg-popup__input--error')
+			if (regNameError)
+				regNameError.classList.remove('reg-popup__error--visible')
+		})
+	}
+	if (regSurnameInput) {
+		regSurnameInput.addEventListener('input', function () {
+			this.classList.remove('reg-popup__input--error')
+			if (regSurnameError)
+				regSurnameError.classList.remove('reg-popup__error--visible')
+		})
+	}
+	if (regEmailInput) {
+		regEmailInput.addEventListener('input', function () {
+			this.classList.remove('reg-popup__input--error')
+			if (regEmailError)
+				regEmailError.classList.remove('reg-popup__error--visible')
 		})
 	}
 

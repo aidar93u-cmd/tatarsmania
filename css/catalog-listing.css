@@ -257,16 +257,9 @@
 	position: relative;
 	transition: border-color 0.4s, background 0.4s;
 }
-.filter-checkbox--checked .filter-checkbox__mark::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: var(--space-10);
-	height: var(--space-10);
+.filter-checkbox--checked .filter-checkbox__mark {
+	background: #333;
 	border: var(--space-2) solid #fff;
-	background: var(--graphite);
-	/* transform: rotate(45deg); */
 }
 
 .filter-checkbox__color-swatch {

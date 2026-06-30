@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 smsPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
 
-                if (!val || val.length < 5) {
+                if (!FormUtils.test(val, 'required|min_length[5]')) {
                     smsPopupInput.classList.add('is-invalid')
                     return
                 }
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 emailPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
 
-                if (!val || val.indexOf('@') === -1) {
+                if (!FormUtils.test(val, 'required|valid_email')) {
                     emailPopupInput.classList.add('is-invalid')
                     return
                 }
@@ -227,10 +227,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var profilePopupBtn = document.getElementById('profilePopupBtn')
 
     var profileValidators = [
-        { el: profileFirstNameInput, err: profileFirstNameError, fn: function (v) { return v.length >= 2 }, optional: false },
-        { el: profileLastNameInput, err: profileLastNameError, fn: function (v) { return v.length >= 2 }, optional: false },
-        { el: profilePhoneInput, err: profilePhoneError, fn: function (v) { return /^\+7\s?\(\d{3}\)\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/.test(v) || /^\d{10,15}$/.test(v.replace(/[\s\-\(\)]/g, '')) }, optional: false },
-        { el: profileEmailInput, err: profileEmailError, fn: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) }, optional: true }
+        { el: profileFirstNameInput, err: profileFirstNameError, fn: function (v) { return FormUtils.test(v, 'min_length[2]') }, optional: false },
+        { el: profileLastNameInput, err: profileLastNameError, fn: function (v) { return FormUtils.test(v, 'min_length[2]') }, optional: false },
+        { el: profilePhoneInput, err: profilePhoneError, fn: function (v) { return FormUtils.test(v, 'phone') }, optional: false },
+        { el: profileEmailInput, err: profileEmailError, fn: function (v) { return FormUtils.test(v, 'valid_email') }, optional: true }
     ]
 
     if (profilePopup) {
@@ -381,11 +381,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var addressPopupBtn = document.getElementById('addressPopupBtn')
 
     var addressValidators = [
-        { el: addressNameInput, err: addressNameError, fn: function (v) { return v.length >= 2 }, optional: false },
-        { el: addressCityInput, err: addressCityError, fn: function (v) { return v.length >= 2 }, optional: false },
-        { el: addressStreetInput, err: addressStreetError, fn: function (v) { return v.length >= 2 }, optional: false },
-        { el: addressHouseInput, err: addressHouseError, fn: function (v) { return v.length >= 1 }, optional: false },
-        { el: addressApartmentInput, err: addressApartmentError, fn: function (v) { return v.length >= 1 }, optional: false }
+        { el: addressNameInput, err: addressNameError, fn: function (v) { return FormUtils.test(v, 'min_length[2]') }, optional: false },
+        { el: addressCityInput, err: addressCityError, fn: function (v) { return FormUtils.test(v, 'min_length[2]') }, optional: false },
+        { el: addressStreetInput, err: addressStreetError, fn: function (v) { return FormUtils.test(v, 'min_length[2]') }, optional: false },
+        { el: addressHouseInput, err: addressHouseError, fn: function (v) { return FormUtils.test(v, 'min_length[1]') }, optional: false },
+        { el: addressApartmentInput, err: addressApartmentError, fn: function (v) { return FormUtils.test(v, 'min_length[1]') }, optional: false }
     ]
 
     if (addressPopup) {
@@ -654,7 +654,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var input = form.querySelector('.nl-form__input')
         var error = form.querySelector('.nl-form__error')
         var agreeCheckbox = form.querySelector('.footer__checkbox input[type="checkbox"]')
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
         if (input && error) {
             if (agreeCheckbox) {
@@ -689,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return
                 }
 
-                if (!emailRegex.test(email)) {
+                if (!FormUtils.test(email, 'valid_email')) {
                     input.classList.add('is-invalid')
                     error.classList.add('visible')
                     return

@@ -61,10 +61,9 @@
 
     function validateName() {
         var v = fieldVal(nameInput)
-        var isAlpha = /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(v)
-        if (!v) { setError(nameInput, nameError, 'Введите имя'); return false }
-        if (v.length < 2) { setError(nameInput, nameError, 'Имя должно содержать минимум 2 символа'); return false }
-        if (!isAlpha) { setError(nameInput, nameError, 'Имя может содержать только буквы'); return false }
+        if (!FormUtils.test(v, 'required')) { setError(nameInput, nameError, 'Введите имя'); return false }
+        if (!FormUtils.test(v, 'min_length[2]')) { setError(nameInput, nameError, 'Имя должно содержать минимум 2 символа'); return false }
+        if (!FormUtils.test(v, 'rus_alpha')) { setError(nameInput, nameError, 'Имя может содержать только буквы'); return false }
         setSuccess(nameInput, nameError)
         return true
     }
@@ -73,10 +72,7 @@
         nameInput.addEventListener('blur', validateName)
         nameInput.addEventListener('input', function () {
             clearState(nameInput, nameError)
-            if (this.value.trim().length >= 2) {
-                var isAlpha = /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(this.value.trim())
-                if (isAlpha) setSuccess(nameInput, nameError)
-            }
+            if (FormUtils.test(this.value.trim(), 'min_length[2]|rus_alpha')) setSuccess(nameInput, nameError)
         })
     }
 
@@ -84,10 +80,9 @@
 
     function validateSurname() {
         var v = fieldVal(surnameInput)
-        var isAlpha = /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(v)
-        if (!v) { setError(surnameInput, surnameError, 'Введите фамилию'); return false }
-        if (v.length < 2) { setError(surnameInput, surnameError, 'Фамилия должна содержать минимум 2 символа'); return false }
-        if (!isAlpha) { setError(surnameInput, surnameError, 'Фамилия может содержать только буквы'); return false }
+        if (!FormUtils.test(v, 'required')) { setError(surnameInput, surnameError, 'Введите фамилию'); return false }
+        if (!FormUtils.test(v, 'min_length[2]')) { setError(surnameInput, surnameError, 'Фамилия должна содержать минимум 2 символа'); return false }
+        if (!FormUtils.test(v, 'rus_alpha')) { setError(surnameInput, surnameError, 'Фамилия может содержать только буквы'); return false }
         setSuccess(surnameInput, surnameError)
         return true
     }
@@ -96,10 +91,7 @@
         surnameInput.addEventListener('blur', validateSurname)
         surnameInput.addEventListener('input', function () {
             clearState(surnameInput, surnameError)
-            if (this.value.trim().length >= 2) {
-                var isAlpha = /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(this.value.trim())
-                if (isAlpha) setSuccess(surnameInput, surnameError)
-            }
+            if (FormUtils.test(this.value.trim(), 'min_length[2]|rus_alpha')) setSuccess(surnameInput, surnameError)
         })
     }
 
@@ -111,8 +103,7 @@
             clearState(emailInput, emailError)
             return true
         }
-        var mockField = { value: v }
-        if (!FormValidator.prototype._hooks.valid_email(mockField)) {
+        if (!FormUtils.test(v, 'valid_email')) {
             setError(emailInput, emailError, 'Введите корректный email, например name@domain.com')
             return false
         }

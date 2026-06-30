@@ -226,14 +226,11 @@
     min-height: 37.5rem;
 }
 .production-principles .promo-card .promo-card__image {
-    width: 12.25rem;
-    height: 16rem;
-    transition: width 0.3s, height 0.3s;
-}
-.production-principles .promo-card .promo-card__image:hover {
     width: 14.6875rem;
     height: 19.1875rem;
+    transition: width 0.3s, height 0.3s;
 }
+
 
 .production-principles .promo-card__desc {
     max-width: 12.8125rem;
