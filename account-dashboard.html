@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="css/lib/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/lib/aos.css" />
     <link rel="stylesheet" href="css/lib/fancybox.css" />
-    <link rel="stylesheet" href="css/style.css?v=2" />
-    <link rel="stylesheet" href="css/header.css?v=2" />
-    <link rel="stylesheet" href="css/footer.css?v=2" />
-    <link rel="stylesheet" href="css/account.css?v=2" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
+    <link rel="stylesheet" href="css/header.css?v=3" />
+    <link rel="stylesheet" href="css/footer.css?v=3" />
+    <link rel="stylesheet" href="css/account.css?v=3" />
 </head>
 
 <body class="page account-page">
@@ -265,11 +265,11 @@
                         <div class="account-section">
                             <div class="account-section__header">
                                 <h2 class="account-section__title">Адреса доставки</h2>
-                                <button class="account-add-btn" type="button">
-                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                                        <path d="M5.5 1v9M1 5.5h9" stroke="#212121" stroke-width="0.8"/>
+                                <button class="btn btn--account-add" type="button">
+                                    <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                                        <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121"/>
                                     </svg>
-                                    Добавить адрес
+                                    <span>Добавить адрес</span>
                                 </button>
                             </div>
 
@@ -349,8 +349,11 @@
                         <div class="account-section">
                             <div class="account-section__header">
                                 <h2 class="account-section__title">Последний заказ</h2>
-                                <a href="account-orders.html" class="account-add-btn">
-                                    Все заказы
+                                <a href="account-orders.html" class="btn btn--account-add">
+                                    <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                                        <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121"/>
+                                    </svg>
+                                    <span>Все заказы</span>
                                     <span class="account-add-btn__count">+4</span>
                                 </a>
                             </div>
@@ -614,7 +617,12 @@
                         <textarea class="popup-form__textarea" id="addressCommentInput" placeholder="Позвонить за 2 часа"></textarea>
                     </div>
                 </div>
-                <button class="popup-btn" id="addressPopupBtn">Сохранить</button>
+                <button class="btn btn-primary btn--popup" id="addressPopupBtn">
+                    <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                        <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="currentColor"/>
+                    </svg>
+                    <span>Сохранить</span>
+                </button>
             </div>
         </div>
     </div>
@@ -655,7 +663,12 @@
                         <span class="popup-form__error" id="profileEmailError">Введите корректный e-mail</span>
                     </div>
                 </div>
-                <button class="popup-btn" id="profilePopupBtn">Сохранить</button>
+                <button class="btn btn-primary btn--popup" id="profilePopupBtn">
+                    <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                        <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="currentColor"/>
+                    </svg>
+                    <span>Сохранить</span>
+                </button>
             </div>
         </div>
     </div>
@@ -697,7 +710,7 @@
     <script src="js/lib/fancybox.umd.js"></script>
     <script src="js/lib/validate.min.js"></script>
 
-    <script src="js/main.js?v=2"></script>
+    <script src="js/main.js?v=3"></script>
     <script src="js/menu.js"></script>
     <script src="js/account.js"></script>
 </body>

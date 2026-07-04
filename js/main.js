@@ -29,21 +29,7 @@
             return true
         }
     }
-    var toastCssInjected = false
-    function injectToastCss() {
-        if (toastCssInjected) return
-        toastCssInjected = true
-        var style = document.createElement('style')
-        style.textContent =
-            '.toast-container{position:fixed;top:24px;right:24px;z-index:10000;display:flex;flex-direction:column;gap:8px;pointer-events:none}' +
-            '.toast{background:#212121;color:#fff;padding:14px 24px;font-size:.875rem;font-weight:500;line-height:1.3;border-radius:0;box-shadow:0 4px 12px rgba(0,0,0,.15);opacity:0;transform:translateX(32px) scale(.95);transition:opacity .35s cubic-bezier(.4,0,.2,1),transform .35s cubic-bezier(.4,0,.2,1);pointer-events:auto;max-width:352px}' +
-            '.toast--visible{opacity:1;transform:translateX(0) scale(1)}' +
-            '.toast--success{background:#2e7d32}' +
-            '.toast--success::before{content:"\\2713 ";font-weight:700}'
-        document.head.appendChild(style)
-    }
     window.showToast = function (text, type) {
-        injectToastCss()
         var container = document.getElementById('toastContainer')
         if (!container) {
             container = document.createElement('div')
