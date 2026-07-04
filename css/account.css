@@ -97,7 +97,7 @@
     margin-bottom: 0;
 }
 
-.account-add-btn {
+.btn--account-add {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
@@ -112,6 +112,8 @@
     font-family: var(--font-family);
     line-height: 1.2;
     text-decoration: none;
+    min-width: 0;
+    text-transform: none;
 }
 
 .account-add-btn__count {

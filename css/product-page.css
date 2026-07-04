@@ -359,7 +359,6 @@
 	border-bottom: var(--space-1) solid var(--gray-dark-line);
 	justify-content: center;
 	align-items: center;
-	transition: all 0.4s;
 }
 
 .product-accordion__header {
@@ -408,7 +407,7 @@
 .product-accordion__content {
 	display: none;
 	width: 100%;
-	margin-bottom: var(--space-14);
+	padding-bottom: var(--space-14);
 }
 
 .product-accordion__content p {

@@ -1,0 +1,37 @@
+﻿ID=? Name=? Text=Добавлено 2 товара:
+ID=? Name=? Text=Поделиться
+ID=? Name=? Text=Очистить
+ID=? Name=? Text=VELVET
+ID=? Name=? Text=Диван-кровать VELVET, 220 см,  с подъёмным механизмом, микровелюр
+ID=? Name=? Text=Подъемный механизм:
+ID=? Name=? Text=Да
+ID=? Name=? Text=Вид материала опор:
+ID=? Name=? Text=Пластик
+ID=? Name=? Text=Цвет основы:
+ID=? Name=? Text=Бежевый
+ID=? Name=? Text=1
+ID=? Name=? Text=358.500 ₽
+ID=? Name=? Text=LOKI
+ID=? Name=? Text=Диван угловой LOKI, 320 см,  с оттоманкой 160 см слева, шенилл (антрацит)
+ID=? Name=? Text=Ширина, см:
+ID=? Name=? Text=220
+ID=? Name=? Text=Подъемный механизм:
+ID=? Name=? Text=Нет
+ID=? Name=? Text=Вид материала опор:
+ID=? Name=? Text=Металл
+ID=? Name=? Text=Цвет основы:
+ID=? Name=? Text=Бежевый
+ID=? Name=? Text=Цвет опор:
+ID=? Name=? Text=Графит
+ID=? Name=? Text=1
+ID=? Name=? Text=132.500 ₽
+ID=? Name=? Text=Покупали ранее?
+ID=? Name=? Text=Авторизуйтесь или зарегистрируйтесь
+ID=? Name=? Text=2 товара на сумму:
+ID=? Name=? Text=491.000 ₽
+ID=? Name=? Text=По 122.750 ₽ — 4 платежа в Сплит
+ID=? Name=? Text=Без учета стоимости доставки
+ID=? Name=? Text=Введите промокод
+ID=? Name=? Text=Применить
+ID=? Name=? Text=Перейти к оформлению
+ID=? Name=? Text=Быстрый заказ
