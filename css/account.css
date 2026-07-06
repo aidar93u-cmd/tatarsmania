@@ -1,7 +1,6 @@
 /* ===== ACCOUNT PAGE ===== */
 .account {
     background: var(--gray-light);
-    padding: 0 0 var(--divider-large-height);
 }
 
 .account__inner {

@@ -3,6 +3,7 @@ node_modules/
 package.json
 package-lock.json
 
+
 agent.md
 CLAUDE.md
 
@@ -51,3 +52,10 @@ assets/fonts/TEST-*
 # AI temp / cache
 .graphify_python
 .graphify_uncached.txt
+
+# analysis temp files
+_cart_*.txt
+_cart_*.json
+
+# test output
+test-results/

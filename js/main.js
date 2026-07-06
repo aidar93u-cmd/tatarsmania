@@ -239,80 +239,81 @@ document.addEventListener('DOMContentLoaded', function () {
 	window.updateFavBadge()
 
 	// ===== SCROLL HEADER =====
+	var headerGroup = document.querySelector('.header-group')
 	var header = document.querySelector('.header')
-	var topbar = document.querySelector('.topbar')
-	var headerMobile = document.querySelector('.header-mobile')
-	var scrollOffset = 300
+	var megaMenu = document.getElementById('megaMenu')
+	var scrollOffset = 100
 
-	if (header && topbar) {
-		var fixedBlock = document.createElement('div')
-		fixedBlock.className = 'header-fixed'
-		var topbarClone = topbar.cloneNode(true)
-		var headerClone = header.cloneNode(true)
-		var clonedBtn = headerClone.querySelector('#catalogBtn')
-		if (clonedBtn) clonedBtn.removeAttribute('id')
-		fixedBlock.appendChild(topbarClone)
-		fixedBlock.appendChild(headerClone)
-		if (headerMobile) {
-			var hmClone = headerMobile.cloneNode(true)
-			var burgerClone = hmClone.querySelector('[id]')
-			if (burgerClone) burgerClone.removeAttribute('id')
-			fixedBlock.appendChild(hmClone)
-		}
-		document.body.appendChild(fixedBlock)
-
-		var topbarHeight = topbar.offsetHeight
-		var headerHeight = header.offsetHeight
-		var mobileHeaderHeight = headerMobile ? headerMobile.offsetHeight : 0
+	if (headerGroup) {
 		var lastScroll = 0
+		var stickyRafId = null
+
+		function syncMegaMenuHideTopbar() {
+			if (!megaMenu) return
+			if (headerGroup.classList.contains('header-group--hide-topbar')) {
+				megaMenu.classList.add('header-group--hide-topbar')
+			} else {
+				megaMenu.classList.remove('header-group--hide-topbar')
+			}
+		}
 
 		function updateStickyTop() {
-			var hf = document.querySelector('.header-fixed')
-			if (hf && hf.classList.contains('header-fixed--visible')) {
-				var rect = hf.getBoundingClientRect()
-				document.documentElement.style.setProperty(
-					'--sticky-top',
-					rect.bottom + 'px',
-				)
-			} else {
-				document.documentElement.style.setProperty('--sticky-top', '0px')
+			var rect = header.getBoundingClientRect()
+		//	document.documentElement.style.setProperty('--sticky-top', rect.bottom + 'px')
+		}
+
+		function startStickyRaf() {
+			if (stickyRafId) return
+			var start = performance.now()
+			function tick() {
+				updateStickyTop()
+				if (performance.now() - start < 500) {
+					stickyRafId = requestAnimationFrame(tick)
+				} else {
+					stickyRafId = null
+				}
 			}
+			stickyRafId = requestAnimationFrame(tick)
 		}
 
 		window.addEventListener('scroll', function () {
 			var currentScroll =
 				window.pageYOffset || document.documentElement.scrollTop
-			var isMobile = window.innerWidth <= 992
+
 			if (currentScroll > scrollOffset) {
-				fixedBlock.classList.add('header-fixed--visible')
-				document.body.classList.add('header-fixed-active')
-
-				if (isMobile) {
-					document.body.style.paddingTop = mobileHeaderHeight + 'px'
-				}
-
-				if (
-					!isMobile &&
-					currentScroll > lastScroll &&
-					currentScroll > scrollOffset + 50
-				) {
-					fixedBlock.classList.add('header-fixed--hide-topbar')
-				} else if (currentScroll < lastScroll) {
-					fixedBlock.classList.remove('header-fixed--hide-topbar')
+				headerGroup.classList.add('header-group--scrolled')
+				if (currentScroll > lastScroll && currentScroll > scrollOffset + 50) {
+					headerGroup.classList.add('header-group--hide-topbar')
+					syncMegaMenuHideTopbar()
 				}
 			} else {
-				fixedBlock.classList.remove(
-					'header-fixed--visible',
-					'header-fixed--hide-topbar',
-				)
-				document.body.classList.remove('header-fixed-active')
-				document.body.style.removeProperty('padding-top')
+				headerGroup.classList.remove('header-group--scrolled')
+				headerGroup.classList.remove('header-group--hide-topbar')
+				syncMegaMenuHideTopbar()
+			}
+			if (currentScroll < lastScroll) {
+				if (headerGroup.classList.contains('header-group--hide-topbar')) {
+					cancelAnimationFrame(stickyRafId)
+					stickyRafId = null
+				}
+				headerGroup.classList.remove('header-group--hide-topbar')
+				syncMegaMenuHideTopbar()
 			}
 			updateStickyTop()
+			if (currentScroll < lastScroll || currentScroll > scrollOffset + 50) {
+				startStickyRaf()
+			}
 			lastScroll = currentScroll
 		})
 
 		updateStickyTop()
+
+		/* Sync --sticky-top after hide-topbar slide transition completes */
+		headerGroup.addEventListener('transitionend', function (e) {
+			if (e.propertyName === 'transform') {
+				updateStickyTop()
+			}
+		})
 	}
 
 	// ===== GALLERY HOVER INIT =====
@@ -707,30 +708,216 @@ document.addEventListener('DOMContentLoaded', function () {
 				})
 		})
 
-		if (document.querySelector('.about-reviews-swiper')) {
-			new Swiper('.about-reviews-swiper', {
-				slidesPerView: 2,
-				spaceBetween: 6,
-				speed: 600,
-				pagination: {
-					el: '.about-reviews .about-reviews__pagination',
-					type: 'bullets',
-					bulletClass: 'swiper-pagination-bullet',
-					bulletActiveClass: 'swiper-pagination-bullet-active',
-					clickable: true,
-				},
-				navigation: {
-					nextEl: '.about-reviews .about-reviews__arrow--next',
-					prevEl: '.about-reviews .about-reviews__arrow--prev',
-				},
-				breakpoints: {
-					320: { slidesPerView: 1.2, spaceBetween: 6 },
-					768: { slidesPerView: 2, spaceBetween: 6 },
-					1024: { slidesPerView: 3, spaceBetween: 6 },
-					1200: { slidesPerView: 3, spaceBetween: 6 },
-				},
+		document.querySelectorAll('.about-reviews').forEach(function (section) {
+			var reviewsSwiperInstance = null
+			var swiperEl = section.querySelector('.about-reviews-swiper')
+
+			function initReviewsSwiper() {
+				if (!swiperEl || swiperEl.swiper) return null
+				var config = {
+					spaceBetween: 6,
+					speed: 600,
+					navigation: {
+						nextEl: section.querySelector('.about-reviews__arrow--next'),
+						prevEl: section.querySelector('.about-reviews__arrow--prev'),
+					},
+				}
+				if (window.innerWidth > 992) {
+					config.slidesPerView = 3
+				} else {
+					config.slidesPerView = 1.2
+					config.pagination = {
+						el: section.querySelector('.about-reviews__pagination'),
+						type: 'bullets',
+						bulletClass: 'swiper-pagination-bullet',
+						bulletActiveClass: 'swiper-pagination-bullet-active',
+						clickable: true,
+					}
+					config.breakpoints = {
+						768: { slidesPerView: 2, spaceBetween: 6 },
+					}
+				}
+				return new Swiper(swiperEl, config)
+			}
+
+			function destroyReviewsSwiper() {
+				if (reviewsSwiperInstance) {
+					reviewsSwiperInstance.destroy(true, true)
+					reviewsSwiperInstance = null
+				}
+			}
+
+			reviewsSwiperInstance = initReviewsSwiper()
+
+			window.addEventListener('resize', function () {
+				destroyReviewsSwiper()
+				reviewsSwiperInstance = initReviewsSwiper()
+			})
+		})
+
+		/* ===== REVIEW POPUP ===== */
+		var reviewPopup = document.getElementById('reviewPopup')
+		var reviewPopupClose = document.getElementById('reviewPopupClose')
+		var reviewPopupStars = document.getElementById('reviewPopupStars')
+		var reviewPopupText = document.getElementById('reviewPopupText')
+		var reviewPopupName = document.getElementById('reviewPopupName')
+		var reviewPopupProduct = document.getElementById('reviewPopupProduct')
+		var reviewPopupGallery = document.getElementById('reviewPopupGallery')
+		var reviewPopupProgress = document.getElementById('reviewPopupProgress')
+		var reviewGallerySwiper = null
+		var popupStarsHtml = ''
+		for (var si = 0; si < 5; si++) {
+			popupStarsHtml += '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1L8.5 4.5L12.5 5L9.5 8L10 12L6.5 10L3 12L3.5 8L0.5 5L4.5 4.5L6.5 1Z" fill="#BF6E34"/></svg>'
+		}
+
+		document.querySelectorAll('.about-reviews__card-more').forEach(function (btn) {
+			btn.addEventListener('click', function (e) {
+				e.preventDefault()
+				var card = btn.closest('.about-reviews__card')
+				if (!card) return
+
+				var text
+				var titleTextEl = card.querySelector('.about-reviews__card-title-text')
+				var descEl = card.querySelector('.about-reviews__card-desc')
+				if (titleTextEl && descEl) {
+					text = titleTextEl.textContent + '\n\n' + descEl.textContent
+				} else {
+					text = card.querySelector('.about-reviews__card-text').textContent
+				}
+
+				var name = card.querySelector('.about-reviews__card-name').textContent
+				var product = card.querySelector('.about-reviews__card-product').textContent
+
+				reviewPopupStars.innerHTML = popupStarsHtml
+				reviewPopupText.textContent = text
+				reviewPopupName.textContent = name
+				reviewPopupProduct.textContent = product
+
+				// Build gallery
+				var galleryImgs = []
+				try {
+					galleryImgs = JSON.parse(btn.getAttribute('data-gallery') || '[]')
+				} catch (e) {}
+
+				reviewPopupGallery.innerHTML = ''
+				galleryImgs.forEach(function (src) {
+					var slide = document.createElement('div')
+					slide.className = 'swiper-slide'
+					var img = document.createElement('img')
+					img.src = src
+					img.alt = ''
+					img.loading = 'lazy'
+					slide.appendChild(img)
+					reviewPopupGallery.appendChild(slide)
+				})
+
+				// Build progress bars
+				reviewPopupProgress.innerHTML = ''
+				galleryImgs.forEach(function () {
+					var bar = document.createElement('div')
+					bar.className = 'review-popup-progress-bar'
+					var fill = document.createElement('div')
+					fill.className = 'review-popup-progress-fill'
+					bar.appendChild(fill)
+					reviewPopupProgress.appendChild(bar)
+				})
+
+				// Init gallery swiper
+				if (reviewGallerySwiper) {
+					reviewGallerySwiper.destroy(true, true)
+					reviewGallerySwiper = null
+				}
+
+				var gallerySwiperEl = document.querySelector('.review-popup-swiper')
+				if (gallerySwiperEl && galleryImgs.length > 0 && typeof Swiper !== 'undefined') {
+					reviewGallerySwiper = new Swiper(gallerySwiperEl, {
+						loop: true,
+						effect: 'fade',
+						fadeEffect: { crossFade: true },
+						autoplay: { delay: 5000, disableOnInteraction: false },
+						speed: 600,
+						navigation: {
+							nextEl: '.review-popup-arrow--next',
+							prevEl: '.review-popup-arrow--prev',
+						},
+						on: {
+							init: function () {
+								syncProgressBar(this.realIndex, galleryImgs.length)
+							},
+							slideChangeTransitionEnd: function () {
+								syncProgressBar(this.realIndex, galleryImgs.length)
+							},
+						},
+					})
+
+				}
+
+				reviewPopup.classList.add('review-popup-overlay--open')
+				document.body.style.overflow = 'hidden'
+			})
+		})
+
+		function syncProgressBar(activeIndex, totalSlides) {
+			var bars = reviewPopupProgress.querySelectorAll('.review-popup-progress-bar')
+			bars.forEach(function (bar, i) {
+				var fill = bar.querySelector('.review-popup-progress-fill')
+				if (!fill) return
+				bar.classList.toggle('review-popup-progress-bar--active', i === activeIndex % totalSlides)
+				if (i < activeIndex % totalSlides) {
+					fill.style.transition = 'none'
+					fill.style.width = '100%'
+				} else if (i === activeIndex % totalSlides) {
+					fill.style.transition = 'none'
+					fill.style.width = '0%'
+					void fill.offsetWidth
+					fill.style.transition = 'width 5000ms linear'
+					fill.style.width = '100%'
+				} else {
+					fill.style.transition = 'none'
+					fill.style.width = '0%'
+				}
 			})
 		}
+
+		// Delegated progress bar navigation (attached once)
+		if (reviewPopupProgress) {
+			reviewPopupProgress.addEventListener('click', function (e) {
+				var bar = e.target.closest('.review-popup-progress-bar')
+				if (!bar || !reviewGallerySwiper) return
+				var bars = Array.from(reviewPopupProgress.children)
+				var idx = bars.indexOf(bar)
+				if (idx !== -1) {
+					reviewGallerySwiper.slideToLoop(idx)
+				}
+			})
+		}
+
+		function closeReviewPopup() {
+			if (reviewGallerySwiper) {
+				reviewGallerySwiper.destroy(true, true)
+				reviewGallerySwiper = null
+			}
+			reviewPopup.classList.remove('review-popup-overlay--open')
+			document.body.style.overflow = ''
+		}
+
+		if (reviewPopupClose) {
+			reviewPopupClose.addEventListener('click', closeReviewPopup)
+		}
+
+		if (reviewPopup) {
+			reviewPopup.addEventListener('click', function (e) {
+				if (e.target === reviewPopup) {
+					closeReviewPopup()
+				}
+			})
+		}
+
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && reviewPopup && reviewPopup.classList.contains('review-popup-overlay--open')) {
+				closeReviewPopup()
+			}
+		})
 
 		document
 			.querySelectorAll('.carousel-section.promotions')
@@ -786,7 +973,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				var grid = section.querySelector('.catalog-cat-s__grid')
 				if (!grid || grid.swiper) return null
 				return new Swiper(grid, {
-					slidesPerView: 1.3,
+					slidesPerView: 3,
 					spaceBetween: 6,
 					speed: 600,
 					navigation: {

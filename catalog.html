@@ -7,11 +7,11 @@
     <title>Каталог — ТАТАРСМАНИЯ</title>
     <link rel="stylesheet" href="css/lib/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/lib/aos.css" />
-    <link rel="stylesheet" href="css/style.css?v=3">
-    <link rel="stylesheet" href="css/header.css?v=3" />
-    <link rel="stylesheet" href="css/footer.css?v=3" />
-    <link rel="stylesheet" href="css/catalog.css?v=3">
-    <link rel="stylesheet" href="css/catalog-listing.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/header.css?v=4" />
+    <link rel="stylesheet" href="css/footer.css?v=4" />
+    <link rel="stylesheet" href="css/catalog.css?v=4">
+    <link rel="stylesheet" href="css/catalog-listing.css?v=4">
     </head>
 
 <body class="page catalog">
@@ -87,7 +87,7 @@
                         <rect x="0" y="4.5" width="13" height="1" fill="currentColor" />
                         <rect x="0" y="7.5" width="13" height="1" fill="currentColor" />
                     </svg>
-                    КАТАЛОГ
+                    <span>КАТАЛОГ</span>
                 </button>
                 <button class="header__icon" aria-label="Поиск" data-label="Поиск">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -187,6 +187,8 @@
             </div>
         </div>
     </div>
+
+    <main>
 
     <!-- ===== page TITLE / BREADCRUMBS ===== -->
     <section class="page-title" data-aos="fade-up" data-aos-delay="200">
@@ -471,7 +473,7 @@
         </div>
     </section>
 
-    <!-- ===== COLLECTIONS ===== -->
+    <!-- ===== COLLECTIONS (Swiper) ===== -->
     <section class="collections">
         <div class="container">
             <div class="collections__header-row">
@@ -499,7 +501,7 @@
                         <div class="collections__card">
                             <div class="collections__left" data-aos="fade-up" data-aos-delay="200">
                                 <h3 class="collections__name">COSMO</h3>
-                                <p class="collections__desc body">Технологичность и динамичный футуризм. Модульные
+                                <p class="collections__desc ">Технологичность и динамичный футуризм. Модульные
                                     системы, трансформеры, модели с подсветкой<br>и инновационными материалами</p>
                                 <div class="collections__thumbs">
                                     <div class="collections__thumb">
@@ -532,7 +534,7 @@
                         <div class="collections__card">
                             <div class="collections__left">
                                 <h3 class="collections__name">NORDIC</h3>
-                                <p class="collections__desc body">Скандинавская простота и функциональность. Натуральные
+                                <p class="collections__desc ">Скандинавская простота и функциональность. Натуральные
                                     материалы, мягкие формы<br>и спокойные тона для уютного дома</p>
                                 <div class="collections__thumbs">
                                     <div class="collections__thumb">
@@ -565,7 +567,7 @@
                         <div class="collections__card">
                             <div class="collections__left">
                                 <h3 class="collections__name">LUXE</h3>
-                                <p class="collections__desc body">Премиальные материалы и безупречное исполнение.
+                                <p class="collections__desc">Премиальные материалы и безупречное исполнение.
                                     Коллекция для тех, кто ценит роскошь<br>в каждой детали интерьера</p>
                                 <div class="collections__thumbs">
                                     <div class="collections__thumb">
@@ -597,16 +599,20 @@
                 </div>
                 <div class="collections__pagination swiper-pagination"></div>
             </div>
-            <a href="collections.html" class="btn btn-link collections__all" data-aos="fade-up" data-aos-delay="200">
-                <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
-                    <path
-                        d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z"
-                        fill="#212121" />
-                </svg>
-                <span>Все коллекции</span>
-            </a>
+            <div class="collections__all" data-aos="fade-up" data-aos-delay="200">
+                <a href="collections.html" class="btn btn-link ">
+                    <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                        <path
+                            d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z"
+                            fill="#212121" />
+                    </svg>
+                    <span>Все коллекции</span>
+                </a>
+            </div>
         </div>
     </section>
+
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
@@ -764,8 +770,8 @@
     <script src="js/lib/aos.js"></script>
     <script src="js/lib/validate.min.js"></script>
 
-    <script src="js/main.js?v=3"></script>
-    <script src="js/menu.js?v=3"></script>
+    <script src="js/main.js?v=4"></script>
+    <script src="js/menu.js?v=4"></script>
 
 </body>
 

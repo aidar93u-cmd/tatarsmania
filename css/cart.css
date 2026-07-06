@@ -50,7 +50,9 @@
 	padding: 0;
 	transition: opacity 0.3s;
 }
-
+.cart__action-btn svg{
+	margin-top: -3px;
+}
 .cart__action-btn:hover,
 .cart__summary-promo-apply:hover,
 .cart-undo__btn:hover {
