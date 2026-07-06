@@ -1216,74 +1216,73 @@
     line-height: 1.2;
 }
 
-.orders-sort__btn {
+.orders-sort__wrapper {
+    position: relative;
+}
+
+.orders-sort__trigger {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-6);
-    background: var(--gray-lighter);
-    border: none;
-    padding: var(--space-8) var(--space-12);
+    gap: var(--space-8);
+    padding: var(--space-8) var(--space-16);
     font-family: var(--font-family);
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--graphite);
+    background: var(--gray-dark-line);
+    border: none;
     cursor: pointer;
-    line-height: 1.2;
-    transition: background 0.2s;
+    transition: background 0.4s;
 }
 
-.orders-sort__btn:hover {
-    background: var(--gray-light);
+.orders-sort__trigger:hover {
+    background: var(--gray-hover);
 }
 
-.orders-sort__btn svg {
-    flex-shrink: 0;
-}
-
-.orders-sort__dropdown {
-    position: relative;
+.orders-sort__trigger svg {
+    transition: transform 0.4s;
 }
 
 .orders-sort__menu {
     display: none;
     position: absolute;
-    top: calc(100% + var(--space-4));
+    top: calc(100% + var(--space-6));
     right: 0;
     z-index: 10;
-    min-width: 160px;
-    background: var(--white);
-    border: 0.5px solid #dbdbdb;
-    padding: var(--space-4);
+    min-width: 11.25rem;
+    background: #fff;
+    border: var(--space-1) solid #e5e5e5;
+    box-shadow: 0 var(--space-4) var(--space-12) rgba(0, 0, 0, 0.08);
+    padding: 0;
 }
 
-.orders-sort__dropdown:hover .orders-sort__menu,
-.orders-sort__dropdown:focus-within .orders-sort__menu {
+.orders-sort__wrapper:hover .orders-sort__menu,
+.orders-sort__wrapper.active .orders-sort__menu {
     display: block;
 }
 
 .orders-sort__option {
     display: block;
     width: 100%;
-    padding: var(--space-8) var(--space-10);
+    padding: var(--space-6) var(--space-8);
+    font-size: var(--body-base-size);
     font-family: var(--font-family);
-    font-size: 0.75rem;
-    font-weight: 400;
     color: var(--graphite);
     background: none;
     border: none;
+    border-bottom: var(--space-1) solid var(--gray-dark-line);
     cursor: pointer;
     text-align: left;
-    line-height: 1.2;
-    transition: background 0.2s;
+    transition: background 0.4s;
+}
+
+.orders-sort__option:last-child {
+    border-bottom: none;
 }
 
 .orders-sort__option:hover {
-    background: var(--gray-lighter);
+    background: var(--gray-bg-light);
 }
 
 .orders-sort__option--active {
-    font-weight: 500;
-    color: var(--copper);
+    font-weight: 600;
 }
 
 /* ===== Orders Divider ===== */

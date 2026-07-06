@@ -1856,7 +1856,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	var emptyFav = document.querySelector('.favorites__empty')
 	var emptyRecent = document.querySelector('.favorites__empty--recent')
 	var sortTrigger = document.querySelector('.favorites__sort-trigger')
-	var sortOptions = document.querySelector('.favorites__sort-options')
+	var sortContainer = document.querySelector('.favorites__sort')
 	var sortLinks = document.querySelectorAll('.favorites__sort-option')
 
 	if (!gridFav || !gridRecent) return
@@ -1929,20 +1929,20 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (window.updateFavBadge) window.updateFavBadge()
 		})
 
-	if (sortTrigger) {
+	if (sortContainer) {
 		sortTrigger.addEventListener('click', function (e) {
 			e.stopPropagation()
-			sortOptions.classList.toggle('favorites__sort-options--open')
+			sortContainer.classList.toggle('active')
 		})
 	}
 
 	document.addEventListener('click', function () {
-		if (sortOptions)
-			sortOptions.classList.remove('favorites__sort-options--open')
+		if (sortContainer)
+			sortContainer.classList.remove('active')
 	})
 
-	if (sortOptions) {
-		sortOptions.addEventListener('click', function (e) {
+	if (sortContainer) {
+		sortContainer.querySelector('.favorites__sort-dropdown').addEventListener('click', function (e) {
 			e.stopPropagation()
 		})
 	}
@@ -1952,12 +1952,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			e.preventDefault()
 			var sortKey = link.getAttribute('data-sort')
 			sortLinks.forEach(function (l) {
-				l.style.fontWeight = ''
+				l.classList.remove('active')
 			})
-			link.style.fontWeight = '500'
+			link.classList.add('active')
 			var textEl = sortTrigger.querySelector('span')
 			if (textEl) textEl.textContent = link.textContent
-			sortOptions.classList.remove('favorites__sort-options--open')
+			if (sortContainer) sortContainer.classList.remove('active')
 
 			var grid = getActiveGrid()
 			var cards = Array.from(

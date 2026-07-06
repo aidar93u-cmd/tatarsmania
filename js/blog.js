@@ -89,26 +89,27 @@
   });
 
   // ===== SORT DROPDOWN =====
-  var sortBtn = document.querySelector('.blog-news__sort');
-  if (sortBtn) {
-    sortBtn.addEventListener('click', function (e) {
+  var sortContainer = document.querySelector('.blog-news__sort');
+  if (sortContainer) {
+    sortContainer.addEventListener('click', function (e) {
       e.stopPropagation();
-      this.querySelector('.blog-news__sort-dropdown').classList.toggle('is-open');
+      this.classList.toggle('active');
     });
     document.addEventListener('click', function () {
-      var dd = document.querySelector('.blog-news__sort-dropdown');
-      if (dd) dd.classList.remove('is-open');
+      var sc = document.querySelector('.blog-news__sort');
+      if (sc) sc.classList.remove('active');
     });
   }
 
   var sortOptions = document.querySelectorAll('.blog-news__sort-option');
   sortOptions.forEach(function (opt) {
     opt.addEventListener('click', function () {
-      sortOptions.forEach(function (o) { o.classList.remove('is-selected'); });
-      this.classList.add('is-selected');
+      sortOptions.forEach(function (o) { o.classList.remove('active'); });
+      this.classList.add('active');
       var text = this.textContent.trim();
-      document.querySelector('.blog-news__sort-text').textContent = text;
-      document.querySelector('.blog-news__sort-dropdown').classList.remove('is-open');
+      var triggerSpan = document.querySelector('.blog-news__sort-trigger span');
+      if (triggerSpan) triggerSpan.textContent = text;
+      document.querySelector('.blog-news__sort').classList.remove('active');
       var order = text === 'Сначала новые' ? -1 : text === 'Сначала старые' ? 1 : 0;
       if (order !== 0) {
         filteredCards.sort(function (a, b) {

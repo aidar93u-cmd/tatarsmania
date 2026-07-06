@@ -218,7 +218,22 @@
 		dom.sortOptions.forEach(function (o) {
 			o.addEventListener('click', function () {
 				onSortChange(o.dataset.sort)
+				var wrapper = dom.sortMenu.closest('.orders-sort__wrapper')
+				if (wrapper) wrapper.classList.remove('active')
 			})
+		})
+
+		var sortTrigger = document.querySelector('.orders-sort__trigger')
+		if (sortTrigger) {
+			sortTrigger.addEventListener('click', function (e) {
+				e.stopPropagation()
+				var wrapper = this.closest('.orders-sort__wrapper')
+				if (wrapper) wrapper.classList.toggle('active')
+			})
+		}
+		document.addEventListener('click', function () {
+			var wrapper = document.querySelector('.orders-sort__wrapper.active')
+			if (wrapper) wrapper.classList.remove('active')
 		})
 		document
 			.querySelector('.js-page-nav')
