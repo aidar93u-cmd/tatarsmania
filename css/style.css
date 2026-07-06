@@ -157,24 +157,22 @@ html {
 	scroll-behavior: smooth;
 }
 
-/* Кастомный скроллбар (нативный) */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+/* Scrollbar — стандартный браузерный (глобально) */
+
+/* Кастомный скроллбар (OverlayScrollbars) для блоков с классом .os-custom */
+.os-theme-tm .os-scrollbar-vertical {
+	width: 1px;
+	height: 100%;
 }
-::-webkit-scrollbar-track {
-    background: transparent;
+.os-theme-tm .os-scrollbar-horizontal {
+	height: 1px;
 }
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
+.os-theme-tm .os-scrollbar-track {
+	background: #2121211A;
+	border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4);
-}
-* {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+.os-theme-tm .os-scrollbar-handle {
+	background: #212121;
 }
 
 :root {
@@ -214,10 +212,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-body.home {
-	margin-top: calc(-1 * var(--space-110));
-	padding-top: var(--space-110) !important;
-}
 
 h1,
 h2,
@@ -1568,27 +1562,10 @@ section.footer-banner {
 .showrooms__list {
 	background-color: var(--white);
 	padding: var(--space-14);
-	max-height: 44.375rem;
 	overflow-y: auto;
-	scrollbar-width: thin;
-	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 }
-
-.showrooms__list::-webkit-scrollbar {
-	width: 8px;
-}
-
-.showrooms__list::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-.showrooms__list::-webkit-scrollbar-thumb {
-	background: rgba(0, 0, 0, 0.25);
-	border-radius: 4px;
-}
-
-.showrooms__list::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 0, 0, 0.4);
+.showrooms__content > .os-host {
+	max-height: 44.375rem;
 }
 
 .showroom-card {

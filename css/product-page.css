@@ -295,8 +295,9 @@
 	top: 100%;
 	left: 50%;
 	transform: translateX(-50%);
-	border: var(--space-4) solid transparent;
-	border-top-color: #fff;
+	border-left: var(--space-7) solid transparent;
+	border-right: var(--space-7) solid transparent;
+	border-top: var(--space-7) solid #fff;
 }
 
 .product-swatch-wrap:hover .product-swatch-tooltip {
@@ -339,6 +340,7 @@
 }
 .product-actions__secondary .btn-white {
 	width: 100%;
+    padding: var(--space-12) var(--space-12);
 }
 
 /* ============================================

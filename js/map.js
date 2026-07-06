@@ -442,6 +442,31 @@
     listEl.innerHTML = html
     countEl.textContent = 'Найдено ' + data.length + ' шоурумов'
 
+    if (typeof OverlayScrollbars !== 'undefined') {
+      var oldOsInst = OverlayScrollbars(listEl)
+      if (oldOsInst) {
+        console.log('[OS] destroying existing instance')
+        oldOsInst.destroy()
+      }
+      console.log('[OS] initializing on #showroomList, children=' + listEl.children.length)
+      var osInst = OverlayScrollbars(listEl, {
+        className: 'os-theme-tm',
+        scrollbars: {
+          visibility: 'visible',
+          autoHide: 'never',
+        },
+        overflowBehavior: {
+          x: 'hidden',
+          y: 'scroll',
+        },
+      })
+      if (osInst) {
+        var hostEl = osInst.getElements().host
+        if (hostEl) hostEl.style.maxHeight = '44.375rem'
+        console.log('[OS] init done, content overflow=' + getComputedStyle(osInst.getElements().content).overflowY)
+      }
+    }
+
     if (window.updateShowroomStatus) {
       window.updateShowroomStatus()
     }
