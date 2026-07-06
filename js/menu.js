@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var catalogBtn = document.getElementById('catalogBtn');
         if (catalogBtn) { catalogBtn.classList.add('is-open'); catalogBtn.setAttribute('aria-expanded', 'true'); }
         var h = document.querySelector('.header');
-        if (h) { document.documentElement.style.setProperty('--sticky-top', h.getBoundingClientRect().bottom + 'px'); }
+       // if (h) { document.documentElement.style.setProperty('--sticky-top', h.getBoundingClientRect().bottom + 'px'); }
     }
 
     function closeMegaMenu() {

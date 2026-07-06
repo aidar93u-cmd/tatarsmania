@@ -634,7 +634,8 @@ body.preloader-active {
 }
 
 /* Slide group up by topbar height: instant hide, smooth reappear */
-.header-group--hide-topbar, .mega-menu.header-group--hide-topbar {
+.header-group--hide-topbar, 
+.mega-menu.header-group--hide-topbar.mega-menu--open {
 	transform: translateY(calc(-1 * var(--space-55)));
 }
 .header-group:not(.header-group--hide-topbar) {
@@ -1137,10 +1138,6 @@ body.preloader-active {
 		display: flex;
 	}
 
-	body.home {
-		margin-top: -53px;
-		padding-top: 53px !important;
-	}
 
 }
 

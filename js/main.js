@@ -246,7 +246,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	if (headerGroup) {
 		var lastScroll = 0
-		var stickyRafId = null
 
 		function syncMegaMenuHideTopbar() {
 			if (!megaMenu) return
@@ -258,23 +257,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		function updateStickyTop() {
-			var rect = header.getBoundingClientRect()
-		//	document.documentElement.style.setProperty('--sticky-top', rect.bottom + 'px')
-		}
-
-		function startStickyRaf() {
-			if (stickyRafId) return
-			var start = performance.now()
-			function tick() {
-				updateStickyTop()
-				if (performance.now() - start < 500) {
-					stickyRafId = requestAnimationFrame(tick)
-				} else {
-					stickyRafId = null
-				}
-			}
-			stickyRafId = requestAnimationFrame(tick)
-		}
+			var topbar = document.querySelector('.topbar')
+			var header = document.querySelector('.header')
+			var topbarH = topbar ? topbar.offsetHeight : 0
+			var headerH = header ? header.offsetHeight : 0
+			document.documentElement.style.setProperty('--sticky-top', (topbarH + headerH) + 'px')
+		} 
 
 		window.addEventListener('scroll', function () {
 			var currentScroll =
@@ -292,16 +280,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				syncMegaMenuHideTopbar()
 			}
 			if (currentScroll < lastScroll) {
-				if (headerGroup.classList.contains('header-group--hide-topbar')) {
-					cancelAnimationFrame(stickyRafId)
-					stickyRafId = null
-				}
 				headerGroup.classList.remove('header-group--hide-topbar')
 				syncMegaMenuHideTopbar()
-			}
-			updateStickyTop()
-			if (currentScroll < lastScroll || currentScroll > scrollOffset + 50) {
-				startStickyRaf()
 			}
 			lastScroll = currentScroll
 		})
@@ -2240,8 +2220,23 @@ document.addEventListener('DOMContentLoaded', function () {
 					},
 				})
 			}
-		})
+	})
 })();
 
-
 });
+
+
+
+/* ===== OverlayScrollbars для блоков .os-custom ===== */
+;(function () {
+	if (typeof OverlayScrollbars === 'undefined') return
+	document.querySelectorAll('.os-custom').forEach(function (el) {
+		OverlayScrollbars(el, {
+			className: 'os-theme-tm',
+			scrollbars: {
+				visibility: 'visible',
+				autoHide: 'never',
+			},
+		})
+	})
+})();

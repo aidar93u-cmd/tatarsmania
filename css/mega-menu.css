@@ -138,7 +138,7 @@
     position: relative;
     flex: 0 0 30%;
     padding: var(--space-36) 0;
-    border-left: 1px solid rgba(33, 33, 33, 0.1);
+   /* border-left: 1px solid rgba(33, 33, 33, 0.1);*/
 }
 
 /* Banner - product card */
@@ -189,7 +189,7 @@
 .mega-menu__panel {
     position: absolute;
     inset: 0;
-    padding: var(--space-30) var(--space-35);
+    padding: 0;
     opacity: 0;
     visibility: hidden;
     transform: translateX(-1.875rem);
@@ -199,6 +199,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+    border-right: 1px solid rgba(33, 33, 33, 0.1);
 }
 .mega-menu__panel.visible {
     opacity: 1;
@@ -226,7 +227,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    padding-right: var(--space-20);
+    padding: var(--space-30) var(--space-20);
 }
 
 .mega-menu__type1-sidebar-item {
@@ -250,6 +251,28 @@
     column-gap: var(--space-44);
     column-fill: auto;
     padding-top: var(--space-5);
+    padding: var(--space-30) var(--space-20);
+}
+.mega-menu__l3-panel--single-col {
+    columns: 1;
+}
+.mega-menu__l3-panel--flex {
+    columns: unset;
+    display: flex;
+    gap: var(--space-44);
+}
+.mega-menu__l3-panel--flex .os-content {
+    display: flex;
+    gap: var(--space-44);
+    width: 100%;
+}
+.mega-menu__l3-col {
+    flex: 0 0 calc(50% - var(--space-22));
+    display: flex;
+    flex-direction: column;   
+}
+.mega-menu__l3-col .mega-menu__l3-section:last-child {
+    margin-bottom: 0;
 }
 
 .mega-menu__l3-panel.active {
