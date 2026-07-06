@@ -101,6 +101,12 @@
     padding: 0;
 }
 
+.filter-tag__remove svg {
+	width: var(--space-13);
+	height: var(--space-13);
+	display: block;
+}
+
 .filter-tag__remove:hover {
 	color: var(--graphite);
 }
@@ -328,14 +334,8 @@
 	padding: var(--space-6) var(--space-8);
 	font-size: var(--body-m-size);
 	font-family: var(--font-family);
-	border: 1px solid #ddd;
 	color: var(--graphite);
-	outline: none;
-	transition: border-color 0.4s;
-}
-
-.filter-range__input:focus {
-	border-color: var(--graphite);
+	border: none;
 }
 
 .filter-range__slider {

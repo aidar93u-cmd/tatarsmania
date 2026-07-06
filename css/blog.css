@@ -112,63 +112,70 @@
 }
 
 .blog-news__sort {
-	display: flex;
-	align-items: center;
-	gap: var(--space-10);
-	background: var(--gray-lighter);
-	padding: var(--space-8) var(--space-12);
-	cursor: pointer;
 	position: relative;
-	user-select: none;
 }
 
-.blog-news__sort-icon {
-	display: flex;
+.blog-news__sort-trigger {
+	display: inline-flex;
 	align-items: center;
-	justify-content: center;
-	width: var(--space-13);
-	height: var(--space-13);
+	gap: var(--space-8);
+	padding: var(--space-8) var(--space-16);
+	font-family: var(--font-family);
+	background: var(--gray-dark-line);
+	border: none;
+	cursor: pointer;
+	transition: background 0.4s;
 }
 
-.blog-news__sort-text {
-	color: var(--graphite);
+.blog-news__sort-trigger:hover {
+	background: var(--gray-hover);
+}
+
+.blog-news__sort-trigger svg {
+	transition: transform 0.4s;
 }
 
 .blog-news__sort-dropdown {
+	display: none;
 	position: absolute;
-	top: 100%;
+	top: calc(100% + var(--space-6));
 	right: 0;
 	background: #fff;
-	border: var(--space-1) solid var(--gray-dark-line);
-	min-width: 10rem;
+	border: var(--space-1) solid #e5e5e5;
+	box-shadow: 0 var(--space-4) var(--space-12) rgba(0, 0, 0, 0.08);
+	min-width: 11.25rem;
 	z-index: 10;
-	display: none;
-	padding: var(--space-8) 0;
-	margin-top: var(--space-4);
+	padding: 0;
 }
 
-.blog-news__sort-dropdown.is-open {
+.blog-news__sort.active .blog-news__sort-dropdown {
 	display: block;
 }
 
 .blog-news__sort-option {
 	display: block;
-	width: 100%;
-	padding: var(--space-8) var(--space-16);
-	background: none;
-	border: none;
-	text-align: left;
+	padding: var(--space-6) var(--space-8);
+	font-size: var(--body-base-size);
+	font-family: var(--font-family);
 	color: var(--graphite);
+	text-decoration: none;
+	transition: background 0.4s;
+	border-bottom: var(--space-1) solid var(--gray-dark-line);
 	cursor: pointer;
-	transition: background 0.2s;
+	background: none;
+	width: 100%;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	text-align: left;
 }
 
 .blog-news__sort-option:hover {
-	background: var(--gray-light);
+	background: var(--gray-bg-light);
 }
 
-.blog-news__sort-option.is-selected {
-	background: var(--gray-lighter);
+.blog-news__sort-option.active {
+	font-weight: 600;
 }
 
 /* --- Blog Grid --- */

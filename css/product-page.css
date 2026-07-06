@@ -600,7 +600,6 @@
 	height: 100%;
 	object-fit: cover;
 	display: block;
-	max-height: 43.75rem;
 }
 
 .product-interior__progress {

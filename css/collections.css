@@ -108,7 +108,7 @@
 }
 
 .collections-grid__sort-option.active {
-	color: var(--copper);
+	font-weight: 600;
 }
 
 .collections-grid__grid {

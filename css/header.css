@@ -517,7 +517,7 @@ body.preloader-active {
 	top: 0;
 	left: 0;
 	right: 0;
-	height: calc(var(--space-55) + var(--space-20) * 3 + 1px);
+	height: calc(var(--space-55) + var(--space-20) * 3 );
 	background: var(--white);
 	z-index: 0;
 	opacity: 0;

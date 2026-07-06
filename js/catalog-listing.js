@@ -75,7 +75,7 @@
     var span = document.createElement('span');
     span.className = 'filter-tag';
     span.setAttribute('data-filter-id', id);
-    span.innerHTML = text + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C">&times;</button>';
+    span.innerHTML = text + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg viewBox="0 0 13 13" fill="none"><path d="M1 1L12 12M12 1L1 12" stroke="currentColor" stroke-linecap="round"/></svg></button>';
     return span;
   }
 
@@ -149,7 +149,7 @@
     var id = 'range-' + sectionTitle;
     var tag = activeFilters ? activeFilters.querySelector('[data-filter-id="' + id + '"]') : null;
     if (tag) {
-      tag.innerHTML = sectionTitle + ': ' + minInput.value + ' \u2014 ' + maxInput.value + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C">&times;</button>';
+      tag.innerHTML = sectionTitle + ': ' + minInput.value + ' \u2014 ' + maxInput.value + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg viewBox="0 0 13 13" fill="none"><path d="M1 1L12 12M12 1L1 12" stroke="currentColor" stroke-linecap="round"/></svg></button>';
     }
   }
 
@@ -172,7 +172,7 @@
     var tag = document.createElement('span');
     tag.className = 'filter-tag';
     tag.setAttribute('data-filter-id', id);
-    tag.innerHTML = sectionTitle + ': ' + minVal + ' \u2014 ' + maxVal + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C">&times;</button>';
+    tag.innerHTML = sectionTitle + ': ' + minVal + ' \u2014 ' + maxVal + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg viewBox="0 0 13 13" fill="none"><path d="M1 1L12 12M12 1L1 12" stroke="currentColor" stroke-linecap="round"/></svg></button>';
     if (resetBtn) {
       resetBtn.parentNode.insertBefore(tag, resetBtn);
     } else {
