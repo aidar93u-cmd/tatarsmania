@@ -4,7 +4,7 @@
 .footer {
 	background-color: var(--gray-lighter);
 	padding: var(--space-53) 0 var(--space-90);
-	margin-top: var(--space-10);
+	margin-top: var(--space-75);
 }
 
 .footer__top {

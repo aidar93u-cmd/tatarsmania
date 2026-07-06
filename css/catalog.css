@@ -331,13 +331,24 @@
         overflow: visible;
         display: block;
         width: 100%;
+        height: 380px;
     }
     .catalog-cat-s__grid .swiper-wrapper {
         display: flex;
         flex-wrap: nowrap;
+        height: 100%;
     }
     .catalog-cat-s__grid .swiper-slide {
-        width: auto;
+        height: 100%;
+    }
+    .catalog-cat-s__grid .categories-small__card {
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog-cat-s__grid.swiper {
+        height: 340px;
     }
 }
 
