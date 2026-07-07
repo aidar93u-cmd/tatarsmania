@@ -23,6 +23,58 @@
     }, 1500);
   }
 
+  /* ===== SUBCATEGORY FILTER ===== */
+  var subcatBtns = document.querySelectorAll('.btn-subcategories[data-subcategory]');
+  var productCards = document.querySelectorAll('.js-product-card');
+  var activeSubcategory = null;
+
+  function updateSubcategoryCounts() {
+    subcatBtns.forEach(function (btn) {
+      var cat = btn.getAttribute('data-subcategory');
+      var count = 0;
+      productCards.forEach(function (card) {
+        if (card.getAttribute('data-subcategory') === cat) count++;
+      });
+      var countEl = btn.querySelector('.btn-secondary__count');
+      if (countEl) countEl.textContent = '+' + count;
+    });
+  }
+
+  function filterBySubcategory(cat) {
+    if (activeSubcategory === cat) {
+      activeSubcategory = null;
+    } else {
+      activeSubcategory = cat;
+    }
+    subcatBtns.forEach(function (btn) {
+      var c = btn.getAttribute('data-subcategory');
+      btn.classList.toggle('active', c === activeSubcategory);
+    });
+    productCards.forEach(function (card) {
+      if (!activeSubcategory || card.getAttribute('data-subcategory') === activeSubcategory) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    if (activeSubcategory) {
+      var grid = document.querySelector('.catalog-listing__grid');
+      if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (typeof AOS !== 'undefined') {
+      setTimeout(function () { AOS.refresh(); }, 100);
+    }
+  }
+
+  subcatBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cat = btn.getAttribute('data-subcategory');
+      filterBySubcategory(cat);
+    });
+  });
+
+  updateSubcategoryCounts();
+
   /* ===== SORT DROPDOWN ===== */
   var sortTrigger = document.querySelector('.catalog-listing__sort-trigger');
   var sortContainer = document.querySelector('.catalog-listing__sort');

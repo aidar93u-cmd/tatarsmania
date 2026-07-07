@@ -696,6 +696,7 @@ body.preloader-active {
 	font-size: var(--body-l-size);
 	font-weight: 500;
 	line-height: 120%;
+	margin-left: 10px;
 	color: var(--graphite);
 	flex-shrink: 0;
 }
@@ -854,6 +855,7 @@ body.preloader-active {
 	font-size: var(--body-base-size);
 	font-weight: 500;
 	line-height: 120%;
+	text-transform: uppercase;
 	color: rgba(33, 33, 33, 0.4);
 }
 .mobile-menu__filter-links {

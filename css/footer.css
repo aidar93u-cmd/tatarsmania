@@ -197,7 +197,7 @@
 
 .footer__checkbox input:checked + .footer__checkbox-mark {
 	background: #333;
-	border: var(--space-2) solid #fff;
+	border: var(--space-3) solid #fff;
 }
 
 .footer__checkbox-text {
@@ -370,7 +370,7 @@
 .footer-bottom__dev-logo {
 }
 .footer-bottom__dev-logo img {
-	width: 6rem;
+	width: 1.4rem;
 	height: auto;
 }
 /* ===================================
