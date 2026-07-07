@@ -219,11 +219,11 @@
 }
 
 .filter-section {
-	margin-bottom: var(--space-50);
+	margin-bottom: var(--space-53);
 }
 
 .filter-section__title {
-	font-size: var(--body-m-size);
+	font-size: var(--body-base-size);
 	font-weight: 400;
 	margin: 0 0 var(--space-24);
 	opacity: 0.4;
@@ -236,31 +236,26 @@
 	background: none;
 	border: none;
 	font-size: var(--body-base-size);
-	/* color: var(--copper); */
 	cursor: pointer;
-	/* text-decoration: underline; */
 	font-family: var(--font-family);
 	padding: 0;
 	font-weight: 500;
 	text-transform: uppercase;
-	position: relative;
 }
+
 .filter-section__show-more span {
-	transform: none;
 	font-size: var(--body-base-size);
 	opacity: 0.4;
 	font-weight: 500;
-	position: absolute;
-	right: calc(-1 * var(--space-20));
-	top: calc(-1 * var(--space-1));
-	transform: rotateX(30deg);
+	margin-left: var(--space-2);
+	font-feature-settings: "sups" 1;
 }
 /* Checkbox */
 .filter-checkbox {
 	display: flex;
 	align-items: center;
-	gap: var(--space-10);
-	font-size: var(--body-m-size);
+	gap: var(--space-12);
+	font-size: var(--body-base-size);
 	color: var(--graphite);
 	cursor: pointer;
 	margin-bottom: var(--space-12);
@@ -281,7 +276,7 @@
 }
 .filter-checkbox--checked .filter-checkbox__mark {
 	background: #333;
-	border: var(--space-2) solid #fff;
+	border: var(--space-3) solid #fff;
 }
 
 .filter-checkbox__color-swatch {
@@ -294,11 +289,11 @@
 .filter-radio {
 	display: flex;
 	align-items: center;
-	gap: var(--space-10);
-	font-size: var(--body-m-size);
+	gap: var(--space-12);
+	font-size: var(--body-base-size);
 	color: var(--graphite);
 	cursor: pointer;
-	margin-bottom: var(--space-10);
+	margin-bottom: var(--space-12);
 	font-family: var(--font-family);
 }
 
@@ -330,7 +325,7 @@
 .filter-range__inputs {
 	display: flex;
 	gap: var(--space-40);
-	margin-bottom: var(--space-12);
+	margin-bottom: var(--space-16);
 }
 
 .filter-range__label {
@@ -348,7 +343,7 @@
 .filter-range__input {
 	width: 100%;
 	padding: var(--space-6) var(--space-8);
-	font-size: var(--body-m-size);
+	font-size: var(--body-base-size);
 	font-family: var(--font-family);
 	color: var(--graphite);
 	border: none;
@@ -401,7 +396,7 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: var(--space-16);
-	margin-bottom: var(--space-60);
+	/* margin-bottom: var(--space-60); */
 	opacity: 0;
 	transition: opacity 0.6s ease;
 }
