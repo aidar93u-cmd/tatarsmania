@@ -2240,3 +2240,125 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	})
 })();
+
+// ===== CITY POPUP =====
+;(function () {
+	var cityTrigger = document.querySelector('.topbar__city')
+	if (!cityTrigger) return
+
+	var saved = localStorage.getItem('selectedCity')
+	if (saved) {
+		document.querySelectorAll('.topbar__city-text').forEach(function (el) {
+			el.textContent = saved
+		})
+	}
+
+	cityTrigger.addEventListener('click', function (e) {
+		e.preventDefault()
+		Fancybox.show([{ src: '#cityPopup', type: 'inline' }], {
+			mainClass: 'fancybox-city-popup',
+			Toolbar: false,
+			closeButton: false,
+		})
+	})
+
+	document.addEventListener('click', function (e) {
+		var item = e.target.closest('.city-popup__item, .city-popup__tip')
+		if (!item) return
+		var city = item.getAttribute('data-city')
+		if (!city) return
+		document.querySelectorAll('.topbar__city-text').forEach(function (el) {
+			el.textContent = city
+		})
+		localStorage.setItem('selectedCity', city)
+		Fancybox.close()
+	})
+
+	var cityTips = document.querySelector('.city-popup__tips')
+	var cityPopularLabel = document.querySelector('.city-popup__popular-label')
+	var searchTimer
+
+	// Event delegation for input (catches visible input in Fancybox clone)
+	document.addEventListener('input', function (e) {
+		if (!e.target.closest('.fancybox-city-popup')) return
+		var input = e.target.closest('#citySearchInput')
+		if (!input) return
+
+		var q = input.value.trim()
+		clearTimeout(searchTimer)
+
+		var icon = document.querySelector('.fancybox-city-popup #citySearchIcon')
+		var spinner = document.querySelector('.fancybox-city-popup #citySpinner')
+		if (icon) icon.style.display = 'none'
+		if (spinner) spinner.style.display = ''
+
+		searchTimer = setTimeout(function () {
+			if (icon) icon.style.display = ''
+			if (spinner) spinner.style.display = 'none'
+			filterCities(q)
+		}, 300)
+	})
+
+	// Tip click — fill search
+	document.addEventListener('click', function (e) {
+		var tip = e.target.closest('.city-popup__tip')
+		if (!tip) return
+		var container = tip.closest('.fancybox-city-popup')
+		if (!container) return
+		var city = tip.getAttribute('data-city')
+		if (!city) return
+
+		var input = container.querySelector('#citySearchInput')
+		if (!input) return
+		input.value = city
+
+		var icon = container.querySelector('#citySearchIcon')
+		var spinner = container.querySelector('#citySpinner')
+		if (icon) icon.style.display = 'none'
+		if (spinner) spinner.style.display = ''
+
+		clearTimeout(searchTimer)
+		searchTimer = setTimeout(function () {
+			if (icon) icon.style.display = ''
+			if (spinner) spinner.style.display = 'none'
+			filterCities(city)
+		}, 300)
+	})
+
+	function filterCities(q) {
+		var container = document.querySelector('.fancybox-city-popup .fancybox__content')
+		if (!container) return
+
+		var items = container.querySelectorAll('.city-popup__item')
+		var resultsHeader = container.querySelector('#cityResultsHeader')
+		var queryText = container.querySelector('#cityQueryText')
+		var resultsCount = container.querySelector('#cityResultsCount')
+		var tips = container.querySelector('.city-popup__tips')
+		var popularLabel = container.querySelector('.city-popup__popular-label')
+		var matchCount = 0
+
+		items.forEach(function (item) {
+			var match = !q || item.textContent.toLowerCase().indexOf(q.toLowerCase()) !== -1
+			item.style.display = match ? '' : 'none'
+			if (match) matchCount++
+		})
+
+		if (resultsHeader && queryText && resultsCount) {
+			if (q) {
+				queryText.textContent = q
+				var word = 'городов'
+				if (matchCount === 1) word = 'город'
+				if (matchCount >= 2 && matchCount <= 4) word = 'города'
+				resultsCount.textContent = matchCount + ' ' + word
+				resultsHeader.style.display = 'flex'
+				if (tips) tips.style.display = 'none'
+				if (popularLabel) popularLabel.style.display = 'none'
+			} else {
+				resultsHeader.style.display = 'none'
+				if (tips) tips.style.display = ''
+				if (popularLabel) popularLabel.style.display = ''
+				items.forEach(function (item) { item.style.display = '' })
+			}
+		}
+	}
+})();
