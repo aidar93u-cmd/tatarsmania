@@ -130,7 +130,7 @@
 
 .mega-menu__content-body {
     position: relative;
-    flex: 0 0 70%;
+    flex: 0 0 100%;
     overflow: hidden;
 }
 
@@ -228,6 +228,29 @@
     flex-direction: column;
     gap: var(--space-4);
     padding: var(--space-30) var(--space-20);
+}
+
+.mega-menu__type1-content {
+    display: flex;
+    gap: var(--space-25);
+    overflow: hidden;
+}
+
+.mega-menu__type1-panels {
+    flex: 0 0 calc(70% - var(--space-25));
+    position: relative;
+    overflow: hidden;
+}
+
+.mega-menu__panel--type1 .mega-menu__banner-area {
+    flex: 0 0 30%;
+    padding: var(--space-36) 0;
+}
+
+.mega-menu__panel--type1 .mega-menu__banner {
+    top: var(--space-36);
+    left: 0;
+    right: 0;
 }
 
 .mega-menu__type1-sidebar-item {
