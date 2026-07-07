@@ -247,10 +247,22 @@
     padding: var(--space-36) 0;
 }
 
+.mega-menu__panel--type1 .mega-menu__banner-area--full {
+    flex: 0 0 100%;
+}
+
 .mega-menu__panel--type1 .mega-menu__banner {
     top: var(--space-36);
     left: 0;
     right: 0;
+}
+
+.mega-menu__type1-panels--hidden {
+    display: none;
+}
+
+.mega-menu__banner--no-text .mega-menu__banner-text {
+    display: none;
 }
 
 .mega-menu__type1-sidebar-item {
