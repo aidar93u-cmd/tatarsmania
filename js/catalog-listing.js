@@ -127,7 +127,7 @@
     var span = document.createElement('span');
     span.className = 'filter-tag';
     span.setAttribute('data-filter-id', id);
-    span.innerHTML = text + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg viewBox="0 0 13 13" fill="none"><path d="M1 1L12 12M12 1L1 12" stroke="currentColor" stroke-linecap="round"/></svg></button>';
+    span.innerHTML = text + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.69111 8.64089L8.64085 3.69115L9.30889 4.35919L4.35915 9.30893L3.69111 8.64089ZM3.6928 4.3575L4.35746 3.69284L9.3072 8.64258L8.64254 9.30724L3.6928 4.3575Z" fill="#212121"/></svg></button>';
     return span;
   }
 
@@ -201,7 +201,7 @@
     var id = 'range-' + sectionTitle;
     var tag = activeFilters ? activeFilters.querySelector('[data-filter-id="' + id + '"]') : null;
     if (tag) {
-      tag.innerHTML = sectionTitle + ': ' + minInput.value + ' \u2014 ' + maxInput.value + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg viewBox="0 0 13 13" fill="none"><path d="M1 1L12 12M12 1L1 12" stroke="currentColor" stroke-linecap="round"/></svg></button>';
+      tag.innerHTML = sectionTitle + ': ' + minInput.value + ' \u2014 ' + maxInput.value + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.69111 8.64089L8.64085 3.69115L9.30889 4.35919L4.35915 9.30893L3.69111 8.64089ZM3.6928 4.3575L4.35746 3.69284L9.3072 8.64258L8.64254 9.30724L3.6928 4.3575Z" fill="#212121"/></svg></button>';
     }
   }
 
@@ -224,7 +224,7 @@
     var tag = document.createElement('span');
     tag.className = 'filter-tag';
     tag.setAttribute('data-filter-id', id);
-    tag.innerHTML = sectionTitle + ': ' + minVal + ' \u2014 ' + maxVal + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg viewBox="0 0 13 13" fill="none"><path d="M1 1L12 12M12 1L1 12" stroke="currentColor" stroke-linecap="round"/></svg></button>';
+    tag.innerHTML = sectionTitle + ': ' + minVal + ' \u2014 ' + maxVal + ' <button class="filter-tag__remove" aria-label="\u0423\u0434\u0430\u043B\u0438\u0442\u044C"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.69111 8.64089L8.64085 3.69115L9.30889 4.35919L4.35915 9.30893L3.69111 8.64089ZM3.6928 4.3575L4.35746 3.69284L9.3072 8.64258L8.64254 9.30724L3.6928 4.3575Z" fill="#212121"/></svg></button>';
     if (resetBtn) {
       resetBtn.parentNode.insertBefore(tag, resetBtn);
     } else {
