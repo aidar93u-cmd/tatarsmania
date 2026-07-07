@@ -2346,10 +2346,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (resultsHeader && queryText && resultsCount) {
 			if (q) {
 				queryText.textContent = q
-				var word = 'городов'
-				if (matchCount === 1) word = 'город'
-				if (matchCount >= 2 && matchCount <= 4) word = 'города'
-				resultsCount.textContent = matchCount + ' ' + word
+				var label = container.querySelector('#cityResultsLabel')
+				if (matchCount === 0) {
+					if (label) label.textContent = '\u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e'
+					resultsCount.textContent = '\u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043f\u0440\u043e\u0441'
+					resultsCount.style.color = 'var(--copper)'
+				} else {
+					if (label) label.textContent = '\u043d\u0430\u0439\u0434\u0435\u043d\u043e:'
+					var word = '\u0433\u043e\u0440\u043e\u0434\u043e\u0432'
+					if (matchCount === 1) word = '\u0433\u043e\u0440\u043e\u0434'
+					if (matchCount >= 2 && matchCount <= 4) word = '\u0433\u043e\u0440\u043e\u0434\u0430'
+					resultsCount.textContent = matchCount + ' ' + word
+					resultsCount.style.color = ''
+				}
 				resultsHeader.style.display = 'flex'
 				if (tips) tips.style.display = 'none'
 				if (popularLabel) popularLabel.style.display = 'none'
