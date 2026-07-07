@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="css/lib/aos.css" />
     <link rel="stylesheet" href="css/lib/fancybox.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=7" />
-    <link rel="stylesheet" href="css/header.css?v=7" />
-    <link rel="stylesheet" href="css/footer.css?v=7" />
-    <link rel="stylesheet" href="css/production.css?v=7" />
-    <link rel="stylesheet" href="css/about.css?v=7" />
-    <link rel="stylesheet" href="css/mega-menu.css?v=7" />
+    <link rel="stylesheet" href="css/style.css?v=8" />
+    <link rel="stylesheet" href="css/header.css?v=8" />
+    <link rel="stylesheet" href="css/footer.css?v=8" />
+    <link rel="stylesheet" href="css/production.css?v=8" />
+    <link rel="stylesheet" href="css/about.css?v=8" />
+    <link rel="stylesheet" href="css/mega-menu.css?v=8" />
 </head>
 
 <body class="page about-page">
@@ -196,13 +196,13 @@
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-menu__inner">
                 <div class="mobile-menu__bar">
-                    <button class="mobile-menu__back" id="mobileMenuBack" aria-label="Назад" data-label="Назад">
+                    <button class="mobile-menu__back" id="mobileMenuBack" aria-label="Назад" data-label="Назад" style="display: block;">
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path d="M8.5 1.5L3.5 6.5L8.5 11.5" stroke="currentColor" stroke-width="0.8"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                    </button>
-                    <span class="mobile-menu__title" id="mobileMenuTitle">Меню</span>
+                    <span class="mobile-menu__title" id="mobileMenuTitle">Меню</span></button>
+                    
                     <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть" data-label="Закрыть">
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)"
@@ -321,18 +321,6 @@
                                         <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
                                     </svg>
                                 </button>
-                            </div>
-                        </div>
-
-                        <!-- Level 2 — Комнаты -->
-                        <div class="mobile-menu__level" data-level="rooms" data-title="Комнаты">
-                            <div class="mobile-menu__nav">
-                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Гостиная</span></a>
-                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Спальня</span></a>
-                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Кухня</span></a>
-                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Кабинет</span></a>
-                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Детская</span></a>
-                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Прихожая</span></a>
                             </div>
                         </div>
 
@@ -637,6 +625,18 @@
                             </div>
                         </div>
 
+                        <!-- Level 2 — Комнаты -->
+                        <div class="mobile-menu__level" data-level="rooms" data-title="Комнаты">
+                            <div class="mobile-menu__nav">
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Гостиная</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Спальня</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Кухня</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Кабинет</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Детская</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Прихожая</span></a>
+                            </div>
+                        </div>
+
                         <!-- Sub-level: Коллекции -->
                         <div class="mobile-menu__level" data-level="collections2" data-title="Коллекции">
                             <div class="mobile-menu__nav">
@@ -750,7 +750,7 @@
                 <!-- Body — 70% -->
                 <div class="mega-menu__content-body">
                         <!-- Own production — Type 1 layout -->
-                        <div class="mega-menu__panel mega-menu__panel--type1 mega-menu__type1-sidebar" id="panel-own-production">
+                        <div class="mega-menu__panel mega-menu__panel--type1" id="panel-own-production">
                             <div class="mega-menu__type1-sidebar">
                                 <a href="catalog-listing.html" class="mega-menu__type1-sidebar-item mega-menu__link has-children"
                                     data-l3="own-sofas"><span>Диваны</span></a>
@@ -838,7 +838,7 @@
                         </div>
 
                     <!-- European furniture — Type 1 layout -->
-                    <div class="mega-menu__panel mega-menu__panel--type1 mega-menu__type1-sidebar" id="panel-european">
+                    <div class="mega-menu__panel mega-menu__panel--type1" id="panel-european">
                         <div class="mega-menu__type1-sidebar">
                             <a href="catalog-listing.html" class="mega-menu__type1-sidebar-item mega-menu__link has-children"
                                 data-l3="euro-sofas"><span>Диваны</span></a>
@@ -1938,7 +1938,7 @@
                 <div class="footer-bottom__dev">
                     <span class="body-l">Разработка сайта</span>
                     <a href="https://markweber.ru" class="footer-bottom__dev-logo">
-                        <img src="assets/images/markweber.svg" alt="">
+                        <img src="assets/images/mv.svg" alt="">
                     </a>
                 </div>
             </div>
@@ -1987,8 +1987,8 @@
     <script src="js/lib/fancybox.umd.js"></script>
     <script src="js/lib/validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=7"></script>
-    <script src="js/menu.js?v=7"></script>
+    <script src="js/main.js?v=8"></script>
+    <script src="js/menu.js?v=8"></script>
 </body>
 
 </html>
