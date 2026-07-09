@@ -1,0 +1,95 @@
+/* ===== LOYALTY BANNERS ===== */
+.loyalty-banner {
+    position: relative;
+    width: 100%;
+    min-height: 12.625rem;
+    background-size: cover;
+    background-position: center;
+    padding: var(--space-30);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-bottom: var(--space-6);
+    justify-content: space-between;
+}
+
+.loyalty-banner--first {
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+}
+
+.loyalty-banner__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 100%);
+    opacity: .6;
+    z-index: 1;
+}
+
+.loyalty-banner--second {
+    background: var(--gray-lighter);
+    color: var(--graphite);
+    margin-bottom: var(--space-30);
+}
+
+.loyalty-banner__label {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    margin-bottom: var(--space-16);
+}
+
+.loyalty-banner__label--copper {
+    color: var(--copper);
+}
+
+.loyalty-banner__content {
+    position: relative;
+    z-index: 2;
+    max-width: 23.6875rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+}
+
+.loyalty-banner__title {
+    color: inherit;
+}
+
+.loyalty-banner__desc {
+    color: inherit;
+    opacity: .8;
+    margin: 0;
+}
+
+.loyalty-banner__decor {
+    position: absolute;
+    right: var(--space-30);
+    bottom: calc(-1 * var(--space-20));
+    font-size: 16.25rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--gray-dark-line);
+    pointer-events: none;
+    user-select: none;
+    font-family: var(--font3);
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .loyalty-banner {
+        padding: 24px var(--gutter);
+        min-height: 160px;
+    }
+
+    .loyalty-banner__content {
+        max-width: 100%;
+    }
+
+    .loyalty-banner__decor {
+        font-size: 120px;
+    }
+
+}

@@ -1,0 +1,323 @@
+/* ===== CONTACTS INFO ===== */
+.contacts-info {
+
+}
+
+.contacts-info__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-32);
+}
+
+.contacts-info__socials {
+    display: flex;
+    gap: var(--space-26);
+    align-items: center;
+}
+
+.contacts-info__social-link {
+    color: var(--graphite);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.contacts-info__social-link:hover {
+    opacity: 0.6;
+}
+
+.contacts-info__row {
+    display: flex;
+    gap: var(--space-32);
+    align-items: center;
+}
+
+.contacts-info__phone,
+.contacts-info__email {
+    color: var(--graphite);
+    text-decoration: none;
+    transition: opacity 0.3s;
+    font-family: var(--font3);
+    text-transform: uppercase;
+
+}
+
+.contacts-info__phone:hover,
+.contacts-info__email:hover {
+    opacity: 0.6;
+}
+
+.contacts-info__captions {
+    display: flex;
+    gap: var(--space-26);
+    align-items: center;
+    color: var(--graphite);
+}
+
+/* ===== CONTACTS FORM ===== */
+.contacts-form {
+    padding-top 0;
+}
+
+.contacts-form--partnership .contacts-form__inner {
+    aspect-ratio: auto;
+    min-height: auto;
+}
+
+.contacts-form__inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1440 / 255;
+    min-height: 15.9375rem;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.contacts-form__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+}
+
+.contacts-form__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: var(--space-44);
+    color: #fff;
+}
+
+.contacts-form__texts {
+    margin-bottom: var(--space-40);
+}
+
+.contacts-form__title {
+    color: #fff;
+    margin-bottom: var(--space-16);
+}
+
+.contacts-form__desc {
+    color: #fff;
+}
+
+.contacts-form__inputs {
+    display: flex;
+    gap: var(--space-6);
+    margin-bottom: var(--space-16);
+}
+
+.contacts-form__field {
+    flex: 1;
+    position: relative;
+}
+
+.contacts-form__error {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    left: 0;
+    font-size: var(--caption-size);
+    color: #ff6b6b;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.contacts-form__error--visible {
+    opacity: 1;
+}
+
+.contacts-form__success {
+    display: block;
+    color: #4caf50;
+    margin-top: var(--space-8);
+    font-size: var(--body-size);
+}
+
+.contacts-form__input {
+    width: 100%;
+    height: var(--space-46);
+    padding: var(--space-12) var(--space-16);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(3.125rem);
+    border: var(--space-1) solid transparent;
+    color: #fff;
+    outline: none;
+}
+
+.contacts-form__input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.contacts-form__submit {
+    flex: 1;
+}
+
+
+
+.contacts-form__input.is-valid {
+	border-color: #4caf50;
+}
+
+.contacts-form__input.is-invalid {
+	border-color: #ff6b6b;
+}
+
+.contacts-form__checkbox {
+    display: flex;
+    gap: var(--space-10);
+    cursor: pointer;
+}
+
+.contacts-form__checkbox input {
+    display: none;
+}
+
+.contacts-form__checkbox-mark {
+    width: var(--space-12);
+    height: var(--space-12);
+    background: #fff;
+    box-shadow: 0 0px 1px #fff;
+    flex-shrink: 0;
+}
+
+.contacts-form__checkbox input:checked + .contacts-form__checkbox-mark {
+    background: #333;
+    border: var(--space-2) solid #fff;
+}
+
+.contacts-form__checkbox-text {
+    color: #fff;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 992px) {
+    .contacts-form__inputs {
+        flex-wrap: wrap;
+    }
+
+    .contacts-form__field {
+        flex: 1 1 calc(50% - 3px);
+        min-width: 0;
+    }
+
+    .contacts-form__submit {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contacts-info__row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .contacts-info__phone,
+    .contacts-info__email {
+        font-size: 24px;
+    }
+
+        .contacts-info__captions {
+        flex-direction: column;
+        gap: 10px;
+        text-align: left;
+        align-items: flex-start;
+    }
+    .contacts-form__inner {
+        aspect-ratio: auto;
+        min-height: auto;
+        background: #fff !important;
+        background-image: none !important;
+    }
+
+    .contacts-form__gradient {
+        display: none;
+    }
+
+    .contacts-form__content {
+        padding: 30px;
+        color: var(--graphite);
+    }
+
+    .contacts-form__title {
+        font-size: 18px;
+        color: var(--graphite);
+    }
+
+    .contacts-form__desc {
+        color: var(--graphite);
+    }
+
+    .contacts-form__input {
+        background: var(--gray-bg-light);
+        backdrop-filter: none;
+        color: var(--graphite);
+        border: 1px solid transparent;
+    }
+
+    .contacts-form__input::placeholder {
+        color: rgba(33,33,33,0.4);
+    }
+
+    .contacts-form__checkbox-text {
+        color: var(--graphite);
+        font-size: 12px;
+    }
+
+    .contacts-form__checkbox-mark {
+        background: var(--graphite);
+    }
+
+    .contacts-form__submit {
+        background: var(--graphite);
+        color: #fff;
+    }
+
+    .contacts-form__submit:hover {
+        color: #fff;
+    }
+
+    .contacts-form__submit svg path {
+        fill: #fff;
+    }
+
+    .contacts-form__submit:hover svg path {
+        fill: #fff;
+    }
+
+    .contacts-form__inputs {
+        flex-direction: column;
+    }
+
+    .contacts-form__field {
+        flex: none;
+    }
+    .contacts-info__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 26px;
+        text-align: left;
+    }
+    .contacts-info__row {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+.contacts-form__checkbox-mark {
+    width: 18px;
+    height: 18px;
+    background: var(--graphite);
+    border: 1px solid var(--graphite);
+    flex-shrink: 0;
+}
+
+.contacts-form__checkbox input:checked + .contacts-form__checkbox-mark {
+    background: #333;
+    border: var(--space-2) solid #fff;
+}
+}
