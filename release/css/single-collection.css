@@ -1,0 +1,115 @@
+/* ============================================
+   AURA COLLECTION PAGE
+   ============================================ */
+
+/* --- Products Grid --- */
+.single-collection-products {
+
+}
+
+.single-collection-products__title {
+  text-align: center;
+  margin-bottom: var(--space-70);
+}
+
+.single-collection-products__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-20);
+}
+
+@media (max-width: 1200px) {
+  .single-collection-products__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .single-collection-products__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+}
+
+/* --- Other Collections --- */
+.carousel-section.collections .carousel-section__pagination.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-10);
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  width: auto;
+  margin-top: 0;
+}
+
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--graphite);
+  position: relative;
+}
+
+.collection-card__image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.collection-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s;
+}
+
+.collection-card:hover .collection-card__image img {
+  transform: scale(1.08);
+}
+
+.collection-card__name {
+  display: block;
+  padding: var(--space-28) 0;
+  font-family: var(--font-family);
+  font-size: var(--body-l-size);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: opacity 0.4s;
+}
+
+.collection-card:hover .collection-card__name {
+  opacity: 0.6;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .single-collection-products__title {
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .carousel-section.collections .carousel-section__header-row {
+    padding-bottom: 30px;
+  }
+
+  .carousel-section.collections .carousel-section__nav {
+    display: none;
+  }
+
+  .carousel-section.collections .carousel-section__swiper {
+    overflow: visible;
+  }
+
+  .collection-card__image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .collection-card__name {
+        padding: 20px 0;
+        font-size: 14px;
+  }
+}
