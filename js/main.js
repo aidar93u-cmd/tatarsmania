@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 
 	// ===== AOS =====
+	if (typeof fixShowroomCards === 'function') fixShowroomCards()
 	if (typeof AOS !== 'undefined') {
 		AOS.init({
 			duration: 500,
@@ -1489,6 +1490,25 @@ document.addEventListener('DOMContentLoaded', function () {
 					'showroom-card__status showroom-card__status--closed'
 				statusEl.textContent = 'Закрыто'
 			}
+		})
+	}
+
+	function fixShowroomCards() {
+		document.querySelectorAll('.showroom-card').forEach(function (card) {
+			var lat = card.getAttribute('data-lat')
+			var lng = card.getAttribute('data-lng')
+			if (!lat || !lng) return
+
+			var btn = card.querySelector('.btn-yandex')
+			if (!btn) return
+
+			var expectedUrl = 'https://yandex.ru/maps/?rtext=~' + lat + ',' + lng
+			if (btn.getAttribute('href') !== expectedUrl) {
+				btn.setAttribute('href', expectedUrl)
+			}
+
+			btn.removeAttribute('data-aos')
+			btn.removeAttribute('data-aos-delay')
 		})
 	}
 

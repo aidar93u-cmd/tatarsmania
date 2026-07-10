@@ -1152,8 +1152,11 @@ body.page main{
 	inset: 0;
 	background: rgba(33, 33, 33, 0.3);
 }
-.swiper-wrapper {
-    /*height: auto;*/
+.promotions .carousel-section__pagination{
+	display: none;
+}
+.collections .swiper-wrapper {
+    height: auto;
 }
 .promotions .container {
 	position: relative;
@@ -1313,6 +1316,7 @@ body.page main{
 	margin-top: auto;
 	max-width: 18.75rem;
 }
+.catalog-cat-s .carousel-section__nav,
 .promotions .carousel-section__nav {
 	display: none;
 }
@@ -1574,6 +1578,7 @@ section.footer-banner {
 	border-bottom: none;
 }
 
+
 .showroom-card__info {
 	display: flex;
 	flex-direction: column;
@@ -1656,8 +1661,8 @@ section.footer-banner {
 	min-height: 44.375rem;
 }
 
-#showroomMap [class*='-ground-pane'] {
-	filter: grayscale(1);
+#showroomMap .ymaps3--tile-layer {
+    filter: grayscale(1);
 }
 
 /* ==========================
@@ -1678,13 +1683,20 @@ section.footer-banner {
 .custom-balloon {
 	position: absolute;
 	z-index: 10;
-	width: 240px;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-18);
+	padding: var(--space-14);
 	background: #fff;
-	border-radius: 12px;
-	padding: 16px 20px;
-	box-shadow: 0 8px 30px rgba(0, 0, 0, .18);
 	font-family: var(--font-family);
-	transform: translate(-50%, calc(-100% - 18px));
+	width: 11.6875rem;
+	box-shadow:
+		0 1px 2px rgba(0,0,0,0.05),
+		0 4px 4px rgba(0,0,0,0.04),
+		0 10px 6px rgba(0,0,0,0.03),
+		0 17px 7px rgba(0,0,0,0.01),
+		0 27px 8px rgba(0,0,0,0);
+	transform: translate(-45%, calc(-100% - var(--space-44)));
 	opacity: 0;
 	visibility: hidden;
 	transition: .2s ease;
@@ -1700,165 +1712,31 @@ section.footer-banner {
 	content: "";
 	position: absolute;
 	left: 50%;
-	bottom: -7px;
-	width: 14px;
-	height: 14px;
-	background: #fff;
-	transform: translateX(-50%) rotate(45deg);
+	bottom: calc(-1 * var(--space-6));
+	margin-left: calc(-1 * var(--space-7));
+	width: 0;
+	height: 0;
+	border-left: var(--space-7) solid transparent;
+	border-right: var(--space-7) solid transparent;
+	border-top: var(--space-7) solid #fff;
 }
 
-.custom-balloon h3 {
-	margin: 0 0 12px;
-	font-size: 14px;
-	text-transform: uppercase;
-	border-bottom: 1px solid #eee;
-	padding-bottom: 12px;
-}
-
-.custom-balloon p {
-	margin: 0 0 8px;
-	font-size: 14px;
-	line-height: 1.4;
-	color: #333;
-}
-
-.custom-balloon a {
-	color: #005bff;
-	text-decoration: none;
-}
-
-/* ==========================
-   Yandex balloon reset
-========================== */
-
-.ymaps-2-1-79-balloon__layout {
-	background: transparent !important;
-	box-shadow: none !important;
-}
-
-.ymaps-2-1-79-balloon__content {
-	padding: 0 !important;
-	margin: 0 !important;
-	background: transparent !important;
-}
-
-.ymaps-2-1-79-balloon__tail {
-	display: none !important;
-}
-
-.ymaps-2-1-79-balloon__close {
-	display: none !important;
-}
-
-.ymaps-2-1-79-balloon {
-	margin: 0 !important;
-}
-
-
-/* ==========================
-   Custom balloon
-========================== */
-
-.map-balloon {
-	position: relative;
-	width: 240px;
-	background: #fff;
-	border-radius: var(--space-8);
-	overflow: visible;
-	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-.map-balloon {
-	position: relative;
-	z-index: 1;
-}
-.ymaps-2-1-79-balloon__content {
-	overflow: visible !important;
-}
-/* Arrow */
-.ymaps-2-1-79-balloon {
-	transform: translateY(-30px);
-}
-.map-balloon::after {
-	content: "";
-	position: absolute;
-
-	left: 50%;
-	bottom: -8px;
-
-	width: 16px;
-	height: 16px;
-
-	background: #fff;
-
-	transform: translateX(-50%) rotate(45deg);
-
-	z-index: 0;
-}
-
-
-/* ==========================
-   Header
-========================== */
-
-.map-balloon__header {
-	padding: var(--space-16) var(--space-20);
-	border-bottom: var(--space-1) solid var(--gray-light);
-}
-
-.map-balloon__name {
-	margin: 0;
-
-	font-family: var(--font3);
-	font-size: var(--body-m-size);
-	font-weight: 500;
-
-	color: var(--graphite);
-	text-transform: uppercase;
-}
-
-
-/* ==========================
-   Body
-========================== */
-
-.map-balloon__body {
+.map-balloon__content {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-12);
-
-	padding: var(--space-14);
-
-	font-family: var(--font-family);
 }
 
-
-.map-balloon__row {
-	display: flex;
-	align-items: flex-start;
-
-	gap: var(--space-8);
-
-	font-size: var(--body-base-size);
-	line-height: 140%;
-
+.map-balloon__address {
+	font-size: var(--space-12);
+	line-height: 120%;
 	color: var(--graphite);
 }
-
-
-.map-balloon__row--address {
-	flex-direction: column;
-	gap: 2px;
-}
-
-
-/* ==========================
-   Phone
-========================== */
 
 .map-balloon__phone {
+	font-size: var(--space-12);
 	color: var(--graphite);
 	text-decoration: none;
-
 	transition: color .3s ease;
 }
 
@@ -1866,25 +1744,19 @@ section.footer-banner {
 	color: var(--copper);
 }
 
-
-/* ==========================
-   Status
-========================== */
-
-.map-balloon__row--status {
-	font-size: var(--caption-size);
-	font-weight: 600;
-
+.map-balloon__status {
+	font-size: var(--space-10);
+	font-weight: 500;
+	line-height: 105%;
+	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 
-
-.map-balloon__row--status span.is-open {
-	color: #27ae60;
+.map-balloon__status.is-open {
+	color: #57aa42;
 }
 
-
-.map-balloon__row--status span.is-close {
+.map-balloon__status.is-close {
 	color: #e74c3c;
 }
 /* Override Leaflet popup default styles */
@@ -2738,6 +2610,7 @@ section.footer-banner {
 		display: flex;
 		flex-wrap: nowrap;
 		gap: 0;
+        height: auto;
 	}
 
 	.featured__right {
@@ -3737,6 +3610,9 @@ section.footer-banner {
 	    width: var(--space-44);
 	    height: var(--space-44);
     }
+		.showrooms__list{
+			min-height: 500px;
+		}
 }
 .project-table {
   max-width: 46rem;

@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="css/lib/fancybox.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=16" />
-    <link rel="stylesheet" href="css/header.css?v=16" />
-    <link rel="stylesheet" href="css/footer.css?v=16" />
-    <link rel="stylesheet" href="css/showrooms.css?v=16" />
+    <link rel="stylesheet" href="css/style.css?v=17" />
+    <link rel="stylesheet" href="css/header.css?v=17" />
+    <link rel="stylesheet" href="css/footer.css?v=17" />
+    <link rel="stylesheet" href="css/showrooms.css?v=17" />
 </head>
 <body class="page showrooms-page">
 
@@ -435,9 +435,9 @@
     <script src="js/lib/validate.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=16"></script>
+    <script src="js/main.js?v=17"></script>
     <script src="js/menu.js"></script>
-    <script src="js/map.js?v=16"></script>
+    <script src="js/map.js?v=17"></script>
         <!-- ===== CITY POPUP ===== -->
     <div id="cityPopup" style="display:none;">
         <div class="city-popup__title">Выберите ваш город</div>
@@ -454,40 +454,42 @@
             <span class="city-popup__results-count" id="cityResultsCount"></span>
         </div>
         <div class="city-popup__popular-label">Например:</div>
-        <div class="city-popup__tips">
+                <div class="city-popup__tips">
+            <button class="city-popup__tip" type="button" data-city="Казань">Казань</button>
             <button class="city-popup__tip" type="button" data-city="Москва">Москва</button>
             <button class="city-popup__tip" type="button" data-city="Санкт-Петербург">Санкт-Петербург</button>
-            <button class="city-popup__tip" type="button" data-city="Казань">Казань</button>
         </div>
-        <div class="city-popup__grid" id="cityGrid">
+                <div class="city-popup__grid" id="cityGrid">
+            <button class="city-popup__item" type="button" data-city="Казань">Казань</button>
             <button class="city-popup__item" type="button" data-city="Москва">Москва</button>
             <button class="city-popup__item" type="button" data-city="Санкт-Петербург">Санкт-Петербург</button>
             <button class="city-popup__item" type="button" data-city="Екатеринбург">Екатеринбург</button>
             <button class="city-popup__item" type="button" data-city="Новосибирск">Новосибирск</button>
-            <button class="city-popup__item" type="button" data-city="Казань">Казань</button>
             <button class="city-popup__item" type="button" data-city="Нижний Новгород">Нижний Новгород</button>
-            <button class="city-popup__item" type="button" data-city="Самара">Самара</button>
+            <button class="city-popup__item" type="button" data-city="Краснодар">Краснодар</button>
+            <button class="city-popup__item" type="button" data-city="Сочи">Сочи</button>
             <button class="city-popup__item" type="button" data-city="Ростов-на-Дону">Ростов-на-Дону</button>
+            <button class="city-popup__item" type="button" data-city="Самара">Самара</button>
             <button class="city-popup__item" type="button" data-city="Уфа">Уфа</button>
+            <button class="city-popup__item" type="button" data-city="Челябинск">Челябинск</button>
             <button class="city-popup__item" type="button" data-city="Омск">Омск</button>
             <button class="city-popup__item" type="button" data-city="Красноярск">Красноярск</button>
-            <button class="city-popup__item" type="button" data-city="Воронеж">Воронеж</button>
             <button class="city-popup__item" type="button" data-city="Пермь">Пермь</button>
+            <button class="city-popup__item" type="button" data-city="Воронеж">Воронеж</button>
             <button class="city-popup__item" type="button" data-city="Волгоград">Волгоград</button>
-            <button class="city-popup__item" type="button" data-city="Краснодар">Краснодар</button>
-            <button class="city-popup__item" type="button" data-city="Саратов">Саратов</button>
             <button class="city-popup__item" type="button" data-city="Тюмень">Тюмень</button>
-            <button class="city-popup__item" type="button" data-city="Ижевск">Ижевск</button>
-            <button class="city-popup__item" type="button" data-city="Барнаул">Барнаул</button>
-            <button class="city-popup__item" type="button" data-city="Ульяновск">Ульяновск</button>
-            <button class="city-popup__item" type="button" data-city="Томск">Томск</button>
-            <button class="city-popup__item" type="button" data-city="Кемерово">Кемерово</button>
-            <button class="city-popup__item" type="button" data-city="Набережные Челны">Набережные Челны</button>
-            <button class="city-popup__item" type="button" data-city="Пенза">Пенза</button>
-            <button class="city-popup__item" type="button" data-city="Рязань">Рязань</button>
-            <button class="city-popup__item" type="button" data-city="Оренбург">Оренбург</button>
-            <button class="city-popup__item" type="button" data-city="Тольятти">Тольятти</button>
+            <button class="city-popup__item" type="button" data-city="Иркутск">Иркутск</button>
+            <button class="city-popup__item" type="button" data-city="Владивосток">Владивосток</button>
+            <button class="city-popup__item" type="button" data-city="Хабаровск">Хабаровск</button>
+            <button class="city-popup__item" type="button" data-city="Калининград">Калининград</button>
+            <button class="city-popup__item" type="button" data-city="Саратов">Саратов</button>
+            <button class="city-popup__item" type="button" data-city="Тула">Тула</button>
             <button class="city-popup__item" type="button" data-city="Ярославль">Ярославль</button>
+            <button class="city-popup__item" type="button" data-city="Рязань">Рязань</button>
+            <button class="city-popup__item" type="button" data-city="Тверь">Тверь</button>
+            <button class="city-popup__item" type="button" data-city="Томск">Томск</button>
+            <button class="city-popup__item" type="button" data-city="Барнаул">Барнаул</button>
+            <button class="city-popup__item" type="button" data-city="Ижевск">Ижевск</button>
         </div>
         <button class="city-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">

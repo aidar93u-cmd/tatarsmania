@@ -1248,16 +1248,19 @@ body.preloader-active {
 
 /* ===== CITY POPUP ===== */
 .city-popup__title {
-	font-family: var(--font3);
-	font-size: 1.5rem;
-	line-height: 120%;
-	color: var(--graphite);
-	margin-bottom: var(--space-30);
+    font-family: var(--font3);
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 120%;
+    /* text-align: center; */
+    color: var(--graphite);
+    margin-bottom: var(--space-30);
+    text-transform: uppercase;
 }
 
 .city-popup__search-wrap {
 	position: relative;
-	margin-bottom: var(--space-30);
+	margin-bottom: var(--space-20);
 }
 
 .city-popup__input {
@@ -1267,7 +1270,7 @@ body.preloader-active {
 	border: none;
 	padding: var(--space-12) var(--space-45) var(--space-12) var(--space-16);
 	font-family: var(--font-family);
-	font-size: var(--body-base-size);
+	font-size: var(--body-l-size);
 	line-height: 120%;
 	color: var(--graphite);
 	outline: none;
@@ -1288,27 +1291,26 @@ body.preloader-active {
 
 .city-popup__popular-label {
 	font-family: var(--font-family);
-	font-size: var(--body-base-size);
+	font-size: var(--body-l-size);
 	line-height: 120%;
 	color: var(--graphite);
-	margin-bottom: var(--space-12);
+	margin-bottom: var(--space-20);
 }
 
 .city-popup__tips {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--space-8);
+	gap: var(--space-6);
 	margin-bottom: var(--space-30);
 }
 
 .city-popup__tip {
-	padding: var(--space-12) var(--space-8);
+	padding: var(--space-8) var(--space-12);
 	border: 1px solid rgba(33, 33, 33, 0.2);
-	border-radius: 4px;
 	background: none;
 	cursor: pointer;
 	font-family: var(--font-family);
-	font-size: var(--caption-size);
+	font-size: var(--body-l-size);
 	line-height: 120%;
 	color: var(--graphite);
 	transition: color 0.2s;
@@ -1331,7 +1333,7 @@ body.preloader-active {
 	padding: 0;
 	font-family: var(--font-family);
 	font-weight: 500;
-	font-size: var(--caption-size);
+	font-size: var(--body-base-size);
 	line-height: 120%;
 	color: var(--graphite);
 	text-align: left;
@@ -1405,10 +1407,10 @@ body.preloader-active {
 	display: flex;
 	justify-content: space-between;
 	font-family: var(--font-family);
-	font-size: var(--caption-size);
+    font-size: var(--body-base-size);
 	line-height: 120%;
 	color: var(--graphite);
-	margin-bottom: var(--space-12);
+	margin-bottom: var(--space-30);
 }
 
 .city-popup__query {

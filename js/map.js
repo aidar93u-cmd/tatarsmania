@@ -8,22 +8,21 @@
 
   function buildBalloonHtml(address, hours, phone, phoneRaw, statusText) {
     return (
-      '<div class="map-balloon">' +
-      '<div class="map-balloon__body">' +
-      '<div class="map-balloon__row map-balloon__row--address"><span>' +
+      '<div class="map-balloon__content">' +
+      '<div class="map-balloon__address"><span>' +
       address +
-      '</span><span>' +
+      '</span><br><span>' +
       hours +
       '</span></div>' +
-      '<div class="map-balloon__row"><a href="tel:' +
+      '<a href="tel:' +
       phoneRaw +
       '" class="map-balloon__phone">' +
       phone +
       '</a></div>' +
-      '<div class="map-balloon__row map-balloon__row--status"><span>' +
+      '<div class="map-balloon__status ' +
+      (statusText === 'Открыто' ? 'is-open' : 'is-close') +
+      '">' +
       statusText +
-      '</span></div>' +
-      '</div>' +
       '</div>'
     )
   }
@@ -81,19 +80,19 @@
     var container = document.getElementById('showroomMap')
     if (!container) return
 
-    var map = new YMap(container, {
+    showroomsMap = new YMap(container, {
       location: {
         center: [49.124, 55.779],
         zoom: 13,
       },
     })
+    showroomsMap.addChild(new YMapDefaultSchemeLayer())
 
-    map.addChild(new YMapDefaultSchemeLayer())
-    map.addChild(new YMapDefaultFeaturesLayer())
+    showroomsMap.addChild(new YMapDefaultFeaturesLayer())
 
     var checkoutMode = document.querySelector('.checkout-delivery__map')
     if (checkoutMode) {
-      window.__checkoutMap = map
+      window.__checkoutMap = showroomsMap
       window.__checkoutMarkers = []
     }
 
@@ -109,7 +108,7 @@
       var balloonHtml = buildBalloonHtml(address, hours, phone, phoneRaw, statusText)
       var markerEl = createMarkerElement(lat, lng, balloonHtml)
       var marker = new YMapMarker({ coordinates: [lng, lat] }, markerEl)
-      map.addChild(marker)
+      showroomsMap.addChild(marker)
 
       if (checkoutMode) {
         window.__checkoutMarkers.push(marker)
@@ -425,8 +424,8 @@
       '<div class="showroom-card__photos">' +
       photoLinks +
       '</div>' +
-      '<a href="' +
-      item.mapsUrl +
+      '<a href="https://yandex.ru/maps/?rtext=~' +
+      item.lat + ',' + item.lng +
       '" target="_blank" class="btn-yandex">' +
       svgPin +
       'ПОСТРОИТЬ МАРШРУТ' +
@@ -435,40 +434,43 @@
     )
   }
 
-  // ---- Render cards ----
-  function renderCards(data) {
-    var html = ''
-    for (var i = 0; i < data.length; i++) {
-      html += buildCardHTML(data[i], i)
-    }
-    listEl.innerHTML = html
-    countEl.textContent = 'Найдено ' + data.length + ' шоурумов'
+  var osInstance = null
 
-    if (typeof OverlayScrollbars !== 'undefined') {
-      var oldOsInst = OverlayScrollbars(listEl)
-      if (oldOsInst) {
-        oldOsInst.destroy()
-      }
-      var osInst = OverlayScrollbars(listEl, {
-        className: 'os-theme-tm',
-        scrollbars: {
-          visibility: 'visible',
-          autoHide: 'never',
-        },
-        overflowBehavior: {
-          x: 'hidden',
-          y: 'scroll',
-        },
-      })
-      if (osInst) {
-        var hostEl = osInst.getElements().host
-        if (hostEl) hostEl.style.maxHeight = '44.375rem'
-      }
+  function initOverlayScrollbars() {
+    if (typeof OverlayScrollbars === 'undefined') return
+    osInstance = OverlayScrollbars(listEl, {
+      className: 'os-theme-tm',
+      scrollbars: {
+        visibility: 'visible',
+        autoHide: 'never',
+      },
+      overflowBehavior: {
+        x: 'hidden',
+        y: 'scroll',
+      },
+    })
+    if (osInstance) {
+      var hostEl = osInstance.getElements().host
+      if (hostEl) hostEl.style.maxHeight = '44.375rem'
     }
+  }
 
-    if (window.updateShowroomStatus) {
-      window.updateShowroomStatus()
+  // ---- Filter cards by city (toggle display) ----
+  function filterCards(city) {
+    var cards = listEl.querySelectorAll('.showroom-card')
+    var visibleCount = 0
+    for (var i = 0; i < cards.length; i++) {
+      var cardCity = cards[i].getAttribute('data-city')
+      if (city === 'all' || cardCity === city) {
+        cards[i].style.display = ''
+        visibleCount++
+      } else {
+        cards[i].style.display = 'none'
+      }
     }
+    countEl.textContent = 'Найдено ' + visibleCount + ' шоурумов'
+    if (osInstance) osInstance.update()
+    if (window.updateShowroomStatus) window.updateShowroomStatus()
   }
 
   // ---- Tab switching ----
@@ -486,23 +488,54 @@
       activeTab.classList.add('showrooms-tabs__btn--active')
     }
 
-    var filtered
-    if (city === 'all') {
-      filtered = pageData
-    } else {
-      filtered = []
-      for (var j = 0; j < pageData.length; j++) {
-        if (pageData[j].city === city) {
-          filtered.push(pageData[j])
-        }
-      }
-    }
-
-    renderCards(filtered)
+    filterCards(city)
     updateMapMarkers(city)
 
     if (window.AOS) {
       AOS.refresh()
+    }
+  }
+
+  // ---- Skeleton → Content ----
+  function showContent() {
+    var html = ''
+    for (var i = 0; i < pageData.length; i++) {
+      html += buildCardHTML(pageData[i], i)
+    }
+    listEl.innerHTML = html
+    countEl.textContent = 'Найдено ' + pageData.length + ' шоурумов'
+    initOverlayScrollbars()
+
+    switchTab('all')
+
+    skeletonEl.style.transition = 'opacity 0.5s ease-out'
+    skeletonEl.style.opacity = '0'
+
+    setTimeout(function () {
+      skeletonEl.style.display = 'none'
+      sectionEl.style.display = 'block'
+      initShowroomsMap()
+    }, 500)
+  }
+
+  function panToCard(lat, lng) {
+    if (!showroomsMap) return
+
+    showroomsMap.update({
+      location: {
+        center: [lng, lat],
+        zoom: 15,
+      },
+    })
+
+    document.querySelectorAll('.custom-balloon.is-visible').forEach(function (b) {
+      b.classList.remove('is-visible')
+    })
+
+    var markerEl = document.querySelector('.marker[data-lat="' + lat + '"][data-lng="' + lng + '"]')
+    if (markerEl) {
+      var balloon = markerEl.querySelector('.custom-balloon')
+      if (balloon) balloon.classList.add('is-visible')
     }
   }
 
@@ -514,20 +547,6 @@
         switchTab(this.dataset.city)
       })
     }
-  }
-
-  // ---- Skeleton → Content ----
-  function showContent() {
-    switchTab('all')
-
-    skeletonEl.style.transition = 'opacity 0.5s ease-out'
-    skeletonEl.style.opacity = '0'
-
-    setTimeout(function () {
-      skeletonEl.style.display = 'none'
-      sectionEl.style.display = 'block'
-      initShowroomsMap()
-    }, 500)
   }
 
   // ---- Showrooms Page Map (v3) ----
@@ -590,6 +609,8 @@
   function createMarkerElement(lat, lng, balloonHtml) {
     var el = document.createElement('div')
     el.className = 'marker'
+    el.setAttribute('data-lat', lat)
+    el.setAttribute('data-lng', lng)
     el.innerHTML =
       '<div class="marker__icon">' + pinSvg + '</div>' +
       '<div class="custom-balloon">' + balloonHtml + '</div>'
@@ -602,9 +623,39 @@
         }
       })
       el.querySelector('.custom-balloon').classList.toggle('is-visible')
+
+      if (showroomsMap) {
+        showroomsMap.update({
+          location: {
+            center: [lng, lat],
+            zoom: 15,
+          },
+        })
+      }
+
+      scrollToCard(lat, lng)
     })
 
     return el
+  }
+
+  function scrollToCard(lat, lng) {
+    var cards = listEl.querySelectorAll('.showroom-card')
+    for (var i = 0; i < cards.length; i++) {
+      var cLat = parseFloat(cards[i].getAttribute('data-lat'))
+      var cLng = parseFloat(cards[i].getAttribute('data-lng'))
+      if (cLat === lat && cLng === lng) {
+        if (typeof OverlayScrollbars !== 'undefined') {
+          var osInst = OverlayScrollbars(listEl)
+          if (osInst) {
+            var viewport = osInst.getElements().viewport
+            var scrollY = cards[i].offsetTop - (viewport.clientHeight - cards[i].offsetHeight) / 2
+            osInst.scroll({ y: scrollY }, 400)
+          }
+        }
+        break
+      }
+    }
   }
 
   var activeMapMarkers = []
@@ -670,5 +721,16 @@
         initSimpleMap()
       })
     }
+
+    document.addEventListener('click', function (e) {
+      var card = e.target.closest('.showroom-card')
+      if (card && listEl && listEl.contains(card)) {
+        var lat = parseFloat(card.getAttribute('data-lat'))
+        var lng = parseFloat(card.getAttribute('data-lng'))
+        if (!isNaN(lat) && !isNaN(lng)) {
+          panToCard(lat, lng)
+        }
+      }
+    })
   })
 })()

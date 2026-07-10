@@ -61,3 +61,6 @@ test-results/
 
 # deploy tracker
 .deployed
+
+# release artifacts
+release/
