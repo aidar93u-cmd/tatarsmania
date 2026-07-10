@@ -39,6 +39,7 @@
 
 /* ===== CATEGORIES S ===== */
 .catalog-cat-s {
+    margin-top: var(--space-16)
 }
 
 .catalog-cat-s__title {
@@ -56,7 +57,7 @@
     display: grid;
     grid-template-columns: repeat(4, 22rem);
     gap: var(--space-6);
-    margin-bottom: var(--space-70);
+    margin-bottom: var(--space-60);
 }
 
 .cat-card-s {
@@ -75,9 +76,11 @@
     transform: scale(1.03);
 }
 .catalog-cat-s__pagination {
-    padding: var(--space-20) 0 var(--space-30);
+ 
 }
-
+.collections{    
+    margin-top: var(--space-16);
+}
 .catalog-cat-s__pagination .carousel-section__dot {
     background-color: rgba(33, 33, 33, 0.2);
 }
