@@ -1,6 +1,8 @@
 /* ===== ACCOUNT PAGE ===== */
 .account {
     background: var(--gray-light);
+    overflow: visible !important;
+    transform: none !important;
 }
 
 .account__inner {
@@ -12,6 +14,8 @@
 
 /* ===== Account Sidebar Nav ===== */
 .account__sidebar {
+    position: sticky;
+    top: 200px;
     align-self: start;
 }
 
@@ -605,7 +609,7 @@
     width: var(--space-12);
     height: var(--space-12);
     flex-shrink: 0;
-    margin-top: var(--space-1);
+    margin-top: 1px;
     background: var(--white);
     border: 1px solid rgba(33, 33, 33, 0.2);
 }
@@ -1248,7 +1252,7 @@
     z-index: 10;
     min-width: 11.25rem;
     background: #fff;
-    border: var(--space-1) solid #e5e5e5;
+    border: 1px solid #e5e5e5;
     box-shadow: 0 var(--space-4) var(--space-12) rgba(0, 0, 0, 0.08);
     padding: 0;
 }
@@ -1267,7 +1271,7 @@
     color: var(--graphite);
     background: none;
     border: none;
-    border-bottom: var(--space-1) solid var(--gray-dark-line);
+    border-bottom: 1px solid var(--gray-dark-line);
     cursor: pointer;
     text-align: left;
     transition: background 0.4s;
@@ -1557,25 +1561,15 @@
 
     .orders__pagination {
         margin-top: var(--space-24);
-        gap: var(--space-12);
     }
 
-    .orders__pagination-info {
-        font-size: 0.75rem;
-    }
-
-    .orders__load-more {
+    .orders__pagination .pagination__load-more {
         width: 100%;
         justify-content: center;
     }
 
-    .orders__page-link {
-        width: var(--space-32);
-        height: var(--space-32);
-        font-size: 0.8125rem;
-    }
-
-    .orders__page-arrow {
+    .orders__pagination .pagination__link,
+    .orders__pagination .pagination__arrow {
         width: var(--space-32);
         height: var(--space-32);
     }
@@ -1592,17 +1586,12 @@
         height: 4.375rem;
     }
 
-    .orders__page-nav {
+    .orders__pagination .pagination__nav {
         gap: var(--space-4);
     }
 
-    .orders__page-link {
-        width: var(--space-28);
-        height: var(--space-28);
-        font-size: 0.75rem;
-    }
-
-    .orders__page-arrow {
+    .orders__pagination .pagination__link,
+    .orders__pagination .pagination__arrow {
         width: var(--space-28);
         height: var(--space-28);
     }
@@ -1965,82 +1954,17 @@
 
 /* ===== Orders Pagination ===== */
 .orders__pagination {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-16);
     margin-top: var(--space-40);
 }
 
-.orders__pagination-info {
-    font-size: var(--body-base-size);
-    color: #787878;
-}
-
-.orders__load-more {
-    padding: var(--space-10) var(--space-32);
-}
-
-.orders__page-nav {
-    display: flex;
-    align-items: center;
+.orders__pagination .pagination__nav {
     gap: var(--space-8);
 }
 
-.orders__page-link {
+.orders__pagination .pagination__link,
+.orders__pagination .pagination__arrow {
     width: var(--space-36);
     height: var(--space-36);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--body-l-size);
-    color: var(--graphite);
-    font-weight: 500;
-    text-decoration: none;
-    line-height: 0.9375rem;
-    border-radius: 3.125rem;
-    transition: background 0.4s, color 0.4s;
-}
-
-.orders__page-link--active {
-    background: #ededed;
-    color: var(--graphite);
-}
-
-.orders__page-link:hover {
-    background: #ededed;
-    color: var(--graphite);
-}
-
-.orders__page-ellipsis {
-    color: #999;
-    padding: 0 var(--space-4);
-}
-
-.orders__page-arrow {
-    width: var(--space-36);
-    height: var(--space-36);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background: none;
-    cursor: pointer;
-    border-radius: 3.125rem;
-    transition: background 0.4s, opacity 0.3s;
-}
-
-.orders__page-arrow:hover {
-    background: #ededed;
-}
-
-.orders__page-arrow svg {
-    display: block;
-}
-
-.orders__page-arrow--disabled {
-    opacity: 0.3;
-    pointer-events: none;
 }
 
 /* ===== Orders Skeleton ===== */
@@ -2562,7 +2486,7 @@
 .logout-modal__cancel {
     background: transparent;
     color: var(--graphite);
-    border: var(--space-1) solid var(--graphite);
+    border: 1px solid var(--graphite);
 }
 
 .logout-modal__cancel:hover {

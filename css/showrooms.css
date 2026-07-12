@@ -60,7 +60,7 @@
 }
 
 .showrooms-tabs__line {
-    height: var(--space-1);
+    height: 1px;
     background-color: var(--gray-dark-line);
     margin: var(--space-20) 0;
 }

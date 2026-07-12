@@ -241,6 +241,7 @@
 
 .production-principles .carousel-section__grid {
     grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 0;
 }
 
 @media (max-width: 992px) {
@@ -342,19 +343,20 @@
 
 .production-accordion__list {
     margin: 0 auto;
-    border-top: 1px solid var(--gray-dark-line);
 }
 
 .production-accordion__item {
     border-bottom: 1px solid var(--gray-dark-line);
 }
-
+.production-photos .carousel-section__header-row{
+    display: none;
+}
 .production-accordion__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: var(--space-15) var(--space-25);
+    padding: var(--space-24) var(--space-20);
     gap: var(--space-42);
     cursor: pointer;
 }

@@ -115,15 +115,4 @@
         onSortSelect(sortKey, label, option)
     })
 
-    var pages = document.querySelectorAll('.collections-grid__page:not(.collections-grid__page--disabled)')
-
-    pages.forEach(function (page) {
-        page.addEventListener('click', function () {
-            pages.forEach(function (p) {
-                p.classList.remove('collections-grid__page--current')
-            })
-            page.classList.add('collections-grid__page--current')
-        })
-    })
-
 })

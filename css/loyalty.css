@@ -22,15 +22,14 @@
 .loyalty-banner__gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 100%);
-    opacity: .6;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
     z-index: 1;
 }
 
 .loyalty-banner--second {
     background: var(--gray-lighter);
     color: var(--graphite);
-    margin-bottom: var(--space-30);
+    margin-bottom: var(--space-42);
 }
 
 .loyalty-banner__label {
@@ -47,14 +46,15 @@
 .loyalty-banner__content {
     position: relative;
     z-index: 2;
-    max-width: 23.6875rem;
+    max-width: 20rem;
     display: flex;
     flex-direction: column;
     gap: var(--space-16);
 }
 
-.loyalty-banner__title {
+.page-layout__main .loyalty-banner__title {
     color: inherit;
+    margin-bottom: 0;
 }
 
 .loyalty-banner__desc {
