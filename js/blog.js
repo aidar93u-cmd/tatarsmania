@@ -46,7 +46,7 @@
     var start = (currentPage - 1) * perPage;
     var pageCards = filteredCards.slice(start, start + perPage);
     var totalShown = Math.min(start + perPage, filteredCards.length);
-    var infoEl = document.querySelector('.blog-pagination__info');
+    var infoEl = document.querySelector('.blog-pagination .pagination__info');
     if (infoEl) infoEl.textContent = 'Показано ' + totalShown + ' из ' + filteredCards.length;
     var countEl = document.querySelector('.blog-news__count');
     if (countEl) {
@@ -128,11 +128,11 @@
   // ===== PAGINATION =====
   function updatePagination() {
     var totalPages = Math.ceil(filteredCards.length / perPage);
-    var pagesEl = document.querySelector('.blog-pagination__pages');
-    var loadBtn = document.querySelector('.blog-pagination__load');
-    var prevArrow = document.querySelector('.blog-pagination__arrow--prev');
-    var nextArrow = document.querySelector('.blog-pagination__arrow--next');
-    if (!pagesEl) return;
+    var nav = document.querySelector('.pagination__nav[data-pagination-manual]');
+    var loadBtn = document.querySelector('.pagination__load-more');
+    var prevArrow = document.querySelector('.pagination__arrow--prev');
+    var nextArrow = document.querySelector('.pagination__arrow--next');
+    if (!nav) return;
 
     if (currentPage >= totalPages) {
       if (loadBtn) loadBtn.style.display = 'none';
@@ -141,12 +141,12 @@
     }
 
     if (prevArrow) {
-      if (currentPage <= 1) prevArrow.classList.add('is-disabled');
-      else prevArrow.classList.remove('is-disabled');
+      if (currentPage <= 1) prevArrow.classList.add('pagination__arrow--disabled');
+      else prevArrow.classList.remove('pagination__arrow--disabled');
     }
     if (nextArrow) {
-      if (currentPage >= totalPages) nextArrow.classList.add('is-disabled');
-      else nextArrow.classList.remove('is-disabled');
+      if (currentPage >= totalPages) nextArrow.classList.add('pagination__arrow--disabled');
+      else nextArrow.classList.remove('pagination__arrow--disabled');
     }
 
     var pages = [];
@@ -158,20 +158,33 @@
       }
     }
 
-    pagesEl.innerHTML = '';
+    var node = prevArrow.nextSibling;
+    while (node && node !== nextArrow) {
+      var nextNode = node.nextSibling;
+      node.parentNode.removeChild(node);
+      node = nextNode;
+    }
+
     pages.forEach(function (p) {
-      var btn = document.createElement('button');
-      btn.className = 'blog-pagination__page body';
-      if (p === currentPage) btn.classList.add('is-active');
-      if (p === '...') { btn.textContent = '...'; btn.disabled = true; }
-      else { btn.textContent = p; btn.addEventListener('click', function () { currentPage = p; render(); }); }
-      pagesEl.appendChild(btn);
+      var el;
+      if (p === '...') {
+        el = document.createElement('span');
+        el.className = 'pagination__ellipsis';
+        el.textContent = '...';
+      } else {
+        el = document.createElement('button');
+        el.className = 'pagination__link body-l-strong';
+        if (p === currentPage) el.classList.add('pagination__link--active');
+        el.textContent = p;
+        el.addEventListener('click', function () { currentPage = p; render(); });
+      }
+      nav.insertBefore(el, nextArrow);
     });
   }
 
   // ===== ARROWS =====
-  var prevArrow = document.querySelector('.blog-pagination__arrow--prev');
-  var nextArrow = document.querySelector('.blog-pagination__arrow--next');
+  var prevArrow = document.querySelector('.pagination__arrow--prev');
+  var nextArrow = document.querySelector('.pagination__arrow--next');
   if (prevArrow) {
     prevArrow.addEventListener('click', function () {
       var totalPages = Math.ceil(filteredCards.length / perPage);
@@ -186,7 +199,7 @@
   }
 
   // ===== LOAD MORE =====
-  var loadBtn = document.querySelector('.blog-pagination__load');
+  var loadBtn = document.querySelector('.pagination__load-more');
   if (loadBtn) {
     loadBtn.addEventListener('click', function () {
       var totalPages = Math.ceil(filteredCards.length / perPage);

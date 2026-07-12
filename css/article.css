@@ -10,21 +10,26 @@
 .article-hero__image {
   display: block;
   width: 100%;
-  aspect-ratio: 1428 / 640;
+  aspect-ratio: 1428 / 706;
   object-fit: cover;
 }
 
 /* --- Article Content --- */
 .article-content {
+    font-size: var(--body-l-size);
+    line-height: 120%;
 
 }
 
 /* --- Text sections (narrow container) --- */
+.article-media,
 .single-product-card-section,
 .article-text {
-  margin-bottom: var(--space-75);
+  margin-bottom: var(--space-160);
 }
-
+.article-text .space{
+  height: var(--space-50);
+}
 .article-text:last-child {
   margin-bottom: 0;
 }
@@ -33,13 +38,12 @@
     margin: 0 0 var(--space-20);
 }
 
+.article-text h4,
 .article-text h5 {
-  margin: 0 0 var(--space-44);
+  margin: 0 0 var(--space-40);
 }
 
-.article-text:first-of-type p:first-of-type {
-  margin-bottom: var(--space-72);
-}
+
 
 .article-text ul {
     margin: 0 0 1em;
@@ -48,7 +52,7 @@
 }
 
 .article-text li {
-    margin-bottom: var(--space-28);
+    margin-bottom: var(--space-8);
 }
 
 /* --- Product Card Inline --- */
@@ -116,13 +120,15 @@
 }
 
 
-
+.article-text-blockquote{  
+    margin-bottom: var(--space-70);
+}
 /* --- HR + Blockquote in text sections --- */
 .article-text hr {
   max-width: 46rem;
   margin: 0 auto 0;
   border: none;
-  border-top: var(--space-1) solid var(--graphite);
+  border-top: 1px solid var(--graphite);
 }
 
 .article-text blockquote {
@@ -136,13 +142,15 @@
     padding-left: var(--space-24);
     position: relative;
 }
-
+.article-text blockquote p {
+    margin: 0;
+}
 .article-text blockquote::before {
     content: '';
     position: absolute;
     left: 0;
     height: 100%;
-    width: var(--space-1);
+    width: 1px;
     /* flex-shrink: 0; */
     background: var(--graphite);
     /* align-self: stretch; */
@@ -150,9 +158,7 @@
 
 
 /* --- Media sections (full width) --- */
-.article-media {
-  margin-bottom: var(--space-75);
-}
+
 
 .article-media:last-child {
   margin-bottom: 0;
@@ -262,9 +268,7 @@
     font-size: 14px;
   }
 
-  .article-text:first-of-type p:first-of-type {
-    margin-bottom: 40px;
-  }
+
 
   .article-product {
     margin-bottom: 40px;

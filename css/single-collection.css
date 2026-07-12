@@ -33,15 +33,7 @@
 
 /* --- Other Collections --- */
 .carousel-section.collections .carousel-section__pagination.swiper-pagination {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-10);
-  position: relative;
-  bottom: auto;
-  left: auto;
-  transform: none;
-  width: auto;
-  margin-top: 0;
+
 }
 
 .collection-card {
@@ -72,7 +64,7 @@
 
 .collection-card__name {
   display: block;
-  padding: var(--space-28) 0;
+  padding: var(--space-28) 0 var(--space-16);
   font-family: var(--font-family);
   font-size: var(--body-l-size);
   font-weight: 500;

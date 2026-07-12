@@ -1,4 +1,4 @@
-
+﻿
 <html lang="ru">
 
 <head>
@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="css/lib/aos.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=17" />
-    <link rel="stylesheet" href="css/header.css?v=17" />
-    <link rel="stylesheet" href="css/footer.css?v=17" />
-    <link rel="stylesheet" href="css/product-card.css?v=17" />
-    <link rel="stylesheet" href="css/catalog.css?v=17" />
-    <link rel="stylesheet" href="css/catalog-listing.css?v=17" />
-    <link rel="stylesheet" href="css/product-page.css?v=17" />
+    <link rel="stylesheet" href="css/style.css?v=18" />
+    <link rel="stylesheet" href="css/header.css?v=18" />
+    <link rel="stylesheet" href="css/footer.css?v=18" />
+    <link rel="stylesheet" href="css/product-card.css?v=18" />
+    <link rel="stylesheet" href="css/catalog.css?v=18" />
+    <link rel="stylesheet" href="css/catalog-listing.css?v=18" />
+    <link rel="stylesheet" href="css/product-page.css?v=18" />
     </head>
 
 <body class="page">
@@ -911,7 +911,7 @@
     <section class="product-interior">
         <div class="container product-interior__container">
             <h4 class="product-interior__title" data-aos="fade-up" data-aos-delay="200">Модель в интерьере</h4>
-            <div class="swiper product-interior-swiper" data-aos="fade-up" data-aos-delay="400">
+            <div class="swiper product-interior-swiper product-interior__slider " data-aos="fade-up" data-aos-delay="400">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide product-interior__slide">
                         <img src="assets/images/interier.jpg" alt="VELVET в интерьере 1" loading="lazy" />
@@ -951,7 +951,7 @@
     </section>
 
     <!-- ===== OTHER MODELS (Featured-style Tabs) ===== -->
-    <section class="carousel-section product-other">
+    <section class="carousel-section featured-tabs">
         <div class="container">
             <div class="carousel-section__header-row">
                 <h4 class="carousel-section__title" data-aos="fade-up" data-aos-delay="200">Другие модели</h4>
@@ -1702,6 +1702,241 @@
                                             <div class="product-card--default__image-wrap">
                                                 <div class="product-card--default__image">
                                                     <img class="product-card--default__image-main"
+                                                        src="assets/images/product-1.png" alt="Диван VELVET 180"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-1.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-2.png" data-index="1">
+                                                        <img src="assets/images/product-3.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="5.5" y="5.5" width="2" height="2" rx="1"
+                                                            fill="#BF6E34" />
+                                                    </svg>
+                                                    <span class="product-card__badge new">New</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
+                                                    с
+                                                    подъёмным механизмом, микровелюр (виноградный)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">20+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">34.500 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">138.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">152.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-2" data-product-id="2" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="28.900 ₽">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-2.png"
+                                                        alt="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-2.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-3.png" data-index="1">
+                                                        <img src="assets/images/product-1.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
+                                                    с
+                                                    подъёмным механизмом, микровелюр (виноградный)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">8 цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">7.225 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">28.900 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">35.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-3" data-product-id="3" data-product-name="Диван LUXE, 200 см, велюр (изумрудный)" data-product-price="42.500 ₽ в Сплит">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-3.png" alt="Диван LUXE, 200 см, велюр (изумрудный)"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-3.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-1.png" data-index="1">
+                                                        <img src="assets/images/product-2.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge new">New</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван LUXE, 200 см, велюр (изумрудный)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">15+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">42.500 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">170.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">195.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-4" data-product-id="4" data-product-name="Пуф MODERN, 80 см, микровелюр (бежевый)" data-product-price="67.000 ₽">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-4.png" alt="Пуф MODERN, 80 см, микровелюр (бежевый)"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-4.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-1.png" data-index="1">
+                                                        <img src="assets/images/product-2.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Пуф MODERN, 80 см, микровелюр (бежевый)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">12+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">16.750 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">67.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">80.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-1" data-product-id="1" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="34.500 ₽ в Сплит">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
                                                         src="assets/images/product-1.png" alt="Диван VELVET"
                                                         loading="lazy">
                                                     <div class="product-card--default__gallery">
@@ -1912,241 +2147,6 @@
                                                 <span class="product-card--default__title js-product-title">Кресло-кровать MODERN, 120
                                                     см,
                                                     микровелюр (бежевый)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">12+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">16.750 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">67.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">80.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-1" data-product-id="1" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="34.500 ₽ в Сплит">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-1.png" alt="Диван VELVET 180"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-1.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-2.png" data-index="1">
-                                                        <img src="assets/images/product-3.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <rect x="5.5" y="5.5" width="2" height="2" rx="1"
-                                                            fill="#BF6E34" />
-                                                    </svg>
-                                                    <span class="product-card__badge new">New</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
-                                                    с
-                                                    подъёмным механизмом, микровелюр (виноградный)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">20+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">34.500 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">138.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">152.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-2" data-product-id="2" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="28.900 ₽">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-2.png"
-                                                        alt="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-2.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-3.png" data-index="1">
-                                                        <img src="assets/images/product-1.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
-                                                    с
-                                                    подъёмным механизмом, микровелюр (виноградный)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">8 цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">7.225 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">28.900 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">35.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-3" data-product-id="3" data-product-name="Диван LUXE, 200 см, велюр (изумрудный)" data-product-price="42.500 ₽ в Сплит">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-3.png" alt="Диван LUXE, 200 см, велюр (изумрудный)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-3.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-1.png" data-index="1">
-                                                        <img src="assets/images/product-2.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge new">New</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван LUXE, 200 см, велюр (изумрудный)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">15+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">42.500 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">170.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">195.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-4" data-product-id="4" data-product-name="Пуф MODERN, 80 см, микровелюр (бежевый)" data-product-price="67.000 ₽">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-4.png" alt="Пуф MODERN, 80 см, микровелюр (бежевый)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-4.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-1.png" data-index="1">
-                                                        <img src="assets/images/product-2.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Пуф MODERN, 80 см, микровелюр (бежевый)</span>
                                                 <div class="product-card__colors">
                                                     <span class="product-card__color"
                                                         style="background-image: url('assets/images/background-color1.jpg')"></span>
@@ -2410,478 +2410,6 @@
                         <div class="swiper carousel-section__swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-1" data-product-id="1" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="34.500 ₽ в Сплит">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-1.png" alt="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-1.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-2.png" data-index="1">
-                                                        <img src="assets/images/product-3.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <rect x="5.5" y="5.5" width="2" height="2" rx="1"
-                                                            fill="#BF6E34" />
-                                                    </svg>
-                                                    <span class="product-card__badge new">New</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
-                                                    с
-                                                    подъёмным механизмом, микровелюр (виноградный)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">20+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">34.500 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">138.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">152.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-2" data-product-id="2" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (серый)" data-product-price="28.900 ₽">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-2.png" alt="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (серый)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-2.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-3.png" data-index="1">
-                                                        <img src="assets/images/product-1.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
-                                                    с
-                                                    подъёмным механизмом, микровелюр (серый)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">8 цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">7.225 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">28.900 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">35.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-3" data-product-id="3" data-product-name="Диван-кровать LUXE, 240 см, с механизмом еврокнижка, велюр (изумрудный)" data-product-price="42.500 ₽ в Сплит">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-3.png" alt="Диван-кровать LUXE, 240 см, с механизмом еврокнижка, велюр (изумрудный)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-3.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-1.png" data-index="1">
-                                                        <img src="assets/images/product-2.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge new">New</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван-кровать LUXE, 240 см, с
-                                                    механизмом еврокнижка, велюр (изумрудный)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">15+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">42.500 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">170.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">195.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-4" data-product-id="4" data-product-name="Кресло-кровать MODERN, 120 см, микровелюр (бежевый)" data-product-price="67.000 ₽">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-4.png" alt="Кресло-кровать MODERN, 120 см, микровелюр (бежевый)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-4.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-1.png" data-index="1">
-                                                        <img src="assets/images/product-2.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Кресло-кровать MODERN, 120
-                                                    см,
-                                                    микровелюр (бежевый)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">12+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">8.375 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">67.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">75.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-1" data-product-id="1" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="34.500 ₽ в Сплит">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-1.png" alt="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-1.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-2.png" data-index="1">
-                                                        <img src="assets/images/product-3.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <rect x="5.5" y="5.5" width="2" height="2" rx="1"
-                                                            fill="#BF6E34" />
-                                                    </svg>
-                                                    <span class="product-card__badge new">New</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
-                                                    с
-                                                    подъёмным механизмом, микровелюр (виноградный)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">20+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">34.500 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">138.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">152.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-2" data-product-id="2" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="28.900 ₽">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-2.png"
-                                                        alt="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-2.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-3.png" data-index="1">
-                                                        <img src="assets/images/product-1.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
-                                                    с
-                                                    подъёмным механизмом, микровелюр (виноградный)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">8 цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">7.225 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">28.900 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">35.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-3" data-product-id="3" data-product-name="Диван LUXE, 200 см, велюр (изумрудный)" data-product-price="42.500 ₽ в Сплит">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-3.png" alt="Диван LUXE, 200 см, велюр (изумрудный)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-3.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-1.png" data-index="1">
-                                                        <img src="assets/images/product-2.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge new">New</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Диван LUXE, 200 см, велюр (изумрудный)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">15+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">42.500 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">170.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">195.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
-                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-4" data-product-id="4" data-product-name="Пуф MODERN, 80 см, микровелюр (бежевый)" data-product-price="67.000 ₽">
-                                        <a href="product-page.html" class="product-card--default__inner">
-                                            <div class="product-card--default__image-wrap">
-                                                <div class="product-card--default__image">
-                                                    <img class="product-card--default__image-main"
-                                                        src="assets/images/product-4.png" alt="Пуф MODERN, 80 см, микровелюр (бежевый)"
-                                                        loading="lazy">
-                                                    <div class="product-card--default__gallery">
-                                                        <img src="assets/images/product-4.png" data-index="0"
-                                                            class="active">
-                                                        <img src="assets/images/product-1.png" data-index="1">
-                                                        <img src="assets/images/product-2.png" data-index="2">
-                                                    </div>
-                                                </div>
-                                                <div class="product-card--default__progress">
-                                                    <div class="product-card--default__progress-bar active"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                    <div class="product-card--default__progress-bar"></div>
-                                                </div>
-                                                <div class="product-card__badges">
-                                                    <span class="product-card__badge sale">Sale</span>
-                                                </div>
-                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
-                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
-                                                            fill="#212121" fill-opacity="0.2" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="product-card--default__body">
-                                                <span class="product-card--default__title js-product-title">Пуф MODERN, 80 см, микровелюр (бежевый)</span>
-                                                <div class="product-card__colors">
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
-                                                    <span class="product-card__color"
-                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
-                                                    <span class="product-card__body-colors-label">12+ цветов</span>
-                                                </div>
-                                                <div class="product-card__price-split js-product-price-split">8.375 ₽ в Сплит</div>
-                                                <div class="product-card--default__body-prices">
-                                                    <span class="product-card__price js-product-price">67.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">75.000 руб</span>
-                                                </div>
-                                                <div class="product-card--default__hover-actions">
-                                                    <button class="btn btn-primary"><span>В корзину</span></button>
-                                                    <button class="btn btn-white"><span>заказать в 1
-                                                            клик</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide">
                                     <article class="product-card product-card--default js-product-card" data-filter-id="product-1" data-product-id="1" data-product-name="Диван угловой VELVET, 260 см, с механизмом еврокнижка, микровелюр (бежевый)" data-product-price="34.500 ₽ в Сплит">
                                         <a href="product-page.html" class="product-card--default__inner">
                                             <div class="product-card--default__image-wrap">
@@ -3097,10 +2625,482 @@
                                                         style="background-image: url('assets/images/background-color2.jpg')"></span>
                                                     <span class="product-card__body-colors-label">12+ цветов</span>
                                                 </div>
-                                                <div class="product-card__price-split js-product-price-split">8.375 ₽ в Сплит</div>
+                                                <div class="product-card__price-split js-product-price-split">16.750 ₽ в Сплит</div>
                                                 <div class="product-card--default__body-prices">
                                                     <span class="product-card__price js-product-price">67.000 ₽</span>
-                                                    <span class="product-card__price-old js-product-price-old">75.000 руб</span>
+                                                    <span class="product-card__price-old js-product-price-old">80.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-1" data-product-id="1" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="34.500 ₽ в Сплит">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-1.png" alt="Диван VELVET 180"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-1.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-2.png" data-index="1">
+                                                        <img src="assets/images/product-3.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="5.5" y="5.5" width="2" height="2" rx="1"
+                                                            fill="#BF6E34" />
+                                                    </svg>
+                                                    <span class="product-card__badge new">New</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
+                                                    с
+                                                    подъёмным механизмом, микровелюр (виноградный)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">20+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">34.500 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">138.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">152.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-2" data-product-id="2" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="28.900 ₽">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-2.png"
+                                                        alt="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-2.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-3.png" data-index="1">
+                                                        <img src="assets/images/product-1.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
+                                                    с
+                                                    подъёмным механизмом, микровелюр (виноградный)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">8 цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">7.225 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">28.900 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">35.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-3" data-product-id="3" data-product-name="Диван LUXE, 200 см, велюр (изумрудный)" data-product-price="42.500 ₽ в Сплит">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-3.png" alt="Диван LUXE, 200 см, велюр (изумрудный)"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-3.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-1.png" data-index="1">
+                                                        <img src="assets/images/product-2.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge new">New</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван LUXE, 200 см, велюр (изумрудный)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">15+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">42.500 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">170.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">195.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-4" data-product-id="4" data-product-name="Пуф MODERN, 80 см, микровелюр (бежевый)" data-product-price="67.000 ₽">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-4.png" alt="Пуф MODERN, 80 см, микровелюр (бежевый)"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-4.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-1.png" data-index="1">
+                                                        <img src="assets/images/product-2.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Пуф MODERN, 80 см, микровелюр (бежевый)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">12+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">16.750 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">67.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">80.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-1" data-product-id="1" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (виноградный)" data-product-price="34.500 ₽ в Сплит">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-1.png" alt="Диван VELVET"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-1.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-2.png" data-index="1">
+                                                        <img src="assets/images/product-3.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="5.5" y="5.5" width="2" height="2" rx="1"
+                                                            fill="#BF6E34" />
+                                                    </svg>
+                                                    <span class="product-card__badge new">New</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
+                                                    с
+                                                    подъёмным механизмом, микровелюр (виноградный)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">20+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">34.500 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">138.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">152.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-2" data-product-id="2" data-product-name="Диван-кровать VELVET, 220 см, с подъёмным механизмом, микровелюр (серый)" data-product-price="28.900 ₽">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-2.png" alt="Диван COMFORT"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-2.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-3.png" data-index="1">
+                                                        <img src="assets/images/product-1.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван-кровать VELVET, 220 см,
+                                                    с
+                                                    подъёмным механизмом, микровелюр (серый)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">8 цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">7.225 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">28.900 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">35.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-3" data-product-id="3" data-product-name="Диван-кровать LUXE, 240 см, с механизмом еврокнижка, велюр (изумрудный)" data-product-price="42.500 ₽ в Сплит">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-3.png" alt="Диван LUXE"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-3.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-1.png" data-index="1">
+                                                        <img src="assets/images/product-2.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge new">New</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Диван-кровать LUXE, 240 см, с
+                                                    механизмом еврокнижка, велюр (изумрудный)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color3.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">15+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">42.500 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">170.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">195.000 руб</span>
+                                                </div>
+                                                <div class="product-card--default__hover-actions">
+                                                    <button class="btn btn-primary"><span>В корзину</span></button>
+                                                    <button class="btn btn-white"><span>заказать в 1
+                                                            клик</span></button>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product-card product-card--default js-product-card" data-filter-id="product-4" data-product-id="4" data-product-name="Кресло-кровать MODERN, 120 см, микровелюр (бежевый)" data-product-price="67.000 ₽">
+                                        <a href="product-page.html" class="product-card--default__inner">
+                                            <div class="product-card--default__image-wrap">
+                                                <div class="product-card--default__image">
+                                                    <img class="product-card--default__image-main"
+                                                        src="assets/images/product-4.png" alt="Кресло MODERN"
+                                                        loading="lazy">
+                                                    <div class="product-card--default__gallery">
+                                                        <img src="assets/images/product-4.png" data-index="0"
+                                                            class="active">
+                                                        <img src="assets/images/product-1.png" data-index="1">
+                                                        <img src="assets/images/product-2.png" data-index="2">
+                                                    </div>
+                                                </div>
+                                                <div class="product-card--default__progress">
+                                                    <div class="product-card--default__progress-bar active"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                    <div class="product-card--default__progress-bar"></div>
+                                                </div>
+                                                <div class="product-card__badges">
+                                                    <span class="product-card__badge sale">Sale</span>
+                                                </div>
+                                                <button class="product-card__fav js-fav" aria-label="В избранное" data-label="В избранное">
+                                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                            fill="#212121" fill-opacity="0.2" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="product-card--default__body">
+                                                <span class="product-card--default__title js-product-title">Кресло-кровать MODERN, 120
+                                                    см,
+                                                    микровелюр (бежевый)</span>
+                                                <div class="product-card__colors">
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color1.jpg')"></span>
+                                                    <span class="product-card__color"
+                                                        style="background-image: url('assets/images/background-color2.jpg')"></span>
+                                                    <span class="product-card__body-colors-label">12+ цветов</span>
+                                                </div>
+                                                <div class="product-card__price-split js-product-price-split">16.750 ₽ в Сплит</div>
+                                                <div class="product-card--default__body-prices">
+                                                    <span class="product-card__price js-product-price">67.000 ₽</span>
+                                                    <span class="product-card__price-old js-product-price-old">80.000 руб</span>
                                                 </div>
                                                 <div class="product-card--default__hover-actions">
                                                     <button class="btn btn-primary"><span>В корзину</span></button>
@@ -3981,10 +3981,10 @@
     <script src="js/lib/validate.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=17"></script>
-    <script src="js/catalog-listing.js?v=17"></script>
-    <script src="js/product-page.js?v=17"></script>
-    <script src="js/menu.js?v=17"></script>
+    <script src="js/main.js?v=18"></script>
+    <script src="js/catalog-listing.js?v=18"></script>
+    <script src="js/product-page.js?v=18"></script>
+    <script src="js/menu.js?v=18"></script>
         <!-- ===== CITY POPUP ===== -->
     <div id="cityPopup" style="display:none;">
         <div class="city-popup__title">Выберите ваш город</div>

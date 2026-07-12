@@ -707,16 +707,16 @@ document.addEventListener('DOMContentLoaded', function () {
 					config.slidesPerView = 3
 				} else {
 					config.slidesPerView = 1.2
-					config.pagination = {
-						el: section.querySelector('.about-reviews__pagination'),
-						type: 'bullets',
-						bulletClass: 'swiper-pagination-bullet',
-						bulletActiveClass: 'swiper-pagination-bullet-active',
-						clickable: true,
-					}
 					config.breakpoints = {
 						768: { slidesPerView: 2, spaceBetween: 6 },
 					}
+				}
+				config.pagination = {
+					el: section.querySelector('.about-reviews__pagination'),
+					type: 'bullets',
+					bulletClass: 'swiper-pagination-bullet',
+					bulletActiveClass: 'swiper-pagination-bullet-active',
+					clickable: true,
 				}
 				return new Swiper(swiperEl, config)
 			}
@@ -2243,6 +2243,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 })();
 
+	initPagination()
 });
 
 
@@ -2390,4 +2391,130 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		}
 	}
+
+	/* ===== Shared Pagination ===== */
+	function initPagination() {
+		function getTotalPages(nav) {
+			var pagination = nav.closest('.pagination')
+			if (pagination && pagination.dataset.paginationTotal) {
+				return parseInt(pagination.dataset.paginationTotal, 10)
+			}
+			var links = nav.querySelectorAll('.pagination__link')
+			var last = links[links.length - 1]
+			return last ? parseInt(last.textContent.trim(), 10) : 1
+		}
+
+		function getCurrentPage(nav) {
+			var active = nav.querySelector('.pagination__link--active')
+			return active ? parseInt(active.textContent.trim(), 10) : 1
+		}
+
+		function renderPagination(nav, current, total) {
+			var prevBtn = nav.querySelector('.pagination__arrow--prev')
+			var nextBtn = nav.querySelector('.pagination__arrow--next')
+			if (!prevBtn || !nextBtn) return
+
+			var items = []
+			items.push(1)
+
+			if (total > 2) {
+				if (current > 3) items.push('...')
+				var start = Math.max(2, current - 1)
+				var end = Math.min(total - 1, current + 1)
+				if (current <= 2) end = Math.max(end, Math.min(3, total - 1))
+				if (current >= total - 1) start = Math.min(start, Math.max(2, total - 2))
+				for (var i = start; i <= end; i++) {
+					items.push(i)
+				}
+				if (current < total - 2) items.push('...')
+			}
+
+			if (total > 1) items.push(total)
+
+			var node = prevBtn.nextSibling
+			while (node && node !== nextBtn) {
+				var nextNode = node.nextSibling
+				node.parentNode.removeChild(node)
+				node = nextNode
+			}
+
+			for (var j = 0; j < items.length; j++) {
+				var val = items[j]
+				var el
+				if (val === '...') {
+					el = document.createElement('span')
+					el.className = 'pagination__ellipsis'
+					el.textContent = '...'
+				} else {
+					el = document.createElement('a')
+					el.href = '#'
+					el.className = 'pagination__link body-l-strong'
+					if (val === current) el.classList.add('pagination__link--active')
+					el.textContent = val
+				}
+				nav.insertBefore(el, nextBtn)
+			}
+
+			if (prevBtn) prevBtn.classList.toggle('pagination__arrow--disabled', current <= 1)
+			if (nextBtn) nextBtn.classList.toggle('pagination__arrow--disabled', current >= total)
+		}
+
+		function fireChange(nav) {
+			var current = getCurrentPage(nav)
+			var total = getTotalPages(nav)
+			renderPagination(nav, current, total)
+			document.dispatchEvent(new CustomEvent('pagination:change', {
+				detail: {
+					nav: nav,
+					pagination: nav.closest('.pagination'),
+					page: current
+				}
+			}))
+		}
+
+		document.querySelectorAll('.pagination__nav:not([data-pagination-manual])').forEach(function (nav) {
+			var total = getTotalPages(nav)
+			var current = getCurrentPage(nav)
+			renderPagination(nav, current, total)
+
+			nav.addEventListener('click', function (e) {
+				var link = e.target.closest('.pagination__link')
+				if (!link) return
+				e.preventDefault()
+				var page = parseInt(link.textContent.trim(), 10)
+				if (page && page !== getCurrentPage(nav)) {
+					renderPagination(nav, page, total)
+					fireChange(nav)
+				}
+			})
+		})
+
+		document.addEventListener('click', function (e) {
+			var prev = e.target.closest('.pagination__arrow--prev:not(.pagination__arrow--disabled)')
+			if (prev) {
+				e.preventDefault()
+				var nav = prev.closest('.pagination__nav')
+				if (!nav) return
+				var cur = getCurrentPage(nav)
+				if (cur > 1) {
+					renderPagination(nav, cur - 1, getTotalPages(nav))
+					fireChange(nav)
+				}
+			}
+			var next = e.target.closest('.pagination__arrow--next:not(.pagination__arrow--disabled)')
+			if (next) {
+				e.preventDefault()
+				var nav = next.closest('.pagination__nav')
+				if (!nav) return
+				var cur = getCurrentPage(nav)
+				var total = getTotalPages(nav)
+				if (cur < total) {
+					renderPagination(nav, cur + 1, total)
+					fireChange(nav)
+				}
+			}
+		})
+	}
+
+	window.initPagination = initPagination
 })();

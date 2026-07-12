@@ -56,7 +56,7 @@
 
 /* ===== CONTACTS FORM ===== */
 .contacts-form {
-    padding-top 0;
+    padding-top: 0;
 }
 
 .contacts-form--partnership .contacts-form__inner {
@@ -144,7 +144,7 @@
     padding: var(--space-12) var(--space-16);
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(3.125rem);
-    border: var(--space-1) solid transparent;
+    border: 1px solid transparent;
     color: #fff;
     outline: none;
 }

@@ -59,7 +59,7 @@
 .designers-projects__card-category,
 .designers-projects__card-year {
     color: rgba(33,33,33,.4);
-    letter-spacing: var(--space-1);
+    letter-spacing: 1px;
 }
 
 .designers-projects__card-title {

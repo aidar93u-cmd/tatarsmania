@@ -101,11 +101,11 @@
 		dom.pageLinks.forEach(function (btn, i) {
 			var np = i + 1
 			btn.style.display = np <= totalPages ? '' : 'none'
-			btn.classList.toggle('orders__page-link--active', np === p)
+			btn.classList.toggle('pagination__link--active', np === p)
 		})
-		dom.prevArrow.classList.toggle('orders__page-arrow--disabled', p <= 1)
+		dom.prevArrow.classList.toggle('pagination__arrow--disabled', p <= 1)
 		dom.nextArrow.classList.toggle(
-			'orders__page-arrow--disabled',
+			'pagination__arrow--disabled',
 			p >= totalPages,
 		)
 	}
@@ -200,12 +200,12 @@
 		dom.sortOptions = dom.sortMenu.querySelectorAll('.orders-sort__option')
 		dom.paginationInfo = document.querySelector('.js-pagination-info')
 		dom.loadMore = document.querySelector('.js-load-more')
-		dom.pageLinks = document.querySelectorAll('.js-page-nav .orders__page-link')
+		dom.pageLinks = document.querySelectorAll('.js-page-nav .pagination__link')
 		dom.prevArrow = document.querySelector(
-			'.js-page-nav .orders__page-arrow[data-page="prev"]',
+			'.js-page-nav .pagination__arrow--prev',
 		)
 		dom.nextArrow = document.querySelector(
-			'.js-page-nav .orders__page-arrow[data-page="next"]',
+			'.js-page-nav .pagination__arrow--next',
 		)
 
 		if (!dom.list) return

@@ -199,7 +199,7 @@
   }
 
   /* ===== OTHER MODELS TABS ===== */
-  var section = document.querySelector('.carousel-section.product-other');
+  var section = document.querySelector('.carousel-section.featured-tabs');
   if (section) {
     var otherTabs = section.querySelectorAll('.carousel-section__tabs .btn-filter');
     var otherContents = section.querySelectorAll('.carousel-section__tabpanel');
