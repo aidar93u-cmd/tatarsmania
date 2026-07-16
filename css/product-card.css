@@ -99,6 +99,9 @@
 	fill-opacity: 1;
 }
 
+.product-card__fav.active {
+	opacity: 1;
+}
 .product-card__fav.active svg path {
 	fill: var(--graphite);
 	fill-opacity: 1;
