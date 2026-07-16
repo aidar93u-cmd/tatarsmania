@@ -472,10 +472,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		emailForm.addEventListener('submit', function (e) {
 			e.preventDefault()
 			var email = emailInput.value.trim()
+			var hasError = false
 
 			if (agreeCheckbox && !agreeCheckbox.checked) {
 				agreeCheckbox.closest('.footer__checkbox').classList.add('is-invalid')
-				return
+				hasError = true
 			}
 
 			if (!email) {
@@ -483,16 +484,16 @@ document.addEventListener('DOMContentLoaded', function () {
 				emailInput.classList.add('is-invalid')
 				errorMsg.textContent = 'Введите e-mail'
 				errorMsg.classList.add('visible')
-				return
-			}
-
-			if (!FormUtils.test(email, 'valid_email')) {
+				hasError = true
+			} else if (!FormUtils.test(email, 'valid_email')) {
 				emailInput.classList.remove('is-valid')
 				emailInput.classList.add('is-invalid')
 				errorMsg.textContent = 'Введите корректный e-mail'
 				errorMsg.classList.add('visible')
-				return
+				hasError = true
 			}
+
+			if (hasError) return
 
 			emailInput.classList.remove('is-invalid')
 			emailInput.classList.add('is-valid')
