@@ -59,7 +59,8 @@ _cart_*.json
 # test output
 test-results/
 
-# deploy tracker
+# deploy
+deploy.js
 .deployed
 
 # release artifacts
