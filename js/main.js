@@ -738,8 +738,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 
 		/* ===== REVIEW POPUP ===== */
-		var reviewPopup = document.getElementById('reviewPopup')
-		var reviewPopupClose = document.getElementById('reviewPopupClose')
 		var reviewPopupStars = document.getElementById('reviewPopupStars')
 		var reviewPopupText = document.getElementById('reviewPopupText')
 		var reviewPopupName = document.getElementById('reviewPopupName')
@@ -747,6 +745,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		var reviewPopupGallery = document.getElementById('reviewPopupGallery')
 		var reviewPopupProgress = document.getElementById('reviewPopupProgress')
 		var reviewGallerySwiper = null
+		var reviewFancyboxInstance = null
 		var popupStarsHtml = ''
 		for (var si = 0; si < 5; si++) {
 			popupStarsHtml += '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1L8.5 4.5L12.5 5L9.5 8L10 12L6.5 10L3 12L3.5 8L0.5 5L4.5 4.5L6.5 1Z" fill="#BF6E34"/></svg>'
@@ -804,38 +803,49 @@ document.addEventListener('DOMContentLoaded', function () {
 					reviewPopupProgress.appendChild(bar)
 				})
 
-				// Init gallery swiper
+				// Destroy previous swiper if any
 				if (reviewGallerySwiper) {
 					reviewGallerySwiper.destroy(true, true)
 					reviewGallerySwiper = null
 				}
 
-				var gallerySwiperEl = document.querySelector('.review-popup-swiper')
-				if (gallerySwiperEl && galleryImgs.length > 0 && typeof Swiper !== 'undefined') {
-					reviewGallerySwiper = new Swiper(gallerySwiperEl, {
-						loop: true,
-						effect: 'fade',
-						fadeEffect: { crossFade: true },
-						autoplay: { delay: 5000, disableOnInteraction: false },
-						speed: 600,
-						navigation: {
-							nextEl: '.review-popup-arrow--next',
-							prevEl: '.review-popup-arrow--prev',
+				// Open fancybox
+				reviewFancyboxInstance = Fancybox.show([{ src: '#reviewPopupPanel', type: 'inline' }], {
+					mainClass: 'fancybox-review-popup',
+					closeButton: true,
+					on: {
+						done: function () {
+							var gallerySwiperEl = document.querySelector('.review-popup-swiper')
+							if (gallerySwiperEl && galleryImgs.length > 0 && typeof Swiper !== 'undefined') {
+								reviewGallerySwiper = new Swiper(gallerySwiperEl, {
+									loop: true,
+									effect: 'fade',
+									fadeEffect: { crossFade: true },
+									autoplay: { delay: 5000, disableOnInteraction: false },
+									speed: 600,
+									navigation: {
+										nextEl: '.review-popup-arrow--next',
+										prevEl: '.review-popup-arrow--prev',
+									},
+									on: {
+										init: function () {
+											syncProgressBar(this.realIndex, galleryImgs.length)
+										},
+										slideChangeTransitionEnd: function () {
+											syncProgressBar(this.realIndex, galleryImgs.length)
+										},
+									},
+								})
+							}
 						},
-						on: {
-							init: function () {
-								syncProgressBar(this.realIndex, galleryImgs.length)
-							},
-							slideChangeTransitionEnd: function () {
-								syncProgressBar(this.realIndex, galleryImgs.length)
-							},
+						destroy: function () {
+							if (reviewGallerySwiper) {
+								reviewGallerySwiper.destroy(true, true)
+								reviewGallerySwiper = null
+							}
 						},
-					})
-
-				}
-
-				reviewPopup.classList.add('review-popup-overlay--open')
-				document.body.style.overflow = 'hidden'
+					},
+				})
 			})
 		})
 
@@ -873,33 +883,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				}
 			})
 		}
-
-		function closeReviewPopup() {
-			if (reviewGallerySwiper) {
-				reviewGallerySwiper.destroy(true, true)
-				reviewGallerySwiper = null
-			}
-			reviewPopup.classList.remove('review-popup-overlay--open')
-			document.body.style.overflow = ''
-		}
-
-		if (reviewPopupClose) {
-			reviewPopupClose.addEventListener('click', closeReviewPopup)
-		}
-
-		if (reviewPopup) {
-			reviewPopup.addEventListener('click', function (e) {
-				if (e.target === reviewPopup) {
-					closeReviewPopup()
-				}
-			})
-		}
-
-		document.addEventListener('keydown', function (e) {
-			if (e.key === 'Escape' && reviewPopup && reviewPopup.classList.contains('review-popup-overlay--open')) {
-				closeReviewPopup()
-			}
-		})
 
 		document
 			.querySelectorAll('.carousel-section.promotions')
@@ -955,7 +938,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				var grid = section.querySelector('.catalog-cat-s__grid')
 				if (!grid || grid.swiper) return null
 				return new Swiper(grid, {
-					slidesPerView: 3,
+					slidesPerView: 1.3,
 					spaceBetween: 6,
 					speed: 600,
 					navigation: {
@@ -988,6 +971,20 @@ document.addEventListener('DOMContentLoaded', function () {
 				} else {
 					destroyCatCatSwiper()
 				}
+			})
+		})
+
+		/* catalog-cat-s show all */
+		document.querySelectorAll('.js-catalog-cat-s-show-all').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var section = btn.closest('.catalog-cat-s')
+				if (!section) return
+				var hidden = section.querySelectorAll('.catalog-cat-s__slide--hidden')
+				hidden.forEach(function (el) { el.classList.remove('catalog-cat-s__slide--hidden') })
+				if (typeof AOS !== 'undefined') {
+					AOS.refresh()
+				}
+				btn.style.display = 'none'
 			})
 		})
 
@@ -2022,33 +2019,42 @@ document.addEventListener('DOMContentLoaded', function () {
 ;(function () {
 	/* ===== SHARED SLIDE TOGGLE (vanilla replacement for jQuery) ===== */
 	function slideToggle(el, duration) {
+		if (el._slideTimer) {
+			clearTimeout(el._slideTimer)
+			el._slideTimer = null
+		}
+		el.style.transition = ''
+		el.style.overflow = ''
+		el.style.height = ''
 		if (el.classList.contains('is-open')) {
 			el.style.overflow = 'hidden'
 			el.style.height = el.scrollHeight + 'px'
-			el.style.transition = 'height ' + duration + 'ms ease'
 			el.classList.remove('is-open')
 			requestAnimationFrame(function () {
+				el.style.transition = 'height ' + duration + 'ms ease'
 				el.style.height = '0px'
 			})
-			setTimeout(function () {
+			el._slideTimer = setTimeout(function () {
 				el.style.display = 'none'
 				el.style.height = ''
 				el.style.overflow = ''
 				el.style.transition = ''
+				el._slideTimer = null
 			}, duration)
 		} else {
+			el.style.display = 'block'
 			el.style.overflow = 'hidden'
 			el.style.height = '0px'
-			el.style.display = 'block'
-			el.style.transition = 'height ' + duration + 'ms ease'
 			el.classList.add('is-open')
 			requestAnimationFrame(function () {
+				el.style.transition = 'height ' + duration + 'ms ease'
 				el.style.height = el.scrollHeight + 'px'
 			})
-			setTimeout(function () {
+			el._slideTimer = setTimeout(function () {
 				el.style.height = ''
 				el.style.overflow = ''
 				el.style.transition = ''
+				el._slideTimer = null
 			}, duration)
 		}
 	}
@@ -2518,4 +2524,22 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	window.initPagination = initPagination
+
+	/* ===== FOOTER BANNER PARALLAX (GSAP) ===== */
+	if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+		var footerBg = document.querySelector('.footer-banner__bg')
+		if (footerBg) {
+			gsap.registerPlugin(ScrollTrigger)
+			gsap.to(footerBg, {
+				backgroundPositionY: '30%',
+				ease: 'none',
+				scrollTrigger: {
+					trigger: footerBg,
+					start: 'top bottom',
+					end: 'bottom top',
+					scrub: 1,
+				},
+			})
+		}
+	}
 })();

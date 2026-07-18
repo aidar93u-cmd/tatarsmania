@@ -1434,6 +1434,11 @@
     pointer-events: auto;
     cursor: pointer;
     flex-shrink: 0;
+}
+.orders-card__arrow svg {
+    width: 1rem;
+    height: auto;
+}
     transition: background 0.2s;
 }
 

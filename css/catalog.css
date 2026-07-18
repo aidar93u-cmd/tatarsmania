@@ -302,6 +302,16 @@
     .catalog-cat-s__grid .swiper-slide {
         width: auto !important;
     }
+    .catalog-cat-s__slide--hidden {
+        display: none;
+    }
+}
+
+/* On mobile, show-all button is hidden — all cards visible in swiper */
+@media (max-width: 992px) {
+    .catalog-cat-s__show-all {
+        display: none;
+    }
 }
 
 /* Swiper mode on mobile */
@@ -328,6 +338,7 @@
 @media (max-width: 768px) {
     .catalog-cat-s__grid.swiper {
         height: 340px;
+        margin-bottom: 0;
     }
 }
 
