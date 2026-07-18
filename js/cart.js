@@ -4,6 +4,106 @@
 
 	var cartEl = document.querySelector('.cart')
 	var itemsCountEl = document.querySelector('.cart__items-count')
+	var summaryTotalLabel = document.querySelector('.cart__summary-total-label')
+	var summaryTotalPrice = document.querySelector('.cart__summary-total-price')
+	var summarySplit = document.querySelector('.cart__summary-split')
+
+	function parsePrice(str) {
+		if (!str) return 0
+		return parseInt(str.replace(/[^0-9]/g, ''), 10) || 0
+	}
+
+	function formatPrice(num) {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' \u20BD'
+	}
+
+	function pluralize(count, forms) {
+		var n = Math.abs(count) % 100
+		var n1 = n % 10
+		if (n > 10 && n < 20) return forms[2]
+		if (n1 > 1 && n1 < 5) return forms[1]
+		if (n1 === 1) return forms[0]
+		return forms[2]
+	}
+
+	function recalcItemPrice(item) {
+		var qty = parseInt(item.querySelector('.cart-item__qty-value').textContent, 10) || 1
+		var unitPrice = parseFloat(item.getAttribute('data-unit-price')) || 0
+		var unitPriceOld = parseFloat(item.getAttribute('data-unit-price-old')) || 0
+
+		var pricesWrap = item.querySelector('.cart-item__prices')
+		if (pricesWrap) {
+			var priceEl = pricesWrap.querySelector('.cart-item__price:not(.cart-item__price--old)') || pricesWrap.querySelector('.cart-item__price')
+			var oldPriceEl = pricesWrap.querySelector('.cart-item__price--old')
+			if (priceEl) priceEl.textContent = formatPrice(unitPrice * qty)
+			if (oldPriceEl && unitPriceOld > 0) oldPriceEl.textContent = formatPrice(unitPriceOld * qty)
+		} else {
+			var priceEl = item.querySelector('.cart-item__price')
+			if (priceEl) priceEl.textContent = formatPrice(unitPrice * qty)
+		}
+	}
+
+	function recalcCartTotal() {
+		var items = document.querySelectorAll('.cart-item')
+		var total = 0
+		var count = 0
+
+		items.forEach(function (item) {
+			var qty = parseInt(item.querySelector('.cart-item__qty-value').textContent, 10) || 1
+			var unitPrice = parseFloat(item.getAttribute('data-unit-price')) || 0
+			total += unitPrice * qty
+			count += qty
+		})
+
+		var word = pluralize(count, ['товар', 'товара', 'товаров'])
+
+		if (itemsCountEl) {
+			itemsCountEl.textContent = 'Добавлено ' + count + ' ' + word + ':'
+		}
+
+		if (summaryTotalLabel) {
+			summaryTotalLabel.textContent = count + ' ' + word + ' на сумму:'
+		}
+
+		if (summaryTotalPrice) {
+			summaryTotalPrice.textContent = formatPrice(total)
+		}
+
+		if (summarySplit) {
+			summarySplit.textContent = 'По ' + formatPrice(Math.round(total / 4)) + ' — 4 платежа в Сплит'
+		}
+
+		document.querySelectorAll('.header__badge').forEach(function (badge) {
+			badge.textContent = items.length
+		})
+
+		if (cartEl) {
+			cartEl.classList.toggle('cart--empty', items.length === 0)
+		}
+	}
+
+	function initItem(item) {
+		var pricesWrap = item.querySelector('.cart-item__prices')
+		var priceEl, oldPriceEl
+
+		if (pricesWrap) {
+			priceEl = pricesWrap.querySelector('.cart-item__price:not(.cart-item__price--old)') || pricesWrap.querySelector('.cart-item__price')
+			oldPriceEl = pricesWrap.querySelector('.cart-item__price--old')
+		} else {
+			priceEl = item.querySelector('.cart-item__price')
+		}
+
+		if (priceEl && !item.hasAttribute('data-unit-price')) {
+			item.setAttribute('data-unit-price', parsePrice(priceEl.textContent))
+		}
+
+		if (oldPriceEl && !item.hasAttribute('data-unit-price-old')) {
+			item.setAttribute('data-unit-price-old', parsePrice(oldPriceEl.textContent))
+		}
+	}
+
+	// Init all items
+	document.querySelectorAll('.cart-item').forEach(initItem)
 
 	// Qty controls
 	document.querySelectorAll('.cart-item').forEach(function (item) {
@@ -20,6 +120,8 @@
 			if (val > 1) {
 				val--
 				valueEl.textContent = val
+				recalcItemPrice(item)
+				recalcCartTotal()
 			}
 		})
 
@@ -29,6 +131,8 @@
 			var val = parseInt(valueEl.textContent, 10) || 1
 			val++
 			valueEl.textContent = val
+			recalcItemPrice(item)
+			recalcCartTotal()
 		})
 	})
 
@@ -59,6 +163,7 @@
 			undoCarouselEl.style.display = ''
 			undoCarouselEl = null
 		}
+		recalcCartTotal()
 	}
 
 	function showUndo(item) {
@@ -70,6 +175,8 @@
 		undoText.textContent = 'Товар ' + name + ' удален из корзины.'
 
 		item.style.display = 'none'
+
+		recalcCartTotal()
 
 		undoEl.style.display = 'flex'
 
@@ -95,7 +202,7 @@
 			undoEl.style.display = 'none'
 			if (undoItem) {
 				undoItem.remove()
-				updateCartState()
+				recalcCartTotal()
 			}
 			undoItem = null
 			undoCarouselEl = null
@@ -137,7 +244,7 @@
 					setTimeout(function () {
 						item.remove()
 						if (index === items.length - 1) {
-							updateCartState()
+							recalcCartTotal()
 						}
 					}, 300)
 				}, index * 100)
@@ -145,26 +252,7 @@
 		})
 	}
 
-	// Update cart state: badge, count, empty class
-	function updateCartState() {
-		var count = document.querySelectorAll('.cart-item').length
-
-		// Cart badge in header
-		document.querySelectorAll('.header__badge').forEach(function (badge) {
-			badge.textContent = count
-		})
-
-		// Items count text
-		if (itemsCountEl) {
-			var word = count === 1 ? 'товар' : 'товара'
-			itemsCountEl.textContent = 'Добавлено ' + count + ' ' + word + ':'
-		}
-
-		// Empty state
-		if (cartEl) {
-			cartEl.classList.toggle('cart--empty', count === 0)
-		}
-	}
+	recalcCartTotal()
 
 	// Promo code
 	var promoInput = document.querySelector('.cart__summary-promo-field')

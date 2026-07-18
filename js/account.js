@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             smsPopupBtn.disabled = false
             smsPopupBtn.classList.remove('is-loading')
             smsPopupCheckbox.checked = false
-            smsPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
+            smsPopupCheckbox.closest('.checkbox').classList.remove('is-invalid')
             if (smsPopupError) smsPopupError.classList.remove('visible')
             smsPopup.classList.add('popup--open')
             setTimeout(function () { smsPopupInput.focus() }, 200)
@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 var val = smsPopupInput.value.trim()
 
                 if (!smsPopupCheckbox.checked) {
-                    smsPopupCheckbox.closest('.popup-checkbox').classList.add('is-invalid')
+                    smsPopupCheckbox.closest('.checkbox').classList.add('is-invalid')
                     return
                 }
-                smsPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
+                smsPopupCheckbox.closest('.checkbox').classList.remove('is-invalid')
 
                 var digits = val.replace(/\D/g, '')
                 if (digits.length < 11) {
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
             smsPopupInput.addEventListener('keydown', onKeydown)
             smsPopupInput.addEventListener('input', onSmsInput)
             smsPopupCheckbox.addEventListener('change', function () {
-                this.closest('.popup-checkbox').classList.remove('is-invalid')
+                this.closest('.checkbox').classList.remove('is-invalid')
             })
 
             smsPopup._cleanup = function () {
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
             emailPopupBtn.disabled = false
             emailPopupBtn.classList.remove('is-loading')
             emailPopupCheckbox.checked = false
-            emailPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
+            emailPopupCheckbox.closest('.checkbox').classList.remove('is-invalid')
             if (emailPopupError) emailPopupError.classList.remove('visible')
             emailPopup.classList.add('popup--open')
             setTimeout(function () { emailPopupInput.focus() }, 200)
@@ -180,10 +180,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 var val = emailPopupInput.value.trim()
 
                 if (!emailPopupCheckbox.checked) {
-                    emailPopupCheckbox.closest('.popup-checkbox').classList.add('is-invalid')
+                    emailPopupCheckbox.closest('.checkbox').classList.add('is-invalid')
                     return
                 }
-                emailPopupCheckbox.closest('.popup-checkbox').classList.remove('is-invalid')
+                emailPopupCheckbox.closest('.checkbox').classList.remove('is-invalid')
 
                 if (!FormUtils.test(val, 'required|valid_email')) {
                     emailPopupInput.classList.add('is-invalid')
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
             emailPopupInput.addEventListener('keydown', onKeydown)
             emailPopupInput.addEventListener('input', onEmailInput)
             emailPopupCheckbox.addEventListener('change', function () {
-                this.closest('.popup-checkbox').classList.remove('is-invalid')
+                this.closest('.checkbox').classList.remove('is-invalid')
             })
 
             emailPopup._cleanup = function () {
@@ -705,7 +705,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (nlForm) {
         var nlInput = nlForm.querySelector('.nl-form__input')
         var nlError = nlForm.querySelector('.nl-form__error')
-        var nlCheckbox = nlForm.querySelector('.footer__checkbox input[type="checkbox"]')
+        var nlCheckbox = nlForm.querySelector('.checkbox input[type="checkbox"]')
 
         function clearNlState() {
             if (nlInput) nlInput.classList.remove('is-invalid', 'nl-form__input--success')
@@ -730,19 +730,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (nlCheckbox) {
             nlCheckbox.addEventListener('change', function () {
-                this.closest('.footer__checkbox').classList.remove('is-invalid')
+                this.closest('.checkbox').classList.remove('is-invalid')
             })
         }
 
         nlForm.addEventListener('submit', function (e) {
             e.preventDefault()
             clearNlState()
-            if (nlCheckbox) nlCheckbox.closest('.footer__checkbox').classList.remove('is-invalid')
+            if (nlCheckbox) nlCheckbox.closest('.checkbox').classList.remove('is-invalid')
 
             var email = nlInput ? nlInput.value.trim() : ''
 
             if (nlCheckbox && !nlCheckbox.checked) {
-                nlCheckbox.closest('.footer__checkbox').classList.add('is-invalid')
+                nlCheckbox.closest('.checkbox').classList.add('is-invalid')
                 return
             }
 

@@ -594,49 +594,6 @@
     opacity: 0;
 }
 
-.popup-checkbox {
-    display: inline-flex;
-    align-items: flex-start;
-    gap: var(--space-10);
-    cursor: pointer;
-}
-
-.popup-checkbox input {
-    display: none;
-}
-
-.popup-checkbox-mark {
-    width: var(--space-12);
-    height: var(--space-12);
-    flex-shrink: 0;
-    margin-top: 1px;
-    background: var(--white);
-    border: 1px solid rgba(33, 33, 33, 0.2);
-}
-
-.popup-checkbox input:checked + .popup-checkbox-mark {
-    background: #333;
-    border: var(--space-2) solid #fff;
-}
-
-.popup-checkbox-text {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--graphite);
-    line-height: 1.3;
-}
-.popup-checkbox-text a{
-    color: var(--graphite);
-    text-decoration: underline;
-}
-.popup-checkbox.is-invalid {
-    animation: nl-shake 0.5s ease;
-}
-
-.popup-checkbox.is-invalid .popup-checkbox-mark {
-    border-color: #d32f2f;
-}
-
 /* ===== Toast Notifications ===== */
 
 /* Toggle switch */
@@ -981,11 +938,11 @@
     20%, 40%, 60%, 80% { transform: translateX(0.25rem); }
 }
 
-.nl-form .footer__checkbox.is-invalid {
+.nl-form .checkbox.is-invalid {
     animation: nl-shake 0.5s ease;
 }
 
-.nl-form .footer__checkbox.is-invalid .footer__checkbox-mark {
+.nl-form .checkbox.is-invalid .checkbox__mark {
     border-color: #d32f2f;
 }
 

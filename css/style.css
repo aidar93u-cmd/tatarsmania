@@ -3574,47 +3574,8 @@ section.footer-banner {
     opacity: 0.4;
     cursor: default;
 }
-.reg-popup__checkbox {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-10);
-    cursor: pointer;
-}
-.reg-popup__checkbox input {
-    display: none;
-}
-.reg-popup__checkmark {
-    width: var(--space-12);
-    height: var(--space-12);
-    flex-shrink: 0;    
-    box-shadow: 0 0px 1px  rgba(33,33,33);
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: var(--space-2);
-    transition: all 0.2s;
-}
-.reg-popup__checkbox input:checked + .reg-popup__checkmark {
-    background: #333;
-    border: var(--space-2) solid #fff;
-}
 #regCodeError {
     text-align: center;
-}
-.reg-popup__checkbox-text {
-    font-size: var(--space-12);
-    line-height: 1.2;
-    color: var(--graphite, #212121);
-}
-.reg-popup__checkbox-text a {
-		color: var(--graphite, #212121);
-		text-decoration: underline;
-}
-.reg-popup__checkbox.is-invalid .reg-popup__checkmark {
-
-    border: 1px solid #dc3545;
-    box-shadow: none;
 }
 .reg-popup__code-wrap {
     position: relative;
@@ -3968,6 +3929,65 @@ section.footer-banner {
     pointer-events: none;
 }
 
+/* ===== Checkbox ===== */
+.checkbox {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: var(--space-10);
+    cursor: pointer;
+    position: relative;
+    color: var(--graphite);
+}
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+.checkbox__mark {
+    width: var(--space-12);
+    height: var(--space-12);
+    flex-shrink: 0;
+    margin-top: var(--space-2);
+    background: var(--white);
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+}
+.checkbox input:checked + .checkbox__mark::after {
+    content: '';
+    width: var(--space-6);
+    height: var(--space-6);
+    background: var(--graphite);
+    flex-shrink: 0;
+}
+.checkbox__text {
+    flex: 1;
+    line-height: 120%;
+}
+.checkbox__text a {
+    color: inherit;
+    text-decoration: underline;
+}
+.checkbox.is-invalid .checkbox__mark {
+    border-color: #dc3545;
+}
+.checkbox--dark {
+    color: #fff;
+}
+.checkbox--dark .checkbox__mark {
+    background: transparent;
+    border: none;
+    box-shadow: 0 0px 1px #fff;
+}
+.checkbox--dark input:checked + .checkbox__mark::after {
+    content: '';
+    width: var(--space-6);
+    height: var(--space-6);
+    background: var(--graphite);
+    flex-shrink: 0;
+}
 .toast {
     background: #212121;
     color: #fff;

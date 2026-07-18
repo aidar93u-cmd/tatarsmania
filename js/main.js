@@ -306,11 +306,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		var nameInput = form.querySelector('input[type="text"]')
 		var phoneInput = form.querySelector('input[type="tel"]')
 		var emailInput = form.querySelector('input[type="email"]')
-		var checkboxInput = form.querySelector('.contacts-form__checkbox input[type="checkbox"]')
+		var checkboxInput = form.querySelector('.checkbox input[type="checkbox"]')
 
 		if (checkboxInput) {
 			checkboxInput.addEventListener('change', function () {
-				this.closest('.contacts-form__checkbox').classList.remove('is-invalid')
+				this.closest('.checkbox').classList.remove('is-invalid')
 			})
 		}
 
@@ -427,7 +427,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 
 			if (checkboxInput && !checkboxInput.checked) {
-				checkboxInput.closest('.contacts-form__checkbox').classList.add('is-invalid')
+				checkboxInput.closest('.checkbox').classList.add('is-invalid')
 				valid = false
 			}
 
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		var emailInput = document.getElementById('newsletterEmail')
 		var errorMsg = document.getElementById('newsletterError')
 		var agreeCheckbox = emailForm.parentElement.querySelector(
-			'.footer__checkbox input[type="checkbox"]',
+			'.checkbox input[type="checkbox"]',
 		)
 
 		function clearValidation() {
@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			errorMsg.classList.remove('visible')
 			if (agreeCheckbox)
 				agreeCheckbox
-					.closest('.footer__checkbox')
+					.closest('.checkbox')
 					.classList.remove('is-invalid')
 		}
 
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (agreeCheckbox) {
 			agreeCheckbox.addEventListener('change', function () {
-				this.closest('.footer__checkbox').classList.remove('is-invalid')
+				this.closest('.checkbox').classList.remove('is-invalid')
 			})
 		}
 
@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			var hasError = false
 
 			if (agreeCheckbox && !agreeCheckbox.checked) {
-				agreeCheckbox.closest('.footer__checkbox').classList.add('is-invalid')
+				agreeCheckbox.closest('.checkbox').classList.add('is-invalid')
 				hasError = true
 			}
 
@@ -1708,10 +1708,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		regStep1Next.addEventListener('click', function () {
 			if (!window.regValidatePhone || !window.regValidatePhone()) return
 			var consent = document.querySelector(
-				'.reg-popup__checkbox input[type="checkbox"]',
+				'.fancybox__content .checkbox input[type="checkbox"]',
 			)
 			if (!consent || !consent.checked) {
-				consent.closest('.reg-popup__checkbox').classList.add('is-invalid')
+				consent.closest('.checkbox').classList.add('is-invalid')
 				return
 			}
 			regShowCodeSection()
@@ -1774,11 +1774,11 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (window.regValidateSurname) { if (!window.regValidateSurname()) ok = false }
 			if (window.regValidateEmail) { if (!window.regValidateEmail()) ok = false }
 			var consent3 = document.querySelector(
-				'.reg-popup__checkbox input[type="checkbox"]',
+				'.checkbox input[type="checkbox"]',
 			)
 			if (!consent3 || !consent3.checked) {
 				var label = consent3
-					? consent3.closest('.reg-popup__checkbox')
+					? consent3.closest('.checkbox')
 					: null
 				if (label) label.classList.add('is-invalid')
 				ok = false
@@ -1788,9 +1788,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
-	document.querySelectorAll('.reg-popup__checkbox input[type="checkbox"]').forEach(function (cb) {
+	document.querySelectorAll('.checkbox input[type="checkbox"]').forEach(function (cb) {
 		cb.addEventListener('change', function () {
-			this.closest('.reg-popup__checkbox').classList.remove(
+			this.closest('.checkbox').classList.remove(
 				'is-invalid',
 			)
 		})
