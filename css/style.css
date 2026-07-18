@@ -3479,6 +3479,7 @@ section.footer-banner {
 .reg-popup__field {
     position: relative;
     margin-bottom: var(--space-16);
+    width: 100%;
 }
 .reg-popup__field-group {
     position: relative;
