@@ -152,9 +152,6 @@
 	transition: opacity 0.4s;
 }
 
-.collection-card:hover .collection-card__name {
-	opacity: 0.6;
-}
 
 .collections-grid-filter {
 	max-width: 25rem;

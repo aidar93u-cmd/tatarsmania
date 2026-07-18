@@ -11,12 +11,12 @@
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=20">
-    <link rel="stylesheet" href="css/header.css?v=20" />
-    <link rel="stylesheet" href="css/mega-menu.css?v=20" />
-    <link rel="stylesheet" href="css/footer.css?v=20" />
-    <link rel="stylesheet" href="css/product-card.css?v=20" />
-    <link rel="stylesheet" href="css/catalog-listing.css?v=20" />
+    <link rel="stylesheet" href="css/style.css?v=21">
+    <link rel="stylesheet" href="css/header.css?v=21" />
+    <link rel="stylesheet" href="css/mega-menu.css?v=21" />
+    <link rel="stylesheet" href="css/footer.css?v=21" />
+    <link rel="stylesheet" href="css/product-card.css?v=21" />
+    <link rel="stylesheet" href="css/catalog-listing.css?v=21" />
 </head>
 
 <body class="home">
@@ -3587,8 +3587,7 @@
     <div id="registrationPopup" style="display:none;">
         <div class="reg-popup">
             <div class="reg-popup__inner">
-                <!-- Step 1: Phone -->
-                <div class="reg-popup__step reg-popup__step-1 reg-popup__step--active" data-step="1">
+                <div class="reg-popup__step reg-popup__step--active">
                     <div class="reg-popup__layout">
                         <div class="reg-popup__image" style="background-image: url('assets/images/category3.jpg')">
                         </div>
@@ -3611,6 +3610,53 @@
                                     <div class="reg-popup__error" id="regPhoneError">Введите корректный номер телефона
                                     </div>
                                 </div>
+
+                                <div class="reg-popup__code-section" id="regCodeSection" style="display:none;">
+                                    <p class="reg-popup__desc" id="regCodeDesc">Подтвердите номер +7 (999) 123-45-67, введя
+                                        код из SMS:</p>
+                                    <div class="reg-popup__code-wrap" id="regCodeWrap">
+                                        <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
+                                        <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
+                                        <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
+                                        <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
+                                        <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
+                                        <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
+                                        <div class="reg-popup__error" id="regCodeError">Неверный код. Попробуйте снова</div>
+                                    </div>
+                                    <p class="reg-popup__timer" id="regTimer">Отправить код еще раз через <span
+                                            id="regTimerCount">43</span> секунды</p>
+                                    <button class="reg-popup__resend" type="button" id="regResend"
+                                        style="display:none;">Отправить код повторно</button>
+                                </div>
+
+                                <div class="reg-popup__data-section" id="regDataSection" style="display:none;">
+                                    <h2 class="reg-popup__title">Заполните данные</h2>
+                                    <div class="reg-popup__fields-row">
+                                        <div class="reg-popup__field-group">
+                                            <label class="reg-popup__label">Имя*</label>
+                                            <input class="reg-popup__input" type="text" id="regName" placeholder="Иван">
+                                            <div class="reg-popup__error" id="regNameError">Введите имя</div>
+                                        </div>
+                                        <div class="reg-popup__field-group">
+                                            <label class="reg-popup__label">Фамилия*</label>
+                                            <input class="reg-popup__input" type="text" id="regSurname"
+                                                placeholder="Иванов">
+                                            <div class="reg-popup__error" id="regSurnameError">Введите фамилию</div>
+                                        </div>
+                                    </div>
+                                    <div class="reg-popup__field-group">
+                                        <label class="reg-popup__label">Телефон*</label>
+                                        <input class="reg-popup__input reg-popup__input--filled" type="tel"
+                                            id="regPhoneStep3" readonly>
+                                    </div>
+                                    <div class="reg-popup__field-group">
+                                        <label class="reg-popup__label">E-mail</label>
+                                        <input class="reg-popup__input" type="email" id="regEmail"
+                                            placeholder="email@mail.com">
+                                        <div class="reg-popup__error" id="regEmailError">Введите корректный email</div>
+                                    </div>
+                                </div>
+
                                 <div class="reg-popup__footer">
                                     <button class="btn btn-primary reg-popup__btn" type="button" id="regStep1Next">
                                         <svg width="12" height="2" viewBox="0 0 12 2" fill="none"
@@ -3621,92 +3667,8 @@
                                         </svg>
                                         <span>Получить код</span>
                                     </button>
-                                    <label class="reg-popup__checkbox">
-                                        <input type="checkbox" required>
-                                        <span class="reg-popup__checkmark"></span>
-                                        <span class="reg-popup__checkbox-text">Нажимая на кнопку «Отправить», вы даете
-                                            <a href="#" target="_blank">согласие на обработку персональных
-                                                данных</a></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Step 2: SMS Code -->
-                <div class="reg-popup__step reg-popup__step-2" data-step="2">
-                    <div class="reg-popup__layout reg-popup__layout--single">
-                        <div class="reg-popup__form reg-popup__form--full">
-                            <button class="reg-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
-                                <svg viewBox="0 0 13 13" fill="none">
-                                    <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)"
-                                        fill="currentColor" />
-                                    <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)"
-                                        fill="currentColor" />
-                                </svg>
-                            </button>
-                            <div class="reg-popup__form-body">
-                                <h2 class="reg-popup__title">Подтвердите номер</h2>
-                                <p class="reg-popup__desc" id="regCodeDesc">Подтвердите номер +7 (999) 123-45-67, введя
-                                    код из SMS:</p>
-                                <div class="reg-popup__code-wrap" id="regCodeWrap">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1"
-                                        autofocus>
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                    <div class="reg-popup__error" id="regCodeError">Неверный код. Попробуйте снова</div>
-                                </div>
-                                <p class="reg-popup__timer" id="regTimer">Отправить код еще раз через <span
-                                        id="regTimerCount">43</span> секунды</p>
-                                <button class="reg-popup__resend" type="button" id="regResend"
-                                    style="display:none;">Отправить код повторно</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Step 3: Fill Data -->
-                <div class="reg-popup__step  reg-popup__step-3" data-step="3">
-                    <div class="reg-popup__layout reg-popup__layout--single">
-                        <div class="reg-popup__form reg-popup__form--full">
-                            <button class="reg-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
-                                <svg viewBox="0 0 13 13" fill="none">
-                                    <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)"
-                                        fill="currentColor" />
-                                    <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)"
-                                        fill="currentColor" />
-                                </svg>
-                            </button>
-                            <div class="reg-popup__form-body">
-                                <h2 class="reg-popup__title">Заполните данные</h2>
-                                <div class="reg-popup__fields-row">
-                                    <div class="reg-popup__field-group">
-                                        <label class="reg-popup__label">Имя*</label>
-                                        <input class="reg-popup__input" type="text" id="regName" placeholder="Иван">
-                                        <div class="reg-popup__error" id="regNameError">Введите имя</div>
-                                    </div>
-                                    <div class="reg-popup__field-group">
-                                        <label class="reg-popup__label">Фамилия*</label>
-                                        <input class="reg-popup__input" type="text" id="regSurname"
-                                            placeholder="Иванов">
-                                        <div class="reg-popup__error" id="regSurnameError">Введите фамилию</div>
-                                    </div>
-                                </div>
-                                <div class="reg-popup__field-group">
-                                    <label class="reg-popup__label">Телефон*</label>
-                                    <input class="reg-popup__input reg-popup__input--filled" type="tel"
-                                        id="regPhoneStep3" readonly>
-                                </div>
-                                <div class="reg-popup__field-group">
-                                    <label class="reg-popup__label">E-mail</label>
-                                    <input class="reg-popup__input" type="email" id="regEmail"
-                                        placeholder="email@mail.com">
-                                    <div class="reg-popup__error" id="regEmailError">Введите корректный email</div>
-                                </div>
-                                <div class="reg-popup__footer">
-                                    <button class="btn btn-primary reg-popup__btn" type="button" id="regStep3Submit">
+                                    <button class="btn btn-primary reg-popup__btn" type="button" id="regStep3Submit"
+                                        style="display:none;">
                                         <svg width="12" height="2" viewBox="0 0 12 2" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -3739,9 +3701,9 @@
     <script src="js/lib/validate.min.js"></script>
     <script src="js/registration.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=20"></script>
-    <script src="js/menu.js?v=20"></script>
-    <script src="js/map.js?v=20"></script>
+    <script src="js/main.js?v=21"></script>
+    <script src="js/menu.js?v=21"></script>
+    <script src="js/map.js?v=21"></script>
 
     <!-- ===== CITY POPUP ===== -->
     <div id="cityPopup" style="display:none;">

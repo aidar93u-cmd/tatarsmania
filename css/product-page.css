@@ -459,15 +459,7 @@
 	margin-bottom: var(--space-4);
 }
 
-.product-delivery__btn {
-	width: 100%;
-	align-self: flex-start;
-	background-color: var(--white) !important;
-	color: var(--graphite) !important;
-}
-.btn.product-delivery__btn span {
-	transform: translateX(0);
-}
+
 .product-interior-swiper .swiper-slide::after {
 	content: '';
 	position: absolute;

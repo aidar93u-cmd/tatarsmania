@@ -95,7 +95,7 @@
 }
 
 .blog-news__tab:hover {
-	opacity: 0.6;
+	color: var(--copper);
 }
 
 .blog-news__tab.is-active {

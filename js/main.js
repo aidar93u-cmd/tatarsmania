@@ -1519,12 +1519,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	var regPhoneStep3 = document.getElementById('regPhoneStep3')
 	var regStep1Next = document.getElementById('regStep1Next')
 	var regStep3Submit = document.getElementById('regStep3Submit')
+	var regCodeSection = document.getElementById('regCodeSection')
 	var regCodeDesc = document.getElementById('regCodeDesc')
 	var regCodeWrap = document.getElementById('regCodeWrap')
 	var regCodeError = document.getElementById('regCodeError')
 	var regTimer = document.getElementById('regTimer')
 	var regTimerCount = document.getElementById('regTimerCount')
 	var regResend = document.getElementById('regResend')
+	var regDataSection = document.getElementById('regDataSection')
 	var regCodeInputs
 
 	var regNameInput = document.getElementById('regName')
@@ -1598,8 +1600,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			// Existing user — log in directly
 			regCompleteAuth()
 		} else {
-			// New user — go to step 3
-			regGoToStep(3)
+			// New user — show data section
+			regShowDataSection()
 		}
 	}
 
@@ -1637,40 +1639,52 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
-	function regGoToStep(step) {
-		document.querySelectorAll('.reg-popup__step').forEach(function (s) {
-			s.classList.toggle(
-				'reg-popup__step--active',
-				parseInt(s.dataset.step, 10) === step,
-			)
+	function regShowCodeSection() {
+		if (regCodeSection) regCodeSection.style.display = ''
+		if (regPhoneStep3)
+			regPhoneStep3.value = regPhoneInput ? regPhoneInput.value : ''
+		if (regCodeDesc && regPhoneInput) {
+			regCodeDesc.textContent =
+				'Подтвердите номер ' + regPhoneInput.value + ', введя код из SMS:'
+		}
+		regCodeInputs = regCodeWrap
+			? regCodeWrap.querySelectorAll('.reg-popup__code-input')
+			: []
+		regCodeInputs.forEach(function (inp) {
+			inp.value = ''
 		})
-		// Re-trigger animation
-		var activeEl = document.querySelector('.reg-popup__step--active')
-		if (activeEl) {
-			activeEl.style.animation = 'none'
-			void activeEl.offsetWidth
-			activeEl.style.animation = ''
+		if (regCodeInputs.length) regCodeInputs[0].focus()
+		regClearCodeError()
+		regStartTimer()
+	}
+
+	function regShowDataSection() {
+		if (regDataSection) regDataSection.style.display = ''
+		if (regStep1Next) regStep1Next.style.display = 'none'
+		if (regStep3Submit) regStep3Submit.style.display = ''
+		if (regTimer) regTimer.style.display = 'none'
+		clearInterval(regTimerInterval)
+		// Scroll to top of form-body
+		var body = document.querySelector('.reg-popup__form-body')
+		if (body) body.scrollTop = 0
+		if (window.regClearStep3Errors) window.regClearStep3Errors()
+	}
+
+	function regResetPopup() {
+		if (regCodeSection) regCodeSection.style.display = 'none'
+		if (regDataSection) regDataSection.style.display = 'none'
+		if (regStep1Next) regStep1Next.style.display = ''
+		if (regStep3Submit) regStep3Submit.style.display = 'none'
+		clearInterval(regTimerInterval)
+		if (regTimer) regTimer.style.display = 'none'
+		if (regResend) regResend.style.display = 'none'
+		regClearCodeError()
+		if (regPhoneInput) {
+			regPhoneInput.value = ''
+			regPhoneInput.classList.remove('reg-popup__input--error')
 		}
-		if (step === 2) {
-			if (regPhoneStep3)
-				regPhoneStep3.value = regPhoneInput ? regPhoneInput.value : ''
-			if (regCodeDesc && regPhoneInput) {
-				regCodeDesc.textContent =
-					'Подтвердите номер ' + regPhoneInput.value + ', введя код из SMS:'
-			}
-			regCodeInputs = regCodeWrap
-				? regCodeWrap.querySelectorAll('.reg-popup__code-input')
-				: []
-			regCodeInputs.forEach(function (inp) {
-				inp.value = ''
-			})
-			if (regCodeInputs.length) regCodeInputs[0].focus()
-			regClearCodeError()
-			regStartTimer()
-		}
-		if (step === 3) {
-			if (window.regClearStep3Errors) window.regClearStep3Errors()
-		}
+		if (regPhoneError)
+			regPhoneError.classList.remove('reg-popup__error--visible')
 	}
 
 	function regStartTimer() {
@@ -1694,13 +1708,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		regStep1Next.addEventListener('click', function () {
 			if (!window.regValidatePhone || !window.regValidatePhone()) return
 			var consent = document.querySelector(
-				'[data-step="1"] .reg-popup__checkbox input[type="checkbox"]',
+				'.reg-popup__checkbox input[type="checkbox"]',
 			)
 			if (!consent || !consent.checked) {
 				consent.closest('.reg-popup__checkbox').classList.add('is-invalid')
 				return
 			}
-			regGoToStep(2)
+			regShowCodeSection()
 		})
 	}
 
@@ -1760,7 +1774,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (window.regValidateSurname) { if (!window.regValidateSurname()) ok = false }
 			if (window.regValidateEmail) { if (!window.regValidateEmail()) ok = false }
 			var consent3 = document.querySelector(
-				'[data-step="3"] .reg-popup__checkbox input[type="checkbox"]',
+				'.reg-popup__checkbox input[type="checkbox"]',
 			)
 			if (!consent3 || !consent3.checked) {
 				var label = consent3
@@ -1800,13 +1814,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			document.body.style.overflow = ''
 		}
 
-		regGoToStep(1)
-		if (regPhoneInput) {
-			regPhoneInput.value = ''
-			regPhoneInput.classList.remove('reg-popup__input--error')
-		}
-		if (regPhoneError)
-			regPhoneError.classList.remove('reg-popup__error--visible')
+		regResetPopup()
 		clearInterval(regTimerInterval)
 
 		Fancybox.show([{ src: '#registrationPopup', type: 'inline' }], {
