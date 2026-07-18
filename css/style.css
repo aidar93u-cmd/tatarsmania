@@ -5,6 +5,12 @@
 :focus-visible {
     outline: none
 }
+
+/* Cursor zoom-in for all fancybox image galleries */
+a[data-fancybox][href] {
+    cursor: zoom-in;
+}
+
 :root {
 	--white: #fff;
 	--gray-light: #f3f3f3;
@@ -408,6 +414,8 @@ img {
 	transform: translateX(calc(-1 * var(--space-10)));
 	opacity: 0;
 	transition: all 0.4s;
+	width: 0.75rem;
+	height: auto;
 }
 .btn span {
 	transform: translateX(calc(-1 * var(--space-10)));
@@ -3393,12 +3401,6 @@ section.footer-banner {
 .fancybox-reg-popup .fancybox__content > .f-button.is-close-btn {
     display: none;
 }
-.reg-popup__step{
-    width: 34.375rem;
- }
-.reg-popup__step-1{
-    width: 68.75rem;
- }
 .reg-popup {
     font-family: "Circe", "TEST Circe", sans-serif;
     background: #fff;
@@ -3409,30 +3411,12 @@ section.footer-banner {
     position: relative;
 }
 .reg-popup__step {
-    display: none;
-    animation: regFadeIn 0.35s ease;
-}
-.reg-popup__step--active {
     display: block;
-}
-@keyframes regFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(var(--space-12));
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .reg-popup__layout {
     display: flex;
     min-height: 41.25rem;
-}
-.reg-popup__layout--single {
-    width: 100%;
-    margin: 0 auto;
 }
 .reg-popup__image {
     width: 50%;
@@ -3446,10 +3430,6 @@ section.footer-banner {
     display: flex;
     flex-direction: column;
     position: relative;
-}
-.reg-popup__form--full {
-    width: 100%;
-    padding: var(--space-40) var(--space-60);
 }
 .reg-popup__close {
     position: absolute;
@@ -3470,15 +3450,17 @@ section.footer-banner {
 .reg-popup__form-body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     flex: 1;
     max-width: var(--space-320);
     margin: 0 auto;
     width: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }
-.reg-popup__form--full .reg-popup__form-body {
-    max-width: var(--space-320);
+.reg-popup__form-body > *:first-child {
+    margin-top: auto;
 }
+
 .reg-popup__title {
     font-size: var(--space-16);
     font-weight: 500;
@@ -3700,9 +3682,6 @@ section.footer-banner {
     }
     .reg-popup__layout {
         min-height: auto;
-    }
-    .reg-popup__layout--single {
-        width: 100%;
     }
     .reg-popup__form-body {
         max-width: 100%;

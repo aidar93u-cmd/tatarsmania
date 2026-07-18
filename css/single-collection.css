@@ -15,7 +15,7 @@
 .single-collection-products__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-20);
+  gap: var(--space-10);
 }
 
 @media (max-width: 1200px) {
@@ -73,9 +73,6 @@
   transition: opacity 0.4s;
 }
 
-.collection-card:hover .collection-card__name {
-  opacity: 0.6;
-}
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
