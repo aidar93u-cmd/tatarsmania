@@ -61,6 +61,7 @@ test-results/
 
 # deploy
 deploy.js
+release.js
 .deployed
 
 # release artifacts
