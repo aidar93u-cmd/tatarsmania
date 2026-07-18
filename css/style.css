@@ -2,6 +2,9 @@
    Design System
    =================================== */
 
+:focus-visible {
+    outline: none
+}
 :root {
 	--white: #fff;
 	--gray-light: #f3f3f3;
@@ -627,6 +630,10 @@ body.page main{
 	width: var(--space-13);
 	height: var(--space-13);
 }
+.hero__arrow svg {
+	width: 0.8125rem;
+	height: auto;
+}
 
 .hero__arrow--prev {
 	left: var(--space-24);
@@ -846,6 +853,10 @@ body.page main{
 	position: relative;
 	line-height: 1;
 }
+.plus-icon svg {
+	width: 0.8125rem;
+	height: 0.8125rem;
+}
 
 .about-production__stat-label {
 	display: block;
@@ -875,12 +886,15 @@ body.page main{
 }
 
 .categories-small__arrow {
-
 	height: var(--space-13);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	transition: opacity 0.4s;
+}
+.categories-small__arrow svg {
+	width: 0.8125rem;
+	height: auto;
 }
 
 .categories-small__arrow:hover {
@@ -1012,6 +1026,10 @@ body.page main{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+.featured__arrow svg {
+	width: 0.4375rem;
+	height: auto;
 }
 
 .featured__title {
@@ -1193,6 +1211,10 @@ body.page main{
 	cursor: pointer;
 	transition: opacity 0.4s;
 }
+.carousel-section__arrow svg {
+	width: 0.8125rem;
+	height: auto;
+}
 
 .carousel-section__arrow:hover {
 	opacity: 0.7;
@@ -1337,6 +1359,10 @@ body.page main{
 	justify-content: center;
 	transition: opacity 0.4s;
 	padding: 0;
+}
+.collections__arrow svg {
+	width: 0.8125rem;
+	height: auto;
 }
 
 .collections__arrow:hover {
@@ -2236,7 +2262,7 @@ section.footer-banner {
 
 .media-slider__btn svg {
 	width: 0.8125rem;
-	height: 0.8125rem;
+	height: auto;
 	fill: #fff;
 }
 
@@ -2723,6 +2749,7 @@ section.footer-banner {
 	top: 200px;
 	align-self: start;
 }
+
 
 .page-layout__main {
 	min-width: 0;
@@ -3334,6 +3361,8 @@ section.footer-banner {
 
 .pagination__arrow svg {
 	display: block;
+	width: 0.375rem;
+	height: auto;
 }
 
 .pagination__arrow--disabled {
@@ -3356,6 +3385,10 @@ section.footer-banner {
 .fancybox-reg-popup .fancybox__content {
     max-height: 90vh;
     background: transparent;
+}
+.fancybox__content > .f-button.is-close-btn {
+    top: -38px;
+    right: -38px;
 }
 .fancybox-reg-popup .fancybox__content > .f-button.is-close-btn {
     display: none;
