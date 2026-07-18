@@ -281,8 +281,8 @@
     align-items: flex-start;
 }
 .checkbox--dark .checkbox__mark {
-    width: 18px;
-    height: 18px;
+    width: 12px;
+    height: 12px;
     background: var(--graphite);
     border: 1px solid var(--graphite);
     flex-shrink: 0;
