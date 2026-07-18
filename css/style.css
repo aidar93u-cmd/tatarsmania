@@ -3412,6 +3412,7 @@ section.footer-banner {
 }
 .reg-popup__step {
     display: block;
+    width: 68.75rem;
 }
 
 .reg-popup__layout {
