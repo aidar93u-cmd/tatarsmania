@@ -1125,57 +1125,6 @@
 	font-weight: 500;
 }
 
-.checkout-summary__checkbox {
-	display: flex;
-	align-items: flex-start;
-	gap: var(--space-10);
-	cursor: pointer;
-	position: relative;
-}
-
-.checkout-summary__checkbox input {
-	position: absolute;
-	opacity: 0;
-	pointer-events: none;
-}
-
-.checkout-summary__checkbox-mark {
-	width: 0.75rem;
-	height: 0.75rem;
-	border: 1px solid rgba(33,33,33,0.2);
-	background-color: var(--white);
-	flex-shrink: 0;
-	margin-top: 0.125rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.checkout-summary__checkbox input:checked + .checkout-summary__checkbox-mark::after {
-	content: '';
-	width: 0.375rem;
-	height: 0.25rem;
-	border-left: 1px solid var(--graphite);
-	border-bottom: 1px solid var(--graphite);
-	transform: rotate(-45deg);
-	margin-top: -0.0625rem;
-}
-
-.checkout-summary__checkbox-text {
-	flex: 1;
-	font-size: var(--body-base-size);
-	line-height: 120%;
-}
-
-.checkout-summary__checkbox-text a {
-	color: var(--copper);
-	text-decoration: underline;
-}
-
-.checkout-summary__checkbox-text a:hover {
-	text-decoration: none;
-}
-
 /* ===== Accordions ===== */
 .checkout-accordions {
 	padding-top: var(--space-24);
