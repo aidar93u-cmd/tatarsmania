@@ -1519,6 +1519,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	var regPhoneStep3 = document.getElementById('regPhoneStep3')
 	var regStep1Next = document.getElementById('regStep1Next')
 	var regStep3Submit = document.getElementById('regStep3Submit')
+	var regPhoneSection = document.getElementById('regPhoneSection')
 	var regCodeSection = document.getElementById('regCodeSection')
 	var regCodeDesc = document.getElementById('regCodeDesc')
 	var regCodeWrap = document.getElementById('regCodeWrap')
@@ -1540,14 +1541,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	var regTimerValue = 43
 
 	function regPhoneMask(val) {
-		var digits = val.replace(/\D/g, '')
-		if (digits.length === 0) return ''
+		var hasExplicitPlus = val.charAt(0) === '+'
+		var raw = hasExplicitPlus ? val.slice(1) : val
+		var digits = raw.replace(/\D/g, '')
+		if (digits.length === 0) {
+			return hasExplicitPlus ? '+' : ''
+		}
 		var d = digits.slice(0, 11)
+		var start = hasExplicitPlus ? 1 : (d[0] === '7' || d[0] === '8' ? 1 : 0)
 		var masked = '+7'
-		if (d.length > 1) masked += ' (' + d.slice(1, 4)
-		if (d.length >= 5) masked += ') ' + d.slice(4, 7)
-		if (d.length >= 8) masked += '-' + d.slice(7, 9)
-		if (d.length >= 10) masked += '-' + d.slice(9, 11)
+		if (d.length > start) {
+			masked += ' (' + d.slice(start, Math.min(d.length, start + 3))
+		} else {
+			masked += ' ('
+		}
+		if (d.length >= start + 4) masked += ') ' + d.slice(start + 3, start + 6)
+		if (d.length >= start + 7) masked += '-' + d.slice(start + 6, start + 8)
+		if (d.length >= start + 9) masked += '-' + d.slice(start + 8, start + 10)
 		return masked
 	}
 
@@ -1640,7 +1650,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function regShowCodeSection() {
-		if (regCodeSection) regCodeSection.style.display = ''
+		if (regPhoneSection) regPhoneSection.classList.add('reg-popup__section--hidden')
+		if (regCodeSection) regCodeSection.classList.remove('reg-popup__section--hidden')
 		if (regPhoneStep3)
 			regPhoneStep3.value = regPhoneInput ? regPhoneInput.value : ''
 		if (regCodeDesc && regPhoneInput) {
@@ -1659,9 +1670,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function regShowDataSection() {
-		if (regDataSection) regDataSection.style.display = ''
+		if (regCodeSection) regCodeSection.classList.add('reg-popup__section--hidden')
+		if (regDataSection) regDataSection.classList.remove('reg-popup__section--hidden')
 		if (regStep1Next) regStep1Next.style.display = 'none'
-		if (regStep3Submit) regStep3Submit.style.display = ''
+		if (regStep3Submit) {
+			regStep3Submit.style.display = ''
+			regStep3Submit.removeAttribute('tabindex')
+		}
 		if (regTimer) regTimer.style.display = 'none'
 		clearInterval(regTimerInterval)
 		// Scroll to top of form-body
@@ -1671,8 +1686,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function regResetPopup() {
-		if (regCodeSection) regCodeSection.style.display = 'none'
-		if (regDataSection) regDataSection.style.display = 'none'
+		if (regPhoneSection) regPhoneSection.classList.remove('reg-popup__section--hidden')
+		if (regCodeSection) regCodeSection.classList.add('reg-popup__section--hidden')
+		if (regDataSection) regDataSection.classList.add('reg-popup__section--hidden')
 		if (regStep1Next) regStep1Next.style.display = ''
 		if (regStep3Submit) regStep3Submit.style.display = 'none'
 		clearInterval(regTimerInterval)
@@ -1685,6 +1701,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		if (regPhoneError)
 			regPhoneError.classList.remove('reg-popup__error--visible')
+		var sections = document.querySelector('.reg-popup__sections')
+		if (sections) sections.style.minHeight = ''
 	}
 
 	function regStartTimer() {
@@ -2259,6 +2277,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
 	initPagination()
+	initSort()
 });
 
 
@@ -2475,6 +2494,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		function fireChange(nav) {
+			window.scrollTo({ top: 0, behavior: 'smooth' })
 			var current = getCurrentPage(nav)
 			var total = getTotalPages(nav)
 			renderPagination(nav, current, total)
@@ -2532,6 +2552,116 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	window.initPagination = initPagination
+
+	/* ===== Universal Sort ===== */
+	function initSort() {
+		document.querySelectorAll('.sort').forEach(function (container) {
+			var trigger = container.querySelector('.sort__trigger')
+			var dropdown = container.querySelector('.sort__dropdown')
+			if (!trigger || !dropdown) return
+
+			var gridSelector = container.getAttribute('data-sort-grid')
+			var grid = gridSelector ? document.querySelector(gridSelector) : null
+			var originalOrder = []
+			if (grid) {
+				originalOrder = Array.from(grid.children).filter(function (el) { return el.parentNode === grid })
+			}
+
+			trigger.addEventListener('click', function (e) {
+				e.stopPropagation()
+				container.classList.toggle('active')
+			})
+
+			document.addEventListener('click', function (e) {
+				if (!container.contains(e.target)) {
+					container.classList.remove('active')
+				}
+			})
+
+			dropdown.addEventListener('click', function (e) {
+				var option = e.target.closest('.sort__option')
+				if (!option) return
+				e.preventDefault()
+
+				var sortKey = option.getAttribute('data-sort')
+				var label = option.textContent.trim()
+
+				container.querySelectorAll('.sort__option').forEach(function (o) {
+					o.classList.remove('active')
+				})
+				option.classList.add('active')
+
+				var span = trigger.querySelector('span')
+				if (span) span.textContent = label
+				container.classList.remove('active')
+
+				if (container.hasAttribute('data-sort-manual')) {
+					document.dispatchEvent(new CustomEvent('sort:change', {
+						detail: { containerId: container.getAttribute('id'), sortKey: sortKey, label: label },
+					}))
+				} else if (grid) {
+					var textSel = container.getAttribute('data-sort-text')
+					var priceSel = container.getAttribute('data-sort-price')
+					var dateAttr = container.getAttribute('data-sort-date')
+					var cards = Array.from(grid.children)
+					var sorted
+
+					switch (sortKey) {
+						case 'alphabet-az':
+							sorted = cards.sort(function (a, b) {
+								var ta = textSel ? (a.querySelector(textSel) || {}).textContent || '' : ''
+								var tb = textSel ? (b.querySelector(textSel) || {}).textContent || '' : ''
+								return ta.trim().localeCompare(tb.trim())
+							})
+							break
+						case 'alphabet-za':
+							sorted = cards.sort(function (a, b) {
+								var ta = textSel ? (a.querySelector(textSel) || {}).textContent || '' : ''
+								var tb = textSel ? (b.querySelector(textSel) || {}).textContent || '' : ''
+								return tb.trim().localeCompare(ta.trim())
+							})
+							break
+						case 'expensive':
+							sorted = cards.sort(function (a, b) {
+								var pa = priceSel ? parseFloat((a.querySelector(priceSel) || {}).textContent.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.')) || 0 : 0
+								var pb = priceSel ? parseFloat((b.querySelector(priceSel) || {}).textContent.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.')) || 0 : 0
+								return pb - pa
+							})
+							break
+						case 'cheap':
+							sorted = cards.sort(function (a, b) {
+								var pa = priceSel ? parseFloat((a.querySelector(priceSel) || {}).textContent.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.')) || 0 : 0
+								var pb = priceSel ? parseFloat((b.querySelector(priceSel) || {}).textContent.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.')) || 0 : 0
+								return pa - pb
+							})
+							break
+						case 'new':
+							sorted = cards.sort(function (a, b) {
+								var da = dateAttr ? a.getAttribute(dateAttr) || '' : ''
+								var db = dateAttr ? b.getAttribute(dateAttr) || '' : ''
+								return db.localeCompare(da)
+							})
+							break
+						case 'old':
+							sorted = cards.sort(function (a, b) {
+								var da = dateAttr ? a.getAttribute(dateAttr) || '' : ''
+								var db = dateAttr ? b.getAttribute(dateAttr) || '' : ''
+								return da.localeCompare(db)
+							})
+							break
+						case 'default':
+						default:
+							sorted = originalOrder.filter(function (el) { return el.parentNode === grid })
+							break
+					}
+
+					sorted.forEach(function (el) { grid.appendChild(el) })
+				}
+			})
+		})
+	}
+
+	window.initSort = initSort
 
 	/* ===== FOOTER BANNER PARALLAX (GSAP) ===== */
 	if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {

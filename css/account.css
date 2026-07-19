@@ -7,7 +7,7 @@
 
 .account__inner {
     display: grid;
-    grid-template-columns: 18.75rem 1fr 18.75rem;
+    grid-template-columns: 17.75rem 1fr 17.75rem;
     gap: var(--space-58);
     align-items: start;
 }
@@ -17,11 +17,12 @@
     position: sticky;
     top: 200px;
     align-self: start;
+    /*margin-top: var(--space-12);*/
 }
 
 .account-nav {
-    background: var(--gray-lighter);
-    padding: var(--space-38);
+    /* background: var(--gray-lighter); */
+    padding:0 var(--space-20);
     display: flex;
     flex-direction: column;
     gap: var(--space-18);
@@ -64,6 +65,7 @@
 .account__content {
     min-width: 0;
     align-self: start;
+    margin-top: calc(-1 * var(--space-6));
 }
 
 /* ===== Account Sections ===== */
@@ -101,26 +103,15 @@
 }
 
 .btn--account-add {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    background: none;
-    border: none;
     padding: 0;
-    font-size: var(--body-base-size);
-    font-weight: 500;
-    color: var(--graphite);
-    cursor: pointer;
-    transition: color 0.2s;
-    font-family: var(--font-family);
-    line-height: 1.2;
     text-decoration: none;
     min-width: 0;
-    text-transform: none;
+    margin-right: -10px;
 }
 
-.account-add-btn__count {
+.btn span.account-add-btn__count {
     opacity: 0.4;
+    font-feature-settings: "sups" 1;
 }
 
 /* ===== Account Card ===== */
@@ -168,11 +159,13 @@
     height: var(--space-13);
 }
 
-.account-card__action svg {
-    display: block;
+.account-card__action svg{
+    width: var(--space-13);
+    height: var(--space-13);
 }
-.account-card__action.is-active svg path {
-    fill: #212121;
+.account-card__actions .is-active svg path {
+    fill: var(--graphite);
+    fill-opacity: 1;
 }
 
 .account-card__footer {
@@ -1143,10 +1136,10 @@
     border: none;
     padding: 0;
     font-family: var(--font-family);
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0;
     color: var(--graphite);
     cursor: pointer;
     line-height: 1.2;
@@ -1177,80 +1170,11 @@
     line-height: 1.2;
 }
 
-.orders-sort__wrapper {
-    position: relative;
-}
-
-.orders-sort__trigger {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-8);
-    padding: var(--space-8) var(--space-16);
-    font-family: var(--font-family);
-    background: var(--gray-dark-line);
-    border: none;
-    cursor: pointer;
-    transition: background 0.4s;
-}
-
-.orders-sort__trigger:hover {
-    background: var(--gray-hover);
-}
-
-.orders-sort__trigger svg {
-    transition: transform 0.4s;
-}
-
-.orders-sort__menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + var(--space-6));
-    right: 0;
-    z-index: 10;
-    min-width: 11.25rem;
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0 var(--space-4) var(--space-12) rgba(0, 0, 0, 0.08);
-    padding: 0;
-}
-
-.orders-sort__wrapper:hover .orders-sort__menu,
-.orders-sort__wrapper.active .orders-sort__menu {
-    display: block;
-}
-
-.orders-sort__option {
-    display: block;
-    width: 100%;
-    padding: var(--space-6) var(--space-8);
-    font-size: var(--body-base-size);
-    font-family: var(--font-family);
-    color: var(--graphite);
-    background: none;
-    border: none;
-    border-bottom: 1px solid var(--gray-dark-line);
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.4s;
-}
-
-.orders-sort__option:last-child {
-    border-bottom: none;
-}
-
-.orders-sort__option:hover {
-    background: var(--gray-bg-light);
-}
-
-.orders-sort__option--active {
-    font-weight: 600;
-}
-
 /* ===== Orders Divider ===== */
 .orders-divider {
     height: 1px;
     background: #dbdbdb;
-    margin: var(--space-28) 0 var(--space-24);
+    margin: var(--space-16) 0 var(--space-16);
 }
 
 /* ===== Orders Card ===== */
@@ -1262,6 +1186,12 @@
     text-decoration: none;
     color: inherit;
     padding: var(--space-24);
+    border: 1px solid var(--white);
+    transition: 0.4s all;
+}
+.orders-card:hover{
+    border: 1px solid #21212133
+
 }
 
 .orders-card:last-child {
@@ -1270,10 +1200,6 @@
 
 .orders-card--dashed {
     border: 1px dashed rgba(33, 33, 33, 0.2);
-}
-
-.orders-card:hover {
-    opacity: 0.85;
 }
 
 .orders-card__row {
@@ -1325,6 +1251,8 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    background: #F3F3F3;
+    padding: var(--space-25);
 }
 
 .orders-card__details {
@@ -1377,7 +1305,7 @@
     align-items: center;
     justify-content: space-between;
     pointer-events: none;
-    padding: 0 var(--space-10);
+    padding: 0;
     z-index: 2;
 }
 
@@ -1385,8 +1313,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--space-32);
-    height: var(--space-32);
     border: none;
     pointer-events: auto;
     cursor: pointer;
@@ -1395,7 +1321,6 @@
 .orders-card__arrow svg {
     width: 1rem;
     height: auto;
-}
     transition: background 0.2s;
 }
 
@@ -1436,10 +1361,9 @@
         font-size: 0.6875rem;
     }
 
-    .orders-sort__menu {
+    #orders-sort .sort__dropdown {
         right: auto;
         left: 0;
-        min-width: 11.25rem;
     }
 
     .orders-divider {
@@ -1916,17 +1840,32 @@
 
 /* ===== Orders Pagination ===== */
 .orders__pagination {
-    margin-top: var(--space-40);
+    margin-top: var(--space-70);
+    gap: var(--space-30);
+}
+
+.orders__pagination .pagination__info {
+    color: var(--graphite);
+    opacity: 0.4;
 }
 
 .orders__pagination .pagination__nav {
-    gap: var(--space-8);
+    gap: var(--space-30);
 }
 
 .orders__pagination .pagination__link,
 .orders__pagination .pagination__arrow {
-    width: var(--space-36);
-    height: var(--space-36);
+    width: var(--space-40);
+    height: var(--space-40);
+}
+
+.orders__pagination .pagination__link {
+    color: var(--graphite);
+    opacity: 0.3;
+}
+
+.orders__pagination .pagination__link--active {
+    opacity: 1;
 }
 
 /* ===== Orders Skeleton ===== */

@@ -528,26 +528,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 if (!allValid) return
 
-                addressPopupBtn.disabled = true
-                addressPopupBtn.classList.add('is-loading')
-                setTimeout(function () {
-                    addressPopupBtn.classList.remove('is-loading')
-                    if (isNew) {
-                        var newCard = createAddressCard(name, city, street, house, block, entrance, floor, apartment, comment, addressPopupDefault.checked)
-                        document.querySelector('.account-addresses').appendChild(newCard)
-					} else {
-						var fields = card.querySelectorAll('.account-field')
-						fields[0].querySelector('.account-field__value').textContent = name
-						var addrEl = fields[1].querySelector('.account-field__value')
-						addrEl.textContent = buildAddress(city, street, house, block, entrance, floor, apartment, comment)
-						var commentEl = fields[2].querySelector('.account-field__value')
-						commentEl.textContent = comment || '—'
-                        var favBtn = card.querySelector('.js-address-fav')
-                        if (favBtn) {
-                            if (addressPopupDefault.checked) favBtn.classList.add('is-active')
-                            else favBtn.classList.remove('is-active')
+                    addressPopupBtn.disabled = true
+                    addressPopupBtn.classList.add('is-loading')
+                    setTimeout(function () {
+                        addressPopupBtn.classList.remove('is-loading')
+                        if (addressPopupDefault.checked) {
+                            document.querySelectorAll('.js-address-fav').forEach(function (b) { b.classList.remove('is-active') })
                         }
-                    }
+                        if (isNew) {
+                            var newCard = createAddressCard(name, city, street, house, block, entrance, floor, apartment, comment, addressPopupDefault.checked)
+                            document.querySelector('.account-addresses').appendChild(newCard)
+                        } else {
+                            var fields = card.querySelectorAll('.account-field')
+                            fields[0].querySelector('.account-field__value').textContent = name
+                            var addrEl = fields[1].querySelector('.account-field__value')
+                            addrEl.textContent = buildAddress(city, street, house, block, entrance, floor, apartment, comment)
+                            var commentEl = fields[2].querySelector('.account-field__value')
+                            commentEl.textContent = comment || '—'
+                            var favBtn = card.querySelector('.js-address-fav')
+                            if (favBtn && addressPopupDefault.checked) favBtn.classList.add('is-active')
+                        }
                     closeAddressPopup()
                     showToast(isNew ? 'Адрес добавлен' : 'Адрес сохранён', 'success')
                 }, 800)
@@ -628,15 +628,19 @@ document.addEventListener('DOMContentLoaded', function () {
             '<div class="account-card__body">' +
                 '<div class="account-card__actions">' +
                     '<button class="account-card__action js-address-fav' + (isDefault ? ' is-active' : '') + '" aria-label="Основной адрес">' +
-                        '<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-                            '<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" stroke="#212121" stroke-width="0.8"/>' +
+                        '<svg width="13" height="13" viewBox="0 0 13 13" fill="none">' +
+                            '<path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" fill="#212121" fill-opacity="0.2"/>' +
                         '</svg>' +
                     '</button>' +
                     '<button class="account-card__action js-address-edit" aria-label="Редактировать">' +
-                        '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M8.962 1.096a1.22 1.22 0 011.726 0l1.098 1.098a1.22 1.22 0 010 1.726l-7.5 7.5a.61.61 0 01-.296.163l-2.561.569a.61.61 0 01-.72-.72l.569-2.562a.61.61 0 01.163-.295l7.5-7.5z" stroke="#212121" stroke-width="0.8"/><path d="M7.5 2.5l2.5 2.5" stroke="#212121" stroke-width="0.8"/></svg>' +
+                        '<svg width="13" height="13" viewBox="0 0 13 13" fill="none">' +
+                            '<path d="M6.64615 3.53089L1 9.17696V12L3.82307 12L9.46922 6.35392M6.64615 3.53089L8.67074 1.50631L8.67196 1.50511C8.95065 1.22642 9.09025 1.08683 9.25116 1.03454C9.39291 0.988486 9.54562 0.988486 9.68736 1.03454C9.84817 1.08679 9.9876 1.22622 10.2659 1.50452L11.4938 2.7324C11.7733 3.01189 11.9131 3.1517 11.9655 3.31285C12.0115 3.45459 12.0115 3.60728 11.9655 3.74903C11.9131 3.91006 11.7735 4.04966 11.4944 4.32875L11.4938 4.32935L9.46922 6.35392M6.64615 3.53089L9.46922 6.35392" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+                        '</svg>' +
                     '</button>' +
                     '<button class="account-card__action" aria-label="Удалить">' +
-                        '<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 3.5h10M4 3.5V2a1 1 0 011-1h3a1 1 0 011 1v1.5M10 3.5v7.5a1 1 0 01-1 1H4a1 1 0 01-1-1V3.5" stroke="#212121" stroke-width="0.8"/></svg>' +
+                        '<svg width="13" height="13" viewBox="0 0 13 13" fill="none">' +
+                            '<path d="M7.625 5.27778V9.55556M5.375 5.27778V9.55556M3.125 2.83333V10.0444C3.125 10.729 3.125 11.071 3.24762 11.3324C3.35548 11.5624 3.52745 11.7497 3.73914 11.8669C3.97955 12 4.29443 12 4.92326 12H8.07674C8.70557 12 9.01999 12 9.26041 11.8669C9.47209 11.7497 9.64464 11.5624 9.7525 11.3324C9.875 11.0712 9.875 10.7295 9.875 10.0463V2.83333M3.125 2.83333H4.25M3.125 2.83333H2M4.25 2.83333H8.75M4.25 2.83333C4.25 2.26385 4.25 1.97925 4.33564 1.75464C4.44982 1.45516 4.66868 1.21708 4.94434 1.09304C5.15108 1 5.41332 1 5.9375 1H7.0625C7.58668 1 7.84878 1 8.05552 1.09304C8.33118 1.21708 8.55013 1.45516 8.66431 1.75464C8.74994 1.97925 8.75 2.26385 8.75 2.83333M8.75 2.83333H9.875M9.875 2.83333H11" stroke="#212121" stroke-width="0.8" stroke-linejoin="round"/>' +
+                        '</svg>' +
                     '</button>' +
                 '</div>' +
 		'<div class="account-field"><span class="account-field__label">Название:</span><span class="account-field__value">' + escapeHtml(label) + '</span></div>' +

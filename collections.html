@@ -243,8 +243,8 @@
                     </div>
                     <div class="collections-grid-filter">
                         <span class="collections-grid__count body">Найдено 54 коллекции</span>
-                        <div class="collections-grid__sort">
-                            <button class="collections-grid__sort-trigger body">
+                        <div class="sort" id="collections-sort" data-sort-grid="#collectionsGrid" data-sort-text=".collection-card__name">
+                            <button class="sort__trigger body">
                                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -256,13 +256,13 @@
                                 </svg>
                                 <span>По алфавиту A-Z</span>
                             </button>
-                            <div class="collections-grid__sort-dropdown">
-                                <a href="collections.html" class="collections-grid__sort-option body" data-sort="alphabet-az">По
-                                    алфавиту A-Z</a>
-                                <a href="collections.html" class="collections-grid__sort-option body" data-sort="alphabet-za">По
-                                    алфавиту Z-A</a>
-                                <a href="collections.html" class="collections-grid__sort-option body" data-sort="default">По
-                                    умолчанию</a>
+                            <div class="sort__dropdown">
+                                <button class="sort__option body" type="button" data-sort="alphabet-az">По
+                                    алфавиту A-Z</button>
+                                <button class="sort__option body" type="button" data-sort="alphabet-za">По
+                                    алфавиту Z-A</button>
+                                <button class="sort__option body" type="button" data-sort="default">По
+                                    умолчанию</button>
                             </div>
                         </div>
                     </div>

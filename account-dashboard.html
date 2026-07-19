@@ -109,7 +109,7 @@
     
             </a>
             <div class="header__actions">
-                <a href="#" class="header__icon" aria-label="Профиль" data-label="Профиль">
+                <a href="#" class="header__icon header__icon--logged" aria-label="Профиль" data-label="Профиль">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -118,6 +118,7 @@
                             d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
                             stroke="white" stroke-width="0.8" />
                     </svg>
+                    <span class="header__icon-name">Константин К.</span>
                 </a>
                 <a href="#" class="header__icon header__icon--cart" aria-label="Корзина" data-label="Корзина">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -178,7 +179,7 @@
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="#" class="header-mobile__icon" aria-label="Профиль" data-label="Профиль">
+                <a href="#" class="header-mobile__icon header-mobile__icon--logged" aria-label="Профиль" data-label="Профиль">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -187,6 +188,7 @@
                             d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
                             stroke="currentColor" stroke-width="0.8" />
                     </svg>
+                    <span class="header__icon-name">Константин К.</span>
                 </a>
             </div>
         </div>
@@ -241,9 +243,8 @@
                                 <div class="account-card__body">
                                     <div class="account-card__actions">
                                         <button class="account-card__action js-profile-edit" aria-label="Редактировать">
-                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M8.962 1.096a1.22 1.22 0 011.726 0l1.098 1.098a1.22 1.22 0 010 1.726l-7.5 7.5a.61.61 0 01-.296.163l-2.561.569a.61.61 0 01-.72-.72l.569-2.562a.61.61 0 01.163-.295l7.5-7.5z" stroke="#212121" stroke-width="0.8"/>
-                                                <path d="M7.5 2.5l2.5 2.5" stroke="#212121" stroke-width="0.8"/>
+                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                                <path d="M6.64615 3.53089L1 9.17696V12L3.82307 12L9.46922 6.35392M6.64615 3.53089L8.67074 1.50631L8.67196 1.50511C8.95065 1.22642 9.09025 1.08683 9.25116 1.03454C9.39291 0.988486 9.54562 0.988486 9.68736 1.03454C9.84817 1.08679 9.9876 1.22622 10.2659 1.50452L11.4938 2.7324C11.7733 3.01189 11.9131 3.1517 11.9655 3.31285C12.0115 3.45459 12.0115 3.60728 11.9655 3.74903C11.9131 3.91006 11.7735 4.04966 11.4944 4.32875L11.4938 4.32935L9.46922 6.35392M6.64615 3.53089L9.46922 6.35392" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
                                         </button>
                                     </div>
@@ -280,18 +281,20 @@
                                         <div class="account-card__actions">
                                             <button class="account-card__action js-address-fav" aria-label="Основной адрес">
                                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" stroke="#212121" stroke-width="0.8"/>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                        fill="#212121" fill-opacity="0.2" />
                                                 </svg>
+
                                             </button>
                                             <button class="account-card__action js-address-edit" aria-label="Редактировать">
                                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                                                    <path d="M8.962 1.096a1.22 1.22 0 011.726 0l1.098 1.098a1.22 1.22 0 010 1.726l-7.5 7.5a.61.61 0 01-.296.163l-2.561.569a.61.61 0 01-.72-.72l.569-2.562a.61.61 0 01.163-.295l7.5-7.5z" stroke="#212121" stroke-width="0.8"/>
-                                                    <path d="M7.5 2.5l2.5 2.5" stroke="#212121" stroke-width="0.8"/>
+                                                    <path d="M6.64615 3.53089L1 9.17696V12L3.82307 12L9.46922 6.35392M6.64615 3.53089L8.67074 1.50631L8.67196 1.50511C8.95065 1.22642 9.09025 1.08683 9.25116 1.03454C9.39291 0.988486 9.54562 0.988486 9.68736 1.03454C9.84817 1.08679 9.9876 1.22622 10.2659 1.50452L11.4938 2.7324C11.7733 3.01189 11.9131 3.1517 11.9655 3.31285C12.0115 3.45459 12.0115 3.60728 11.9655 3.74903C11.9131 3.91006 11.7735 4.04966 11.4944 4.32875L11.4938 4.32935L9.46922 6.35392M6.64615 3.53089L9.46922 6.35392" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
                                                 </svg>
                                             </button>
                                             <button class="account-card__action" aria-label="Удалить">
                                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                                                    <path d="M1.5 3.5h10M4 3.5V2a1 1 0 011-1h3a1 1 0 011 1v1.5M10 3.5v7.5a1 1 0 01-1 1H4a1 1 0 01-1-1V3.5" stroke="#212121" stroke-width="0.8"/>
+                                                    <path d="M7.625 5.27778V9.55556M5.375 5.27778V9.55556M3.125 2.83333V10.0444C3.125 10.729 3.125 11.071 3.24762 11.3324C3.35548 11.5624 3.52745 11.7497 3.73914 11.8669C3.97955 12 4.29443 12 4.92326 12H8.07674C8.70557 12 9.01999 12 9.26041 11.8669C9.47209 11.7497 9.64464 11.5624 9.7525 11.3324C9.875 11.0712 9.875 10.7295 9.875 10.0463V2.83333M3.125 2.83333H4.25M3.125 2.83333H2M4.25 2.83333H8.75M4.25 2.83333C4.25 2.26385 4.25 1.97925 4.33564 1.75464C4.44982 1.45516 4.66868 1.21708 4.94434 1.09304C5.15108 1 5.41332 1 5.9375 1H7.0625C7.58668 1 7.84878 1 8.05552 1.09304C8.33118 1.21708 8.55013 1.45516 8.66431 1.75464C8.74994 1.97925 8.75 2.26385 8.75 2.83333M8.75 2.83333H9.875M9.875 2.83333H11" stroke="#212121" stroke-width="0.8" stroke-linejoin="round"/>
                                                 </svg>
                                             </button>
                                         </div>
@@ -305,7 +308,7 @@
                                         </div>
                                         <div class="account-field">
                                             <span class="account-field__label">Комментарий:</span>
-                                            <span class="account-field__value">Позвонить за 2 часа</span>
+                                            <span class="account-field__value">Позвонить за два часа</span>
                                         </div>
                                     </div>
                                 </div>
@@ -315,18 +318,20 @@
                                         <div class="account-card__actions">
                                             <button class="account-card__action js-address-fav is-active" aria-label="Основной адрес">
                                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z" stroke="#212121" stroke-width="0.8"/>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
+                                                        fill="#212121" fill-opacity="0.2" />
                                                 </svg>
+
                                             </button>
                                             <button class="account-card__action js-address-edit" aria-label="Редактировать">
                                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                                                    <path d="M8.962 1.096a1.22 1.22 0 011.726 0l1.098 1.098a1.22 1.22 0 010 1.726l-7.5 7.5a.61.61 0 01-.296.163l-2.561.569a.61.61 0 01-.72-.72l.569-2.562a.61.61 0 01.163-.295l7.5-7.5z" stroke="#212121" stroke-width="0.8"/>
-                                                    <path d="M7.5 2.5l2.5 2.5" stroke="#212121" stroke-width="0.8"/>
+                                                    <path d="M6.64615 3.53089L1 9.17696V12L3.82307 12L9.46922 6.35392M6.64615 3.53089L8.67074 1.50631L8.67196 1.50511C8.95065 1.22642 9.09025 1.08683 9.25116 1.03454C9.39291 0.988486 9.54562 0.988486 9.68736 1.03454C9.84817 1.08679 9.9876 1.22622 10.2659 1.50452L11.4938 2.7324C11.7733 3.01189 11.9131 3.1517 11.9655 3.31285C12.0115 3.45459 12.0115 3.60728 11.9655 3.74903C11.9131 3.91006 11.7735 4.04966 11.4944 4.32875L11.4938 4.32935L9.46922 6.35392M6.64615 3.53089L9.46922 6.35392" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
                                                 </svg>
                                             </button>
                                             <button class="account-card__action" aria-label="Удалить">
                                                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-                                                    <path d="M1.5 3.5h10M4 3.5V2a1 1 0 011-1h3a1 1 0 011 1v1.5M10 3.5v7.5a1 1 0 01-1 1H4a1 1 0 01-1-1V3.5" stroke="#212121" stroke-width="0.8"/>
+                                                    <path d="M7.625 5.27778V9.55556M5.375 5.27778V9.55556M3.125 2.83333V10.0444C3.125 10.729 3.125 11.071 3.24762 11.3324C3.35548 11.5624 3.52745 11.7497 3.73914 11.8669C3.97955 12 4.29443 12 4.92326 12H8.07674C8.70557 12 9.01999 12 9.26041 11.8669C9.47209 11.7497 9.64464 11.5624 9.7525 11.3324C9.875 11.0712 9.875 10.7295 9.875 10.0463V2.83333M3.125 2.83333H4.25M3.125 2.83333H2M4.25 2.83333H8.75M4.25 2.83333C4.25 2.26385 4.25 1.97925 4.33564 1.75464C4.44982 1.45516 4.66868 1.21708 4.94434 1.09304C5.15108 1 5.41332 1 5.9375 1H7.0625C7.58668 1 7.84878 1 8.05552 1.09304C8.33118 1.21708 8.55013 1.45516 8.66431 1.75464C8.74994 1.97925 8.75 2.26385 8.75 2.83333M8.75 2.83333H9.875M9.875 2.83333H11" stroke="#212121" stroke-width="0.8" stroke-linejoin="round"/>
                                                 </svg>
                                             </button>
                                         </div>
@@ -354,8 +359,9 @@
                                     <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
                                         <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121"/>
                                     </svg>
-                                    <span>Все заказы</span>
-                                    <span class="account-add-btn__count">+4</span>
+                                    <span>Все заказы
+                                        <span class="account-add-btn__count">+4</span>
+                                    </span>
                                 </a>
                             </div>
 
@@ -364,8 +370,8 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">В обработке</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-01</p>
-                                            <p class="orders-card__delivery">1 товар · 21 марта 2026</p>
+                                            <p class="orders-card__ref">Заказ № 120139 от 29.12.2025</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Октября д. 1 к. 3 кв. 10</p>
                                         </div>
                                         <span class="orders-card__price">138.000 ₽</span>
                                     </div>
@@ -615,7 +621,7 @@
                     </div>
                     <div class="popup-form__group">
                         <label class="popup-form__label">Комментарий</label>
-                        <textarea class="popup-form__textarea" id="addressCommentInput" placeholder="Позвонить за 2 часа"></textarea>
+                        <textarea class="popup-form__textarea" id="addressCommentInput" placeholder="Позвонить за два часа"></textarea>
                     </div>
                 </div>
                 <button class="btn btn-primary btn--popup" id="addressPopupBtn">
