@@ -109,7 +109,7 @@
     
             </a>
             <div class="header__actions">
-                <a href="#" class="header__icon" aria-label="Профиль" data-label="Профиль">
+                <a href="#" class="header__icon header__icon--logged" aria-label="Профиль" data-label="Профиль">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -118,6 +118,7 @@
                             d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
                             stroke="white" stroke-width="0.8" />
                     </svg>
+                    <span class="header__icon-name">Константин К.</span>
                 </a>
                 <a href="#" class="header__icon header__icon--cart" aria-label="Корзина" data-label="Корзина">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -178,7 +179,7 @@
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="#" class="header-mobile__icon" aria-label="Профиль" data-label="Профиль">
+                <a href="#" class="header-mobile__icon header-mobile__icon--logged" aria-label="Профиль" data-label="Профиль">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
@@ -187,6 +188,7 @@
                             d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
                             stroke="currentColor" stroke-width="0.8" />
                     </svg>
+                    <span class="header__icon-name">Константин К.</span>
                 </a>
             </div>
         </div>
@@ -235,24 +237,24 @@
                         <div class="orders-toolbar">
                             <div class="orders-tabs js-orders-tabs">
                                 <button class="orders-tabs__btn orders-tabs__btn--active" type="button" data-tab="active">Активные</button>
-                                <button class="orders-tabs__btn" type="button" data-tab="completed">Завершенные</button>
+                                <button class="orders-tabs__btn" type="button" data-tab="completed">ИСТОРИЯ</button>
                             </div>
                             <div class="orders-sort">
                                 <span class="orders-sort__count js-orders-count">Всего 14 заказов</span>
-                                <div class="orders-sort__wrapper">
-                                    <button class="orders-sort__trigger body" type="button">
+                                <div class="sort" id="orders-sort" data-sort-manual>
+                                    <button class="sort__trigger body" type="button">
                                         <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.99702 0L7.86149 1.55146C8.03788 1.69824 8.04702 1.94434 7.8819 2.10115C7.71678 2.25795 7.43992 2.26607 7.26353 2.11929L6.49806 1.48234L6.4998 7.11108C6.49989 7.35653 6.27608 7.55554 5.99997 7.55554C5.72386 7.55554 5.50005 7.35653 5.50014 7.11108L5.49911 1.48265L4.73699 2.11887C4.56085 2.2659 4.28399 2.25817 4.11858 2.1016C3.95318 1.94503 3.96187 1.69892 4.138 1.55188L5.99702 0Z" fill="#212121"/>
                                             <path d="M1.99827 8L3.8639 6.44854C4.04041 6.30176 4.04955 6.05566 3.88433 5.89885C3.7191 5.74205 3.44207 5.73393 3.26557 5.88071L2.49963 6.51766L2.50136 0.888916C2.50145 0.643472 2.2775 0.444458 2.00122 0.444458C1.72494 0.444458 1.50099 0.643472 1.50108 0.888916L1.50005 6.51735L0.737446 5.88113C0.561205 5.7341 0.284163 5.74183 0.118655 5.8984C-0.0468522 6.05497 -0.0381507 6.30108 0.138091 6.44812L1.99827 8Z" fill="#212121"/>
                                         </svg>
                                         <span class="js-sort-label">По умолчанию</span>
                                     </button>
-                                    <div class="orders-sort__menu">
-                                        <button class="orders-sort__option orders-sort__option--active" type="button" data-sort="default">По умолчанию</button>
-                                        <button class="orders-sort__option" type="button" data-sort="date-old">Сначала старые</button>
-                                        <button class="orders-sort__option" type="button" data-sort="id">По номеру заказа</button>
-                                        <button class="orders-sort__option" type="button" data-sort="amount-asc">По возрастанию суммы</button>
-                                        <button class="orders-sort__option" type="button" data-sort="amount-desc">По убыванию суммы</button>
+                                    <div class="sort__dropdown">
+                                        <button class="sort__option body active" type="button" data-sort="default">По умолчанию</button>
+                                        <button class="sort__option body" type="button" data-sort="date-old">Сначала старые</button>
+                                        <button class="sort__option body" type="button" data-sort="id">По номеру заказа</button>
+                                        <button class="sort__option body" type="button" data-sort="amount-asc">По возрастанию суммы</button>
+                                        <button class="sort__option body" type="button" data-sort="amount-desc">По убыванию суммы</button>
                                     </div>
                                 </div>
                             </div>
@@ -311,8 +313,8 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">В обработке</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-01</p>
-                                            <p class="orders-card__delivery">1 товар · 21 марта 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100045 от 21.03.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Тверская д. 15 к. 2 кв. 45</p>
                                         </div>
                                         <span class="orders-card__price">138.000 ₽</span>
                                     </div>
@@ -351,16 +353,16 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status orders-card__status--completed">Завершен</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-02</p>
-                                            <p class="orders-card__delivery">2 товара · 18 марта 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100082 от 18.03.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Арбат д. 27 к. 1 кв. 12</p>
                                         </div>
                                         <span class="orders-card__price">257.300 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-1.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-2.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-3.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-1.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-2.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-3.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -371,16 +373,16 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">В обработке</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-03</p>
-                                            <p class="orders-card__delivery">3 товара · 15 марта 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100156 от 15.03.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Новый Арбат д. 8 к. 3 кв. 78</p>
                                         </div>
                                         <span class="orders-card__price">412.500 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-4.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-5.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-6.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-4.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-5.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-1.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -391,15 +393,15 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status orders-card__status--canceled">Отменен</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-04</p>
-                                            <p class="orders-card__delivery">2 товара · 10 марта 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100203 от 10.03.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Покровка д. 42 к. 1 кв. 5</p>
                                         </div>
                                         <span class="orders-card__price">89.900 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-7.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-8.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-2.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-3.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -410,8 +412,8 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status orders-card__status--completed">Завершен</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-05</p>
-                                            <p class="orders-card__delivery">4 товара · 5 марта 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100347 от 05.03.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, Ленинградский пр-т д. 56 к. 2 кв. 123</p>
                                         </div>
                                         <span class="orders-card__price">534.200 ₽</span>
                                     </div>
@@ -442,8 +444,8 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">В обработке</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-06</p>
-                                            <p class="orders-card__delivery">3 товара · 28 февраля 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100412 от 28.02.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Профсоюзная д. 78 к. 4 кв. 56</p>
                                         </div>
                                         <span class="orders-card__price">176.800 ₽</span>
                                     </div>
@@ -462,14 +464,14 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">В пути</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-07</p>
-                                            <p class="orders-card__delivery">1 товар · 20 февраля 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100589 от 20.02.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Вавилова д. 33 к. 1 кв. 89</p>
                                         </div>
                                         <span class="orders-card__price">92.000 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-1.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-1.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -480,15 +482,15 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">Подтвержден</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-08</p>
-                                            <p class="orders-card__delivery">2 товара · 15 февраля 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100623 от 15.02.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, Кутузовский пр-т д. 22 к. 2 кв. 34</p>
                                         </div>
                                         <span class="orders-card__price">215.600 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-3.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-2.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-3.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-2.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -499,18 +501,18 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status orders-card__status--completed">Завершен</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-09</p>
-                                            <p class="orders-card__delivery">5 товаров · 10 февраля 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100758 от 10.02.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Мясницкая д. 18 к. 1 кв. 67</p>
                                         </div>
                                         <span class="orders-card__price">689.000 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-5.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-5.png" alt="" class="orders-card__thumb-img"></div>
                                             <div class="swiper-slide"><img src="assets/images/product-1.png" alt="" class="orders-card__thumb-img"></div>
                                             <div class="swiper-slide"><img src="assets/images/product-2.png" alt="" class="orders-card__thumb-img"></div>
                                             <div class="swiper-slide"><img src="assets/images/product-5.png" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-3.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-3.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                         <div class="orders-card__arrows">
                                             <button class="orders-card__arrow js-gallery-prev" type="button" aria-label="Назад">
@@ -529,14 +531,14 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status orders-card__status--canceled">Отменен</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-10</p>
-                                            <p class="orders-card__delivery">1 товар · 5 февраля 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100814 от 05.02.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Большая Дмитровка д. 9 к. 3 кв. 15</p>
                                         </div>
                                         <span class="orders-card__price">45.000 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-6.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-1.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -547,14 +549,14 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">В обработке</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-11</p>
-                                            <p class="orders-card__delivery">2 товара · 28 января 2026</p>
+                                            <p class="orders-card__ref">Заказ № 100926 от 28.01.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Остоженка д. 12 к. 1 кв. 41</p>
                                         </div>
                                         <span class="orders-card__price">198.400 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-8.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-3.png" alt="" class="orders-card__thumb-img"></div>
                                             <div class="swiper-slide"><img src="assets/images/product-3.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                     </div>
@@ -566,16 +568,16 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status orders-card__status--completed">Завершен</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-12</p>
-                                            <p class="orders-card__delivery">3 товара · 20 января 2026</p>
+                                            <p class="orders-card__ref">Заказ № 101054 от 20.01.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Пречистенка д. 31 к. 2 кв. 28</p>
                                         </div>
                                         <span class="orders-card__price">321.000 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-2.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-4.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-2.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-2.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-4.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-2.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -586,16 +588,16 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">В пути</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-13</p>
-                                            <p class="orders-card__delivery">4 товара · 12 января 2026</p>
+                                            <p class="orders-card__ref">Заказ № 101178 от 12.01.2026</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, Садовое кольцо д. 15 к. 5 кв. 92</p>
                                         </div>
                                         <span class="orders-card__price">478.500 ₽</span>
                                     </div>
                                     <div class="orders-card__gallery swiper js-order-gallery">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide"><img src="assets/images/product-img-1.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-3.jpg" alt="" class="orders-card__thumb-img"></div>
-                                            <div class="swiper-slide"><img src="assets/images/product-img-7.jpg" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-1.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-3.png" alt="" class="orders-card__thumb-img"></div>
+                                            <div class="swiper-slide"><img src="assets/images/product-2.png" alt="" class="orders-card__thumb-img"></div>
                                             <div class="swiper-slide"><img src="assets/images/product-3.png" alt="" class="orders-card__thumb-img"></div>
                                         </div>
                                         <div class="orders-card__arrows">
@@ -615,8 +617,8 @@
                                     <div class="orders-card__info">
                                         <span class="orders-card__status">Подтвержден</span>
                                         <div class="orders-card__details">
-                                            <p class="orders-card__ref">Заказ № OR-2026-14</p>
-                                            <p class="orders-card__delivery">1 товар · 5 декабря 2025</p>
+                                            <p class="orders-card__ref">Заказ № 101234 от 05.12.2025</p>
+                                            <p class="orders-card__delivery">Доставка: г. Москва, ул. Тверская-Ямская д. 6 к. 2 кв. 73</p>
                                         </div>
                                         <span class="orders-card__price">74.000 ₽</span>
                                     </div>
@@ -641,13 +643,13 @@
                             </button>
                             <nav class="pagination__nav js-page-nav" data-pagination-manual>
                                 <button class="pagination__arrow pagination__arrow--prev" data-page="prev" aria-label="Предыдущая">
-                                    <svg viewBox="0 0 6 11" fill="none"><path d="M5.808 11C5.344 10.5156 4.816 9.98937 4.224 9.42141 3.632 8.85345 3.056 8.31055 2.496 7.79271 1.936 7.27487 1.432 6.81549 0.984 6.41458 0.536 6.01367 0.208 5.72134 0 5.53759V5.46241C0.208 5.29537 0.536 5.01139 0.984 4.61048 1.448 4.19286 1.952 3.73349 2.496 3.23235 3.056 2.7145 3.632 2.1716 4.224 1.60365 4.832 1.01898 5.36 0.484434 5.808 0L6 0.175399C5.76 0.609719 5.464 1.10251 5.112 1.65376 4.76 2.18831 4.416 2.72286 4.08 3.2574 3.744 3.77525 3.44 4.24298 3.168 4.66059 2.912 5.0615 2.744 5.34548 2.664 5.51253C2.744 5.66287 2.912 5.94685 3.168 6.36446 3.44 6.78208 3.744 7.24981 4.08 7.76765 4.416 8.2855 4.76 8.82004 5.112 9.3713 5.464 9.90585 5.76 10.3986 6 10.8497L5.808 11Z" fill="#212121"/></svg>
+                                    <svg width="6" height="11" viewBox="0 0 6 11" fill="none"><path d="M5.808 11C5.344 10.5156 4.816 9.98937 4.224 9.42141 3.632 8.85345 3.056 8.31055 2.496 7.79271 1.936 7.27487 1.432 6.81549 0.984 6.41458 0.536 6.01367 0.208 5.72134 0 5.53759V5.46241C0.208 5.29537 0.536 5.01139 0.984 4.61048 1.448 4.19286 1.952 3.73349 2.496 3.23235 3.056 2.7145 3.632 2.1716 4.224 1.60365 4.832 1.01898 5.36 0.484434 5.808 0L6 0.175399C5.76 0.609719 5.464 1.10251 5.112 1.65376 4.76 2.18831 4.416 2.72286 4.08 3.2574 3.744 3.77525 3.44 4.24298 3.168 4.66059 2.912 5.0615 2.744 5.34548 2.664 5.51253C2.744 5.66287 2.912 5.94685 3.168 6.36446 3.44 6.78208 3.744 7.24981 4.08 7.76765 4.416 8.2855 4.76 8.82004 5.112 9.3713 5.464 9.90585 5.76 10.3986 6 10.8497L5.808 11Z" fill="#212121"/></svg>
                                 </button>
-                                <button class="pagination__link" data-page="1">1</button>
-                                <button class="pagination__link" data-page="2">2</button>
-                                <button class="pagination__link" data-page="3">3</button>
+                                <button class="pagination__link body-l-strong" data-page="1">1</button>
+                                <button class="pagination__link body-l-strong" data-page="2">2</button>
+                                <button class="pagination__link body-l-strong" data-page="3">3</button>
                                 <button class="pagination__arrow pagination__arrow--next" data-page="next" aria-label="Следующая">
-                                    <svg viewBox="0 0 6 11" fill="none"><path d="M0.192 11C0.656 10.5156 1.184 9.98937 1.776 9.42141 2.368 8.85345 2.944 8.31055 3.504 7.79271 4.064 7.27487 4.568 6.81549 5.016 6.41458 5.464 6.01367 5.792 5.72134 6 5.53759V5.46241C5.792 5.29537 5.464 5.01139 5.016 4.61048 4.552 4.19286 4.048 3.73349 3.504 3.23235 2.944 2.7145 2.368 2.1716 1.776 1.60365 1.168 1.01898 0.64 0.484434 0.192 0L0 0.175399C0.24 0.609719 0.536 1.10251 0.888 1.65376 1.24 2.18831 1.584 2.72286 1.92 3.2574 2.256 3.77525 2.56 4.24298 2.832 4.66059 3.088 5.0615 3.256 5.34548 3.336 5.51253C3.256 5.66287 3.088 5.94685 2.832 6.36446 2.56 6.78208 2.256 7.24981 1.92 7.76765 1.584 8.2855 1.24 8.82004 0.888 9.3713 0.536 9.90585 0.24 10.3986 0 10.8497L0.192 11Z" fill="#212121"/></svg>
+                                    <svg width="6" height="11" viewBox="0 0 6 11" fill="none"><path d="M0.192 11C0.656 10.5156 1.184 9.98937 1.776 9.42141 2.368 8.85345 2.944 8.31055 3.504 7.79271 4.064 7.27487 4.568 6.81549 5.016 6.41458 5.464 6.01367 5.792 5.72134 6 5.53759V5.46241C5.792 5.29537 5.464 5.01139 5.016 4.61048 4.552 4.19286 4.048 3.73349 3.504 3.23235 2.944 2.7145 2.368 2.1716 1.776 1.60365 1.168 1.01898 0.64 0.484434 0.192 0L0 0.175399C0.24 0.609719 0.536 1.10251 0.888 1.65376 1.24 2.18831 1.584 2.72286 1.92 3.2574 2.256 3.77525 2.56 4.24298 2.832 4.66059 3.088 5.0615 3.256 5.34548 3.336 5.51253C3.256 5.66287 3.088 5.94685 2.832 6.36446 2.56 6.78208 2.256 7.24981 1.92 7.76765 1.584 8.2855 1.24 8.82004 0.888 9.3713 0.536 9.90585 0.24 10.3986 0 10.8497L0.192 11Z" fill="#212121"/></svg>
                                 </button>
                             </nav>
                         </div>

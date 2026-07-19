@@ -162,12 +162,6 @@
 		if (sort === st.sort) return
 		st.sort = sort
 		st.page = 1
-		dom.sortOptions.forEach(function (o) {
-			o.classList.toggle('orders-sort__option--active', o.dataset.sort === sort)
-		})
-		dom.sortLabel.textContent = dom.sortMenu.querySelector(
-			'.orders-sort__option--active',
-		).textContent
 		wrapWithSkeleton(arrangeDOM)
 	}
 
@@ -179,6 +173,7 @@
 		page = Math.max(1, Math.min(page, tp))
 		if (page === st.page) return
 		st.page = page
+		window.scrollTo({ top: 0, behavior: 'smooth' })
 		wrapWithSkeleton(arrangeDOM)
 	}
 
@@ -186,6 +181,7 @@
 		var total = countFiltered()
 		if (st.page < Math.ceil(total / PER_PAGE)) {
 			st.page++
+			window.scrollTo({ top: 0, behavior: 'smooth' })
 			wrapWithSkeleton(arrangeDOM)
 		}
 	}
@@ -195,9 +191,6 @@
 		dom.skeleton = document.querySelector('.js-orders-skeleton')
 		dom.count = document.querySelector('.js-orders-count')
 		dom.tabs = document.querySelectorAll('.js-orders-tabs .orders-tabs__btn')
-		dom.sortLabel = document.querySelector('.js-sort-label')
-		dom.sortMenu = document.querySelector('.orders-sort__menu')
-		dom.sortOptions = dom.sortMenu.querySelectorAll('.orders-sort__option')
 		dom.paginationInfo = document.querySelector('.js-pagination-info')
 		dom.loadMore = document.querySelector('.js-load-more')
 		dom.pageLinks = document.querySelectorAll('.js-page-nav .pagination__link')
@@ -215,26 +208,13 @@
 				onTabClick(b.dataset.tab)
 			})
 		})
-		dom.sortOptions.forEach(function (o) {
-			o.addEventListener('click', function () {
-				onSortChange(o.dataset.sort)
-				var wrapper = dom.sortMenu.closest('.orders-sort__wrapper')
-				if (wrapper) wrapper.classList.remove('active')
-			})
+
+		document.addEventListener('sort:change', function (e) {
+			if (e.detail.containerId === 'orders-sort') {
+				onSortChange(e.detail.sortKey)
+			}
 		})
 
-		var sortTrigger = document.querySelector('.orders-sort__trigger')
-		if (sortTrigger) {
-			sortTrigger.addEventListener('click', function (e) {
-				e.stopPropagation()
-				var wrapper = this.closest('.orders-sort__wrapper')
-				if (wrapper) wrapper.classList.toggle('active')
-			})
-		}
-		document.addEventListener('click', function () {
-			var wrapper = document.querySelector('.orders-sort__wrapper.active')
-			if (wrapper) wrapper.classList.remove('active')
-		})
 		document
 			.querySelector('.js-page-nav')
 			.addEventListener('click', function (e) {

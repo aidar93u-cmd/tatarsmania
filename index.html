@@ -3601,17 +3601,38 @@
                                 </svg>
                             </button>
                             <div class="reg-popup__form-body">
-                                <h2 class="reg-popup__title">Войдите или зарегистрируйтесь</h2>
-                                <p class="reg-popup__desc">Введите номер и мы отправим SMS сообщение с кодом
-                                    подтверждения:</p>
-                                <div class="reg-popup__field">
-                                    <input class="reg-popup__input" type="tel" id="regPhone"
-                                        placeholder="+7 (___) ___-__-__" maxlength="18">
-                                    <div class="reg-popup__error" id="regPhoneError">Введите корректный номер телефона
+                                <div class="reg-popup__sections">
+                                <div class="reg-popup__phone-section" id="regPhoneSection">
+                                    <h2 class="reg-popup__title">Войдите или зарегистрируйтесь</h2>
+                                    <p class="reg-popup__desc">Введите номер и мы отправим SMS сообщение с кодом
+                                        подтверждения:</p>
+                                    <div class="reg-popup__field">
+                                        <input class="reg-popup__input" type="tel" id="regPhone"
+                                            placeholder="+7 (___) ___-__-__" maxlength="18">
+                                        <div class="reg-popup__error" id="regPhoneError">Введите корректный номер телефона
+                                        </div>
+                                    </div>
+                                    <div class="reg-popup__footer">
+                                        <button class="btn btn-primary reg-popup__btn" type="button" id="regStep1Next">
+                                            <svg width="12" height="2" viewBox="0 0 12 2" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M2.87604 1.14134C2.20672 1.166 0.619907 1.21604 0 1.49547L1.25331 0.355529C1.6081 0.280265 2.11161 0.0394284 3.04634 0.00476976C4.17327 -0.0370151 5.31442 0.201482 6.35032 0.495039C9.08692 1.27092 11.8555 0.437224 12 0.355529L10.7467 1.61354C10.1215 1.87453 8.44463 2.35334 5.69832 1.57472C4.5756 1.25615 3.67088 1.11186 2.87604 1.14134Z"
+                                                    fill="white"></path>
+                                            </svg>
+                                            <span>Получить код</span>
+                                        </button>
+                                        <label class="checkbox">
+                                            <input type="checkbox" required>
+                                            <span class="checkbox__mark"></span>
+                                            <span class="checkbox__text">Нажимая на кнопку «Отправить», вы даете
+                                                <a href="#" target="_blank">согласие на обработку персональных
+                                                    данных</a></span>
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div class="reg-popup__code-section" id="regCodeSection" style="display:none;">
+                                <div class="reg-popup__code-section reg-popup__section--hidden" id="regCodeSection">
                                     <p class="reg-popup__desc" id="regCodeDesc">Подтвердите номер +7 (999) 123-45-67, введя
                                         код из SMS:</p>
                                     <div class="reg-popup__code-wrap" id="regCodeWrap">
@@ -3621,15 +3642,15 @@
                                         <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
                                         <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
                                         <input class="reg-popup__code-input" type="text" inputmode="numeric" maxlength="1">
-                                        <div class="reg-popup__error" id="regCodeError">Неверный код. Попробуйте снова</div>
                                     </div>
+                                    <div class="reg-popup__error" id="regCodeError">Неверный код. Попробуйте снова</div>
                                     <p class="reg-popup__timer" id="regTimer">Отправить код еще раз через <span
                                             id="regTimerCount">43</span> секунды</p>
                                     <button class="reg-popup__resend" type="button" id="regResend"
                                         style="display:none;">Отправить код повторно</button>
                                 </div>
 
-                                <div class="reg-popup__data-section" id="regDataSection" style="display:none;">
+                                <div class="reg-popup__data-section reg-popup__section--hidden" id="regDataSection">
                                     <h2 class="reg-popup__title">Заполните данные</h2>
                                     <div class="reg-popup__fields-row">
                                         <div class="reg-popup__field-group">
@@ -3655,18 +3676,6 @@
                                             placeholder="email@mail.com">
                                         <div class="reg-popup__error" id="regEmailError">Введите корректный email</div>
                                     </div>
-                                </div>
-
-                                <div class="reg-popup__footer">
-                                    <button class="btn btn-primary reg-popup__btn" type="button" id="regStep1Next">
-                                        <svg width="12" height="2" viewBox="0 0 12 2" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M2.87604 1.14134C2.20672 1.166 0.619907 1.21604 0 1.49547L1.25331 0.355529C1.6081 0.280265 2.11161 0.0394284 3.04634 0.00476976C4.17327 -0.0370151 5.31442 0.201482 6.35032 0.495039C9.08692 1.27092 11.8555 0.437224 12 0.355529L10.7467 1.61354C10.1215 1.87453 8.44463 2.35334 5.69832 1.57472C4.5756 1.25615 3.67088 1.11186 2.87604 1.14134Z"
-                                                fill="white"></path>
-                                        </svg>
-                                        <span>Получить код</span>
-                                    </button>
                                     <button class="btn btn-primary reg-popup__btn" type="button" id="regStep3Submit"
                                         style="display:none;">
                                         <svg width="12" height="2" viewBox="0 0 12 2" fill="none"
@@ -3677,13 +3686,6 @@
                                         </svg>
                                         <span>Сохранить</span>
                                     </button>
-                                    <label class="checkbox">
-                                        <input type="checkbox" required>
-                                        <span class="checkbox__mark"></span>
-                                        <span class="checkbox__text">Нажимая на кнопку «Отправить», вы даете
-                                            <a href="#" target="_blank">согласие на обработку персональных
-                                                данных</a></span>
-                                    </label>
                                 </div>
                             </div>
                         </div>

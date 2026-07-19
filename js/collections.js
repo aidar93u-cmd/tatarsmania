@@ -2,11 +2,6 @@
 
     var tabs = document.querySelectorAll('.collections-grid__tab')
     var cards = document.querySelectorAll('.collection-card')
-    var grid = document.getElementById('collectionsGrid')
-
-    /* Store original order for "default" sort */
-    var originalOrder = []
-    cards.forEach(function (card) { originalOrder.push(card) })
 
     var hasCards = {}
     cards.forEach(function (card) {
@@ -50,69 +45,5 @@
             })
         })
     }
-
-    /* ===== SORT DROPDOWN ===== */
-    var sortTrigger = document.querySelector('.collections-grid__sort-trigger')
-    var sortContainer = document.querySelector('.collections-grid__sort')
-
-    if (sortTrigger) {
-        sortTrigger.addEventListener('click', function (e) {
-            e.stopPropagation()
-            sortContainer.classList.toggle('active')
-        })
-        document.addEventListener('click', function () {
-            sortContainer.classList.remove('active')
-        })
-    }
-
-    /* ===== SORT LOGIC ===== */
-    function sortCollections(sortKey) {
-        var arr = Array.from(grid.children)
-        var sorted
-
-        switch (sortKey) {
-            case 'alphabet-az':
-                sorted = arr.sort(function (a, b) {
-                    var na = a.querySelector('.collection-card__name')
-                    var nb = b.querySelector('.collection-card__name')
-                    return (na ? na.textContent.trim() : '').localeCompare(nb ? nb.textContent.trim() : '')
-                })
-                break
-            case 'alphabet-za':
-                sorted = arr.sort(function (a, b) {
-                    var na = a.querySelector('.collection-card__name')
-                    var nb = b.querySelector('.collection-card__name')
-                    return (nb ? nb.textContent.trim() : '').localeCompare(na ? na.textContent.trim() : '')
-                })
-                break
-            case 'default':
-            default:
-                sorted = originalOrder.filter(function (el) { return el.parentNode === grid })
-                break
-        }
-
-        sorted.forEach(function (el) {
-            grid.appendChild(el)
-        })
-    }
-
-    function onSortSelect(sortKey, label, triggerEl) {
-        document.querySelectorAll('.collections-grid__sort-option').forEach(function (o) {
-            o.classList.remove('active')
-        })
-        if (triggerEl) triggerEl.classList.add('active')
-        sortCollections(sortKey)
-        sortContainer.classList.remove('active')
-        sortTrigger.querySelector('span').textContent = label
-    }
-
-    document.addEventListener('click', function (e) {
-        var option = e.target.closest('.collections-grid__sort-option')
-        if (!option) return
-        e.preventDefault()
-        var sortKey = option.getAttribute('data-sort')
-        var label = option.textContent.trim()
-        onSortSelect(sortKey, label, option)
-    })
 
 })
