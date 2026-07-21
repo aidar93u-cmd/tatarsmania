@@ -89,59 +89,9 @@
 	background: var(--copper);
 }
 
-/* ===== Accordions ===== */
-.partnership-accordions {
-	display: flex;
-	flex-direction: column;
+/* ===== Accordions (page-specific overrides) ===== */
+.partnership-page .accordion {
 	margin: 40px 0;
-}
-
-.partnership-accordion {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-12);
-}
-
-.partnership-accordion__header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	cursor: pointer;
-}
-
-.partnership-accordion__toggle {
-	width: var(--space-18);
-	height: var(--space-18);
-	border-radius: 50%;
-	background: var(--gray-lighter);
-	border: none;
-	cursor: pointer;
-	padding: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	transition: transform 0.3s;
-}
-
-.partnership-accordion--open .partnership-accordion__toggle {
-	transform: rotate(45deg);
-}
-
-.partnership-accordion__body {
-	display: none;
-	overflow: hidden;
-	padding-bottom: var(--space-12);
-}
-
-.partnership-accordion__body p {
-	margin: 0;
-}
-
-.partnership-accordion__line {
-	height: 0;
-	border-top: 1px solid var(--gray-dark-line);
-	margin-bottom: var(--space-12);
 }
 
 /* ===== Clients List ===== */

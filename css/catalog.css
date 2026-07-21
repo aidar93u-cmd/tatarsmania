@@ -229,7 +229,7 @@
     background-color: var(--graphite);
     opacity: 0.20;
     cursor: pointer;
-    transition: opacity 0.4s;
+    transition:all 0.4s;
 }
 
 .catalog-collections__dot--active {

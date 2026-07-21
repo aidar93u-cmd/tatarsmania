@@ -143,8 +143,8 @@ body.preloader-active {
 
 .topbar__city svg {
 	flex-shrink: 0;
-	width: 0.8125rem;
-	height: 0.8125rem;
+	width: var(--space-13);
+	height: var(--space-13);
 }
 .topbar__city svg * {
 	transition: fill 0.4s;
@@ -211,7 +211,7 @@ body.preloader-active {
 	box-shadow: 0 var(--space-4) var(--space-20) rgba(0, 0, 0, 0.1);
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity 0.4s, visibility 0.4s;
+	transition: all 0.4s, visibility 0.4s;
 	z-index: 100;
 }
 
@@ -228,7 +228,7 @@ body.preloader-active {
 	white-space: nowrap;
 	font-size: 0.6875rem;
 	line-height: 1.6;
-	transition: color 0.2s;
+	transition: color 0.4s;
 }
 
 .topbar__dropdown a:hover {
@@ -317,6 +317,8 @@ body.preloader-active {
 }
 .header__catalog-btn svg {
 	margin-top: -3px;
+	width: 0.8125rem;
+	height: 0.8125rem;
 }
 .white-header .header__catalog-btn {
 	fill: var(--graphite);
@@ -346,7 +348,7 @@ body.preloader-active {
 
 .header__logo svg {
 	width: 13.625rem;
-	height: 0.8125rem;
+	height: var(--space-13);
 	fill: #fff;
 }
 .header__logo svg path {
@@ -555,7 +557,7 @@ body.preloader-active {
 	background: var(--white);
 	z-index: 0;
 	opacity: 0;
-	transition: opacity 0.4s;
+	transition:all 0.4s;
 	pointer-events: none;
 }
 
@@ -604,7 +606,7 @@ body.preloader-active {
 .header-group--scrolled .topbar__city:hover {
 	color: var(--copper);
 }
-.header-group--scrolled .topbar__city:hover svg * {
+.header-group--scrolled .topbar__city:hover svg path {
 	fill: var(--copper);
 }
 
@@ -688,7 +690,7 @@ body.preloader-active {
 	z-index: 10901;
 	background: #fff;
 	transform: translateX(-100%);
-	transition: transform 0.3s ease;
+	transition: transform 0.4s ease;
 	display: flex;
 	flex-direction: column;
 }
@@ -950,8 +952,8 @@ body.preloader-active {
 	border: none;
 	cursor: pointer;
 	padding: 0;
-	width: 0.8125rem;
-	height: 0.8125rem;
+	width: var(--space-13);
+	height: var(--space-13);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1066,7 +1068,7 @@ body.preloader-active {
 	font-size: var(--body-l-size);
 	line-height: 120%;
 	color: var(--graphite);
-	transition: background 0.2s, color 0.2s;
+	transition: background 0.4s, color 0.4s;
 }
 .search-popup__tag:hover {
 	background: var(--graphite);
@@ -1100,8 +1102,8 @@ body.preloader-active {
 	border: none;
 	cursor: pointer;
 	padding: 0;
-	width: 0.8125rem;
-	height: 0.8125rem;
+	width: var(--space-13);
+	height: var(--space-13);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1321,8 +1323,8 @@ body.preloader-active {
 	transform: translateY(-50%);
 	color: var(--graphite);
 	pointer-events: none;
-	width: 0.8125rem;
-	height: 0.8125rem;
+	width: var(--space-13);
+	height: var(--space-13);
 }
 
 .city-popup__popular-label {
@@ -1349,7 +1351,7 @@ body.preloader-active {
 	font-size: var(--body-l-size);
 	line-height: 120%;
 	color: var(--graphite);
-	transition: color 0.2s;
+	transition: color 0.4s;
 }
 
 .city-popup__tip:hover {
@@ -1373,7 +1375,7 @@ body.preloader-active {
 	line-height: 120%;
 	color: var(--graphite);
 	text-align: left;
-	transition: color 0.2s;
+	transition: color 0.4s;
 }
 
 .city-popup__item:hover {
@@ -1390,8 +1392,8 @@ body.preloader-active {
 	border: none;
 	cursor: pointer;
 	padding: 0;
-	width: 0.8125rem;
-	height: 0.8125rem;
+	width: var(--space-13);
+	height: var(--space-13);
 	display: flex;
 	align-items: center;
 	justify-content: center;

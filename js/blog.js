@@ -6,6 +6,7 @@
   var perPage = 12;
   var currentPage = 1;
   var filteredCards = allCards.slice();
+  var paginationEl = document.querySelector('.blog-pagination');
 
   function getCategory(card) {
     var dc = card.getAttribute('data-category');
@@ -128,11 +129,12 @@
   // ===== PAGINATION =====
   function updatePagination() {
     var totalPages = Math.ceil(filteredCards.length / perPage);
+    if (paginationEl) paginationEl.style.display = totalPages <= 1 ? 'none' : '';
     var nav = document.querySelector('.pagination__nav[data-pagination-manual]');
     var loadBtn = document.querySelector('.pagination__load-more');
     var prevArrow = document.querySelector('.pagination__arrow--prev');
     var nextArrow = document.querySelector('.pagination__arrow--next');
-    if (!nav) return;
+    if (!nav || totalPages <= 1) return;
 
     if (currentPage >= totalPages) {
       if (loadBtn) loadBtn.style.display = 'none';
