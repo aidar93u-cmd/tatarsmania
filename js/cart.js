@@ -8,6 +8,9 @@
 	var summaryTotalPrice = document.querySelector('.cart__summary-total-price')
 	var summarySplit = document.querySelector('.cart__summary-split')
 
+	var checkoutCountLabel = document.querySelector('.checkout-summary__count-label')
+	var checkoutSubtotal = document.querySelector('.checkout-summary__subtotal')
+
 	function parsePrice(str) {
 		if (!str) return 0
 		return parseInt(str.replace(/[^0-9]/g, ''), 10) || 0
@@ -77,6 +80,14 @@
 			badge.textContent = items.length
 		})
 
+		if (checkoutCountLabel) {
+			checkoutCountLabel.textContent = count + ' ' + word + ' на сумму:'
+		}
+
+		if (checkoutSubtotal) {
+			checkoutSubtotal.textContent = formatPrice(total)
+		}
+
 		if (cartEl) {
 			cartEl.classList.toggle('cart--empty', items.length === 0)
 		}
@@ -136,76 +147,85 @@
 		})
 	})
 
-	// Undo state
-	var undoEl = document.querySelector('.cart-undo')
-	var undoText = undoEl ? undoEl.querySelector('.cart-undo__text') : null
-	var undoBtn = undoEl ? undoEl.querySelector('.cart-undo__btn') : null
-	var undoNumber = undoEl ? undoEl.querySelector('.cart-undo__number') : null
-	var undoProgress = undoEl ? undoEl.querySelector('.cart-undo__progress') : null
-	var undoTimer = null
-	var undoCountdown = null
-	var undoItem = null
-	var undoCarouselEl = null
+	// Undo — independent bar per deletion
+	var undoTemplate = document.querySelector('.cart-undo')
+	var undoInstances = []
 
 	function cancelUndo() {
-		if (undoTimer) {
-			clearTimeout(undoTimer)
-			clearInterval(undoCountdown)
-			undoTimer = null
-			undoCountdown = null
-		}
-		undoEl.style.display = 'none'
-		if (undoItem) {
-			undoItem.style.display = ''
-			undoItem = null
-		}
-		if (undoCarouselEl) {
-			undoCarouselEl.style.display = ''
-			undoCarouselEl = null
-		}
+		undoInstances.forEach(function (inst) {
+			clearTimeout(inst.timer)
+			clearInterval(inst.countdown)
+			if (inst.item && inst.item.parentNode) {
+				inst.item.style.display = ''
+			}
+			if (inst.undoEl && inst.undoEl.parentNode) {
+				inst.undoEl.remove()
+			}
+		})
+		undoInstances = []
 		recalcCartTotal()
 	}
 
-	function showUndo(item) {
-		cancelUndo()
+	function removeItemWithUndo(item) {
+		if (!item) return
 
-		undoItem = item
-		var brand = item.querySelector('.cart-item__brand')
-		var name = brand ? brand.textContent.trim() : 'товар'
-		undoText.textContent = 'Товар ' + name + ' удален из корзины.'
-
-		item.style.display = 'none'
-
-		recalcCartTotal()
-
+		var undoEl = undoTemplate.cloneNode(true)
 		undoEl.style.display = 'flex'
 
-		// Restart progress animation
-		undoProgress.style.animation = 'none'
-		void undoProgress.offsetHeight
-		undoProgress.style.animation = 'cart-undo-timer 4s linear forwards'
+		item.parentNode.insertBefore(undoEl, item)
 
-		// Countdown number
+		var brand = item.querySelector('.cart-item__brand')
+		var name = brand ? brand.textContent.trim() : 'товар'
+		var undoText = undoEl.querySelector('.cart-undo__text')
+		if (undoText) undoText.textContent = 'Товар ' + name + ' удален из корзины.'
+
+		item.style.display = 'none'
+		recalcCartTotal()
+
+		var undoProgress = undoEl.querySelector('.cart-undo__progress')
+		if (undoProgress) {
+			undoProgress.style.animation = 'none'
+			void undoProgress.offsetHeight
+			undoProgress.style.animation = 'cart-undo-timer 4s linear forwards'
+		}
+
+		var undoNumber = undoEl.querySelector('.cart-undo__number')
 		var seconds = 4
-		undoNumber.textContent = seconds
-		undoCountdown = setInterval(function () {
+		if (undoNumber) undoNumber.textContent = seconds
+		var countdown = setInterval(function () {
 			seconds--
 			if (seconds > 0) {
-				undoNumber.textContent = seconds
+				if (undoNumber) undoNumber.textContent = seconds
 			} else {
-				clearInterval(undoCountdown)
+				clearInterval(countdown)
 			}
 		}, 1000)
 
-		// Auto-remove after 4s
-		undoTimer = setTimeout(function () {
-			undoEl.style.display = 'none'
-			if (undoItem) {
-				undoItem.remove()
+		var instance = { item: item, undoEl: undoEl, countdown: countdown }
+		undoInstances.push(instance)
+
+		var undoBtn = undoEl.querySelector('.cart-undo__btn')
+		if (undoBtn) {
+			undoBtn.addEventListener('click', function (e) {
+				e.stopPropagation()
+				e.preventDefault()
+				clearTimeout(instance.timer)
+				clearInterval(instance.countdown)
+				if (undoEl.parentNode) undoEl.remove()
+				item.style.display = ''
+				var idx = undoInstances.indexOf(instance)
+				if (idx > -1) undoInstances.splice(idx, 1)
 				recalcCartTotal()
-			}
-			undoItem = null
-			undoCarouselEl = null
+			})
+		}
+
+		instance.timer = setTimeout(function () {
+			clearInterval(instance.countdown)
+			if (undoEl.parentNode) undoEl.remove()
+			if (item.parentNode) item.remove()
+			var idx = undoInstances.indexOf(instance)
+			if (idx > -1) undoInstances.splice(idx, 1)
+			recalcCartTotal()
 		}, 4000)
 	}
 
@@ -216,19 +236,10 @@
 			e.preventDefault()
 			var item = this.closest('.cart-item')
 			if (item) {
-				showUndo(item)
+				removeItemWithUndo(item)
 			}
 		})
 	})
-
-	// Undo button
-	if (undoBtn) {
-		undoBtn.addEventListener('click', function (e) {
-			e.stopPropagation()
-			e.preventDefault()
-			cancelUndo()
-		})
-	}
 
 	// "Очистить" — remove all items
 	var removeAllBtn = document.querySelector('.cart__action-btn--clear')
@@ -239,7 +250,7 @@
 			if (items.length === 0) return
 			items.forEach(function (item, index) {
 				setTimeout(function () {
-					item.style.transition = 'opacity 0.3s'
+					item.style.transition = 'all 0.4s'
 					item.style.opacity = '0'
 					setTimeout(function () {
 						item.remove()
@@ -258,6 +269,28 @@
 	var promoInput = document.querySelector('.cart__summary-promo-field')
 	var promoBtn = document.querySelector('.cart__summary-promo-apply')
 	var promoBox = document.querySelector('.cart__summary-promo-input')
+	var promoApplied = document.querySelector('.cart__summary-promo-applied')
+	var promoCode = document.querySelector('.cart__summary-promo-code')
+	var promoCancel = document.querySelector('.cart__summary-promo-cancel')
+	var discountsEl = document.querySelector('.cart__summary-discounts')
+
+	function applyPromo(code) {
+		if (promoBox) promoBox.classList.add('cart__summary-promo-input--success')
+		if (promoInput) { promoInput.style.display = 'none'; promoInput.disabled = true }
+		if (promoBtn) { promoBtn.style.display = 'none'; promoBtn.disabled = true }
+		if (promoCode) promoCode.textContent = code
+		if (promoApplied) promoApplied.style.display = 'flex'
+		if (discountsEl) discountsEl.style.display = 'flex'
+		if (window.showToast) showToast('Промокод применён', 'success')
+	}
+
+	function cancelPromo() {
+		if (promoBox) promoBox.classList.remove('cart__summary-promo-input--success')
+		if (promoInput) { promoInput.style.display = ''; promoInput.disabled = false }
+		if (promoBtn) { promoBtn.style.display = ''; promoBtn.disabled = false; promoBtn.textContent = 'Применить' }
+		if (promoApplied) promoApplied.style.display = 'none'
+		if (discountsEl) discountsEl.style.display = 'none'
+	}
 
 	function handlePromo() {
 		if (!promoInput || !promoBox) return
@@ -274,11 +307,7 @@
 		}
 
 		promoBox.classList.remove('cart__summary-promo-input--error')
-		promoBox.classList.add('cart__summary-promo-input--success')
-		promoInput.disabled = true
-		promoBtn.disabled = true
-		promoBtn.textContent = 'Применён'
-		if (window.showToast) showToast('Промокод применён', 'success')
+		applyPromo(val)
 	}
 
 	if (promoBtn) {
@@ -291,6 +320,14 @@
 				e.preventDefault()
 				handlePromo()
 			}
+		})
+	}
+
+	if (promoCancel) {
+		promoCancel.addEventListener('click', function (e) {
+			e.stopPropagation()
+			e.preventDefault()
+			cancelPromo()
 		})
 	}
 })()
@@ -322,59 +359,6 @@
 	if (tabs.length) tabs[0].click()
 })()
 
-/* ===== Checkout — Accordions (same pattern as product/production) ===== */
-;(function () {
-	'use strict'
-
-	function slideToggle(el, duration) {
-		if (el.classList.contains('is-open')) {
-			el.style.overflow = 'hidden'
-			el.style.height = el.scrollHeight + 'px'
-			el.style.transition = 'height ' + duration + 'ms ease'
-			el.classList.remove('is-open')
-			requestAnimationFrame(function () {
-				el.style.height = '0px'
-			})
-			setTimeout(function () {
-				el.style.display = 'none'
-				el.style.height = ''
-				el.style.overflow = ''
-				el.style.transition = ''
-			}, duration)
-		} else {
-			el.style.overflow = 'hidden'
-			el.style.height = '0px'
-			el.style.display = 'block'
-			el.style.transition = 'height ' + duration + 'ms ease'
-			el.classList.add('is-open')
-			requestAnimationFrame(function () {
-				el.style.height = el.scrollHeight + 'px'
-			})
-			setTimeout(function () {
-				el.style.height = ''
-				el.style.overflow = ''
-				el.style.transition = ''
-			}, duration)
-		}
-	}
-
-	document.querySelectorAll('.checkout-accordion').forEach(function (accordion) {
-		var body = accordion.querySelector('.checkout-accordion__content')
-		if (body && accordion.classList.contains('checkout-accordion--open')) {
-			body.style.display = 'block'
-			body.classList.add('is-open')
-			body.style.height = body.scrollHeight + 'px'
-		}
-		var header = accordion.querySelector('.checkout-accordion__btn')
-		if (header && body) {
-			header.addEventListener('click', function () {
-				accordion.classList.toggle('checkout-accordion--open')
-				slideToggle(body, 600)
-			})
-		}
-	})
-})()
-
 /* ===== Checkout — Map ↔ Select linking ===== */
 ;(function () {
 	'use strict'
@@ -400,7 +384,7 @@
 /* ===== Checkout — Split Panel toggle ===== */
 ;(function () {
 	'use strict'
-	var paymentRadios = document.querySelectorAll('.checkout-payment__radio input[name="payment"]')
+	var paymentRadios = document.querySelectorAll('.checkout-payment input[name="payment"]')
 	var splitPanel = document.getElementById('splitPanel')
 	if (!paymentRadios.length || !splitPanel) return
 	function toggleSplit() {
@@ -416,7 +400,7 @@
 ;(function () {
 	'use strict'
 
-	var invoiceRadio = document.querySelector('.checkout-payment__radio input[value="invoice"]')
+	var invoiceRadio = document.querySelector('.checkout-payment input[value="invoice"]')
 	var popup = document.getElementById('invoicePopup')
 	var closeBtn = popup ? popup.querySelector('.checkout-popup__close') : null
 	var overlay = popup
@@ -479,7 +463,6 @@
 
 	function validateField(input, errEl, testFn) {
 		var valid = testFn(input.value.trim())
-		input.classList.toggle('is-invalid', !valid)
 		if (errEl) errEl.classList.toggle('visible', !valid)
 		return valid
 	}
@@ -586,10 +569,21 @@
 	var phoneDisplay = document.querySelector('.checkout-recipient__row:nth-child(2) .checkout-recipient__value')
 	var emailDisplay = document.querySelector('.checkout-recipient__row:nth-child(3) .checkout-recipient__value')
 
+	var errs = {
+		name: document.getElementById('recipientNameErr'),
+		phone: document.getElementById('recipientPhoneErr'),
+		email: document.getElementById('recipientEmailErr')
+	}
+
+	function clearAllErrs() {
+		Object.keys(errs).forEach(function (k) { if (errs[k]) errs[k].classList.remove('visible') })
+	}
+
 	function open() {
 		if (nameInput && nameDisplay) nameInput.value = nameDisplay.textContent.trim()
 		if (phoneInput && phoneDisplay) phoneInput.value = phoneDisplay.textContent.trim()
 		if (emailInput && emailDisplay) emailInput.value = emailDisplay.textContent.trim()
+		clearAllErrs()
 		popup.classList.add('popup--open')
 		document.body.style.overflow = 'hidden'
 	}
@@ -611,10 +605,11 @@
 			var nameVal = nameInput ? nameInput.value.trim() : ''
 			var phoneVal = phoneInput ? phoneInput.value.trim() : ''
 			var emailVal = emailInput ? emailInput.value.trim() : ''
+			clearAllErrs()
 			var valid = true
-			if (!nameVal) { nameInput.classList.add('is-invalid'); valid = false } else { nameInput.classList.remove('is-invalid') }
-			if (!phoneVal || !FormUtils.test(phoneVal, 'phone')) { phoneInput.classList.add('is-invalid'); valid = false } else { phoneInput.classList.remove('is-invalid') }
-			if (emailVal && !FormUtils.test(emailVal, 'valid_email')) { emailInput.classList.add('is-invalid'); valid = false } else { emailInput.classList.remove('is-invalid') }
+			if (!nameVal) { if (errs.name) errs.name.classList.add('visible'); valid = false }
+			if (!phoneVal || !FormUtils.test(phoneVal, 'phone')) { if (errs.phone) errs.phone.classList.add('visible'); valid = false }
+			if (emailVal && !FormUtils.test(emailVal, 'valid_email')) { if (errs.email) errs.email.classList.add('visible'); valid = false }
 			if (!valid) return
 			if (nameDisplay) nameDisplay.textContent = nameVal
 			if (phoneDisplay) phoneDisplay.textContent = phoneVal
@@ -624,9 +619,16 @@
 	}
 
 	/* ===== Clear errors on input ===== */
-	if (nameInput) nameInput.addEventListener('input', function () { nameInput.classList.remove('is-invalid') })
-	if (phoneInput) phoneInput.addEventListener('input', function () { phoneInput.classList.remove('is-invalid') })
-	if (emailInput) emailInput.addEventListener('input', function () { emailInput.classList.remove('is-invalid') })
+	var inputToErr = [
+		{ inp: nameInput, err: errs.name },
+		{ inp: phoneInput, err: errs.phone },
+		{ inp: emailInput, err: errs.email }
+	]
+	inputToErr.forEach(function (pair) {
+		if (pair.inp && pair.err) {
+			pair.inp.addEventListener('input', function () { pair.err.classList.remove('visible') })
+		}
+	})
 
 	/* ===== Escape key ===== */
 	document.addEventListener('keydown', function (e) {
@@ -647,10 +649,10 @@
 	if (!popup) return
 
 	var fields = [
-		{ input: document.getElementById('addrName'), err: null },
-		{ input: document.getElementById('addrCity'), err: null },
-		{ input: document.getElementById('addrStreet'), err: null },
-		{ input: document.getElementById('addrHouse'), err: null }
+		{ input: document.getElementById('addrName'), err: document.getElementById('addrNameErr') },
+		{ input: document.getElementById('addrCity'), err: document.getElementById('addrCityErr') },
+		{ input: document.getElementById('addrStreet'), err: document.getElementById('addrStreetErr') },
+		{ input: document.getElementById('addrHouse'), err: document.getElementById('addrHouseErr') }
 	]
 
 	function getAddressCard(btn) {
@@ -663,7 +665,7 @@
 		document.getElementById('addrName').value = card.querySelector('.checkout-delivery__address-row:nth-child(1) .checkout-delivery__address-value').textContent.trim()
 		var commentEl = card.querySelector('.checkout-delivery__address-row:nth-child(3) .checkout-delivery__address-value')
 		if (commentEl) document.getElementById('addrComment').value = commentEl.textContent.trim()
-		fields.forEach(function (f) { if (f.input) f.input.classList.remove('is-invalid') })
+		fields.forEach(function (f) { if (f.err) f.err.classList.remove('visible') })
 		popup.classList.add('popup--open')
 		document.body.style.overflow = 'hidden'
 	}
@@ -689,11 +691,12 @@
 			var apartmentVal = document.getElementById('addrApartment').value.trim()
 			var commentVal = document.getElementById('addrComment').value.trim()
 
+			fields.forEach(function (f) { if (f.err) f.err.classList.remove('visible') })
 			var valid = true
-			if (!nameVal) { document.getElementById('addrName').classList.add('is-invalid'); valid = false }
-			if (!cityVal) { document.getElementById('addrCity').classList.add('is-invalid'); valid = false }
-			if (!streetVal) { document.getElementById('addrStreet').classList.add('is-invalid'); valid = false }
-			if (!houseVal) { document.getElementById('addrHouse').classList.add('is-invalid'); valid = false }
+			if (!nameVal) { if (fields[0].err) fields[0].err.classList.add('visible'); valid = false }
+			if (!cityVal) { if (fields[1].err) fields[1].err.classList.add('visible'); valid = false }
+			if (!streetVal) { if (fields[2].err) fields[2].err.classList.add('visible'); valid = false }
+			if (!houseVal) { if (fields[3].err) fields[3].err.classList.add('visible'); valid = false }
 			if (!valid) return
 
 			var card = editBtns.length ? editBtns[0].closest('.checkout-delivery__address-card') : null
@@ -713,7 +716,9 @@
 
 	/* ===== Clear errors on input ===== */
 	fields.forEach(function (f) {
-		if (f.input) f.input.addEventListener('input', function () { f.input.classList.remove('is-invalid') })
+		if (f.input && f.err) {
+			f.input.addEventListener('input', function () { f.err.classList.remove('visible') })
+		}
 	})
 
 	/* ===== Escape key ===== */
@@ -722,64 +727,4 @@
 	})
 })()
 
-/* ===== Checkout — Address Popup ===== */
-;(function () {
-	'use strict'
 
-	var editBtns = document.querySelectorAll('.checkout-delivery__address-edit')
-	var popup = document.getElementById('addressPopup')
-	var closeBtn = document.getElementById('addressPopupClose')
-	var overlay = popup
-	var saveBtn = document.getElementById('addressPopupBtn')
-
-	if (!popup) return
-
-	function getAddressCard(btn) {
-		return btn.closest('.checkout-delivery__address-card')
-	}
-
-	function open() {
-		var card = getAddressCard(this)
-		if (!card) return
-		document.getElementById('addrName').value = card.querySelector('.checkout-delivery__address-row:nth-child(1) .checkout-delivery__address-value').textContent.trim()
-		var fullAddr = card.querySelector('.checkout-delivery__address-row:nth-child(2) .checkout-delivery__address-value').textContent.trim()
-		var commentEl = card.querySelector('.checkout-delivery__address-row:nth-child(3) .checkout-delivery__address-value')
-		if (commentEl) document.getElementById('addrComment').value = commentEl.textContent.trim()
-		popup.style.display = 'flex'
-		document.body.style.overflow = 'hidden'
-	}
-
-	function close() {
-		popup.style.display = 'none'
-		document.body.style.overflow = ''
-	}
-
-	editBtns.forEach(function (btn) {
-		btn.addEventListener('click', open)
-	})
-
-	if (closeBtn) closeBtn.addEventListener('click', close)
-	if (overlay) overlay.addEventListener('click', function (e) { if (e.target === overlay) close() })
-
-	if (saveBtn) {
-		saveBtn.addEventListener('click', function () {
-			var card = editBtns.length ? editBtns[0].closest('.checkout-delivery__address-card') : null
-			if (!card) return
-			var nameVal = document.getElementById('addrName').value.trim()
-			var cityVal = document.getElementById('addrCity').value.trim()
-			var streetVal = document.getElementById('addrStreet').value.trim()
-			var houseVal = document.getElementById('addrHouse').value.trim()
-			var blockVal = document.getElementById('addrBlock').value.trim()
-			var apartmentVal = document.getElementById('addrApartment').value.trim()
-			var commentVal = document.getElementById('addrComment').value.trim()
-			if (nameVal) card.querySelector('.checkout-delivery__address-row:nth-child(1) .checkout-delivery__address-value').textContent = nameVal
-			var addr = 'г. ' + cityVal + ', ' + streetVal + ' д. ' + houseVal
-			if (blockVal) addr += ' к. ' + blockVal
-			if (apartmentVal) addr += ' кв. ' + apartmentVal
-			card.querySelector('.checkout-delivery__address-row:nth-child(2) .checkout-delivery__address-value').textContent = addr
-			var commentEl = card.querySelector('.checkout-delivery__address-row:nth-child(3) .checkout-delivery__address-value')
-			if (commentEl) commentEl.textContent = commentVal || '—'
-			close()
-		})
-	}
-})()

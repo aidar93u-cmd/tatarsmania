@@ -63,6 +63,7 @@
 		var sorted = sortCards(filtered)
 		var total = sorted.length
 		var totalPages = Math.ceil(total / PER_PAGE) || 1
+		if (dom.pagination) dom.pagination.style.display = totalPages <= 1 ? 'none' : ''
 		var p = Math.min(st.page, totalPages)
 		var start = (p - 1) * PER_PAGE
 		var pageCards = sorted.slice(start, start + PER_PAGE)
@@ -189,6 +190,7 @@
 	function boot() {
 		dom.list = document.querySelector('.js-orders-list')
 		dom.skeleton = document.querySelector('.js-orders-skeleton')
+		dom.pagination = document.querySelector('.js-orders-pagination')
 		dom.count = document.querySelector('.js-orders-count')
 		dom.tabs = document.querySelectorAll('.js-orders-tabs .orders-tabs__btn')
 		dom.paginationInfo = document.querySelector('.js-pagination-info')

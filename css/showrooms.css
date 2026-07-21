@@ -31,14 +31,10 @@
     padding: 0;
     cursor: pointer;
     opacity: 0.4;
-    transition: opacity 0.3s, color 0.3s;
+    transition: all 0.4s;
     font-family: var(--font-family);
     line-height: 1.2;
     text-transform: uppercase;
-}
-
-.showrooms-tabs__btn:hover {
-    opacity: 0.6;
 }
 
 .showrooms-tabs__btn--active {

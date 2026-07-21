@@ -19,11 +19,7 @@
 .contacts-info__social-link {
     color: var(--graphite);
     text-decoration: none;
-    transition: opacity 0.3s;
-}
-
-.contacts-info__social-link:hover {
-    opacity: 0.6;
+    transition: all 0.4s;
 }
 
 .contacts-info__row {
@@ -36,16 +32,12 @@
 .contacts-info__email {
     color: var(--graphite);
     text-decoration: none;
-    transition: opacity 0.3s;
+    transition: all 0.4s;
     font-family: var(--font3);
     text-transform: uppercase;
 
 }
 
-.contacts-info__phone:hover,
-.contacts-info__email:hover {
-    opacity: 0.6;
-}
 
 .contacts-info__captions {
     display: flex;
@@ -122,7 +114,7 @@
     font-size: var(--caption-size);
     color: #ff6b6b;
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: all 0.4s;
     pointer-events: none;
 }
 

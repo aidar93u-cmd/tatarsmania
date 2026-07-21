@@ -131,7 +131,7 @@
     line-height: 120%;
     opacity: 0;
     transform: translateY(var(--space-4));
-    transition: opacity 0.4s ease, 0.4s all;
+    transition: all 0.4s ease, 0.4s all;
     pointer-events: none;
 }
 .footer__email-error.visible {
@@ -152,7 +152,7 @@
 	line-height: 120%;
 	opacity: 0;
 	transform: translateY(var(--space-4));
-	transition: opacity 0.4s ease, 0.4s all;
+	transition: all 0.4s ease, 0.4s all;
 	pointer-events: none;
 }
 
@@ -169,7 +169,7 @@
 	font-weight: 500;
 	color: var(--white);
 	background-color: var(--graphite);
-	transition: background-color 0.4s;
+	transition: all 0.4s;
 	flex-shrink: 0;
 	text-transform: uppercase;
 }
@@ -298,7 +298,7 @@
 
 .footer-banner__logo svg {
 	width: 13.625rem;
-	height: 0.8125rem;
+	height: var(--space-13);
 }
 
 .footer-banner__line {
@@ -445,7 +445,7 @@
 	.footer__info-links {
 		max-height: 0;
 		overflow: hidden;
-		transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+		transition: max-height 0.4s ease, all 0.4s ease, padding 0.4s ease;
 		opacity: 0;
 		padding-bottom: 0;
 	}

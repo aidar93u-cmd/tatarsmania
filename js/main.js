@@ -2127,25 +2127,19 @@ document.addEventListener('DOMContentLoaded', function () {
 			})
 	}
 
-	/* ===== ACCORDION (shared across designers, production, product pages) ===== */
+	/* ===== ACCORDION (shared: .accordion) ===== */
 	var accordionConfigs = [
 		{
-			items: '.partnership-accordion',
-			openClass: 'partnership-accordion--open',
-			header: '.partnership-accordion__header',
-			body: '.partnership-accordion__body',
+			items: '.accordion__item',
+			openClass: 'accordion__item--open',
+			header: '.accordion__header',
+			body: '.accordion__body',
 		},
 		{
 			items: '.production-accordion__item',
 			openClass: 'production-accordion__item--open',
 			header: '.production-accordion__header',
 			body: '.production-accordion__body',
-		},
-		{
-			items: '.product-accordion',
-			openClass: 'product-accordion--open',
-			header: '.product-accordion__header',
-			body: '.product-accordion__content',
 		},
 	]
 
@@ -2508,8 +2502,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 		document.querySelectorAll('.pagination__nav:not([data-pagination-manual])').forEach(function (nav) {
+			var pagination = nav.closest('.pagination')
 			var total = getTotalPages(nav)
 			var current = getCurrentPage(nav)
+			if (total <= 1) {
+				if (pagination) pagination.style.display = 'none'
+				return
+			}
+			if (pagination) pagination.style.display = ''
 			renderPagination(nav, current, total)
 
 			nav.addEventListener('click', function (e) {
