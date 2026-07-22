@@ -7,6 +7,7 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: var(--space-6);
+    margin-bottom: var(--space-72);
 }
 
 .partnership-card {
@@ -21,16 +22,22 @@
 .partnership-card__body {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-20);
+	gap: var(--space-7);
 	margin-top: auto;
 }
-
+h5.partnership-card__title{
+    margin-bottom: var(--space-40);
+}
+.partnership-content__desc{
+	margin-top: 0;
+    margin-bottom: var(--space-72);
+}
 .partnership-card__desc {
 	color: rgba(33, 33, 33, 0.4);
 }
 .partnership-content__subtitle {
-    margin-top: 20px;
-    margin-bottom: 42px;
+    margin-top: var(--space-20);
+    margin-bottom: var(--space-42);
 }
 /* ===== Dots (Icon Counter) ===== */
 .partnership-card__dots {
@@ -57,7 +64,7 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: var(--space-6);
-	margin-bottom: 72px;
+	margin-bottom: var(--space-72);
 }
 
 .partnership-info-card {
@@ -69,7 +76,9 @@
 	gap: var(--space-18);
 	aspect-ratio: 1 / 1;
 }
-
+.page-layout__main-content p{
+	margin-top: 0;
+}
 .partnership-info-card__dots {
 	display: flex;
 	flex-wrap: wrap;
@@ -91,14 +100,13 @@
 
 /* ===== Accordions (page-specific overrides) ===== */
 .partnership-page .accordion {
-	margin: 40px 0;
+
 }
 
 /* ===== Clients List ===== */
 .partnership-clients {
 	list-style: none;
 	padding: 0;
-	margin: 0;
 	display: flex;
 	flex-direction: column;
 	gap: 0;

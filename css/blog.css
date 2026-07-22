@@ -242,6 +242,19 @@
 	width: 65%;
 }
 
+.blog-skeleton__line--category {
+	width: 70%;
+	height: var(--space-10);
+}
+
+.blog-skeleton__line--title {
+	height: var(--space-18);
+}
+
+.blog-skeleton__line--desc {
+	height: var(--space-12);
+}
+
 /* --- Pagination --- */
 
 

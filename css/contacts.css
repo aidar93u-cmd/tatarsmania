@@ -37,7 +37,11 @@
     text-transform: uppercase;
 
 }
-
+.contacts-info__social-link:hover,
+.contacts-info__phone:hover, 
+.contacts-info__email:hover {
+    color: var(--copper);
+}
 
 .contacts-info__captions {
     display: flex;
@@ -48,7 +52,7 @@
 
 /* ===== CONTACTS FORM ===== */
 .contacts-form {
-    padding-top: 0;
+   
 }
 
 .contacts-form--partnership .contacts-form__inner {
@@ -82,9 +86,11 @@
     padding: var(--space-44);
     color: #fff;
 }
-
+.contacts-form__form{
+    margin-bottom: 0;
+}
 .contacts-form__texts {
-    margin-bottom: var(--space-40);
+    margin-bottom: var(--space-26);
 }
 
 .contacts-form__title {
@@ -131,7 +137,7 @@
 
 .contacts-form__input {
     width: 100%;
-    height: var(--space-46);
+    height: var(--space-38);
     padding: var(--space-12) var(--space-16);
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(3.125rem);
@@ -145,7 +151,7 @@
 }
 
 .contacts-form__submit {
-    flex: 1;
+    flex: 0.869;
 }
 
 

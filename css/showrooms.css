@@ -30,20 +30,15 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    opacity: 0.4;
     transition: all 0.4s;
     font-family: var(--font-family);
     line-height: 1.2;
     text-transform: uppercase;
 }
 
-.showrooms-tabs__btn--active {
-    opacity: 1;
-    font-weight: 500;
-}
-
-.showrooms-tabs__btn--active:hover {
-    opacity: 1;
+.showrooms-tabs__btn--active,
+.showrooms-tabs__btn:hover {
+    color: var(--copper)
 }
 
 .showrooms-tabs__count {
