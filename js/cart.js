@@ -91,6 +91,8 @@
 		if (cartEl) {
 			cartEl.classList.toggle('cart--empty', items.length === 0)
 		}
+
+		document.dispatchEvent(new CustomEvent('cart:recalc', { detail: { total: total, count: count } }))
 	}
 
 	function initItem(item) {
@@ -461,38 +463,82 @@
 	/* ===== Validation ===== */
 	var orderBtn = popup ? popup.querySelector('.checkout-popup__btn-primary') : null
 
-	function validateField(input, errEl, testFn) {
-		var valid = testFn(input.value.trim())
-		if (errEl) errEl.classList.toggle('visible', !valid)
-		return valid
+	var invoiceFields = [
+		{ id: 'invLegalName', emptyMsg: 'Введите наименование компании' },
+		{ id: 'invLegalInn', emptyMsg: 'Введите ИНН', test: function (v) { return /^\d{10,12}$/.test(v) }, invalidMsg: 'Введите корректный ИНН (10–12 цифр)' },
+		{ id: 'invLegalKpp', emptyMsg: 'Введите КПП', test: function (v) { return /^\d{9}$/.test(v) }, invalidMsg: 'Введите корректный КПП (9 цифр)' },
+		{ id: 'invLegalOgrn', emptyMsg: 'Введите ОГРН', test: function (v) { return /^\d{13,15}$/.test(v) }, invalidMsg: 'Введите корректный ОГРН (13–15 цифр)' },
+		{ id: 'invLegalAddress', emptyMsg: 'Введите юридический адрес' },
+		{ id: 'invLegalEmail', emptyMsg: 'Введите e-mail', test: function (v) { return FormUtils.test(v, 'valid_email') }, invalidMsg: 'Введите корректный e-mail' },
+		{ id: 'invIndFio', emptyMsg: 'Введите ФИО', group: 'individual' },
+		{ id: 'invIndInn', emptyMsg: 'Введите ИНН', test: function (v) { return /^\d{10,12}$/.test(v) }, invalidMsg: 'Введите корректный ИНН (10–12 цифр)', group: 'individual' },
+		{ id: 'invIndOgrnip', emptyMsg: 'Введите ОГРНИП', test: function (v) { return /^\d{15}$/.test(v) }, invalidMsg: 'Введите корректный ОГРНИП (15 цифр)', group: 'individual' },
+		{ id: 'invIndAddress', emptyMsg: 'Введите адрес регистрации', group: 'individual' },
+		{ id: 'invIndEmail', emptyMsg: 'Введите e-mail', test: function (v) { return FormUtils.test(v, 'valid_email') }, invalidMsg: 'Введите корректный e-mail', group: 'individual' }
+	]
+
+	// Init: create error spans
+	invoiceFields.forEach(function (def) {
+		var input = document.getElementById(def.id)
+		if (!input) return
+		def._el = input
+		var err = document.createElement('span')
+		err.className = 'checkout-popup__field-error'
+		input.parentNode.appendChild(err)
+		def._err = err
+	})
+
+	var invoiceSubmitted = false
+
+	function setInvoiceError(def, msg) {
+		def._err.textContent = msg
+		def._err.classList.add('visible')
+		def._el.classList.add('is-invalid')
 	}
 
-	function validateAll() {
+	function clearInvoiceError(def) {
+		def._err.classList.remove('visible')
+		def._el.classList.remove('is-invalid')
+	}
+
+	function validateInvoiceDef(def) {
+		var val = def._el.value.trim()
+		if (!val) {
+			setInvoiceError(def, def.emptyMsg)
+			return false
+		}
+		if (def.test && !def.test(val)) {
+			setInvoiceError(def, def.invalidMsg || def.emptyMsg)
+			return false
+		}
+		clearInvoiceError(def)
+		return true
+	}
+
+	function validateInvoiceAll() {
 		var isLegal = legalRadio ? legalRadio.checked : true
 		var allValid = true
-
-		if (isLegal) {
-			allValid = validateField(document.getElementById('invLegalName'), document.getElementById('invLegalNameErr'), function (v) { return v.length > 0 }) && allValid
-			allValid = validateField(document.getElementById('invLegalInn'), document.getElementById('invLegalInnErr'), function (v) { return /^\d{10,12}$/.test(v) }) && allValid
-			allValid = validateField(document.getElementById('invLegalKpp'), document.getElementById('invLegalKppErr'), function (v) { return /^\d{9}$/.test(v) }) && allValid
-			allValid = validateField(document.getElementById('invLegalOgrn'), document.getElementById('invLegalOgrnErr'), function (v) { return /^\d{13,15}$/.test(v) }) && allValid
-			allValid = validateField(document.getElementById('invLegalAddress'), document.getElementById('invLegalAddressErr'), function (v) { return v.length > 0 }) && allValid
-			allValid = validateField(document.getElementById('invLegalEmail'), document.getElementById('invLegalEmailErr'), function (v) { return FormUtils.test(v, 'valid_email') }) && allValid
-		} else {
-			allValid = validateField(document.getElementById('invIndFio'), document.getElementById('invIndFioErr'), function (v) { return v.length > 0 }) && allValid
-			allValid = validateField(document.getElementById('invIndInn'), document.getElementById('invIndInnErr'), function (v) { return /^\d{10,12}$/.test(v) }) && allValid
-			allValid = validateField(document.getElementById('invIndOgrnip'), document.getElementById('invIndOgrnipErr'), function (v) { return /^\d{15}$/.test(v) }) && allValid
-			allValid = validateField(document.getElementById('invIndAddress'), document.getElementById('invIndAddressErr'), function (v) { return v.length > 0 }) && allValid
-			allValid = validateField(document.getElementById('invIndEmail'), document.getElementById('invIndEmailErr'), function (v) { return FormUtils.test(v, 'valid_email') }) && allValid
-		}
-
+		invoiceFields.forEach(function (def) {
+			if (isLegal && def.group === 'individual') return
+			if (!isLegal && !def.group) return
+			if (!validateInvoiceDef(def)) allValid = false
+		})
 		return allValid
 	}
+
+	// Real-time validation after first submit
+	invoiceFields.forEach(function (def) {
+		def._el.addEventListener('input', function () {
+			if (!invoiceSubmitted) return
+			validateInvoiceDef(def)
+		})
+	})
 
 	if (orderBtn) {
 		orderBtn.addEventListener('click', function (e) {
 			e.preventDefault()
-			if (validateAll()) {
+			invoiceSubmitted = true
+			if (validateInvoiceAll()) {
 				closePopup()
 				if (typeof window.showToast === 'function') {
 					window.showToast('Заказ оформлен', 'success')
@@ -569,21 +615,53 @@
 	var phoneDisplay = document.querySelector('.checkout-recipient__row:nth-child(2) .checkout-recipient__value')
 	var emailDisplay = document.querySelector('.checkout-recipient__row:nth-child(3) .checkout-recipient__value')
 
-	var errs = {
-		name: document.getElementById('recipientNameErr'),
-		phone: document.getElementById('recipientPhoneErr'),
-		email: document.getElementById('recipientEmailErr')
+	var recipientFields = [
+		{ el: nameInput, emptyMsg: 'Введите имя', validate: function (v) { return v.length > 0 } },
+		{ el: phoneInput, emptyMsg: 'Введите корректный телефон', validate: function (v) { return v.length > 0 && FormUtils.test(v, 'phone') } },
+		{ el: emailInput, emptyMsg: 'Введите корректный e-mail', validate: function (v) { return !v || FormUtils.test(v, 'valid_email') }, optional: true }
+	]
+
+	recipientFields.forEach(function (def) {
+		if (!def.el) return
+		var err = document.createElement('span')
+		err.className = 'checkout-popup__field-error'
+		def.el.parentNode.appendChild(err)
+		def._err = err
+	})
+
+	var recipientSubmitted = false
+
+	function setRecipientErr(def) {
+		def._err.textContent = def.emptyMsg
+		def._err.classList.add('visible')
+		def.el.classList.add('is-invalid')
 	}
 
-	function clearAllErrs() {
-		Object.keys(errs).forEach(function (k) { if (errs[k]) errs[k].classList.remove('visible') })
+	function clearRecipientErr(def) {
+		def._err.classList.remove('visible')
+		def.el.classList.remove('is-invalid')
+	}
+
+	function validateRecipientDef(def) {
+		var val = def.el.value.trim()
+		if (def.optional && !val) {
+			clearRecipientErr(def)
+			return true
+		}
+		if (!def.validate(val)) {
+			setRecipientErr(def)
+			return false
+		}
+		clearRecipientErr(def)
+		return true
 	}
 
 	function open() {
 		if (nameInput && nameDisplay) nameInput.value = nameDisplay.textContent.trim()
 		if (phoneInput && phoneDisplay) phoneInput.value = phoneDisplay.textContent.trim()
 		if (emailInput && emailDisplay) emailInput.value = emailDisplay.textContent.trim()
-		clearAllErrs()
+		recipientSubmitted = false
+		recipientFields.forEach(function (def) { clearRecipientErr(def) })
 		popup.classList.add('popup--open')
 		document.body.style.overflow = 'hidden'
 	}
@@ -602,32 +680,25 @@
 
 	if (saveBtn) {
 		saveBtn.addEventListener('click', function () {
-			var nameVal = nameInput ? nameInput.value.trim() : ''
-			var phoneVal = phoneInput ? phoneInput.value.trim() : ''
-			var emailVal = emailInput ? emailInput.value.trim() : ''
-			clearAllErrs()
-			var valid = true
-			if (!nameVal) { if (errs.name) errs.name.classList.add('visible'); valid = false }
-			if (!phoneVal || !FormUtils.test(phoneVal, 'phone')) { if (errs.phone) errs.phone.classList.add('visible'); valid = false }
-			if (emailVal && !FormUtils.test(emailVal, 'valid_email')) { if (errs.email) errs.email.classList.add('visible'); valid = false }
-			if (!valid) return
-			if (nameDisplay) nameDisplay.textContent = nameVal
-			if (phoneDisplay) phoneDisplay.textContent = phoneVal
-			if (emailDisplay) emailDisplay.textContent = emailVal || emailDisplay.textContent
+			recipientSubmitted = true
+			var allValid = true
+			recipientFields.forEach(function (def) {
+				if (!validateRecipientDef(def)) allValid = false
+			})
+			if (!allValid) return
+			if (nameDisplay) nameDisplay.textContent = nameInput.value.trim()
+			if (phoneDisplay) phoneDisplay.textContent = phoneInput.value.trim()
+			if (emailDisplay) emailDisplay.textContent = emailInput.value.trim() || emailDisplay.textContent
 			close()
 		})
 	}
 
-	/* ===== Clear errors on input ===== */
-	var inputToErr = [
-		{ inp: nameInput, err: errs.name },
-		{ inp: phoneInput, err: errs.phone },
-		{ inp: emailInput, err: errs.email }
-	]
-	inputToErr.forEach(function (pair) {
-		if (pair.inp && pair.err) {
-			pair.inp.addEventListener('input', function () { pair.err.classList.remove('visible') })
-		}
+	/* ===== Real-time validation after first submit ===== */
+	recipientFields.forEach(function (def) {
+		def.el.addEventListener('input', function () {
+			if (!recipientSubmitted) return
+			validateRecipientDef(def)
+		})
 	})
 
 	/* ===== Escape key ===== */
@@ -648,12 +719,45 @@
 
 	if (!popup) return
 
-	var fields = [
-		{ input: document.getElementById('addrName'), err: document.getElementById('addrNameErr') },
-		{ input: document.getElementById('addrCity'), err: document.getElementById('addrCityErr') },
-		{ input: document.getElementById('addrStreet'), err: document.getElementById('addrStreetErr') },
-		{ input: document.getElementById('addrHouse'), err: document.getElementById('addrHouseErr') }
+	var addressFields = [
+		{ id: 'addrName', emptyMsg: 'Введите название' },
+		{ id: 'addrCity', emptyMsg: 'Введите город' },
+		{ id: 'addrStreet', emptyMsg: 'Введите улицу' },
+		{ id: 'addrHouse', emptyMsg: 'Введите дом' }
 	]
+
+	// Init: create error spans
+	addressFields.forEach(function (def) {
+		var input = document.getElementById(def.id)
+		if (!input) return
+		def._el = input
+		var err = document.createElement('span')
+		err.className = 'checkout-popup__field-error'
+		input.parentNode.appendChild(err)
+		def._err = err
+	})
+
+	var addrSubmitted = false
+
+	function setAddrError(def) {
+		def._err.textContent = def.emptyMsg
+		def._err.classList.add('visible')
+		def._el.classList.add('is-invalid')
+	}
+
+	function clearAddrError(def) {
+		def._err.classList.remove('visible')
+		def._el.classList.remove('is-invalid')
+	}
+
+	function validateAddrDef(def) {
+		if (!def._el.value.trim()) {
+			setAddrError(def)
+			return false
+		}
+		clearAddrError(def)
+		return true
+	}
 
 	function getAddressCard(btn) {
 		return btn.closest('.checkout-delivery__address-card')
@@ -665,7 +769,8 @@
 		document.getElementById('addrName').value = card.querySelector('.checkout-delivery__address-row:nth-child(1) .checkout-delivery__address-value').textContent.trim()
 		var commentEl = card.querySelector('.checkout-delivery__address-row:nth-child(3) .checkout-delivery__address-value')
 		if (commentEl) document.getElementById('addrComment').value = commentEl.textContent.trim()
-		fields.forEach(function (f) { if (f.err) f.err.classList.remove('visible') })
+		addrSubmitted = false
+		addressFields.forEach(function (def) { clearAddrError(def) })
 		popup.classList.add('popup--open')
 		document.body.style.overflow = 'hidden'
 	}
@@ -684,20 +789,19 @@
 
 	if (saveBtn) {
 		saveBtn.addEventListener('click', function () {
+			addrSubmitted = true
+			var allValid = true
+			addressFields.forEach(function (def) {
+				if (!validateAddrDef(def)) allValid = false
+			})
+			if (!allValid) return
+
 			var nameVal = document.getElementById('addrName').value.trim()
 			var cityVal = document.getElementById('addrCity').value.trim()
 			var streetVal = document.getElementById('addrStreet').value.trim()
 			var houseVal = document.getElementById('addrHouse').value.trim()
 			var apartmentVal = document.getElementById('addrApartment').value.trim()
 			var commentVal = document.getElementById('addrComment').value.trim()
-
-			fields.forEach(function (f) { if (f.err) f.err.classList.remove('visible') })
-			var valid = true
-			if (!nameVal) { if (fields[0].err) fields[0].err.classList.add('visible'); valid = false }
-			if (!cityVal) { if (fields[1].err) fields[1].err.classList.add('visible'); valid = false }
-			if (!streetVal) { if (fields[2].err) fields[2].err.classList.add('visible'); valid = false }
-			if (!houseVal) { if (fields[3].err) fields[3].err.classList.add('visible'); valid = false }
-			if (!valid) return
 
 			var card = editBtns.length ? editBtns[0].closest('.checkout-delivery__address-card') : null
 			if (!card) return
@@ -714,11 +818,12 @@
 		})
 	}
 
-	/* ===== Clear errors on input ===== */
-	fields.forEach(function (f) {
-		if (f.input && f.err) {
-			f.input.addEventListener('input', function () { f.err.classList.remove('visible') })
-		}
+	/* ===== Real-time validation after first submit ===== */
+	addressFields.forEach(function (def) {
+		def._el.addEventListener('input', function () {
+			if (!addrSubmitted) return
+			validateAddrDef(def)
+		})
 	})
 
 	/* ===== Escape key ===== */
@@ -727,4 +832,159 @@
 	})
 })()
 
+/* ===== Checkout — Summary Recalculation ===== */
+;(function () {
+	'use strict'
 
+	var servicesSection = document.getElementById('checkoutSummaryServices')
+	var servicesRows = document.getElementById('checkoutSummaryServicesRows')
+	var discountsSection = document.getElementById('checkoutSummaryDiscounts')
+	var discountsRows = document.getElementById('checkoutSummaryDiscountsRows')
+	var deliveryTimeEl = document.getElementById('checkoutDeliveryTime')
+	var deliveryCostEl = document.getElementById('checkoutDeliveryCost')
+	var grandTotalEl = document.getElementById('checkoutGrandTotal')
+
+	if (!grandTotalEl) return
+
+	function parsePrice(str) {
+		if (!str) return 0
+		return parseInt(str.replace(/[^0-9]/g, ''), 10) || 0
+	}
+
+	function formatPrice(num) {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' \u20BD'
+	}
+
+	function escHtml(str) {
+		if (!str) return ''
+		var div = document.createElement('div')
+		div.appendChild(document.createTextNode(str))
+		return div.innerHTML
+	}
+
+	function getActiveDeliveryTab() {
+		var tabs = document.querySelectorAll('.checkout-delivery__tab--active')
+		return tabs.length ? tabs[0] : null
+	}
+
+	function getServiceCosts() {
+		var total = 0
+		var checkboxes = document.querySelectorAll('.checkout-delivery__services input[type="checkbox"]')
+		checkboxes.forEach(function (cb) {
+			if (cb.checked) {
+				total += parseInt(cb.getAttribute('data-price'), 10) || 0
+			}
+		})
+		return total
+	}
+
+	function updateServicesSection(totalSvc) {
+		if (!servicesSection || !servicesRows) return
+		if (totalSvc > 0) {
+			servicesRows.innerHTML = ''
+			var checkboxes = document.querySelectorAll('.checkout-delivery__services input[type="checkbox"]')
+			checkboxes.forEach(function (cb) {
+				if (cb.checked) {
+					var label = cb.closest('.checkbox')
+					var textEl = label ? label.querySelector('.checkbox__text') : null
+					var text = textEl ? textEl.textContent.trim() : 'Услуга'
+					var price = parseInt(cb.getAttribute('data-price'), 10) || 0
+					var row = document.createElement('div')
+					row.className = 'checkout-summary__row'
+					row.innerHTML = '<span class="checkout-summary__row-label body-strong">' + escHtml(text) + '</span><span class="checkout-summary__row-value body">+' + formatPrice(price) + '</span>'
+					servicesRows.appendChild(row)
+				}
+			})
+			servicesSection.style.display = ''
+		} else {
+			servicesSection.style.display = 'none'
+		}
+	}
+
+	function getDiscountTotal() {
+		if (!discountsSection || !discountsRows) return 0
+		var total = 0
+		var rows = discountsRows.querySelectorAll('.checkout-summary__row')
+		rows.forEach(function (row) {
+			var valEl = row.querySelector('.checkout-summary__row-value')
+			if (valEl) {
+				var val = parsePrice(valEl.textContent)
+				total += Math.abs(val)
+			}
+		})
+		return total
+	}
+
+	function recalc() {
+		var items = document.querySelectorAll('.cart-item')
+		var subtotal = 0
+		items.forEach(function (item) {
+			var qty = parseInt(item.querySelector('.cart-item__qty-value').textContent, 10) || 1
+			var unitPrice = parseFloat(item.getAttribute('data-unit-price')) || 0
+			subtotal += unitPrice * qty
+		})
+
+		var tab = getActiveDeliveryTab()
+		var deliveryPrice = tab ? parseInt(tab.getAttribute('data-delivery-price'), 10) || 0 : 0
+		var deliveryTime = tab ? tab.getAttribute('data-delivery-time') || '\u2014' : '\u2014'
+
+		if (deliveryTimeEl) deliveryTimeEl.textContent = deliveryTime
+		if (deliveryCostEl) deliveryCostEl.textContent = deliveryPrice > 0 ? formatPrice(deliveryPrice) : '0 \u20BD'
+
+		var serviceCost = getServiceCosts()
+		updateServicesSection(serviceCost)
+
+		var discountTotal = getDiscountTotal()
+		var grandTotal = subtotal + deliveryPrice + serviceCost - discountTotal
+		if (grandTotal < 0) grandTotal = 0
+
+		if (grandTotalEl) grandTotalEl.textContent = formatPrice(grandTotal)
+
+		var splitInfo = document.querySelector('.checkout-payment__split-info')
+		if (splitInfo && grandTotal > 0) {
+			splitInfo.textContent = '4 платежа в Сплит по ' + formatPrice(Math.round(grandTotal / 4))
+		}
+	}
+
+	document.addEventListener('cart:recalc', recalc)
+	recalc()
+
+	/* ===== Delivery tab switch → recalc ===== */
+	var tabsContainer = document.querySelector('.checkout-delivery__tabs')
+	if (tabsContainer) {
+		tabsContainer.addEventListener('click', function (e) {
+			var tab = e.target.closest('.checkout-delivery__tab')
+			if (tab) setTimeout(recalc, 50)
+		})
+	}
+
+	/* ===== Service checkbox change → recalc ===== */
+	document.querySelectorAll('.checkout-delivery__services input[type="checkbox"]').forEach(function (cb) {
+		cb.addEventListener('change', recalc)
+	})
+
+	/* ===== Pickup showroom dropdown ===== */
+	var sortContainer = document.querySelector('.checkout-delivery__sort')
+	var sortTrigger = sortContainer ? sortContainer.querySelector('.checkout-delivery__sort-trigger') : null
+
+	if (sortTrigger) {
+		sortTrigger.addEventListener('click', function (e) {
+			e.stopPropagation()
+			sortContainer.classList.toggle('active')
+		})
+		document.addEventListener('click', function () {
+			sortContainer.classList.remove('active')
+		})
+		sortContainer.addEventListener('click', function (e) {
+			var option = e.target.closest('.checkout-delivery__sort-option')
+			if (option) {
+				sortContainer.querySelectorAll('.checkout-delivery__sort-option').forEach(function (el) {
+					el.classList.remove('active')
+				})
+				option.classList.add('active')
+				sortTrigger.querySelector('span').textContent = option.textContent
+				sortContainer.classList.remove('active')
+			}
+		})
+	}
+})()

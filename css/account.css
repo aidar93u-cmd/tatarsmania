@@ -52,13 +52,13 @@
 .account-nav__link--logout {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-10);
     color: var(--graphite);
 }
 
 .account-nav__link--logout svg {
     flex-shrink: 0;
-    margin-top: -5px;
+    margin-top: calc(-1 * var(--space-5));
 }
 
 /* ===== Account Content ===== */
@@ -87,7 +87,7 @@
 
 .account-section__title {
     font-family: var(--font3);
-    font-size: 1.25rem;
+    font-size: var(--h5-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.3;
@@ -106,7 +106,7 @@
     padding: 0;
     text-decoration: none;
     min-width: 0;
-    margin-right: -10px;
+    margin-right: calc(-1 * var(--space-10));
 }
 
 .btn span.account-add-btn__count {
@@ -314,7 +314,7 @@
 }
 
 .nl-row__label {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -327,7 +327,7 @@
 }
 
 .nl-row__phone {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 400;
     color: var(--graphite);
     opacity: 0.4;
@@ -467,7 +467,7 @@
 }
 
 .popup-title {
-    font-size: 1rem;
+    font-size: var(--body-l-size);
     font-weight: 500;
     font-family: var(--font-family);
     color: var(--graphite);
@@ -476,12 +476,12 @@
 }
 
 .popup-divider {
-    height: 1px;
+    height: var(--space-1);
     background: rgba(33, 33, 33, 0.1);
 }
 
 .popup-desc {
-    font-size: 0.875rem;
+    font-size: var(--body-m-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -499,7 +499,7 @@
     background: var(--gray-light);
     border: none;
     font-family: var(--font-family);
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -525,7 +525,7 @@
     position: absolute;
     bottom: -0.875rem;
     left: 0;
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: #d32f2f;
     line-height: 1.2;
@@ -551,7 +551,7 @@
     color: var(--white);
     border: none;
     font-family: var(--font-family);
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     cursor: pointer;
     line-height: 1.2;
@@ -574,8 +574,8 @@
 
 .popup-btn .popup-btn__loader {
     display: none;
-    width: 0.875rem;
-    height: 0.875rem;
+    width: var(--space-14);
+    height: var(--space-14);
     animation: nl-spin 0.7s linear infinite;
 }
 
@@ -644,7 +644,7 @@
 
 /* NL description */
 .nl-desc {
-    font-size: 0.875rem;
+    font-size: var(--body-m-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -691,7 +691,7 @@
     background: var(--gray-light);
     border: none;
     font-family: var(--font-family);
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -722,7 +722,7 @@
 }
 
 .nl-form__success span {
-    font-size: 0.875rem;
+    font-size: var(--body-m-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
@@ -730,8 +730,8 @@
 
 .btn__loader {
     display: none;
-    width: 0.875rem;
-    height: 0.875rem;
+    width: var(--space-14);
+    height: var(--space-14);
     animation: btn-spin 0.7s linear infinite;
 }
 
@@ -777,7 +777,7 @@
     align-items: center;
     justify-content: center;
     top: 50%;
-    margin-top: -0.4375rem;
+    margin-top: calc(-1 * var(--space-7));
 }
 
 .btn--popup.is-loading .btn__loader svg {
@@ -805,7 +805,7 @@
 }
 
 .popup-form__label {
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
@@ -818,7 +818,7 @@
     background: var(--gray-light);
     border: none;
     font-family: var(--font-family);
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -833,12 +833,12 @@
 
 .popup-form__textarea {
     width: 100%;
-    height: 5.625rem;
+    height: var(--space-90);
     padding: var(--space-14) var(--space-16);
     background: var(--gray-light);
     border: none;
     font-family: var(--font-family);
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -862,7 +862,7 @@
     position: absolute;
     bottom: -0.875rem;
     left: 0;
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: #d32f2f;
     line-height: 1.2;
@@ -922,7 +922,7 @@
 }
 
 .popup-address-toggle__label {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -945,7 +945,7 @@
 
 .nl-form__error {
     position: relative;
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: #d32f2f;
     line-height: 1.2;
@@ -976,7 +976,7 @@
 
 /* ===== Also available label (Push, Telegram, WhatsApp) ===== */
 .nl-also-label {
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: var(--graphite);
     margin: var(--space-4) 0 0;
@@ -1002,7 +1002,7 @@
     background: var(--graphite);
     color: var(--white);
     padding: var(--space-14) var(--space-24);
-    font-size: 0.875rem;
+    font-size: var(--body-m-size);
     font-weight: 500;
     line-height: 1.3;
     border-radius: 0;
@@ -1058,7 +1058,7 @@
     .account-nav__link {
         white-space: nowrap;
         text-transform: uppercase;
-        font-size: 0.625rem;
+        font-size: var(--caption-size);
         letter-spacing: 0.1em;
         padding: var(--space-6) var(--space-12);
         border: 1px solid var(--graphite);
@@ -1087,7 +1087,7 @@
     }
 
     .account-section__title {
-        font-size: 1.125rem;
+        font-size: var(--space-18);
     }
 
     .account-order {
@@ -1151,7 +1151,7 @@
     line-height: 1.2;
     transition: color 0.4s;
     padding-bottom: var(--space-6);
-    margin-bottom: -0.5rem;
+    margin-bottom: calc(-1 * var(--space-8));
 }
 
 .orders-tabs__btn:hover {
@@ -1170,7 +1170,7 @@
 }
 
 .orders-sort__count {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     color: var(--graphite);
     opacity: 0.4;
     line-height: 1.2;
@@ -1178,7 +1178,7 @@
 
 /* ===== Orders Divider ===== */
 .orders-divider {
-    height: 1px;
+    height: var(--space-1);
     background: #dbdbdb;
     margin: var(--space-16) 0 var(--space-16);
 }
@@ -1223,7 +1223,7 @@
 }
 
 .orders-card__status {
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: var(--copper);
     text-transform: uppercase;
@@ -1268,7 +1268,7 @@
 }
 
 .orders-card__ref {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     color: var(--graphite);
     margin: 0;
@@ -1276,7 +1276,7 @@
 }
 
 .orders-card__delivery {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     color: var(--graphite);
     margin: 0;
@@ -1284,7 +1284,7 @@
 }
 
 .orders-card__price {
-    font-size: 1rem;
+    font-size: var(--body-l-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
@@ -1325,7 +1325,7 @@
     flex-shrink: 0;
 }
 .orders-card__arrow svg {
-    width: 1rem;
+    width: var(--space-16);
     height: auto;
     transition: background 0.4s;
 }
@@ -1355,7 +1355,7 @@
     .orders-tabs__btn {
         flex: 1;
         text-align: center;
-        font-size: 0.6875rem;
+        font-size: var(--space-11);
     }
 
     .orders-sort {
@@ -1364,7 +1364,7 @@
     }
 
     .orders-sort__count {
-        font-size: 0.6875rem;
+        font-size: var(--space-11);
     }
 
     #orders-sort .sort__dropdown {
@@ -1433,15 +1433,15 @@
     }
 
     .orders-card__ref {
-        font-size: 0.75rem;
+        font-size: var(--body-base-size);
     }
 
     .orders-card__delivery {
-        font-size: 0.75rem;
+        font-size: var(--body-base-size);
     }
 
     .orders-card__price {
-        font-size: 0.875rem;
+        font-size: var(--body-m-size);
     }
 
     .orders-card__cursor {
@@ -1534,7 +1534,7 @@
 }
 
 .order-timeline__label {
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
@@ -1549,7 +1549,7 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-12);
-    font-size: 1rem;
+    font-size: var(--body-l-size);
     font-weight: 500;
     color: var(--graphite);
     text-decoration: none;
@@ -1577,7 +1577,7 @@
 
 .od-section__title {
     font-family: var(--font3);
-    font-size: 1.25rem;
+    font-size: var(--h5-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.3;
@@ -1616,7 +1616,7 @@
 .od-product-list {
     display: flex;
     flex-direction: column;
-    gap: 0.375rem;
+    gap: var(--space-6);
 }
 
 .od-product {
@@ -1661,7 +1661,7 @@
 
 .od-product__name {
     font-family: var(--font3);
-    font-size: 1.25rem;
+    font-size: var(--h5-size);
     font-weight: 500;
     color: var(--graphite);
     margin: 0;
@@ -1669,7 +1669,7 @@
 }
 
 .od-product__desc {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     color: var(--graphite);
     margin: 0;
@@ -1677,7 +1677,7 @@
 }
 
 .od-product__qty {
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: var(--graphite);
     opacity: 0.4;
@@ -1693,7 +1693,7 @@
 }
 
 .od-product__price {
-    font-size: 1rem;
+    font-size: var(--body-l-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
@@ -1701,7 +1701,7 @@
 }
 
 .od-product__price-old {
-    font-size: 1rem;
+    font-size: var(--body-l-size);
     font-weight: 500;
     color: var(--graphite);
     text-decoration: line-through;
@@ -1744,14 +1744,14 @@
 }
 
 .od-doc__name {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
 }
 
 .od-doc__ext {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     color: var(--graphite);
     opacity: 0.3;
@@ -1759,7 +1759,7 @@
 }
 
 .od-doc__size {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     color: var(--graphite);
     opacity: 0.3;
@@ -1815,14 +1815,14 @@
 }
 
 .od-summary__label {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
 }
 
 .od-summary__value {
-    font-size: 0.75rem;
+    font-size: var(--body-base-size);
     font-weight: 400;
     color: var(--graphite);
     line-height: 1.2;
@@ -1837,14 +1837,14 @@
 }
 
 .od-summary__total-label {
-    font-size: 1rem;
+    font-size: var(--body-l-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
 }
 
 .od-summary__total-value {
-    font-size: 1.25rem;
+    font-size: var(--h5-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.2;
@@ -1920,7 +1920,7 @@
 .orders-skeleton__line {
     background: var(--gray-skeleton);
     border-radius: 2px;
-    height: 0.75rem;
+    height: var(--space-12);
     position: relative;
     overflow: hidden;
 }
@@ -1936,7 +1936,7 @@
 
 .orders-skeleton__line--status {
     width: 30%;
-    height: 0.625rem;
+    height: var(--space-10);
 }
 
 .orders-skeleton__line--ref {
@@ -1945,12 +1945,12 @@
 
 .orders-skeleton__line--delivery {
     width: 40%;
-    height: 0.625rem;
+    height: var(--space-10);
 }
 
 .orders-skeleton__line--price {
     width: 25%;
-    height: 1rem;
+    height: var(--space-16);
 }
 
 .orders-skeleton__gallery {
@@ -2004,7 +2004,7 @@
     }
 
     .od-product-list {
-        gap: 0.25rem;
+        gap: var(--space-4);
     }
 
     .od-product {
@@ -2090,7 +2090,7 @@
 
 .promocode-card__code-text {
     font-family: var(--font3);
-    font-size: 1.25rem;
+    font-size: var(--h5-size);
     font-weight: 500;
     color: var(--graphite);
     line-height: 1.3;
@@ -2115,7 +2115,7 @@
 }
 
 .promocode-card__label {
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: var(--copper);
     text-transform: uppercase;
@@ -2124,7 +2124,7 @@
 }
 
 .promocode-card__auto {
-    font-size: 0.625rem;
+    font-size: var(--caption-size);
     font-weight: 500;
     color: var(--graphite);
     opacity: 0.4;
@@ -2165,7 +2165,7 @@
     background: none;
     border: none;
     padding: 0;
-    margin-left: -0.75rem;
+    margin-left: calc(-1 * var(--space-12));
     font-family: var(--font-family);
     font-size: var(--body-base-size);
     font-weight: 500;
@@ -2182,7 +2182,7 @@
     opacity: 0;
     transition: all 0.4s;
     flex-shrink: 0;
-    width: 0.75rem;
+    width: var(--space-12);
     height: auto;
 }
 
@@ -2370,8 +2370,8 @@
 }
 
 .logout-modal__icon svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: var(--space-24);
+    height: var(--space-24);
 }
 
 .logout-modal__title {
@@ -2432,8 +2432,8 @@
     position: absolute;
     top: var(--space-16);
     right: var(--space-16);
-    width: 1.5rem;
-    height: 1.5rem;
+    width: var(--space-24);
+    height: var(--space-24);
     padding: 0;
     background: none;
     border: none;
