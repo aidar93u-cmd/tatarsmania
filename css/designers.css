@@ -29,45 +29,4 @@
     object-fit: contain;
 }
 
-/* ===== Projects ===== */
-.designers-projects__card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-26);
-    min-height: 27.78125rem;
-}
-
-.designers-projects__card-image {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background-size: cover;
-    background-position: center;
-}
-
-.designers-projects__card-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-12);
-}
-
-.designers-projects__card-meta {
-    display: flex;
-    gap: var(--space-12);
-    align-items: center;
-}
-
-.designers-projects__card-category,
-.designers-projects__card-year {
-    color: rgba(33,33,33,.4);
-    letter-spacing: 1px;
-}
-
-.designers-projects__card-title {
-    display: block;
-}
-
-.designers-projects__card-desc {
-    margin: 0;
-}
-
 

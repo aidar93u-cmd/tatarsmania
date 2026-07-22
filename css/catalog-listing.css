@@ -140,6 +140,7 @@
 	margin-right: 0;
 	margin-left: auto;
 	min-width: 14.625rem;
+    justify-content: flex-end;
 }
 
 .catalog-listing__results {

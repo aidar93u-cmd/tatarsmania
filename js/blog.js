@@ -37,13 +37,19 @@
     for (var i = 0; i < count; i++) {
       var el = document.createElement('div');
       el.className = 'blog-skeleton';
-      el.innerHTML = '<div class="blog-skeleton__image"></div><div class="blog-skeleton__body"><div class="blog-skeleton__line blog-skeleton__line--short"></div><div class="blog-skeleton__line blog-skeleton__line--medium"></div><div class="blog-skeleton__line"></div></div>';
+      el.innerHTML = '<div class="blog-skeleton__image"></div><div class="blog-skeleton__body"><div class="blog-skeleton__line blog-skeleton__line--category"></div><div class="blog-skeleton__line blog-skeleton__line--title" style="width:85%"></div><div class="blog-skeleton__line blog-skeleton__line--title" style="width:55%"></div><div class="blog-skeleton__line blog-skeleton__line--desc" style="width:90%"></div><div class="blog-skeleton__line blog-skeleton__line--desc" style="width:45%"></div></div>';
       frag.appendChild(el);
     }
     return frag;
   }
 
   function render() {
+    // scroll to top of grid on pagination change
+    if (grid && currentPage > 1) {
+      var top = grid.getBoundingClientRect().top + window.pageYOffset - 130;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+
     var start = (currentPage - 1) * perPage;
     var pageCards = filteredCards.slice(start, start + perPage);
     var totalShown = Math.min(start + perPage, filteredCards.length);
