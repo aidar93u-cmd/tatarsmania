@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="css/lib/fancybox.css" />
     <link rel="stylesheet" href="css/lib/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=27">
-    <link rel="stylesheet" href="css/header.css?v=27" />
-    <link rel="stylesheet" href="css/footer.css?v=27" />
-    <link rel="stylesheet" href="css/product-card.css?v=27" />
-    <link rel="stylesheet" href="css/cart.css?v=27">
+    <link rel="stylesheet" href="css/style.css?v=28">
+    <link rel="stylesheet" href="css/header.css?v=28" />
+    <link rel="stylesheet" href="css/footer.css?v=28" />
+    <link rel="stylesheet" href="css/product-card.css?v=28" />
+    <link rel="stylesheet" href="css/cart.css?v=28">
 </head>
 
 <body class="page checkout-page">
@@ -367,20 +367,27 @@
                         <h5 class="checkout-section__title">Способ доставки</h5>
                         <div class="checkout-delivery">
                             <div class="checkout-delivery__tabs">
-                                <button class="checkout-delivery__tab checkout-delivery__tab--active body-upper-strong" type="button" data-tab="pickup">Самовывоз из шоурума</button>
-                                <button class="checkout-delivery__tab body-upper-strong" type="button" data-tab="delivery">Фирменная доставка</button>
-                                <button class="checkout-delivery__tab body-upper-strong" type="button" data-tab="cdek">Доставка СДЭК</button>
+                                <button class="checkout-delivery__tab checkout-delivery__tab--active body-upper-strong" type="button" data-tab="pickup" data-delivery-price="0" data-delivery-time="—">Самовывоз из шоурума</button>
+                                <button class="checkout-delivery__tab body-upper-strong" type="button" data-tab="delivery" data-delivery-price="3000" data-delivery-time="3–10 дней">Фирменная доставка</button>
+                                <button class="checkout-delivery__tab body-upper-strong" type="button" data-tab="cdek" data-delivery-price="1500" data-delivery-time="5–14 дней">Доставка СДЭК</button>
                             </div>
                             <div class="checkout-delivery__content" id="tab-pickup" data-tab-content="pickup">
                                 <div class="checkout-delivery__map">
                                     <div class="checkout-delivery__map-container" id="showroomMap"></div>
                                     <div class="checkout-delivery__map-overlay-input">
-                                        <select class="checkout-delivery__select">
-                                            <option value="" disabled selected>Выберите шоурум*</option>
-                                            <option value="0">г. Казань, Чистопольская 16/15</option>
-                                            <option value="1">г. Казань, Проспект Победы 230</option>
-                                            <option value="2">г. Казань, ул. Баумана 44</option>
-                                        </select>
+                                        <div class="checkout-delivery__sort">
+                                            <button class="checkout-delivery__sort-trigger body" type="button">
+                                                <span>Выберите шоурум*</span>
+                                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
+                                                    <path d="M4 5L0 0H8L4 5Z" fill="#212121"/>
+                                                </svg>
+                                            </button>
+                                            <div class="checkout-delivery__sort-dropdown">
+                                                <button class="checkout-delivery__sort-option" type="button" data-value="0">г. Казань, Чистопольская 16/15</button>
+                                                <button class="checkout-delivery__sort-option" type="button" data-value="1">г. Казань, Проспект Победы 230</button>
+                                                <button class="checkout-delivery__sort-option" type="button" data-value="2">г. Казань, ул. Баумана 44</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Hidden showroom cards for map markers -->
@@ -435,8 +442,11 @@
                                         </div>
                                     </div>
                                     <div class="checkout-delivery__address-edit-row">
-                                        <button class="checkout-delivery__address-edit" type="button">
-                                            <span class="body-upper-strong">Изменить адрес</span>
+                                        <button class="checkout-delivery__address-edit action-btn body-upper-strong" type="button">
+                                            <svg class="action-btn__tilde" width="12" height="2" viewBox="0 0 12 2" fill="none">
+                                                <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121"/>
+                                            </svg>
+                                            <span>Изменить адрес</span>
                                             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                                                 <path
                                                     d="M6.64615 3.53089L1 9.17696V12L3.82307 12L9.46922 6.35392M6.64615 3.53089L8.67074 1.50631L8.67196 1.50511C8.95065 1.22642 9.09025 1.08683 9.25116 1.03454C9.39291 0.988486 9.54562 0.988486 9.68736 1.03454C9.84817 1.08679 9.9876 1.22622 10.2659 1.50452L11.4938 2.7324C11.7733 3.01189 11.9131 3.1517 11.9655 3.31285C12.0115 3.45459 12.0115 3.60728 11.9655 3.74903C11.9131 3.91006 11.7735 4.04966 11.4944 4.32875L11.4938 4.32935L9.46922 6.35392M6.64615 3.53089L9.46922 6.35392"
@@ -447,12 +457,12 @@
                                 </div>
                                 <div class="checkout-delivery__services">
                                     <label class="checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" data-price="5000">
                                         <span class="checkbox__mark"></span>
                                         <span class="checkbox__text body">Сборка мебели</span>
                                     </label>
                                     <label class="checkbox">
-                                        <input type="checkbox" checked>
+                                        <input type="checkbox" checked data-price="1500">
                                         <span class="checkbox__mark"></span>
                                         <span class="checkbox__text body">Подъем на этаж</span>
                                     </label>
@@ -475,8 +485,11 @@
                                         </div>
                                     </div>
                                     <div class="checkout-delivery__address-edit-row">
-                                        <button class="checkout-delivery__address-edit" type="button">
-                                            <span class="body-upper-strong">Изменить адрес</span>
+                                        <button class="checkout-delivery__address-edit action-btn body-upper-strong" type="button">
+                                            <svg class="action-btn__tilde" width="12" height="2" viewBox="0 0 12 2" fill="none">
+                                                <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121"/>
+                                            </svg>
+                                            <span>Изменить адрес</span>
                                             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                                                 <path
                                                     d="M6.64615 3.53089L1 9.17696V12L3.82307 12L9.46922 6.35392M6.64615 3.53089L8.67074 1.50631L8.67196 1.50511C8.95065 1.22642 9.09025 1.08683 9.25116 1.03454C9.39291 0.988486 9.54562 0.988486 9.68736 1.03454C9.84817 1.08679 9.9876 1.22622 10.2659 1.50452L11.4938 2.7324C11.7733 3.01189 11.9131 3.1517 11.9655 3.31285C12.0115 3.45459 12.0115 3.60728 11.9655 3.74903C11.9131 3.91006 11.7735 4.04966 11.4944 4.32875L11.4938 4.32935L9.46922 6.35392M6.64615 3.53089L9.46922 6.35392"
@@ -508,8 +521,11 @@
                                 </div>
                             </div>
                             <div class="checkout-recipient__edit-row">
-                                <button class="checkout-recipient__edit" type="button">
-                                    <span class="body-upper-strong">Изменить получателя</span>
+                                <button class="checkout-recipient__edit action-btn body-upper-strong" type="button">
+                                    <svg class="action-btn__tilde" width="12" height="2" viewBox="0 0 12 2" fill="none">
+                                        <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121"/>
+                                    </svg>
+                                    <span>Изменить получателя</span>
                                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                                         <path d="M6.64615 3.53089L1 9.17696V12L3.82307 12L9.46922 6.35392M6.64615 3.53089L8.67074 1.50631L8.67196 1.50511C8.95065 1.22642 9.09025 1.08683 9.25116 1.03454C9.39291 0.988486 9.54562 0.988486 9.68736 1.03454C9.84817 1.08679 9.9876 1.22622 10.2659 1.50452L11.4938 2.7324C11.7733 3.01189 11.9131 3.1517 11.9655 3.31285C12.0115 3.45459 12.0115 3.60728 11.9655 3.74903C11.9131 3.91006 11.7735 4.04966 11.4944 4.32875L11.4938 4.32935L9.46922 6.35392M6.64615 3.53089L9.46922 6.35392" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
@@ -584,9 +600,9 @@
 								<span class="body checkout-summary__subtotal">491.000 ₽</span>
 							</div>
 
-							<div class="checkout-summary__section">
+							<div class="checkout-summary__section" id="checkoutSummaryDiscounts">
 								<span class="checkout-summary__section-title body-l-strong">Скидки</span>
-								<div class="checkout-summary__section-rows">
+								<div class="checkout-summary__section-rows" id="checkoutSummaryDiscountsRows">
 									<div class="checkout-summary__row">
 										<span class="checkout-summary__row-label body-strong">Промокод SAVE10 (10%):</span>
 										<span class="checkout-summary__row-value body">-49.100 ₽</span>
@@ -598,22 +614,28 @@
 								</div>
 							</div>
 
+							<div class="checkout-summary__section" id="checkoutSummaryServices" style="display:none">
+								<span class="checkout-summary__section-title body-l-strong">Услуги</span>
+								<div class="checkout-summary__section-rows" id="checkoutSummaryServicesRows"></div>
+							</div>
+
 							<div class="checkout-summary__section">
 								<span class="checkout-summary__section-title body-l-strong">Доставка</span>
 								<div class="checkout-summary__section-rows">
 									<div class="checkout-summary__row">
 										<span class="checkout-summary__row-label body-strong">Срок:</span>
-										<span class="checkout-summary__row-value body">~ 10 дней</span>
+										<span class="checkout-summary__row-value body" id="checkoutDeliveryTime">—</span>
 									</div>
 									<div class="checkout-summary__row">
 										<span class="checkout-summary__row-label body-strong">Стоимость:</span>
-										<span class="checkout-summary__row-value body">0 ₽</span>
+										<span class="checkout-summary__row-value body" id="checkoutDeliveryCost">0 ₽</span>
 									</div>
 								</div>
-								<div class="checkout-summary__total-row checkout-summary__total-row--grand">
-									<span class="body-l-strong">Итого:</span>
-									<span class="checkout-summary__grand-price">375.616 ₽</span>
-								</div>
+							</div>
+
+							<div class="checkout-summary__total-row checkout-summary__total-row--grand">
+								<span class="body-l-strong">Итого:</span>
+								<span class="checkout-summary__grand-price" id="checkoutGrandTotal">0 ₽</span>
 							</div>
 
 							<div class="checkout-summary__bottom">
@@ -652,7 +674,9 @@
                                 </span>
                             </button>
                             <div class="accordion__body">
-                                <p class="body">Вы можете оплатить заказ наличными, банковской картой или через СБП.</p>
+                                <div class="accordion__body-inner">
+                                    <p class="body">Вы можете оплатить заказ наличными, банковской картой или через СБП.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="accordion__item">
@@ -665,7 +689,9 @@
                                 </span>
                             </button>
                             <div class="accordion__body">
-                                <p class="body">Доставка осуществляется в течение 3-10 рабочих дней. Сборка мебели производится мастерами компании.</p>
+                                <div class="accordion__body-inner">
+                                    <p class="body">Доставка осуществляется в течение 3-10 рабочих дней. Сборка мебели производится мастерами компании.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="accordion__item">
@@ -678,7 +704,9 @@
                                 </span>
                             </button>
                             <div class="accordion__body">
-                                <p class="body">Ознакомиться с текстом оферты для физических лиц можно по ссылке.</p>
+                                <div class="accordion__body-inner">
+                                    <p class="body">Ознакомиться с текстом оферты для физических лиц можно по ссылке.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="accordion__item">
@@ -691,7 +719,9 @@
                                 </span>
                             </button>
                             <div class="accordion__body">
-                                <p class="body">Ознакомиться с текстом оферты для юридических лиц можно по ссылке.</p>
+                                <div class="accordion__body-inner">
+                                    <p class="body">Ознакомиться с текстом оферты для юридических лиц можно по ссылке.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1641,59 +1671,48 @@
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">Наименование компании*</span>
                             <input type="text" class="checkout-popup__field-input" id="invLegalName" placeholder="ООО &quot;Ромашка&quot;">
-                            <span class="checkout-popup__field-error" id="invLegalNameErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">ИНН*</span>
                             <input type="text" class="checkout-popup__field-input" id="invLegalInn" placeholder="7707083893">
-                            <span class="checkout-popup__field-error" id="invLegalInnErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">КПП*</span>
                             <input type="text" class="checkout-popup__field-input" id="invLegalKpp" placeholder="770701001">
-                            <span class="checkout-popup__field-error" id="invLegalKppErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">ОГРН*</span>
                             <input type="text" class="checkout-popup__field-input" id="invLegalOgrn" placeholder="1027700132195">
-                            <span class="checkout-popup__field-error" id="invLegalOgrnErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">Юридический адрес*</span>
                             <input type="text" class="checkout-popup__field-input" id="invLegalAddress" placeholder="г. Казань, ул. Баумана, д. 15, офис 203">
-                            <span class="checkout-popup__field-error" id="invLegalAddressErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">E-mail для отправки счёта*</span>
                             <input type="email" class="checkout-popup__field-input" id="invLegalEmail" placeholder="email@mail.com">
-                            <span class="checkout-popup__field-error" id="invLegalEmailErr">Введите корректный e-mail</span>
                         </label>
                     </div>
                     <div class="checkout-popup__fields" id="popupFieldsIndividual" style="display: none;">
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">ФИО*</span>
                             <input type="text" class="checkout-popup__field-input" id="invIndFio" placeholder="Иванов Иван Иванович">
-                            <span class="checkout-popup__field-error" id="invIndFioErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">ИНН*</span>
                             <input type="text" class="checkout-popup__field-input" id="invIndInn" placeholder="772345678901">
-                            <span class="checkout-popup__field-error" id="invIndInnErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">ОГРНИП*</span>
                             <input type="text" class="checkout-popup__field-input" id="invIndOgrnip" placeholder="323774600123456">
-                            <span class="checkout-popup__field-error" id="invIndOgrnipErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">Адрес регистрации*</span>
                             <input type="text" class="checkout-popup__field-input" id="invIndAddress" placeholder="г. Казань, ул. Баумана, д. 15, офис 203">
-                            <span class="checkout-popup__field-error" id="invIndAddressErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">E-mail для отправки счёта*</span>
                             <input type="email" class="checkout-popup__field-input" id="invIndEmail" placeholder="email@mail.com">
-                            <span class="checkout-popup__field-error" id="invIndEmailErr">Введите корректный e-mail</span>
                         </label>
                     </div>
                     <div class="checkout-popup__file-wrap">
@@ -1752,17 +1771,14 @@
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">Имя*</span>
                             <input type="text" class="checkout-popup__field-input" id="recipientName" placeholder="Константин Константинопольский">
-                            <span class="checkout-popup__field-error" id="recipientNameErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">Телефон*</span>
                             <input type="tel" class="checkout-popup__field-input" id="recipientPhone" placeholder="+7 (999) 999 99 99">
-                            <span class="checkout-popup__field-error" id="recipientPhoneErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">E-mail</span>
                             <input type="email" class="checkout-popup__field-input" id="recipientEmail" placeholder="kostya@mail.ru">
-                            <span class="checkout-popup__field-error" id="recipientEmailErr">Введите корректный e-mail</span>
                         </label>
                     </div>
                     <button class="btn btn-primary checkout-popup__btn-primary" type="button" id="recipientPopupBtn">
@@ -1793,23 +1809,19 @@
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">Название*</span>
                             <input type="text" class="checkout-popup__field-input" id="addrName" placeholder="Квартира, дом, офис">
-                            <span class="checkout-popup__field-error" id="addrNameErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">Город*</span>
                             <input type="text" class="checkout-popup__field-input" id="addrCity" placeholder="Москва">
-                            <span class="checkout-popup__field-error" id="addrCityErr">Заполните поле</span>
                         </label>
                         <label class="checkout-popup__field">
                             <span class="checkout-popup__field-label">Улица*</span>
                             <input type="text" class="checkout-popup__field-input" id="addrStreet" placeholder="ул. Октября">
-                            <span class="checkout-popup__field-error" id="addrStreetErr">Заполните поле</span>
                         </label>
                         <div class="checkout-popup__field-row">
                             <label class="checkout-popup__field">
                                 <span class="checkout-popup__field-label">Дом*</span>
                                 <input type="text" class="checkout-popup__field-input" id="addrHouse" placeholder="1">
-                                <span class="checkout-popup__field-error" id="addrHouseErr">Заполните поле</span>
                             </label>
                             <label class="checkout-popup__field">
                                 <span class="checkout-popup__field-label">Корпус</span>
@@ -1854,10 +1866,10 @@
     <script src="js/lib/validate.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=27"></script>
-    <script src="js/menu.js?v=27"></script>
+    <script src="js/main.js?v=28"></script>
+    <script src="js/menu.js?v=28"></script>
     <script src="js/map.js"></script>
-    <script src="js/cart.js?v=27"></script>
+    <script src="js/cart.js?v=28"></script>
         <!-- ===== CITY POPUP ===== -->
     <div id="cityPopup" style="display:none;">
         <div class="city-popup__title">Выберите ваш город</div>

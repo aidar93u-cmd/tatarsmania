@@ -3805,6 +3805,10 @@ section.footer-banner {
 .accordion__body {
 	display: none;
 	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.accordion__body-inner {
 	padding-bottom: var(--space-12);
 }
 
@@ -4066,6 +4070,48 @@ section.footer-banner {
     .favorites__empty-text {
         font-size: var(--space-20);
     }
+}
+
+/* ===== Action Button (shared: .action-btn) ===== */
+.action-btn {
+    display: inline-flex;
+    align-items: stretch;
+    gap: var(--space-10);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s;
+    margin-right: calc(-1 * var(--space-13));
+}
+
+.action-btn__tilde {
+	flex-shrink: 0;
+	width: var(--space-13);
+	height: var(--space-13);
+	opacity: 0;
+	transform: translateX(calc(-1 * var(--space-10)));
+	transition: all 0.4s;
+}
+
+.action-btn span {
+	transform: translateX(calc(-1 * var(--space-10)));
+	transition: all 0.4s;
+}
+
+.action-btn svg:last-child {
+	flex-shrink: 0;
+	width: var(--space-13);
+	height: var(--space-13);
+	transform: translateX(calc(-1 * var(--space-10)));
+	transition: all 0.4s;
+}
+
+.action-btn:hover .action-btn__tilde,
+.action-btn:hover span,
+.action-btn:hover svg:last-child {
+	transform: translateX(0);
+	opacity: 1;
 }
 
 /* ===== Toast Notification ===== */
