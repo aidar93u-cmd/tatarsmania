@@ -52,10 +52,14 @@ assets/fonts/TEST-*
 # AI temp / cache
 .graphify_python
 .graphify_uncached.txt
+graphify_*.py
 
 # analysis temp files
 _cart_*.txt
 _cart_*.json
+
+# opencode session state
+.omo/
 
 # test output
 test-results/

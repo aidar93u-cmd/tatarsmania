@@ -1112,8 +1112,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	var searchResetBtn = document.getElementById('searchReset')
 
 	if (searchPopup && searchInput && searchForm) {
-		var magnifier = searchPopup.querySelector('.search-popup__magnifier')
-		var spinner = searchPopup.querySelector('.search-popup__spinner')
+		var magnifier = searchPopup.querySelector('.popup__magnifier')
+		var spinner = searchPopup.querySelector('.popup__spinner')
 
 		function searchResetState() {
 			searchResults.style.display = 'none'
@@ -1140,7 +1140,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (spinner) spinner.style.display = 'none'
 
 			Fancybox.show([{ src: '#searchPopup', type: 'inline' }], {
-				mainClass: 'fancybox-search-popup',
+				mainClass: 'fancybox-popup fancybox-popup--search',
 				Toolbar: false,
 				closeButton: false,
 				maxWidth: 1000,
@@ -1314,7 +1314,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				if (matched.length) {
 					if (searchResultsHeader) {
 						searchResultsHeader.innerHTML =
-							'<span>По запросу «<span class="search-popup__query">' +
+							'<span>По запросу «<span class="popup__query">' +
 							query +
 							'</span>» найдено:</span><span class="count_products">' +
 							matched.length +
@@ -1334,7 +1334,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					if (searchEmptyState) {
 						if (searchEmptyText)
 							searchEmptyText.innerHTML =
-								'По запросу «<span class="search-popup__query">' +
+								'По запросу «<span class="popup__query">' +
 								query +
 								'</span>» ничего не найдено:'
 						searchEmptyState.style.display = ''
@@ -2305,14 +2305,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	cityTrigger.addEventListener('click', function (e) {
 		e.preventDefault()
 		Fancybox.show([{ src: '#cityPopup', type: 'inline' }], {
-			mainClass: 'fancybox-city-popup',
+			mainClass: 'fancybox-popup fancybox-popup--city',
 			Toolbar: false,
 			closeButton: false,
 		})
 	})
 
 	document.addEventListener('click', function (e) {
-		var item = e.target.closest('.city-popup__item, .city-popup__tip')
+		var item = e.target.closest('.popup__item, .popup__tag')
 		if (!item) return
 		var city = item.getAttribute('data-city')
 		if (!city) return
@@ -2323,21 +2323,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		Fancybox.close()
 	})
 
-	var cityTips = document.querySelector('.city-popup__tips')
-	var cityPopularLabel = document.querySelector('.city-popup__popular-label')
+	var cityTips = document.querySelector('.popup__tags')
+	var cityPopularLabel = document.querySelector('.popup__label')
 	var searchTimer
 
 	// Event delegation for input (catches visible input in Fancybox clone)
 	document.addEventListener('input', function (e) {
-		if (!e.target.closest('.fancybox-city-popup')) return
+		if (!e.target.closest('.fancybox-popup')) return
 		var input = e.target.closest('#citySearchInput')
 		if (!input) return
 
 		var q = input.value.trim()
 		clearTimeout(searchTimer)
 
-		var icon = document.querySelector('.fancybox-city-popup #citySearchIcon')
-		var spinner = document.querySelector('.fancybox-city-popup #citySpinner')
+		var icon = document.querySelector('.fancybox-popup #citySearchIcon')
+		var spinner = document.querySelector('.fancybox-popup #citySpinner')
 		if (icon) icon.style.display = 'none'
 		if (spinner) spinner.style.display = ''
 
@@ -2350,9 +2350,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Tip click — fill search
 	document.addEventListener('click', function (e) {
-		var tip = e.target.closest('.city-popup__tip')
+		var tip = e.target.closest('.popup__tag')
 		if (!tip) return
-		var container = tip.closest('.fancybox-city-popup')
+		var container = tip.closest('.fancybox-popup')
 		if (!container) return
 		var city = tip.getAttribute('data-city')
 		if (!city) return
@@ -2375,15 +2375,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 
 	function filterCities(q) {
-		var container = document.querySelector('.fancybox-city-popup .fancybox__content')
+		var container = document.querySelector('.fancybox-popup .fancybox__content')
 		if (!container) return
 
-		var items = container.querySelectorAll('.city-popup__item')
+		var items = container.querySelectorAll('.popup__item')
 		var resultsHeader = container.querySelector('#cityResultsHeader')
 		var queryText = container.querySelector('#cityQueryText')
 		var resultsCount = container.querySelector('#cityResultsCount')
-		var tips = container.querySelector('.city-popup__tips')
-		var popularLabel = container.querySelector('.city-popup__popular-label')
+		var tips = container.querySelector('.popup__tags')
+		var popularLabel = container.querySelector('.popup__label')
 		var matchCount = 0
 
 		items.forEach(function (item) {

@@ -441,19 +441,19 @@
 		}
 	})
 
-	/* ===== Toggle company-type form fields ===== */
+	/* ===== Toggle company-type form blocks ===== */
 	var legalRadio = popup ? popup.querySelector('input[name="company-type"][value="legal"]') : null
 	var individualRadio = popup ? popup.querySelector('input[name="company-type"][value="individual"]') : null
-	var fieldsLegal = document.getElementById('popupFieldsLegal')
-	var fieldsIndividual = document.getElementById('popupFieldsIndividual')
+	var formBlockLegal = document.getElementById('formBlockLegal')
+	var formBlockIndividual = document.getElementById('formBlockIndividual')
 
 	function toggleCompanyFields() {
 		if (individualRadio && individualRadio.checked) {
-			if (fieldsLegal) fieldsLegal.style.display = 'none'
-			if (fieldsIndividual) fieldsIndividual.style.display = 'flex'
+			if (formBlockLegal) formBlockLegal.style.display = 'none'
+			if (formBlockIndividual) formBlockIndividual.style.display = 'flex'
 		} else {
-			if (fieldsLegal) fieldsLegal.style.display = 'flex'
-			if (fieldsIndividual) fieldsIndividual.style.display = 'none'
+			if (formBlockLegal) formBlockLegal.style.display = 'flex'
+			if (formBlockIndividual) formBlockIndividual.style.display = 'none'
 		}
 	}
 
@@ -461,20 +461,19 @@
 	if (individualRadio) individualRadio.addEventListener('change', toggleCompanyFields)
 
 	/* ===== Validation ===== */
-	var orderBtn = popup ? popup.querySelector('.checkout-popup__btn-primary') : null
 
 	var invoiceFields = [
-		{ id: 'invLegalName', emptyMsg: 'Введите наименование компании' },
-		{ id: 'invLegalInn', emptyMsg: 'Введите ИНН', test: function (v) { return /^\d{10,12}$/.test(v) }, invalidMsg: 'Введите корректный ИНН (10–12 цифр)' },
-		{ id: 'invLegalKpp', emptyMsg: 'Введите КПП', test: function (v) { return /^\d{9}$/.test(v) }, invalidMsg: 'Введите корректный КПП (9 цифр)' },
-		{ id: 'invLegalOgrn', emptyMsg: 'Введите ОГРН', test: function (v) { return /^\d{13,15}$/.test(v) }, invalidMsg: 'Введите корректный ОГРН (13–15 цифр)' },
-		{ id: 'invLegalAddress', emptyMsg: 'Введите юридический адрес' },
-		{ id: 'invLegalEmail', emptyMsg: 'Введите e-mail', test: function (v) { return FormUtils.test(v, 'valid_email') }, invalidMsg: 'Введите корректный e-mail' },
-		{ id: 'invIndFio', emptyMsg: 'Введите ФИО', group: 'individual' },
-		{ id: 'invIndInn', emptyMsg: 'Введите ИНН', test: function (v) { return /^\d{10,12}$/.test(v) }, invalidMsg: 'Введите корректный ИНН (10–12 цифр)', group: 'individual' },
-		{ id: 'invIndOgrnip', emptyMsg: 'Введите ОГРНИП', test: function (v) { return /^\d{15}$/.test(v) }, invalidMsg: 'Введите корректный ОГРНИП (15 цифр)', group: 'individual' },
-		{ id: 'invIndAddress', emptyMsg: 'Введите адрес регистрации', group: 'individual' },
-		{ id: 'invIndEmail', emptyMsg: 'Введите e-mail', test: function (v) { return FormUtils.test(v, 'valid_email') }, invalidMsg: 'Введите корректный e-mail', group: 'individual' }
+		{ id: 'invLegalName', emptyMsg: 'Введите наименование компании', block: 'legal' },
+		{ id: 'invLegalInn', emptyMsg: 'Введите ИНН', test: function (v) { return /^\d{10,12}$/.test(v) }, invalidMsg: 'Введите корректный ИНН (10–12 цифр)', block: 'legal' },
+		{ id: 'invLegalKpp', emptyMsg: 'Введите КПП', test: function (v) { return /^\d{9}$/.test(v) }, invalidMsg: 'Введите корректный КПП (9 цифр)', block: 'legal' },
+		{ id: 'invLegalOgrn', emptyMsg: 'Введите ОГРН', test: function (v) { return /^\d{13,15}$/.test(v) }, invalidMsg: 'Введите корректный ОГРН (13–15 цифр)', block: 'legal' },
+		{ id: 'invLegalAddress', emptyMsg: 'Введите юридический адрес', block: 'legal' },
+		{ id: 'invLegalEmail', emptyMsg: 'Введите e-mail', test: function (v) { return FormUtils.test(v, 'valid_email') }, invalidMsg: 'Введите корректный e-mail', block: 'legal' },
+		{ id: 'invIndFio', emptyMsg: 'Введите ФИО', block: 'individual' },
+		{ id: 'invIndInn', emptyMsg: 'Введите ИНН', test: function (v) { return /^\d{10,12}$/.test(v) }, invalidMsg: 'Введите корректный ИНН (10–12 цифр)', block: 'individual' },
+		{ id: 'invIndOgrnip', emptyMsg: 'Введите ОГРНИП', test: function (v) { return /^\d{15}$/.test(v) }, invalidMsg: 'Введите корректный ОГРНИП (15 цифр)', block: 'individual' },
+		{ id: 'invIndAddress', emptyMsg: 'Введите адрес регистрации', block: 'individual' },
+		{ id: 'invIndEmail', emptyMsg: 'Введите e-mail', test: function (v) { return FormUtils.test(v, 'valid_email') }, invalidMsg: 'Введите корректный e-mail', block: 'individual' }
 	]
 
 	// Init: create error spans
@@ -487,8 +486,6 @@
 		input.parentNode.appendChild(err)
 		def._err = err
 	})
-
-	var invoiceSubmitted = false
 
 	function setInvoiceError(def, msg) {
 		def._err.textContent = msg
@@ -515,85 +512,97 @@
 		return true
 	}
 
-	function validateInvoiceAll() {
-		var isLegal = legalRadio ? legalRadio.checked : true
+	var invoiceSubmitted = {}
+
+	function validateInvoiceBlock(blockName) {
 		var allValid = true
 		invoiceFields.forEach(function (def) {
-			if (isLegal && def.group === 'individual') return
-			if (!isLegal && !def.group) return
+			if (def.block !== blockName) return
 			if (!validateInvoiceDef(def)) allValid = false
 		})
 		return allValid
 	}
 
-	// Real-time validation after first submit
-	invoiceFields.forEach(function (def) {
-		def._el.addEventListener('input', function () {
-			if (!invoiceSubmitted) return
-			validateInvoiceDef(def)
-		})
-	})
+	// Per-form submit buttons
+	var orderBtns = popup ? popup.querySelectorAll('.checkout-popup__btn-primary') : []
 
-	if (orderBtn) {
-		orderBtn.addEventListener('click', function (e) {
+	orderBtns.forEach(function (btn) {
+		var form = btn.getAttribute('data-form') || 'legal'
+		btn.addEventListener('click', function (e) {
 			e.preventDefault()
-			invoiceSubmitted = true
-			if (validateInvoiceAll()) {
+			invoiceSubmitted[form] = true
+			if (validateInvoiceBlock(form)) {
 				closePopup()
 				if (typeof window.showToast === 'function') {
 					window.showToast('Заказ оформлен', 'success')
 				}
 			}
 		})
-	}
+	})
 
-	/* ===== File upload ===== */
-	var fileInput = document.getElementById('invFileInput')
-	var fileBtn = document.getElementById('invFileBtn')
-	var fileLoading = document.getElementById('invFileLoading')
-	var fileInfo = document.getElementById('invFileInfo')
-	var fileName = document.getElementById('invFileName')
-	var fileSize = document.getElementById('invFileSize')
-	var fileRemove = document.getElementById('invFileRemove')
+	// Real-time validation after first submit per form
+	invoiceFields.forEach(function (def) {
+		def._el.addEventListener('input', function () {
+			if (!invoiceSubmitted[def.block]) return
+			validateInvoiceDef(def)
+		})
+	})
 
+	/* ===== File upload helpers ===== */
 	function formatFileSize(bytes) {
 		if (bytes < 1024) return bytes + ' Б'
 		if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' Кб'
 		return (bytes / 1048576).toFixed(1) + ' мб'
 	}
 
-	function resetFileUpload() {
-		if (fileLoading) fileLoading.classList.remove('checkout-popup__file-loading--active')
-		if (fileInfo) fileInfo.style.display = 'none'
-		if (fileBtn) fileBtn.style.display = ''
-		if (fileInput) fileInput.value = ''
+	function initFileUpload(prefix) {
+		var fileInput = document.getElementById('invFileInput' + prefix)
+		var fileBtn = document.getElementById('invFileBtn' + prefix)
+		var fileLoading = document.getElementById('invFileLoading' + prefix)
+		var fileInfo = document.getElementById('invFileInfo' + prefix)
+		var fileName = document.getElementById('invFileName' + prefix)
+		var fileSize = document.getElementById('invFileSize' + prefix)
+		var fileRemove = document.getElementById('invFileRemove' + prefix)
+
+		function resetFileUpload() {
+			if (fileLoading) fileLoading.classList.remove('checkout-popup__file-loading--active')
+			if (fileInfo) fileInfo.style.display = 'none'
+			if (fileBtn) fileBtn.style.display = ''
+			if (fileInput) fileInput.value = ''
+		}
+
+		if (fileBtn) {
+			fileBtn.addEventListener('click', function () {
+				if (fileInput) fileInput.click()
+			})
+		}
+
+		if (fileInput) {
+			fileInput.addEventListener('change', function () {
+				var file = fileInput.files && fileInput.files[0]
+				if (!file) return
+
+				if (fileLoading) fileLoading.classList.add('checkout-popup__file-loading--active')
+
+				setTimeout(function () {
+					if (fileLoading) fileLoading.classList.remove('checkout-popup__file-loading--active')
+					if (fileName) fileName.textContent = file.name
+					if (fileSize) fileSize.textContent = formatFileSize(file.size)
+					if (fileInfo) fileInfo.style.display = 'flex'
+				}, 1200)
+			})
+		}
+
+		if (fileRemove) {
+			fileRemove.addEventListener('click', function () {
+				resetFileUpload()
+			})
+		}
 	}
 
-	if (fileBtn) {
-		fileBtn.addEventListener('click', function () {
-			if (fileInput) fileInput.click()
-		})
-	}
-
-	if (fileInput) {
-		fileInput.addEventListener('change', function () {
-			var file = fileInput.files && fileInput.files[0]
-			if (!file) return
-
-			if (fileLoading) fileLoading.classList.add('checkout-popup__file-loading--active')
-
-			setTimeout(function () {
-				if (fileLoading) fileLoading.classList.remove('checkout-popup__file-loading--active')
-				if (fileName) fileName.textContent = file.name
-				if (fileSize) fileSize.textContent = formatFileSize(file.size)
-				if (fileInfo) fileInfo.style.display = 'flex'
-			}, 1200)
-		})
-	}
-
-	if (fileRemove) {
-		fileRemove.addEventListener('click', resetFileUpload)
-	}
+	// Init file upload for both forms
+	if (document.getElementById('invFileBtnLegal')) initFileUpload('Legal')
+	if (document.getElementById('invFileBtnIndividual')) initFileUpload('Individual')
 })()
 
 /* ===== Checkout — Recipient Popup ===== */

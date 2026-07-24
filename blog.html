@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="css/lib/fancybox.css">
     <link rel="stylesheet" href="css/lib/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=29">
-    <link rel="stylesheet" href="css/header.css?v=29" />
-    <link rel="stylesheet" href="css/footer.css?v=29" />
-    <link rel="stylesheet" href="css/mega-menu.css?v=29" />
-    <link rel="stylesheet" href="css/blog.css?v=29" />
+    <link rel="stylesheet" href="css/style.css?v=30">
+    <link rel="stylesheet" href="css/header.css?v=30" />
+    <link rel="stylesheet" href="css/footer.css?v=30" />
+    <link rel="stylesheet" href="css/mega-menu.css?v=30" />
+    <link rel="stylesheet" href="css/blog.css?v=30" />
 </head>
 
 <body class="page blog-page">
@@ -230,11 +230,12 @@
             <!-- Tabs + Sort -->
             <div class="blog-news__tabs" data-aos="fade-up" data-aos-delay="200">
                 <ul class="blog-news__tabs-list">
-                    <li><button class="blog-news__tab body-strong is-active">ВСЕ</button></li>
-                    <li><button class="blog-news__tab body-strong">АКЦИИ</button></li>
-                    <li><button class="blog-news__tab body-strong">НОВОСТИ</button></li>
-                    <li><button class="blog-news__tab body-strong">СТАТЬИ</button></li>
-                    <li><button class="blog-news__tab body-strong">ВДОХНОВЕНИЕ</button></li>
+                    <li><button class="blog-news__tab body-strong is-active" data-filter="all">ВСЕ</button></li>
+                    <li><button class="blog-news__tab body-strong" data-filter="promotions">АКЦИИ</button></li>
+                    <li><button class="blog-news__tab body-strong" data-filter="news">НОВОСТИ</button></li>
+                    <li><button class="blog-news__tab body-strong" data-filter="articles">СТАТЬИ</button></li>
+                    <li><button class="blog-news__tab body-strong" data-filter="tips">СОВЕТЫ</button></li>
+                    <li><button class="blog-news__tab body-strong" data-filter="inspiration">ВДОХНОВЕНИЕ</button></li>
                 </ul>
                 <div class="blog-news__info">
                     <span class="blog-news__count body">Найдено 256 материалов</span>
@@ -261,7 +262,7 @@
 
             <!-- Cards Grid -->
             <div class="blog-grid">
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -273,7 +274,7 @@
                         <h3 class="blog-card__title body">5 главных трендов в дизайне мягкой мебели 2026 года</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -285,7 +286,7 @@
                         <h3 class="blog-card__title body">Новогодняя распродажа: скидки до 40% на всю мебель</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -297,7 +298,7 @@
                         <h3 class="blog-card__title body">Как выбрать идеальный диван для маленькой гостиной</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -309,7 +310,7 @@
                         <h3 class="blog-card__title body">Интерьеры декабря: уютные гостиные с мебелью ТАТАРСМАНИЯ</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -322,7 +323,7 @@
                         </h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -334,7 +335,7 @@
                         <h3 class="blog-card__title body">Коллекция VELVET TOUCH: что нужно знать перед покупкой</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -346,7 +347,7 @@
                         <h3 class="blog-card__title body">Чёрная пятница: успейте заказать мебель со скидкой до 50%</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -358,7 +359,7 @@
                         <h3 class="blog-card__title body">Как сочетать цвета в интерьере: советы дизайнера</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -372,7 +373,7 @@
                         </h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -384,7 +385,7 @@
                         <h3 class="blog-card__title body">Кожа или ткань: выбираем обивку для дивана</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -396,7 +397,7 @@
                         <h3 class="blog-card__title body">5 идей для обустройства домашнего кабинета</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -409,7 +410,7 @@
                     </div>
                 </a>
                 <!-- row 2 -->
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -421,7 +422,7 @@
                         <h3 class="blog-card__title body">Топ-10 мягких кресел для уютного чтения этой зимой</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -433,7 +434,7 @@
                         <h3 class="blog-card__title body">Скидка 15% на всю корпусную мебель в ноябре</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -445,7 +446,7 @@
                         <h3 class="blog-card__title body">Как ухаживать за мягкой мебелью из натуральной кожи</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -457,7 +458,7 @@
                         <h3 class="blog-card__title body">Скандинавский стиль: почему он всегда в моде</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -469,7 +470,7 @@
                         <h3 class="blog-card__title body">Новая коллекция COSMO уже в шоурумах Москвы</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -481,7 +482,7 @@
                         <h3 class="blog-card__title body">Раскладные диваны: механизмы трансформации и их плюсы</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -493,7 +494,7 @@
                         <h3 class="blog-card__title body">Черная пятница в ТАТАРСМАНИЯ: скидки до 40%</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -506,7 +507,7 @@
                         </h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -518,7 +519,7 @@
                         <h3 class="blog-card__title body">ТАТАРСМАНИЯ расширяет производство: новая линия цехов</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -530,7 +531,7 @@
                         <h3 class="blog-card__title body">Как правильно выбрать обеденный стол: размеры и материалы</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -542,7 +543,7 @@
                         <h3 class="blog-card__title body">Осенний уют: как добавить тепла в интерьер</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -555,7 +556,7 @@
                     </div>
                 </a>
                 <!-- page 3 -->
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -567,7 +568,7 @@
                         <h3 class="blog-card__title body">Диваны с механизмом трансформации: какой выбрать</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -579,7 +580,7 @@
                         <h3 class="blog-card__title body">Скидка 15% на все кресла при заказе от 2 штук</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -591,7 +592,7 @@
                         <h3 class="blog-card__title body">Как ухаживать за мебелью из натурального дерева</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -603,7 +604,7 @@
                         <h3 class="blog-card__title body">Гостиная в скандинавском стиле: примеры и советы</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -615,7 +616,7 @@
                         <h3 class="blog-card__title body">Новая коллекция BASIS: минимализм и комфорт</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -627,7 +628,7 @@
                         <h3 class="blog-card__title body">Как подобрать обеденную группу для кухни-гостиной</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -639,7 +640,7 @@
                         <h3 class="blog-card__title body">Октябрьская распродажа: выгода до 35%</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -652,7 +653,7 @@
                     </div>
                 </a>
                 <!-- page 4 -->
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -664,7 +665,7 @@
                         <h3 class="blog-card__title body">ТАТАРСМАНИЯ запускает программу лояльности</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -676,7 +677,7 @@
                         <h3 class="blog-card__title body">Модульные диваны: гибкость и функциональность</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -688,7 +689,7 @@
                         <h3 class="blog-card__title body">Беспроцентная рассрочка на все позиции каталога</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -700,7 +701,7 @@
                         <h3 class="blog-card__title body">Идеи для спальни: от классики до модерна</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -712,7 +713,7 @@
                         <h3 class="blog-card__title body">Расширение ассортимента: новые модели кресел</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -724,7 +725,7 @@
                         <h3 class="blog-card__title body">Как выбрать цвет обивки: практическое руководство</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -736,7 +737,7 @@
                         <h3 class="blog-card__title body">Скидка 20% на коллекцию VELVET TOUCH</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -749,7 +750,7 @@
                     </div>
                 </a>
                 <!-- page 5 -->
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -761,7 +762,7 @@
                         <h3 class="blog-card__title body">Умный дом: мебель со встроенной зарядкой</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -773,7 +774,7 @@
                         <h3 class="blog-card__title body">Товар недели: кресло LOKI с дополнительной скидкой</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -785,7 +786,7 @@
                         <h3 class="blog-card__title body">Материалы для обивки: плюсы и минусы</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -797,7 +798,7 @@
                         <h3 class="blog-card__title body">Прихожая с характером: первые впечатления от дома</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="article.html" class="blog-card" data-category="news" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-a.jpg" alt="" loading="lazy">
                     </div>
@@ -809,7 +810,7 @@
                         <h3 class="blog-card__title body">ТАТАРСМАНИЯ на выставке MosBuild 2025</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="400">
+                <a href="article.html" class="blog-card" data-category="articles" data-aos="fade-up" data-aos-delay="400">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-b.jpg" alt="" loading="lazy">
                     </div>
@@ -821,7 +822,7 @@
                         <h3 class="blog-card__title body">Спальня без шкафа: альтернативные решения</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="600">
+                <a href="article.html" class="blog-card" data-category="promotions" data-aos="fade-up" data-aos-delay="600">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-c.jpg" alt="" loading="lazy">
                     </div>
@@ -833,7 +834,7 @@
                         <h3 class="blog-card__title body">Летняя распродажа: завершаем сезон со скидками</h3>
                     </div>
                 </a>
-                <a href="article.html" class="blog-card" data-aos="fade-up" data-aos-delay="800">
+                <a href="article.html" class="blog-card" data-category="inspiration" data-aos="fade-up" data-aos-delay="800">
                     <div class="blog-card__image">
                         <img src="assets/images/blog/blog-card-d.jpg" alt="" loading="lazy">
                     </div>
@@ -1033,63 +1034,63 @@
     <script src="js/lib/validate.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=29"></script>
+    <script src="js/main.js?v=30"></script>
 
     <script src="js/blog.js"></script>
         <!-- ===== CITY POPUP ===== -->
     <div id="cityPopup" style="display:none;">
-        <div class="city-popup__title">Выберите ваш город</div>
-        <div class="city-popup__search-wrap">
-            <input class="city-popup__input" type="text" placeholder="Найти город" id="citySearchInput" autocomplete="off">
-            <svg class="city-popup__search-icon" id="citySearchIcon" width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <div class="popup__title">Выберите ваш город</div>
+        <div class="popup__search-wrap">
+            <input class="popup__input" type="text" placeholder="Найти город" id="citySearchInput" autocomplete="off">
+            <svg class="popup__search-icon" id="citySearchIcon" width="13" height="13" viewBox="0 0 13 13" fill="none">
                 <circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="0.8" />
                 <line x1="8.5" y1="8.5" x2="12" y2="12" stroke="currentColor" stroke-width="0.8" />
             </svg>
-            <div class="city-popup__spinner" id="citySpinner" style="display:none;"></div>
+            <div class="popup__spinner" id="citySpinner" style="display:none;"></div>
         </div>
-        <div class="city-popup__results-header" id="cityResultsHeader" style="display:none;">
-            <span class="city-popup__results-text">По запросу «<span class="city-popup__query" id="cityQueryText"></span>» <span id="cityResultsLabel">найдено:</span></span>
-            <span class="city-popup__results-count" id="cityResultsCount"></span>
+        <div class="popup__results-header" id="cityResultsHeader" style="display:none;">
+            <span class="popup__results-text">По запросу «<span class="popup__query" id="cityQueryText"></span>» <span id="cityResultsLabel">найдено:</span></span>
+            <span class="popup__results-count" id="cityResultsCount"></span>
         </div>
-        <div class="city-popup__popular-label">Например:</div>
-        <div class="city-popup__tips">
-            <button class="city-popup__tip" type="button" data-city="Казань">Казань</button>
-            <button class="city-popup__tip" type="button" data-city="Москва">Москва</button>
-            <button class="city-popup__tip" type="button" data-city="Санкт-Петербург">Санкт-Петербург</button>
+        <div class="popup__popular-label">Например:</div>
+        <div class="popup__tips">
+            <button class="popup__tip" type="button" data-city="Казань">Казань</button>
+            <button class="popup__tip" type="button" data-city="Москва">Москва</button>
+            <button class="popup__tip" type="button" data-city="Санкт-Петербург">Санкт-Петербург</button>
         </div>
-        <div class="city-popup__grid" id="cityGrid">
-            <button class="city-popup__item" type="button" data-city="Казань">Казань</button>
-            <button class="city-popup__item" type="button" data-city="Москва">Москва</button>
-            <button class="city-popup__item" type="button" data-city="Санкт-Петербург">Санкт-Петербург</button>
-            <button class="city-popup__item" type="button" data-city="Екатеринбург">Екатеринбург</button>
-            <button class="city-popup__item" type="button" data-city="Новосибирск">Новосибирск</button>
-            <button class="city-popup__item" type="button" data-city="Нижний Новгород">Нижний Новгород</button>
-            <button class="city-popup__item" type="button" data-city="Краснодар">Краснодар</button>
-            <button class="city-popup__item" type="button" data-city="Сочи">Сочи</button>
-            <button class="city-popup__item" type="button" data-city="Ростов-на-Дону">Ростов-на-Дону</button>
-            <button class="city-popup__item" type="button" data-city="Самара">Самара</button>
-            <button class="city-popup__item" type="button" data-city="Уфа">Уфа</button>
-            <button class="city-popup__item" type="button" data-city="Челябинск">Челябинск</button>
-            <button class="city-popup__item" type="button" data-city="Омск">Омск</button>
-            <button class="city-popup__item" type="button" data-city="Красноярск">Красноярск</button>
-            <button class="city-popup__item" type="button" data-city="Пермь">Пермь</button>
-            <button class="city-popup__item" type="button" data-city="Воронеж">Воронеж</button>
-            <button class="city-popup__item" type="button" data-city="Волгоград">Волгоград</button>
-            <button class="city-popup__item" type="button" data-city="Тюмень">Тюмень</button>
-            <button class="city-popup__item" type="button" data-city="Иркутск">Иркутск</button>
-            <button class="city-popup__item" type="button" data-city="Владивосток">Владивосток</button>
-            <button class="city-popup__item" type="button" data-city="Хабаровск">Хабаровск</button>
-            <button class="city-popup__item" type="button" data-city="Калининград">Калининград</button>
-            <button class="city-popup__item" type="button" data-city="Саратов">Саратов</button>
-            <button class="city-popup__item" type="button" data-city="Тула">Тула</button>
-            <button class="city-popup__item" type="button" data-city="Ярославль">Ярославль</button>
-            <button class="city-popup__item" type="button" data-city="Рязань">Рязань</button>
-            <button class="city-popup__item" type="button" data-city="Тверь">Тверь</button>
-            <button class="city-popup__item" type="button" data-city="Томск">Томск</button>
-            <button class="city-popup__item" type="button" data-city="Барнаул">Барнаул</button>
-            <button class="city-popup__item" type="button" data-city="Ижевск">Ижевск</button>
+        <div class="popup__grid" id="cityGrid">
+            <button class="popup__item" type="button" data-city="Казань">Казань</button>
+            <button class="popup__item" type="button" data-city="Москва">Москва</button>
+            <button class="popup__item" type="button" data-city="Санкт-Петербург">Санкт-Петербург</button>
+            <button class="popup__item" type="button" data-city="Екатеринбург">Екатеринбург</button>
+            <button class="popup__item" type="button" data-city="Новосибирск">Новосибирск</button>
+            <button class="popup__item" type="button" data-city="Нижний Новгород">Нижний Новгород</button>
+            <button class="popup__item" type="button" data-city="Краснодар">Краснодар</button>
+            <button class="popup__item" type="button" data-city="Сочи">Сочи</button>
+            <button class="popup__item" type="button" data-city="Ростов-на-Дону">Ростов-на-Дону</button>
+            <button class="popup__item" type="button" data-city="Самара">Самара</button>
+            <button class="popup__item" type="button" data-city="Уфа">Уфа</button>
+            <button class="popup__item" type="button" data-city="Челябинск">Челябинск</button>
+            <button class="popup__item" type="button" data-city="Омск">Омск</button>
+            <button class="popup__item" type="button" data-city="Красноярск">Красноярск</button>
+            <button class="popup__item" type="button" data-city="Пермь">Пермь</button>
+            <button class="popup__item" type="button" data-city="Воронеж">Воронеж</button>
+            <button class="popup__item" type="button" data-city="Волгоград">Волгоград</button>
+            <button class="popup__item" type="button" data-city="Тюмень">Тюмень</button>
+            <button class="popup__item" type="button" data-city="Иркутск">Иркутск</button>
+            <button class="popup__item" type="button" data-city="Владивосток">Владивосток</button>
+            <button class="popup__item" type="button" data-city="Хабаровск">Хабаровск</button>
+            <button class="popup__item" type="button" data-city="Калининград">Калининград</button>
+            <button class="popup__item" type="button" data-city="Саратов">Саратов</button>
+            <button class="popup__item" type="button" data-city="Тула">Тула</button>
+            <button class="popup__item" type="button" data-city="Ярославль">Ярославль</button>
+            <button class="popup__item" type="button" data-city="Рязань">Рязань</button>
+            <button class="popup__item" type="button" data-city="Тверь">Тверь</button>
+            <button class="popup__item" type="button" data-city="Томск">Томск</button>
+            <button class="popup__item" type="button" data-city="Барнаул">Барнаул</button>
+            <button class="popup__item" type="button" data-city="Ижевск">Ижевск</button>
         </div>
-        <button class="city-popup__close" type="button" data-fancybox-close aria-label="Закрыть">
+        <button class="popup__close" type="button" data-fancybox-close aria-label="Закрыть">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                 <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)" fill="currentColor" />
                 <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)" fill="currentColor" />

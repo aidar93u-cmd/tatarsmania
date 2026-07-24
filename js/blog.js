@@ -84,8 +84,8 @@
     tab.addEventListener('click', function () {
       tabs.forEach(function (t) { t.classList.remove('is-active'); });
       this.classList.add('is-active');
-      var filter = this.textContent.trim().toLowerCase();
-      if (filter === 'все') {
+      var filter = this.getAttribute('data-filter') || this.textContent.trim().toLowerCase();
+      if (filter === 'all') {
         filteredCards = allCards.slice();
       } else {
         filteredCards = allCards.filter(function (c) { return getCategory(c) === filter; });
