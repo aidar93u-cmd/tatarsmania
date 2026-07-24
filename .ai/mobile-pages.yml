@@ -1,0 +1,291 @@
+# Mobile Figma Pages Mapping
+# Figma file: TATARSMANIA work (Copy)
+#
+# Для каждой Figma страницы нужно:
+# 1. Открыть её в Figma desktop
+# 2. Я прочитаю фреймы и запишу node-id
+# 3. После этого можно начинать проверку
+#
+# Формат:
+# figma_page: "→ Название страницы"
+# frames:
+#   mobile_frame_name:
+#     node_id: "1234:5678"
+#     html: [file1.html, file2.html]
+#     status: pending | in_progress | done | needs_manual
+#     notes: ""
+
+pages:
+  - figma_page: "→ Главная + Moblie"
+    page_id: "2095:9629"
+    frames:
+      Макет 375px (полная страница):
+        node_id: "3057:48012"
+        html: [index.html]
+        status: pending
+        notes: "Полная скролльная страница 375x9974. Секции: Hero, Categories L, About Production, Categories S, Featured, Promotions, Collections, Links, Showrooms, About Production 2, Footer"
+      Макет 375px (бургер-меню):
+        node_id: "3057:48023"
+        html: [index.html]
+        status: pending
+        notes: "Бургер-меню открыто, навигация"
+      Макет 375px (поиск):
+        node_id: "3057:48049"
+        html: [index.html]
+        status: pending
+        notes: "Поисковый попап"
+      Макет 375px (подменю 1):
+        node_id: "3057:48102"
+        html: [index.html]
+        status: pending
+        notes: "Подменю навигации"
+      Макет 375px (подменю 2):
+        node_id: "3057:48112"
+        html: [index.html]
+        status: pending
+        notes: "Подменю навигации"
+      Макет 375px (подменю 3):
+        node_id: "3057:48118"
+        html: [index.html]
+        status: pending
+        notes: "Подменю навигации"
+      Макет 375px (глубокий уровень меню):
+        node_id: "3057:48126"
+        html: [index.html]
+        status: pending
+        notes: "Глубокий уровень меню с Card Menu Link"
+
+  - figma_page: "→ Каталог + Moblie"
+    page_id: "2672:25768"
+    frames:
+      Макет 375px (каталог - разводящая):
+        node_id: "3057:50130"
+        html: [catalog.html]
+        status: pending
+        notes: "Полная страница 375x4529. Секции: Header, Title, Featured, Rooms, Categories, Collections, Footer"
+      Макет 375px (каталог - листинг):
+        node_id: "3057:50176"
+        html: [catalog-listing.html]
+        status: pending
+        notes: "Листинг 375x3256. Header, Title, Content, Footer"
+      Макет 375px (дропдаун):
+        node_id: "3057:50235"
+        html: [catalog.html]
+        status: pending
+        notes: "Дропдаун навигации по каталогу 375x760"
+      Макет 375px (товар - полная):
+        node_id: "3057:50314"
+        html: [product-page.html]
+        status: pending
+        notes: "Полная страница товара 375x4526. Photo Slider, Characteristics, Price, Buttons, Accordions, Other models, Footer"
+      Макет 375px (товар - кнопка):
+        node_id: "3057:50477"
+        html: [product-page.html]
+        status: pending
+        notes: "Фиксированная кнопка В корзину 375x760"
+      Аккордеон открытый:
+        node_id: "3057:50516"
+        html: [product-page.html]
+        status: pending
+        notes: "Аккордеон открыт 375x1741"
+      Макет 375px (фильтры - полный):
+        node_id: "3057:50522"
+        html: [catalog-listing.html]
+        status: pending
+        notes: "Фильтры полный экран 375x1683"
+      Макет 375px (фильтры - компакт):
+        node_id: "3057:50628"
+        html: [catalog-listing.html]
+        status: pending
+        notes: "Фильтры компакт 375x865"
+      Макет 375px (фильтры - средний):
+        node_id: "3057:50658"
+        html: [catalog-listing.html]
+        status: pending
+        notes: "Фильтры средний 375x1065"
+      Макет 375px (фильтры - раскрытые):
+        node_id: "3057:50705"
+        html: [catalog-listing.html]
+        status: pending
+        notes: "Фильтры все раскрыты 375x1816"
+
+  - figma_page: "→ Коллекции + Moblie"
+    page_id: "2672:25769"
+    frames:
+      Макет 375px (коллекции):
+        node_id: "3275:12737"
+        html: [collections.html]
+        status: pending
+        notes: "Страница коллекций 375x3584. Header, Holder (список), Hits, Footer"
+      Макет 375px (одна коллекция):
+        node_id: "3275:12821"
+        html: [single-collection.html]
+        status: pending
+        notes: "Отдельная коллекция 375x3629. Header, Holder, Products Grid, Other Collections, Footer"
+
+  - figma_page: "→ Блог + Moblie"
+    page_id: "2672:25770"
+    frames:
+      Макет 375px (блог - список):
+        node_id: "3275:21099"
+        html: [blog.html]
+        status: pending
+        notes: "Список статей 375x3507. Header, Holder (карточки), Footer"
+      Макет 375px (блог - статья):
+        node_id: "3275:21147"
+        html: [article.html]
+        status: pending
+        notes: "Статья 375x8644. Текст, Photo, Slider, Products, Other models, Footer"
+
+  - figma_page: "→ О компании + Moblie"
+    page_id: "2672:25771"
+    frames:
+      Макет 375px (основная):
+        node_id: "3275:23011"
+        html: [about.html]
+        status: pending
+        notes: "О компании 375x8081. Numbers, Principles, History, About Production, Team, Reviews, Footer"
+      Макет 375px (альтернатива):
+        node_id: "3275:23139"
+        html: [about.html]
+        status: pending
+        notes: "Альт. версия 375x8280. Principles, Steps, Accordion, Gallery Slider, Footer"
+
+  - figma_page: "→ Контакты + Moblie"
+    page_id: "2672:25772"
+    frames:
+      Макет 375px:
+        node_id: "3275:24179"
+        html: [contacts.html]
+        status: pending
+        notes: "Контакты 375x3697. Holder, Form Horizontal, Showrooms, Footer"
+
+  - figma_page: "→ Шоурумы + Moblie"
+    page_id: "2672:25773"
+    frames:
+      Макет 375px:
+        node_id: "3275:24892"
+        html: [showrooms.html]
+        status: pending
+        notes: "Шоурумы 375x2937. Header, Holder, Footer"
+
+  - figma_page: "→ Покупателям + Moblie"
+    page_id: "2672:25774"
+    frames:
+      Макет 375px (доставка):
+        node_id: "3275:26714"
+        html: [delivery.html]
+        status: pending
+        notes: "Доставка 375x3369. Text + Fixed Contacts + Footer"
+      Макет 375px (оплата):
+        node_id: "3275:26746"
+        html: [payment.html]
+        status: pending
+        notes: "Оплата 375x3698. Text x2 + Fixed Contacts + Footer"
+      Макет 375px (гарантия):
+        node_id: "3275:26785"
+        html: [warranty.html]
+        status: pending
+        notes: "Гарантия 375x3669. Text x2 + Fixed Contacts + Footer"
+      Макет 375px (лояльность):
+        node_id: "3275:26824"
+        html: [loyalty.html]
+        status: pending
+        notes: "Лояльность 375x3669. Text x2 + Fixed Contacts + Footer"
+
+  - figma_page: "→ Сотрудничество + Moblie"
+    page_id: "3057:54067"
+    frames:
+      Макет 375px (партнёрство):
+        node_id: "3275:28877"
+        html: [partnership.html]
+        status: pending
+        notes: "Сотрудничество 375x4832. Text, Form, Fixed Contacts, Footer"
+      Макет 375px (дизайнеры):
+        node_id: "3275:28906"
+        html: [designers.html]
+        status: pending
+        notes: "Дизайнерам 375x6743. Text, Cards, Form, Partners, Projects, Footer"
+
+  - figma_page: "→ Проекты + Moblie"
+    page_id: "3057:55355"
+    frames:
+      Макет 375px:
+        node_id: ""
+        html: [projects.html, single-project.html]
+        status: pending
+        notes: ""
+
+  - figma_page: "→ Личный кабинет + Mobile"
+    page_id: "3565:45742"
+    frames:
+      Авторизация / Регистрация:
+        node_id: "4023:25080"
+        html: []
+        status: pending
+        notes: "Модалка регистрации"
+      Личный кабинет (dashboard):
+        node_id: "4023:25239"
+        html: [account-dashboard.html]
+        status: pending
+        notes: ""
+      Мои данные / Адреса:
+        node_id: "4023:25689"
+        html: [account-order-detail.html]
+        status: pending
+        notes: ""
+      Корзина / Нет товаров:
+        node_id: "4023:25776"
+        html: [cart.html]
+        status: pending
+        notes: "Пустая корзина"
+      Корзина / Товары:
+        node_id: "4023:26028"
+        html: [cart.html]
+        status: pending
+        notes: "Корзина с товарами"
+      Избранное:
+        node_id: "4023:25917"
+        html: [favorites.html]
+        status: pending
+        notes: ""
+      Уведомления / на Email:
+        node_id: "4023:25880"
+        html: [account-newsletters.html]
+        status: pending
+        notes: ""
+      Каталог:
+        node_id: "4023:34907"
+        html: [catalog-listing.html]
+        status: pending
+        notes: ""
+      Оформление заказа / Доставка:
+        node_id: "4023:35532"
+        html: [checkout.html]
+        status: pending
+        notes: ""
+      Оформление заказа / Оплата:
+        node_id: "4023:35699"
+        html: [checkout.html]
+        status: pending
+        notes: ""
+      Оформление заказа / Подтвердить:
+        node_id: "4023:35875"
+        html: [checkout.html]
+        status: pending
+        notes: ""
+      Спасибо за заказ:
+        node_id: "4023:36141"
+        html: [thankyou.html]
+        status: pending
+        notes: ""
+      Пустая корзина:
+        node_id: "4023:36042"
+        html: [cart.html]
+        status: pending
+        notes: "Пустая корзина (альт)"
+
+  - figma_page: "→ UI-kit"
+    page_id: "2160:15100"
+    frames: {}
+    notes: "UI kit — не проверяется"
