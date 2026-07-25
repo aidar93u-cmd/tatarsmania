@@ -173,16 +173,24 @@
 
 @media (max-width: 768px) {
     .showrooms-tabs__nav {
-        gap: 16px;
+        gap: 22px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    .showrooms-tabs__nav::-webkit-scrollbar {
+        display: none;
     }
     .showrooms-tabs__btn {
-        font-size: 10px;
-    }
-    .showrooms-tabs__count {
-        font-size: 10px;
+        font-weight: 500;
+        text-transform: none;
     }
     .showrooms-tabs__line {
         margin-top: 24px;
+    }
+    .showrooms-page .page-title__heading {
+        text-transform: none;
     }
     .skeleton--photo {
         width: 62px;
@@ -197,10 +205,7 @@
         gap: 12px;
     }
     .showrooms-tabs__nav {
-        gap: 14px;
+        gap: 22px;
         margin-bottom: 20px;
-    }
-    .showrooms-tabs__count {
-        font-size: 10px;
     }
 }

@@ -181,6 +181,14 @@
 }
 
 @media (max-width: 768px) {
+    .contacts-page .page-title__heading {
+        text-transform: none;
+    }
+
+    .contacts-info__social-link {
+        font-weight: 400;
+    }
+
     .contacts-info__row {
         flex-direction: column;
         gap: 16px;
@@ -189,13 +197,18 @@
     .contacts-info__phone,
     .contacts-info__email {
         font-size: 24px;
+        text-transform: none;
     }
 
-        .contacts-info__captions {
+    .contacts-info__captions {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
         text-align: left;
         align-items: flex-start;
+    }
+
+    .contacts-info__captions .body {
+        font-size: 14px;
     }
     .contacts-form__inner {
         aspect-ratio: auto;
@@ -214,7 +227,9 @@
     }
 
     .contacts-form__title {
-        font-size: 18px;
+        font-size: 20px;
+        line-height: 130%;
+        text-transform: none;
         color: var(--graphite);
     }
 
@@ -227,6 +242,8 @@
         backdrop-filter: none;
         color: var(--graphite);
         border: 1px solid transparent;
+        font-size: 16px;
+        height: 45px;
     }
 
     .contacts-form__input::placeholder {

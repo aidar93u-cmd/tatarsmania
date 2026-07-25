@@ -37,6 +37,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ===== NEWSLETTERS TWO-STATE (hide form when email exists) =====
+    var nlFormSection = document.querySelector('.account-section[data-nl-form-section]')
+    if (nlFormSection) {
+        var hasEmail = false
+        nlFormSection.closest('.account__content').querySelectorAll('.nl-row__phone').forEach(function (el) {
+            if (el.textContent.trim().indexOf('@') > -1) hasEmail = true
+        })
+        if (hasEmail) nlFormSection.dataset.hasEmail = ''
+    }
+
     // ===== TOGGLE NEWSLETTERS =====
     var toggles = document.querySelectorAll('.nl-toggle__input')
     if (toggles.length) {

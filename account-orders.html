@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="css/lib/aos.css" />
     <link rel="stylesheet" href="css/lib/fancybox.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=31" />
-    <link rel="stylesheet" href="css/header.css?v=31" />
-    <link rel="stylesheet" href="css/footer.css?v=31" />
-    <link rel="stylesheet" href="css/account.css?v=31" />
+    <link rel="stylesheet" href="css/style.css?v=33" />
+    <link rel="stylesheet" href="css/header.css?v=33" />
+    <link rel="stylesheet" href="css/footer.css?v=33" />
+    <link rel="stylesheet" href="css/account.css?v=33" />
 </head>
 
 <body class="page account-page">
@@ -644,6 +644,26 @@
 
                         </div>
 
+                        <!-- Empty State -->
+                        <div class="orders-empty js-orders-empty">
+                            <div class="orders-empty__inner">
+                                <svg class="orders-empty__icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect x="4" y="10" width="32" height="26" rx="2" stroke="#212121" stroke-width="1.5"/>
+                                    <path d="M13 10V8C13 5.23858 15.2386 3 18 3H22C24.7614 3 27 5.23858 27 8V10" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M4 16H36" stroke="#212121" stroke-width="1.5"/>
+                                    <line x1="20" y1="12" x2="20" y2="18" stroke="#212121" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <h3 class="orders-empty__title">У вас пока нет заказов</h3>
+                                <p class="orders-empty__desc">После оформления заказа здесь появится информация о ваших заказах</p>
+                                <a href="catalog.html" class="btn btn-primary orders-empty__btn">
+                                    <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
+                                        <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="currentColor"/>
+                                    </svg>
+                                    <span>В каталог</span>
+                                </a>
+                            </div>
+                        </div>
+
                         <!-- Pagination -->
                         <div class="pagination orders__pagination js-orders-pagination">
                             <span class="pagination__info js-pagination-info"></span>
@@ -858,7 +878,7 @@
     <script src="js/lib/validate.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=31"></script>
+    <script src="js/main.js?v=33"></script>
     <script src="js/account.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/account-orders.js"></script>

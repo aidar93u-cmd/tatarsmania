@@ -154,6 +154,9 @@
 
 	.collections-grid__tabs {
 		gap: 16px;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		padding-bottom: 8px;
 	}
 
 	.collections-grid-filter {
@@ -162,8 +165,18 @@
 
 	.collection-card__name {
 		padding: 20px 0;
-		font-size: 13px;
+		font-size: 14px;
+		font-weight: 400;
 	}
+
+	.collections-grid .sort__trigger {
+		padding: 8px 12px;
+	}
+
+	.collections-grid .pagination__info {
+		font-size: 14px;
+	}
+
 	.collections-grid__grid {
 		gap: 20px 6px;
 	}

@@ -98,6 +98,13 @@
 				? 'Показано ' + startI + '\u2013' + endI + ' из ' + total
 				: 'Нет заказов'
 
+		var emptyEl = dom.empty
+		if (emptyEl) {
+			emptyEl.classList.toggle('orders-empty--visible', total === 0)
+		}
+		dom.list.style.display = total === 0 ? 'none' : ''
+		if (dom.skeleton) dom.skeleton.style.display = total === 0 ? 'none' : ''
+
 		dom.loadMore.style.display = p < totalPages ? '' : 'none'
 		dom.pageLinks.forEach(function (btn, i) {
 			var np = i + 1
@@ -190,6 +197,7 @@
 	function boot() {
 		dom.list = document.querySelector('.js-orders-list')
 		dom.skeleton = document.querySelector('.js-orders-skeleton')
+		dom.empty = document.querySelector('.js-orders-empty')
 		dom.pagination = document.querySelector('.js-orders-pagination')
 		dom.count = document.querySelector('.js-orders-count')
 		dom.tabs = document.querySelectorAll('.js-orders-tabs .orders-tabs__btn')

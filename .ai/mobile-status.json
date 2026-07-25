@@ -61,11 +61,27 @@
     {
       "figma_page": "→ Шоурумы + Moblie",
       "html_pages": ["showrooms.html"],
-      "mobile_frames": [],
-      "status": "pending",
-      "issues": [],
-      "fixed": [],
-      "needs_manual": []
+      "mobile_frames": [
+        {"node_id": "3275:24892", "name": "Макет 375px", "html": "showrooms.html"}
+      ],
+      "status": "in_progress",
+      "issues": [
+        "Page title text differs from Figma ('Ждем вас...' vs 'Прогул по шоурумам...') — HTML change needed, skipped per rules",
+        "Count label ('Найдено X шоурумов') positioned inline with tabs (HTML) vs below in Figma — structural diff, can't fix without HTML change",
+        "Showroom card DOM structure differs from Figma (JS-generated vs Figma layout) — needs manual JS decision"
+      ],
+      "fixed": [
+        "Tabs font-weight: 400→500 at ≤768px",
+        "Tabs text-transform: uppercase→none at ≤768px",
+        "Tabs gap: 16→22px at ≤768px",
+        "Tabs horizontal scroll: nowrap + overflow-x:auto at ≤768px",
+        "Tabs count font-size: removed 10px override (inherits 12px) at ≤768px",
+        "Page title text-transform: none at ≤768px",
+        "Tabs gap: 14→22px at ≤480px"
+      ],
+      "needs_manual": [
+        "Showroom card layout — JS DOM differs from Figma card design"
+      ]
     },
     {
       "figma_page": "→ Покупателям + Moblie",

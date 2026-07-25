@@ -737,6 +737,14 @@
 }
 
 @media (max-width: 768px) {
+	.about-page .page-title__heading {
+		text-transform: none;
+	}
+
+	.about-hero__title {
+		text-transform: none;
+	}
+
 	.about-hero__inner {
 		aspect-ratio: auto;
 		min-height: 500px;

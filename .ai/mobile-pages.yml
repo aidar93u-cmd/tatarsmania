@@ -210,11 +210,16 @@ pages:
   - figma_page: "→ Проекты + Moblie"
     page_id: "3057:55355"
     frames:
-      Макет 375px:
-        node_id: ""
-        html: [projects.html, single-project.html]
+      Макет 375px (список):
+        node_id: "3275:30683"
+        html: [projects.html]
         status: pending
-        notes: ""
+        notes: "Список проектов 375x3249. Header, Holder, Footer"
+      Макет 375px (проект):
+        node_id: "3275:30747"
+        html: [single-project.html]
+        status: pending
+        notes: "Один проект 375x7100. Text, Photo, Slider, Conclusion, Other models, Footer"
 
   - figma_page: "→ Личный кабинет + Mobile"
     page_id: "3565:45742"
@@ -223,67 +228,92 @@ pages:
         node_id: "4023:25080"
         html: []
         status: pending
-        notes: "Модалка регистрации"
-      Личный кабинет (dashboard):
+        notes: "Модалка регистрации 375x660"
+      Подтверждение:
+        node_id: "4023:25096"
+        html: []
+        status: pending
+        notes: "Подтверждение кода 375x660"
+      Данные профиля:
         node_id: "4023:25239"
         html: [account-dashboard.html]
         status: pending
-        notes: ""
-      Мои данные / Адреса:
+        notes: "Личный кабинет 375x3218"
+      Редактировать данные:
+        node_id: "4023:25324"
+        html: [account-dashboard.html]
+        status: pending
+        notes: "Редактирование профиля 375x660"
+      История заказов / Активные:
         node_id: "4023:25689"
+        html: [account-orders.html]
+        status: pending
+        notes: "История заказов активные 375x2557"
+      Заказ / В обработке:
+        node_id: "4023:25776"
         html: [account-order-detail.html]
         status: pending
-        notes: ""
-      Корзина / Нет товаров:
-        node_id: "4023:25776"
-        html: [cart.html]
-        status: pending
-        notes: "Пустая корзина"
-      Корзина / Товары:
-        node_id: "4023:26028"
-        html: [cart.html]
-        status: pending
-        notes: "Корзина с товарами"
-      Избранное:
-        node_id: "4023:25917"
-        html: [favorites.html]
-        status: pending
-        notes: ""
-      Уведомления / на Email:
+        notes: "Детали заказа в обработке 375x2898"
+      Рассылки / Не введен Email:
         node_id: "4023:25880"
         html: [account-newsletters.html]
         status: pending
-        notes: ""
-      Каталог:
-        node_id: "4023:34907"
-        html: [catalog-listing.html]
+        notes: "Подписка без email 375x2401"
+      Промокоды:
+        node_id: "4023:25917"
+        html: [account-promocodes.html]
         status: pending
-        notes: ""
-      Оформление заказа / Доставка:
+        notes: "Промокоды 375x2964"
+      Заказ / Завершен:
+        node_id: "4023:26028"
+        html: [account-order-detail.html]
+        status: pending
+        notes: "Детали заказа завершен 375x3412"
+      Избранное:
+        node_id: "4023:34907"
+        html: [favorites.html]
+        status: pending
+        notes: "Избранное 375x2731"
+      Корзина / товары:
+        node_id: "4023:35316"
+        html: [cart.html]
+        status: pending
+        notes: "Корзина с товарами 375x4061"
+      Корзина / промокод:
+        node_id: "4023:35418"
+        html: [cart.html]
+        status: pending
+        notes: "Корзина с промокодом 375x4231"
+      Оформление / Самовывоз:
         node_id: "4023:35532"
         html: [checkout.html]
         status: pending
-        notes: ""
-      Оформление заказа / Оплата:
+        notes: "Оформление самовывоз 375x5653"
+      Оформление / Фирменная:
         node_id: "4023:35699"
         html: [checkout.html]
         status: pending
-        notes: ""
-      Оформление заказа / Подтвердить:
+        notes: "Оформление доставка 375x5512"
+      Оформление / СДЭК:
         node_id: "4023:35875"
         html: [checkout.html]
         status: pending
-        notes: ""
+        notes: "Оформление СДЭК 375x5407"
+      Товар удален:
+        node_id: "4023:36042"
+        html: [cart.html]
+        status: pending
+        notes: "Товар удален из корзины 375x3860"
+      Корзина пуста:
+        node_id: "4023:36124"
+        html: [cart.html]
+        status: pending
+        notes: "Пустая корзина 375x3116"
       Спасибо за заказ:
         node_id: "4023:36141"
         html: [thankyou.html]
         status: pending
-        notes: ""
-      Пустая корзина:
-        node_id: "4023:36042"
-        html: [cart.html]
-        status: pending
-        notes: "Пустая корзина (альт)"
+        notes: "Спасибо за заказ 375x3198"
 
   - figma_page: "→ UI-kit"
     page_id: "2160:15100"

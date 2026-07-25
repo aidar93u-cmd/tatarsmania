@@ -268,7 +268,9 @@
     font-size: 14px;
   }
 
-
+  .project-page .page-title__heading {
+    text-transform: none;
+  }
 
   .article-product {
     margin-bottom: 40px;
