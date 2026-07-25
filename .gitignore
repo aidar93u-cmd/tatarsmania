@@ -54,6 +54,9 @@ assets/fonts/TEST-*
 .graphify_uncached.txt
 graphify_*.py
 
+# AI screenshots
+.ai/screenshots/
+
 # analysis temp files
 _cart_*.txt
 _cart_*.json
