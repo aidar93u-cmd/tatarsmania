@@ -45,8 +45,6 @@ js/main-backup.js
 assets/images/figma-search-results.jpg
 
 # old / test font files
-assets/fonts/circe*.{eot,svg,ttf,woff,woff2}
-assets/fonts/CirceContrast*.{woff,woff2}
 assets/fonts/TEST-*
 
 # AI temp / cache
@@ -54,8 +52,8 @@ assets/fonts/TEST-*
 .graphify_uncached.txt
 graphify_*.py
 
-# AI screenshots
-.ai/screenshots/
+# AI planning & screenshots
+.ai/
 
 # analysis temp files
 _cart_*.txt
