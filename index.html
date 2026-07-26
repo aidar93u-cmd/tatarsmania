@@ -11,12 +11,12 @@
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=33">
-    <link rel="stylesheet" href="css/header.css?v=33" />
-    <link rel="stylesheet" href="css/mega-menu.css?v=33" />
-    <link rel="stylesheet" href="css/footer.css?v=33" />
-    <link rel="stylesheet" href="css/product-card.css?v=33" />
-    <link rel="stylesheet" href="css/catalog-listing.css?v=33" />
+    <link rel="stylesheet" href="css/style.css?v=34">
+    <link rel="stylesheet" href="css/header.css?v=34" />
+    <link rel="stylesheet" href="css/mega-menu.css?v=34" />
+    <link rel="stylesheet" href="css/footer.css?v=34" />
+    <link rel="stylesheet" href="css/product-card.css?v=34" />
+    <link rel="stylesheet" href="css/catalog-listing.css?v=34" />
 </head>
 
 <body class="home">
@@ -3589,18 +3589,6 @@
     </div>
     <!-- ===== REGISTRATION POPUP ===== -->
     <div id="registrationPopup" style="display:none;">
-        <div class="popup__mobile-header">
-            <span class="popup__mobile-title">Вход</span>
-            <button class="popup__mobile-close" type="button" data-fancybox-close aria-label="Закрыть"
-                data-label="Закрыть">
-                <svg viewBox="0 0 13 13" fill="none">
-                    <line x1="1" y1="1" x2="12" y2="12" stroke="currentColor" stroke-width="1.2"
-                        stroke-linecap="round" />
-                    <line x1="12" y1="1" x2="1" y2="12" stroke="currentColor" stroke-width="1.2"
-                        stroke-linecap="round" />
-                </svg>
-            </button>
-        </div>
         <div class="reg-popup">
             <div class="reg-popup__inner">
                 <div class="reg-popup__step reg-popup__step--active">
@@ -3665,22 +3653,29 @@
                                             id="regTimerCount">43</span> секунды</p>
                                     <button class="reg-popup__resend" type="button" id="regResend"
                                         style="display:none;">Отправить код повторно</button>
+                                    <button class="btn btn-primary reg-popup__btn" type="button" id="regCodeSubmit">
+                                        <svg width="12" height="2" viewBox="0 0 12 2" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M2.87604 1.14134C2.20672 1.166 0.619907 1.21604 0 1.49547L1.25331 0.355529C1.6081 0.280265 2.11161 0.0394284 3.04634 0.00476976C4.17327 -0.0370151 5.31442 0.201482 6.35032 0.495039C9.08692 1.27092 11.8555 0.437224 12 0.355529L10.7467 1.61354C10.1215 1.87453 8.44463 2.35334 5.69832 1.57472C4.5756 1.25615 3.67088 1.11186 2.87604 1.14134Z"
+                                                fill="white"></path>
+                                        </svg>
+                                        <span>Подтвердить телефон</span>
+                                    </button>
                                 </div>
 
                                 <div class="reg-popup__data-section reg-popup__section--hidden" id="regDataSection">
                                     <h2 class="body-l-strong reg-popup__title">Заполните данные</h2>
-                                    <div class="reg-popup__fields-row">
-                                        <div class="reg-popup__field-group">
-                                            <label class="reg-popup__label">Имя*</label>
-                                            <input class="reg-popup__input" type="text" id="regName" placeholder="Иван">
-                                            <div class="reg-popup__error" id="regNameError">Введите имя</div>
-                                        </div>
-                                        <div class="reg-popup__field-group">
-                                            <label class="reg-popup__label">Фамилия*</label>
-                                            <input class="reg-popup__input" type="text" id="regSurname"
-                                                placeholder="Иванов">
-                                            <div class="reg-popup__error" id="regSurnameError">Введите фамилию</div>
-                                        </div>
+                                    <div class="reg-popup__field-group">
+                                        <label class="reg-popup__label">Имя*</label>
+                                        <input class="reg-popup__input" type="text" id="regName" placeholder="Введите имя">
+                                        <div class="reg-popup__error" id="regNameError">Введите имя</div>
+                                    </div>
+                                    <div class="reg-popup__field-group">
+                                        <label class="reg-popup__label">Фамилия*</label>
+                                        <input class="reg-popup__input" type="text" id="regSurname"
+                                            placeholder="Введите фамилию">
+                                        <div class="reg-popup__error" id="regSurnameError">Введите фамилию</div>
                                     </div>
                                     <div class="reg-popup__field-group">
                                         <label class="reg-popup__label">Телефон*</label>
@@ -3690,7 +3685,7 @@
                                     <div class="reg-popup__field-group">
                                         <label class="reg-popup__label">E-mail</label>
                                         <input class="reg-popup__input" type="email" id="regEmail"
-                                            placeholder="email@mail.com">
+                                            placeholder="example@mail.com">
                                         <div class="reg-popup__error" id="regEmailError">Введите корректный email</div>
                                     </div>
                                     <button class="btn btn-primary reg-popup__btn" type="button" id="regStep3Submit"
@@ -3703,6 +3698,13 @@
                                         </svg>
                                         <span>Сохранить</span>
                                     </button>
+                                    <label class="checkbox reg-popup__consent">
+                                        <input type="checkbox" required>
+                                        <span class="checkbox__mark"></span>
+                                        <span class="checkbox__text body">Нажимая на кнопку «Сохранить», вы даете
+                                            согласие на обработку персональных
+                                            данных.</span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -3726,9 +3728,9 @@
     <script src="js/lib/validate.min.js"></script>
     <script src="js/registration.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=33"></script>
-    <script src="js/menu.js?v=33"></script>
-    <script src="js/map.js?v=33"></script>
+    <script src="js/main.js?v=34"></script>
+    <script src="js/menu.js?v=34"></script>
+    <script src="js/map.js?v=34"></script>
 
     <!-- ===== CITY POPUP ===== -->
     <div id="cityPopup" style="display:none;">

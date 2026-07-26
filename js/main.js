@@ -1535,6 +1535,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	var regTimerCount = document.getElementById('regTimerCount')
 	var regResend = document.getElementById('regResend')
 	var regDataSection = document.getElementById('regDataSection')
+	var regPopupEl = document.querySelector('.reg-popup')
 	var regCodeInputs
 
 	var regNameInput = document.getElementById('regName')
@@ -1679,6 +1680,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	function regShowDataSection() {
 		if (regCodeSection) regCodeSection.classList.add('reg-popup__section--hidden')
 		if (regDataSection) regDataSection.classList.remove('reg-popup__section--hidden')
+		if (regPopupEl) regPopupEl.classList.add('reg-popup--step3')
 		if (regStep1Next) regStep1Next.style.display = 'none'
 		if (regStep3Submit) {
 			regStep3Submit.style.display = ''
@@ -1696,6 +1698,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (regPhoneSection) regPhoneSection.classList.remove('reg-popup__section--hidden')
 		if (regCodeSection) regCodeSection.classList.add('reg-popup__section--hidden')
 		if (regDataSection) regDataSection.classList.add('reg-popup__section--hidden')
+		if (regPopupEl) regPopupEl.classList.remove('reg-popup--step3')
 		if (regStep1Next) regStep1Next.style.display = ''
 		if (regStep3Submit) regStep3Submit.style.display = 'none'
 		clearInterval(regTimerInterval)
@@ -1786,10 +1789,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
-	if (regResend) {
-		regResend.addEventListener('click', function () {
-			regStartTimer()
-		})
+	var regCodeSubmit = document.getElementById('regCodeSubmit')
+	if (regCodeSubmit) {
+		regCodeSubmit.addEventListener('click', regSubmitCode)
 	}
 
 	if (regStep3Submit) {

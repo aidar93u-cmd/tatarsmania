@@ -1038,7 +1038,7 @@ body.preloader-active {
     .popup__results-grid {
         gap: 6px;
     }
-    .popup__close {
+    .fancybox-popup--search .popup__close {
         display: none;
     }
 }
@@ -1046,22 +1046,23 @@ body.preloader-active {
 /* Registration popup — mobile fullscreen */
 @media (max-width: 768px) {
     .fancybox-reg-popup .fancybox__content {
-        width: 100vw;
-        height: 100vh;
-        max-height: 100vh;
-        padding: 0;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        padding: 0 !important;
     }
     .fancybox-reg-popup .reg-popup__btn {
         height: 45px;
     }
     .fancybox-reg-popup .reg-popup__field {
-        margin-bottom: 0;
+        margin-bottom: 38px;
     }
     .fancybox-reg-popup .reg-popup__input {
         height: 45px;
         font-size: 16px;
     }
-    .fancybox-reg-popup .reg-popup__btn {
-        text-transform: none;
-    }
+		.reg-popup__timer,
+		.reg-popup__resend {
+    margin: 0 0 var(--space-38);
+}
 }
