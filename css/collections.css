@@ -91,9 +91,8 @@
 	display: block;
 	padding: var(--space-28) 0;
 	letter-spacing: 0.02em;
-	transition:all 0.4s;
+	transition: all 0.4s;
 }
-
 
 .collections-grid-filter {
 	max-width: 25rem;
@@ -160,27 +159,27 @@
 
 	.collections-grid-filter {
 		flex-direction: row-reverse;
-        margin-top: 15px;
+		margin-top: 15px;
 	}
-    .collections-grid__filter {
-        margin-bottom: 19px;
-        gap: 20px;
-        padding-bottom: 19px;
-    }
+	.collections-grid__filter {
+		margin-bottom: 19px;
+		gap: 20px;
+		padding-bottom: 19px;
+	}
 	.collection-card__name {
 		padding: 20px 0;
 		font-size: 14px;
 		font-weight: 400;
 	}
 	.collections-grid__count {
-    font-size: 12px;
-}
+		font-size: 12px;
+	}
 
-    .collections-grid .sort__trigger {
-        padding: 9px 12px;
-        font-size: 12px;
-        gap: 14px;
-    }
+	.collections-grid .sort__trigger {
+		padding: 9px 12px;
+		font-size: 12px;
+		gap: 14px;
+	}
 
 	.collections-grid .pagination__info {
 		font-size: 14px;

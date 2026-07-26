@@ -430,6 +430,7 @@
 	}
 	.footer__menu-col a {
 		font-size: 14px;
+		font-weight: 400;
 	}
 	.footer {
 		padding: 50px 0;
@@ -521,6 +522,6 @@
 		display: none;
 	}
 	.footer__email-input {
-    font-size: 16px;
+		font-size: 16px;
 	}
 }
