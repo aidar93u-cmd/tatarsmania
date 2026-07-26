@@ -739,6 +739,10 @@ body.preloader-active {
 	color: var(--graphite);
 	flex-shrink: 0;
 }
+.mobile-menu__back svg {
+	width: var(--space-13);
+	height: var(--space-13);
+}
 .mobile-menu__title {
 	font-family: var(--font-family);
 	font-size: var(--body-l-size);
@@ -887,7 +891,10 @@ body.preloader-active {
 	line-height: 120%;
 	color: #fff;
 }
-
+.mobile-menu__account-btn svg {
+	width: var(--space-13);
+	height: var(--space-13);
+}
 .mobile-menu__filters {
 	display: flex;
 	flex-direction: column;

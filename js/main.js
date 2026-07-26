@@ -1371,6 +1371,13 @@ document.addEventListener('DOMContentLoaded', function () {
 					prevEl: '.featured__arrow--prev',
 					nextEl: '.featured__arrow--next',
 				},
+				pagination: {
+					el: container.querySelector('.featured__pagination'),
+					type: 'bullets',
+					bulletClass: 'carousel-section__dot',
+					bulletActiveClass: 'carousel-section__dot--active',
+					clickable: true,
+				},
 			})
 		}
 
@@ -2292,8 +2299,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ===== CITY POPUP =====
 ;(function () {
-	var cityTrigger = document.querySelector('.topbar__city')
-	if (!cityTrigger) return
+	var cityTriggers = document.querySelectorAll('.topbar__city, .mobile-menu__contact-row')
+	if (!cityTriggers.length) return
 
 	var saved = localStorage.getItem('selectedCity')
 	if (saved) {
@@ -2302,13 +2309,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
-	cityTrigger.addEventListener('click', function (e) {
+	function openCityPopup(e) {
 		e.preventDefault()
 		Fancybox.show([{ src: '#cityPopup', type: 'inline' }], {
 			mainClass: 'fancybox-popup fancybox-popup--city',
 			Toolbar: false,
 			closeButton: false,
 		})
+	}
+
+	cityTriggers.forEach(function (el) {
+		el.addEventListener('click', openCityPopup)
 	})
 
 	document.addEventListener('click', function (e) {

@@ -267,6 +267,21 @@
     }
   });
 
+  /* ===== FIXED BOTTOM BAR (mobile) ===== */
+  var actionsEl = document.querySelector('.product-actions')
+  var fixedBar = document.querySelector('.product-fixed-bar')
+  if (actionsEl && fixedBar) {
+    var fixedObserver = new IntersectionObserver(function (entries) {
+      if (window.innerWidth > 768) {
+        fixedBar.classList.add('product-fixed-bar--hidden')
+        return
+      }
+      var entry = entries[0]
+      fixedBar.classList.toggle('product-fixed-bar--hidden', entry.isIntersecting)
+    }, { threshold: 0 })
+    fixedObserver.observe(actionsEl)
+  }
+
   /* ===== FANCYBOX GALLERY ===== */
   if (typeof Fancybox !== 'undefined') {
     Fancybox.bind('[data-fancybox="product"]', {

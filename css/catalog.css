@@ -380,4 +380,7 @@
     .catalog-cat-rooms .categories-small__card {
         height: 200px;
     }
+    .page.catalog .page-title__inner {
+        gap: 14px;
+    }
 }

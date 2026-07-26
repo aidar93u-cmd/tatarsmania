@@ -51,7 +51,7 @@
 	left: var(--space-14);
 	z-index: 2;
 	display: flex;
-	gap: var(--space-8);
+	gap: var(--space-2);
 }
 
 .product-card__badge {
@@ -501,8 +501,12 @@
 	.product-card--default__hover-actions {
 		flex-direction: column;
 		background: #fff;
+    gap: var(--space-2);
 	}
-
+	.product-card--default__hover-actions .btn {
+			padding: var(--space-10) 0.5625rem;
+        font-size: 11px;
+	}
 	.product-card--default:hover .product-card--default__hover-actions {
 		transform: translateY(-0px);
 		opacity: 1;
@@ -514,12 +518,16 @@
   }
 	.product-card--default__body {
 		padding: 20px 0;
-    gap: 5px;
+    gap: 13px;
 		padding-bottom: 0px;
+        min-height: auto;
 	}
 	
 	.product-card__price,
 	.product-card__price-old {
 		font-size: 12px;
+	}
+	.product-card__price-split {
+		display: none;
 	}
 }

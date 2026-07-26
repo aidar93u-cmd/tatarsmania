@@ -205,9 +205,9 @@
 	padding: 0;
 }
 
-.product-sizes__options button{
+.product-sizes__options button {
 	padding: 0;
-    font-size: var(--body-base-size);
+	font-size: var(--body-base-size);
 }
 .product-size-btn:hover {
 	color: var(--copper);
@@ -284,7 +284,7 @@
 	opacity: 0;
 	transition: opacity 0.15s;
 	z-index: 10;
-    box-shadow: 0px 10px 35px #2d2d2d4f;
+	box-shadow: 0px 10px 35px #2d2d2d4f;
 }
 
 .product-swatch-tooltip::after {
@@ -309,7 +309,7 @@
 	text-transform: uppercase;
 	position: relative;
 	font-size: var(--body-base-size);
-    padding: 0;
+	padding: 0;
 }
 
 .product-option__more-btn span {
@@ -339,7 +339,7 @@
 }
 .product-actions__secondary .btn-white {
 	width: 100%;
-    padding: var(--space-12) var(--space-12);
+	padding: var(--space-12) var(--space-12);
 }
 
 /* ============================================
@@ -395,7 +395,6 @@
 	margin-bottom: var(--space-4);
 }
 
-
 .product-interior-swiper .swiper-slide::after {
 	content: '';
 	position: absolute;
@@ -426,7 +425,7 @@
 .product-payment__btn {
 	align-self: flex-start;
 }
-.product-payment ul{
+.product-payment ul {
 	list-style: disc;
 }
 /* ============================================
@@ -449,7 +448,7 @@
 .product-files-list {
 	display: flex;
 	flex-direction: column;
-	gap: 0
+	gap: 0;
 }
 
 .product-file-item a {
@@ -500,7 +499,6 @@
    MODEL IN INTERIOR (Hero Slider)
    ============================================ */
 .product-interior {
-	
 }
 
 .product-interior__title {
@@ -598,24 +596,23 @@
 	height: auto;
 }
 
-
 .carousel-section__tabs {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 0 0 var(--space-75);
-    gap: var(--space-26);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 0 0 var(--space-75);
+	gap: var(--space-26);
 }
 .carousel-section__tabpanel {
 	display: none;
 	position: relative;
 }
 .featured-tabs .carousel-section__header-row {
-    padding-bottom: var(--space-30);
+	padding-bottom: var(--space-30);
 }
-.featured-tabs .carousel-section__nav{	
-    bottom: calc(-1*var(--space-90));
-    z-index: 11;
+.featured-tabs .carousel-section__nav {
+	bottom: calc(-1 * var(--space-90));
+	z-index: 11;
 }
 .carousel-section__tabpanel--active {
 	display: block;
@@ -656,10 +653,11 @@
 	}
 	.product-mobile-title__brand {
 		font-family: var(--font3);
-		font-size: 32px;
+		font-size: 24px;
 		font-weight: 700;
 		color: var(--graphite);
 		margin: 0;
+		margin-bottom: 10px;
 	}
 	.product-mobile-title .product-name {
 		font-size: 16px;
@@ -677,7 +675,7 @@
 	.product-mobile-badges__row {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 4px;
 	}
 	.product-mobile-badges__article {
 		font-size: 12px;
@@ -689,7 +687,8 @@
 	.product-mobile-price {
 		display: block;
 		padding: 0 0;
-		margin-bottom: 24px;
+		margin-bottom: 22px;
+		margin-top: 19px;
 	}
 	.product-mobile-price__row {
 		display: flex;
@@ -717,6 +716,27 @@
 		text-decoration: line-through;
 		color: rgba(33, 33, 33, 0.4);
 	}
+	.product-page .accordion {
+		margin-bottom: 20px;
+	}
+	.product-interior__title,
+	.product-files-section__title {
+		font-size: 20px;
+		font-weight: 400;
+	}
+	.product-actions__secondary .btn-white {
+		width: 100%;
+		padding: var(--space-10) var(--space-12);
+	}
+	.product-interior__container {
+		padding: 0 var(--space-6);
+	}
+	.product-interior {
+		padding-bottom: 25px;
+	}
+	.featured-tabs .carousel-section__header-row {
+		padding-bottom: 23px;
+	}
 	.product-mobile-price .product-split {
 		font-size: 16px;
 		font-weight: 500;
@@ -727,16 +747,36 @@
 		color: rgba(33, 33, 33, 0.6);
 	}
 	.featured-tabs .carousel-section__nav {
-    bottom: 0;
-			z-index: 11;
+		bottom: 0;
+		z-index: 11;
 	}
 	.product-content {
 		display: flex;
 		flex-direction: column;
 		padding: 0;
+		gap: 24px;
 	}
 	.product-info {
 		display: contents;
+	}
+	.product-sizes__options button {
+		padding: 0;
+		font-size: 16px;
+	}
+	.product-sizes {
+		gap: 26px;
+	}
+	.product-options {
+		margin-top: 17px;
+		border-bottom: 1px solid var(--gray-dark-line);
+		padding-bottom: 22px;
+	}
+	.product-option {
+		gap: 28px;
+		margin-bottom: 15px;
+	}
+	.product-option__more-btn {
+		display: none;
 	}
 	.product-info-top {
 		display: contents;
@@ -910,7 +950,7 @@
 	}
 	.product-price-row {
 		flex-direction: column;
-		gap: 8px;		
+		gap: 8px;
 	}
 	.product-interior__slider {
 		height: 300px;
@@ -924,12 +964,14 @@
 		padding: 0;
 	}
 	.carousel-section__tabs {
-		flex-direction: row;
-		overflow-x: auto;
+		/* flex-direction: row; */
+		/* overflow-x: auto; */
 		gap: 8px;
 		padding: 0 0 24px;
-		-ms-overflow-style: none;
-		scrollbar-width: none;
+		/* scrollbar-width: none; */
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
 	}
 	.carousel-section__tabs::-webkit-scrollbar {
 		display: none;
@@ -942,5 +984,30 @@
 	}
 	.carousel-section.product-other .carousel-section__nav {
 		display: none;
+	}
+}
+
+/* Fixed bottom bar (mobile only) */
+.product-fixed-bar {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.product-fixed-bar {
+		display: block;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1001;
+		padding: 0 var(--space-16) var(--space-16);
+		transition: transform 0.3s ease;
+	}
+	.product-fixed-bar--hidden {
+		transform: translateY(100%);
+	}
+	.product-fixed-bar__cart {
+		width: 100%;
+		justify-content: center;
 	}
 }

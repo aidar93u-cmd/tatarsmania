@@ -95,14 +95,10 @@
   var resetBtn = filterBar ? filterBar.querySelector('.catalog-listing__reset-all') : null;
 
   function getFilterLabel(input) {
-    var label = input.closest('.filter-checkbox, .filter-radio');
+    var label = input.closest('.checkbox, .radio');
     if (!label) return '';
-    var spans = label.querySelectorAll('span');
-    for (var i = 0; i < spans.length; i++) {
-      if (!spans[i].classList.contains('filter-checkbox__mark') && !spans[i].classList.contains('filter-radio__mark')) {
-        return spans[i].textContent.trim();
-      }
-    }
+    var textSpan = label.querySelector('.checkbox__text, .radio__text');
+    if (textSpan) return textSpan.textContent.trim();
     return '';
   }
 
@@ -163,8 +159,6 @@
     var input = document.querySelector('[data-filter-id="' + id + '"]');
     if (input) {
       input.checked = false;
-      var wrapper = input.closest('.filter-checkbox, .filter-radio');
-      if (wrapper) wrapper.classList.remove('filter-checkbox--checked', 'filter-radio--checked');
       removeFilterTag(id);
       return;
     }
@@ -243,12 +237,8 @@
       return;
     }
     if (e.target.closest('.catalog-listing__reset-all')) {
-      document.querySelectorAll('.filter-checkbox input:checked, .filter-radio input:checked').forEach(function (el) {
+      document.querySelectorAll('.checkbox input:checked, .radio input:checked').forEach(function (el) {
         el.checked = false;
-        var wrapper = el.closest('.filter-checkbox');
-        if (wrapper) wrapper.classList.remove('filter-checkbox--checked');
-        wrapper = el.closest('.filter-radio');
-        if (wrapper) wrapper.classList.remove('filter-radio--checked');
       });
       document.querySelectorAll('[data-filter-range]').forEach(function (container) {
         var labels = container.querySelectorAll('.filter-range__label');
@@ -267,9 +257,8 @@
 
   /* ===== CHECKBOX ===== */
   document.addEventListener('change', function (e) {
-    var checkbox = e.target.closest('.filter-checkbox input');
+    var checkbox = e.target.closest('.checkbox input');
     if (checkbox) {
-      checkbox.closest('.filter-checkbox').classList.toggle('filter-checkbox--checked', checkbox.checked);
       addFilterTag(checkbox);
       showSkeleton();
     }
@@ -277,14 +266,12 @@
 
   /* ===== RADIO ===== */
   document.addEventListener('change', function (e) {
-    var radio = e.target.closest('.filter-radio input');
+    var radio = e.target.closest('.radio input');
     if (radio) {
       var name = radio.name;
-      document.querySelectorAll('.filter-radio input[name="' + name + '"]').forEach(function (el) {
-        el.closest('.filter-radio').classList.remove('filter-radio--checked');
+      document.querySelectorAll('.radio input[name="' + name + '"]').forEach(function (el) {
         removeFilterTag(el.getAttribute('data-filter-id'));
       });
-      radio.closest('.filter-radio').classList.add('filter-radio--checked');
       addFilterTag(radio);
       showSkeleton();
     }
@@ -400,7 +387,7 @@
   /* ===== INIT ===== */
   if (activeFilters) {
     activeFilters.querySelectorAll('.filter-tag').forEach(function (t) { t.remove(); });
-    document.querySelectorAll('.filter-checkbox input:checked, .filter-radio input:checked').forEach(function (el) {
+    document.querySelectorAll('.checkbox input:checked, .radio input:checked').forEach(function (el) {
       addFilterTag(el);
     });
     updateFilterBarVisibility();
@@ -580,12 +567,8 @@
   var mobileFilterReset = document.querySelector('.catalog-listing__mobile-filter-reset');
   if (mobileFilterReset) {
     mobileFilterReset.addEventListener('click', function () {
-      document.querySelectorAll('.filter-checkbox input:checked, .filter-radio input:checked').forEach(function (el) {
+      document.querySelectorAll('.checkbox input:checked, .radio input:checked').forEach(function (el) {
         el.checked = false;
-        var wrapper = el.closest('.filter-checkbox');
-        if (wrapper) wrapper.classList.remove('filter-checkbox--checked');
-        wrapper = el.closest('.filter-radio');
-        if (wrapper) wrapper.classList.remove('filter-radio--checked');
       });
       document.querySelectorAll('[data-filter-range]').forEach(function (container) {
         var labels = container.querySelectorAll('.filter-range__label');
@@ -608,7 +591,7 @@
 
   /* Filter count badge */
   function updateFilterCount() {
-    var count = document.querySelectorAll('.filter-checkbox input:checked, .filter-radio input:checked').length;
+    var count = document.querySelectorAll('.checkbox input:checked, .radio input:checked').length;
     document.querySelectorAll('[data-filter-range]').forEach(function (container) {
       var labels = container.querySelectorAll('.filter-range__label');
       var minInput = labels[0] ? labels[0].querySelector('.filter-range__input') : null;
@@ -626,7 +609,7 @@
     }
   }
   document.addEventListener('change', function (e) {
-    if (e.target.closest('.filter-checkbox input, .filter-radio input, .filter-range__input')) {
+    if (e.target.closest('.checkbox input, .radio input, .filter-range__input')) {
       updateFilterCount();
     }
   });
