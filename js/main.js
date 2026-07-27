@@ -337,39 +337,46 @@ document.addEventListener('DOMContentLoaded', function () {
 			})
 		}
 
-		form.querySelectorAll('.contacts-form__field').forEach(function (field) {
-			var err = document.createElement('span')
-			err.className = 'contacts-form__error'
-			field.appendChild(err)
-		})
-
 		function getField(input) {
 			return input ? input.closest('.contacts-form__field') : null
 		}
 
-		function getErr(input) {
-			var f = getField(input)
-			return f ? f.querySelector('.contacts-form__error') : null
+		function showErr(input, msg) {
+			var field = getField(input)
+			if (!field) return
+			var el = field.querySelector('.contacts-form__error')
+			if (!el) {
+				el = document.createElement('span')
+				el.className = 'contacts-form__error'
+				field.appendChild(el)
+			}
+			el.textContent = msg
+			el.classList.add('contacts-form__error--visible')
+		}
+
+		function hideErr(input) {
+			var field = getField(input)
+			if (!field) return
+			var el = field.querySelector('.contacts-form__error')
+			if (el) {
+				el.remove()
+			}
+			input.classList.remove('is-invalid', 'is-valid')
 		}
 
 		function clearFormValidation() {
+			form.querySelectorAll('.contacts-form__field').forEach(function (field) {
+				var el = field.querySelector('.contacts-form__error')
+				if (el) el.remove()
+			})
 			form.querySelectorAll('.contacts-form__input').forEach(function (inp) {
 				inp.classList.remove('is-invalid', 'is-valid')
-			})
-			form.querySelectorAll('.contacts-form__error').forEach(function (e) {
-				e.textContent = ''
-				e.classList.remove('contacts-form__error--visible')
 			})
 		}
 
 		form.querySelectorAll('.contacts-form__input').forEach(function (inp) {
 			inp.addEventListener('input', function () {
-				this.classList.remove('is-invalid', 'is-valid')
-				var e = getErr(this)
-				if (e) {
-					e.textContent = ''
-					e.classList.remove('contacts-form__error--visible')
-				}
+				hideErr(this)
 			})
 		})
 
@@ -384,11 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			if (nameInput && !name) {
 				nameInput.classList.add('is-invalid')
-				var err = getErr(nameInput)
-				if (err) {
-					err.textContent = 'Введите имя'
-					err.classList.add('contacts-form__error--visible')
-				}
+				showErr(nameInput, 'Введите имя')
 				valid = false
 			} else if (nameInput) {
 				nameInput.classList.add('is-valid')
@@ -396,19 +399,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			if (phoneInput && !phone) {
 				phoneInput.classList.add('is-invalid')
-				var err = getErr(phoneInput)
-				if (err) {
-					err.textContent = 'Введите телефон'
-					err.classList.add('contacts-form__error--visible')
-				}
+				showErr(phoneInput, 'Введите телефон')
 				valid = false
 			} else if (phoneInput && !FormUtils.test(phone, 'phone')) {
 				phoneInput.classList.add('is-invalid')
-				var err = getErr(phoneInput)
-				if (err) {
-					err.textContent = 'Введите корректный телефон'
-					err.classList.add('contacts-form__error--visible')
-				}
+				showErr(phoneInput, 'Введите корректный телефон')
 				valid = false
 			} else if (phoneInput) {
 				phoneInput.classList.add('is-valid')
@@ -416,11 +411,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			if (emailInput && email && !FormUtils.test(email, 'valid_email')) {
 				emailInput.classList.add('is-invalid')
-				var err = getErr(emailInput)
-				if (err) {
-					err.textContent = 'Введите корректный e-mail'
-					err.classList.add('contacts-form__error--visible')
-				}
+				showErr(emailInput, 'Введите корректный e-mail')
 				valid = false
 			} else if (emailInput && email) {
 				emailInput.classList.add('is-valid')

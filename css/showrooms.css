@@ -184,13 +184,12 @@
     }
     .showrooms-tabs__btn {
         font-weight: 500;
-        text-transform: none;
     }
     .showrooms-tabs__line {
         margin-top: 24px;
     }
     .showrooms-page .page-title__heading {
-        text-transform: none;
+
     }
     .skeleton--photo {
         width: 62px;

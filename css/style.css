@@ -4260,9 +4260,6 @@ section.footer-banner {
 	color: #fff;
 }
 .checkbox--dark .checkbox__mark {
-	background: transparent;
-	border: none;
-	box-shadow: 0 0px 1px #fff;
 }
 .checkbox--dark input:checked + .checkbox__mark::after {
 	content: '';
@@ -4426,6 +4423,9 @@ section.footer-banner {
 	}
 	.checkbox {
 		gap: 20px;
+	}
+	.checkbox__text {
+			font-size: 12px;
 	}
 	.catalog-cat-s .carousel-section__nav,
 	.promotions .carousel-section__nav {
