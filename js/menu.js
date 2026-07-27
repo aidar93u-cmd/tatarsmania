@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	var closeBtn = document.getElementById('mobileMenuClose')
 	var titleEl = document.getElementById('mobileMenuTitle')
 	var footer = document.getElementById('mobileMenuFooter')
-
 	if (!mobileMenu || !track) return
 
 	var levelOrder = []
@@ -26,11 +25,20 @@ document.addEventListener('DOMContentLoaded', function () {
 	function closeMobileMenu() {
 		mobileMenu.classList.remove('mobile-menu--open')
 		document.body.style.overflow = ''
-		if (currentIndex !== 0) {
-			currentIndex = 0
-			navStack = []
-			updateMenu()
+		track.querySelectorAll('.mobile-menu__level--active').forEach(function (l) {
+			if (l.getAttribute('data-level') !== 'main') {
+				l.classList.remove('mobile-menu__level--active')
+				l.style.zIndex = ''
+			}
+		})
+		currentIndex = 0
+		navStack = []
+		var mainLevel = track.querySelector('.mobile-menu__level[data-level="main"]')
+		if (mainLevel) {
+			titleEl.textContent = mainLevel.getAttribute('data-title') || 'РњРµРЅСЋ'
 		}
+		backBtn.style.display = 'none'
+		footer.style.display = ''
 	}
 
 	function navigateTo(levelId) {
@@ -38,27 +46,31 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (idx === -1) return
 		navStack.push(currentIndex)
 		currentIndex = idx
-		updateMenu()
+		var level = track.querySelector('.mobile-menu__level[data-level="' + levelId + '"]')
+		if (level) {
+			level.style.zIndex = navStack.length + 1
+			level.classList.add('mobile-menu__level--active')
+			titleEl.textContent = level.getAttribute('data-title') || 'РњРµРЅСЋ'
+		}
+		backBtn.style.display = 'block'
+		footer.style.display = 'none'
 	}
 
 	function goBack() {
 		if (navStack.length > 0) {
+			var prevLevel = track.querySelector('.mobile-menu__level[data-level="' + levelOrder[currentIndex] + '"]')
+			if (prevLevel) {
+				prevLevel.classList.remove('mobile-menu__level--active')
+			}
 			currentIndex = navStack.pop()
-			updateMenu()
+			var levelId = levelOrder[currentIndex]
+			var level = track.querySelector('.mobile-menu__level[data-level="' + levelId + '"]')
+			if (level) {
+				titleEl.textContent = level.getAttribute('data-title') || 'РњРµРЅСЋ'
+			}
+			backBtn.style.display = currentIndex > 0 ? 'block' : 'none'
+			footer.style.display = levelId === 'main' ? '' : 'none'
 		}
-	}
-
-	function updateMenu() {
-		var levelId = levelOrder[currentIndex]
-		track.style.transform = 'translateX(-' + currentIndex * 100 + '%)'
-
-		var activeLevel = track.querySelector('.mobile-menu__level[data-level="' + levelId + '"]')
-		if (activeLevel) {
-			titleEl.textContent = activeLevel.getAttribute('data-title') || 'РњРµРЅСЋ'
-		}
-
-		backBtn.style.display = currentIndex > 0 ? 'block' : 'none'
-		footer.style.display = levelId === 'main' ? '' : 'none'
 	}
 
 	document.addEventListener('click', function (e) {
@@ -91,7 +103,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	})
 
-	updateMenu()
+	var mainLevel = track.querySelector('.mobile-menu__level[data-level="main"]')
+	if (mainLevel) {
+		mainLevel.style.zIndex = '1'
+		mainLevel.classList.add('mobile-menu__level--active')
+		titleEl.textContent = mainLevel.getAttribute('data-title') || 'РњРµРЅСЋ'
+	}
+	footer.style.display = ''
 });
 
 /* ===== MEGA MENU ===== */
@@ -147,7 +165,9 @@ document.addEventListener('DOMContentLoaded', function () {
         megaMenu.setAttribute('aria-hidden', 'true');
         if (megaMenuOverlay) megaMenuOverlay.classList.remove('visible');
         setCatalogBtnIcon('hamburger');
-        document.querySelector('.header-group')?.classList.remove('white-header');
+        document
+					.querySelector('.home .header-group')
+					?.classList.remove('white-header')
         var catalogBtn = document.getElementById('catalogBtn');
         if (catalogBtn) { catalogBtn.classList.remove('is-open'); catalogBtn.setAttribute('aria-expanded', 'false'); }
         document.querySelectorAll('.mega-menu__panel').forEach(function(p) { p.classList.remove('visible'); });

@@ -592,12 +592,19 @@
     .production-steps--mobile .production-steps__card-desc {
         max-width: 285px;
         color: var(--graphite);
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .production-accordion__title {
-        font-size: 16px;
+        font-size: 20px;
     }
-
+    .production-accordion__text p {
+        margin-bottom: 18px;
+    }
+    .production-accordion__body-inner {
+        padding: 10px 0;
+    }
     .production-accordion__header {
         padding: 12px 0;
         gap: 12px;
@@ -648,7 +655,6 @@
     .carousel-section.production-photos .carousel-section__pagination {
         display: flex;
         justify-content: center;
-        margin-top: 12px;
     }
 
     .carousel-section.production-photos .carousel-section__dot {
