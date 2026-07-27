@@ -1064,5 +1064,6 @@ body.preloader-active {
 		.reg-popup__timer,
 		.reg-popup__resend {
     margin: 0 0 var(--space-38);
+    text-align: left;
 }
 }

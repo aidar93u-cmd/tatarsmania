@@ -199,7 +199,6 @@
   }
   .article-photo-s__grid .swiper-wrapper {
     display: contents;
-    height: auto;
   }
   .article-photo-s__grid .swiper-slide {
     width: auto !important;
@@ -220,6 +219,7 @@
   .article-photo-s__grid .swiper-wrapper {
     display: flex;
     flex-wrap: nowrap;
+    height: auto;
   }
   .article-photo-s__grid .swiper-slide {
     width: auto;
@@ -232,6 +232,9 @@
   }
   .article-photo-s__header {
     display: block;
+  }
+  .media-slider__swiper {
+      aspect-ratio: 1440 / 1112;
   }
 }
 
@@ -258,7 +261,7 @@
   }
 
   .article-content {
-    padding: 0px 0;
+    padding: 0px 0 60px;
   }
 
   .article-text {
@@ -341,9 +344,6 @@
     overflow: visible;
   }
 
-  .carousel-section.hits .carousel-section__nav {
-    display: none;
-  }
 
 }
 
