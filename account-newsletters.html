@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="css/lib/aos.css" />
     <link rel="stylesheet" href="css/lib/fancybox.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=34" />
-    <link rel="stylesheet" href="css/header.css?v=34" />
-    <link rel="stylesheet" href="css/footer.css?v=34" />
-    <link rel="stylesheet" href="css/account.css?v=34" />
+    <link rel="stylesheet" href="css/style.css?v=35" />
+    <link rel="stylesheet" href="css/header.css?v=35" />
+    <link rel="stylesheet" href="css/footer.css?v=35" />
+    <link rel="stylesheet" href="css/account.css?v=35" />
 </head>
 
 <body class="page account-page">
@@ -32,7 +32,7 @@
         <div class="topbar">
             <div class="topbar__left">
                 <span class="topbar__city">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <svg viewBox="0 0 13 13" fill="none">
                         <path d="M6.5 0C3.46 0 1 2.46 1 5.5c0 4.5 5.5 7.5 5.5 7.5S12 10 12 5.5C12 2.46 9.54 0 6.5 0z"
                             fill="#fff" />
                         <circle cx="6.5" cy="5.5" r="2" fill="#212121" />
@@ -85,15 +85,15 @@
         <!-- ===== HEADER ===== -->
         <header class="header">
             <div class="header__left">
-                <button class="header__catalog-btn" id="catalogBtn">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <button class="header__catalog-btn" id="catalogBtn" aria-controls="megaMenu" aria-expanded="false">
+                    <svg viewBox="0 0 13 13" fill="none">
                         <rect x="0" y="4.5" width="13" height="1" fill="currentColor" />
                         <rect x="0" y="7.5" width="13" height="1" fill="currentColor" />
                     </svg>
                     <span>КАТАЛОГ</span>
                 </button>
                 <button class="header__icon" aria-label="Поиск" data-label="Поиск">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <svg viewBox="0 0 13 13" fill="none">
                         <circle cx="5.5" cy="5.5" r="4" stroke="#fff" stroke-width="0.8" />
                         <line x1="8.5" y1="8.5" x2="12" y2="12" stroke="#fff" stroke-width="0.8" />
                     </svg>
@@ -108,8 +108,8 @@
     
             </a>
             <div class="header__actions">
-                <a href="#" class="header__icon header__icon--logged" aria-label="Профиль" data-label="Профиль">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="#" class="header__icon" aria-label="Профиль">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
                             stroke="white" stroke-width="0.8" />
@@ -117,10 +117,9 @@
                             d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
                             stroke="white" stroke-width="0.8" />
                     </svg>
-                    <span class="header__icon-name">Константин К.</span>
                 </a>
                 <a href="#" class="header__icon header__icon--cart" aria-label="Корзина" data-label="Корзина">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M4.35714 4.73529V2.61765C4.35714 1.4481 5.31653 0.5 6.5 0.5C7.68347 0.5 8.64286 1.4481 8.64286 2.61765V4.73529M2.21429 3.32353H10.7857L11.5 12.5H1.5L2.21429 3.32353Z"
                             stroke="white" stroke-width="0.8" stroke-linecap="round" />
@@ -128,7 +127,7 @@
                     <span class="header__badge">22</span>
                 </a>
                 <a href="favorites.html" class="header__icon" aria-label="Избранное" data-label="Избранное">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
                             stroke="white" stroke-width="0.8" stroke-linecap="round" />
@@ -142,7 +141,7 @@
         <div class="header-mobile">
             <div class="header-mobile__left">
                 <button class="header-mobile__burger" aria-label="Меню" data-label="Меню">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0" y="5.5" width="13" height="1" fill="currentColor" />
                         <rect x="0" y="8.5" width="13" height="1" fill="currentColor" />
                     </svg>
@@ -157,13 +156,13 @@
             </div>
             <div class="header-mobile__right">
                 <button class="header-mobile__icon" aria-label="Поиск" data-label="Поиск">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="0.8" />
                         <line x1="8.5" y1="8.5" x2="12" y2="12" stroke="currentColor" stroke-width="0.8" />
                     </svg>
                 </button>
                 <a href="#" class="header-mobile__icon" aria-label="Избранное" data-label="Избранное">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M12.5 4.09377C12.5 8.38677 6.50025 12 6.50025 12C6.50025 12 0.5 8.33335 0.5 4.10247C0.5 2.37502 1.83333 1.00002 3.5 1.00002C5.16667 1.00002 6.5 3.06252 6.5 3.06252C6.5 3.06252 7.83333 1.00002 9.5 1.00002C11.1667 1.00002 12.5 2.37502 12.5 4.09377Z"
                             stroke="currentColor" stroke-width="0.8" stroke-linecap="round" />
@@ -171,15 +170,15 @@
                     <span class="header__badge">0</span>
                 </a>
                 <a href="#" class="header-mobile__icon" aria-label="Корзина" data-label="Корзина">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M4.35714 4.73529V2.61765C4.35714 1.4481 5.31653 0.5 6.5 0.5C7.68347 0.5 8.64286 1.4481 8.64286 2.61765V4.73529M2.21429 3.32353H10.7857L11.5 12.5H1.5L2.21429 3.32353Z"
                             stroke="currentColor" stroke-width="0.8" stroke-linecap="round" />
                     </svg>
                     <span class="header__badge">22</span>
                 </a>
-                <a href="#" class="header-mobile__icon header-mobile__icon--logged" aria-label="Профиль" data-label="Профиль">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="#" class="header-mobile__icon" aria-label="Профиль">
+                    <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
                             stroke="currentColor" stroke-width="0.8" />
@@ -187,8 +186,1330 @@
                             d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
                             stroke="currentColor" stroke-width="0.8" />
                     </svg>
-                    <span class="header__icon-name">Константин К.</span>
                 </a>
+            </div>
+        </div>
+    
+        <!-- ===== MOBILE MENU OVERLAY ===== -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu__inner">
+                <div class="mobile-menu__bar">
+                    <button class="mobile-menu__back" id="mobileMenuBack" aria-label="Назад" data-label="Назад"
+                        style="display: block;">
+                        <svg viewBox="0 0 13 13" fill="none">
+                            <path d="M8.5 1.5L3.5 6.5L8.5 11.5" stroke="currentColor" stroke-width="0.8"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="mobile-menu__title" id="mobileMenuTitle">Меню</span></button>
+    
+                    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Закрыть" data-label="Закрыть">
+                        <svg viewBox="0 0 13 13" fill="none">
+                            <rect x="1.8" y="1" width="14.4" height="1.1" transform="rotate(45 1.8 1)"
+                                fill="currentColor" />
+                            <rect x="1" y="11.2" width="14.4" height="1.1" transform="rotate(-45 1 11.2)"
+                                fill="currentColor" />
+                        </svg>
+                    </button>
+                    <div class="mobile-menu__bar-line"></div>
+                </div>
+    
+                <div class="mobile-menu__body">
+                    <div class="mobile-menu__track" id="mobileMenuTrack">
+                        <!-- Level 0 — Main Menu -->
+                        <div class="mobile-menu__level" data-level="main" data-title="Меню">
+                            <div class="mobile-menu__nav">
+                                <button class="mobile-menu__nav-item" data-level="catalog" data-title="Каталог">
+                                    <span>Каталог</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <a href="collections.html" class="mobile-menu__nav-item">
+                                    <span>Коллекции</span>
+                                </a>
+                                <a href="blog.html" class="mobile-menu__nav-item">
+                                    <span>Идеи</span>
+                                </a>
+                                <a href="showrooms.html" class="mobile-menu__nav-item">
+                                    <span>Шоурумы</span>
+                                </a>
+                                <button class="mobile-menu__nav-item" data-level="sotrudnichestvo"
+                                    data-title="Сотрудничество">
+                                    <span>Сотрудничество</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="o-kompanii" data-title="О компании">
+                                    <span>О компании</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="pokupatelyam" data-title="Покупателям">
+                                    <span>Покупателям</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <a href="blog.html" class="mobile-menu__nav-item">
+                                    <span>Блог</span>
+                                </a>
+                            </div>
+    
+                            <div class="mobile-menu__contacts">
+                                <div class="mobile-menu__contact-row">
+                                    <svg width="9" height="13" viewBox="0 0 9 13" fill="none">
+                                        <path
+                                            d="M4.5 0.5C2.29086 0.5 0.5 2.29086 0.5 4.5C0.5 7.5 4.5 12.5 4.5 12.5C4.5 12.5 8.5 7.5 8.5 4.5C8.5 2.29086 6.70914 0.5 4.5 0.5Z"
+                                            fill="currentColor" />
+                                        <circle cx="4.5" cy="4.5" r="1.5" fill="white" />
+                                    </svg>
+                                    <span class="topbar__city-text">Москва</span>
+                                </div>
+                                <div class="mobile-menu__divider"></div>
+                                <a href="tel:+79990990099" class="mobile-menu__phone">+7 (999) 099-00-99</a>
+                                <div class="mobile-menu__socials">
+                                    <a href="#">TG</a>
+                                    <a href="#">WA*</a>
+                                    <a href="#">IG*</a>
+                                    <a href="#">MAX</a>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Level 1 — Каталог -->
+                        <div class="mobile-menu__level" data-level="catalog" data-title="Каталог">
+                            <div class="mobile-menu__nav">
+                                <button class="mobile-menu__nav-item" data-level="sve"
+                                    data-title="Мебель собственного производства">
+                                    <span>Мебель собственного производства</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="evropeyskaya"
+                                    data-title="Европейская мебель">
+                                    <span>Европейская мебель</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="rooms" data-title="Комнаты">
+                                    <span>Комнаты</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="collections2" data-title="Коллекции">
+                                    <span>Коллекции</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="new-items" data-title="Новинки">
+                                    <span>Новинки</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="actions2" data-title="Акции">
+                                    <span>Акции</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Мебель собственного производства -->
+                        <div class="mobile-menu__level" data-level="sve" data-title="Мебель собственного производства">
+                            <div class="mobile-menu__nav">
+                                <button class="mobile-menu__nav-item" data-level="own-divany" data-title="Диваны">
+                                    <span>Диваны</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="own-kresla" data-title="Кресла">
+                                    <span>Кресла</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="own-krovati" data-title="Кровати">
+                                    <span>Кровати</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="own-stulya" data-title="Стулья">
+                                    <span>Стулья</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Собственного производства — Диваны -->
+                        <div class="mobile-menu__level" data-level="own-divany" data-title="Диваны">
+                            <div class="mobile-menu__filters">
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По назначению</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Диваны-кровати для сна</a>
+                                        <a href="catalog-listing.html">Диваны для гостиной</a>
+                                        <a href="catalog-listing.html">Диваны для детской</a>
+                                        <a href="catalog-listing.html">Диваны для кухни</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По форме</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Диваны прямые</a>
+                                        <a href="catalog-listing.html">Диваны угловые</a>
+                                        <a href="catalog-listing.html">Диваны модульные</a>
+                                        <a href="catalog-listing.html">Диваны без подлокотников</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По спальному месту</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Односпальные диваны</a>
+                                        <a href="catalog-listing.html">Полутороспальные диваны</a>
+                                        <a href="catalog-listing.html">Двуспальные диваны</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Собственного производства — Кресла -->
+                        <div class="mobile-menu__level" data-level="own-kresla" data-title="Кресла">
+                            <div class="mobile-menu__filters">
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По назначению</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Кресла для гостиной</a>
+                                        <a href="catalog-listing.html">Кресла для спальни</a>
+                                        <a href="catalog-listing.html">Кресла для кабинета</a>
+                                        <a href="catalog-listing.html">Кресла для кухни</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По типу</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Кресла с подлокотниками</a>
+                                        <a href="catalog-listing.html">Кресла-кровати</a>
+                                        <a href="catalog-listing.html">Кресла-качалки</a>
+                                        <a href="catalog-listing.html">Кресла-мешки</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Собственного производства — Кровати -->
+                        <div class="mobile-menu__level" data-level="own-krovati" data-title="Кровати">
+                            <div class="mobile-menu__filters">
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По размеру</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Односпальные кровати</a>
+                                        <a href="catalog-listing.html">Полутороспальные кровати</a>
+                                        <a href="catalog-listing.html">Двуспальные кровати</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По материалу</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Деревянные кровати</a>
+                                        <a href="catalog-listing.html">Металлические кровати</a>
+                                        <a href="catalog-listing.html">Кованые кровати</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Собственного производства — Стулья -->
+                        <div class="mobile-menu__level" data-level="own-stulya" data-title="Стулья">
+                            <div class="mobile-menu__filters">
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По назначению</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Обеденные стулья</a>
+                                        <a href="catalog-listing.html">Барные стулья</a>
+                                        <a href="catalog-listing.html">Письменные стулья</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По материалу</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Деревянные стулья</a>
+                                        <a href="catalog-listing.html">Металлические стулья</a>
+                                        <a href="catalog-listing.html">Мягкие стулья</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Европейская мебель -->
+                        <div class="mobile-menu__level" data-level="evropeyskaya" data-title="Европейская мебель">
+                            <div class="mobile-menu__nav">
+                                <button class="mobile-menu__nav-item" data-level="evro-divany" data-title="Диваны">
+                                    <span>Диваны</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="evro-kresla" data-title="Кресла">
+                                    <span>Кресла</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="evro-krovati" data-title="Кровати">
+                                    <span>Кровати</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                                <button class="mobile-menu__nav-item" data-level="evro-stulya" data-title="Стулья">
+                                    <span>Стулья</span>
+                                    <svg class="mobile-menu__arrow" width="7" height="4" viewBox="0 0 7 4" fill="none">
+                                        <path d="M0.5 0L3.5 3.5L6.5 0" fill="currentColor" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Европейские Диваны -->
+                        <div class="mobile-menu__level" data-level="evro-divany" data-title="Диваны">
+                            <div class="mobile-menu__filters">
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По назначению</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Диваны-кровати для сна</a>
+                                        <a href="catalog-listing.html">Диваны для гостиной</a>
+                                        <a href="catalog-listing.html">Диваны для детской</a>
+                                        <a href="catalog-listing.html">Диваны для кухни</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По форме</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Диваны прямые</a>
+                                        <a href="catalog-listing.html">Диваны угловые</a>
+                                        <a href="catalog-listing.html">Диваны модульные</a>
+                                        <a href="catalog-listing.html">Диваны без подлокотников</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По спальному месту</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Односпальные диваны</a>
+                                        <a href="catalog-listing.html">Полутороспальные диваны</a>
+                                        <a href="catalog-listing.html">Двуспальные диваны</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По размеру</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Диваны большие</a>
+                                        <a href="catalog-listing.html">Диваны средние</a>
+                                        <a href="catalog-listing.html">Диваны маленькие</a>
+                                        <a href="catalog-listing.html">Мини-диваны</a>
+                                        <a href="catalog-listing.html">2-местные диваны</a>
+                                        <a href="catalog-listing.html">3-местные диваны</a>
+                                        <a href="catalog-listing.html">4-местные диваны</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По комнате</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Спальня</a>
+                                        <a href="catalog-listing.html">Детская</a>
+                                        <a href="catalog-listing.html">Гостинная</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">Коллекции</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Aura</a>
+                                        <a href="catalog-listing.html">Basic</a>
+                                        <a href="catalog-listing.html">Cosmo</a>
+                                        <a href="catalog-listing.html">Duet</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По бренду</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Италия</a>
+                                        <a href="catalog-listing.html">Германия</a>
+                                        <a href="catalog-listing.html">Франция</a>
+                                        <a href="catalog-listing.html">Испания</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По цене</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">до 50 000 ₽</a>
+                                        <a href="catalog-listing.html">50 000 — 100 000 ₽</a>
+                                        <a href="catalog-listing.html">100 000 — 200 000 ₽</a>
+                                        <a href="catalog-listing.html">от 200 000 ₽</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По материалу</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Тканевые диваны</a>
+                                        <a href="catalog-listing.html">Кожаные диваны</a>
+                                        <a href="catalog-listing.html">Экокожа</a>
+                                        <a href="catalog-listing.html">Велюр</a>
+                                        <a href="catalog-listing.html">Рогожка</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Европейские Кресла -->
+                        <div class="mobile-menu__level" data-level="evro-kresla" data-title="Кресла">
+                            <div class="mobile-menu__filters">
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По назначению</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Кресла для гостиной</a>
+                                        <a href="catalog-listing.html">Кресла для спальни</a>
+                                        <a href="catalog-listing.html">Кресла для кабинета</a>
+                                        <a href="catalog-listing.html">Кресла для кухни</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По типу</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Кресла с подлокотниками</a>
+                                        <a href="catalog-listing.html">Кресла-кровати</a>
+                                        <a href="catalog-listing.html">Кресла-качалки</a>
+                                        <a href="catalog-listing.html">Кресла-мешки</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Европейские Кровати -->
+                        <div class="mobile-menu__level" data-level="evro-krovati" data-title="Кровати">
+                            <div class="mobile-menu__filters">
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По размеру</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Односпальные кровати</a>
+                                        <a href="catalog-listing.html">Полутороспальные кровати</a>
+                                        <a href="catalog-listing.html">Двуспальные кровати</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По материалу</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Деревянные кровати</a>
+                                        <a href="catalog-listing.html">Металлические кровати</a>
+                                        <a href="catalog-listing.html">Кованые кровати</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Европейские Стулья -->
+                        <div class="mobile-menu__level" data-level="evro-stulya" data-title="Стулья">
+                            <div class="mobile-menu__filters">
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По назначению</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Обеденные стулья</a>
+                                        <a href="catalog-listing.html">Барные стулья</a>
+                                        <a href="catalog-listing.html">Письменные стулья</a>
+                                    </div>
+                                </div>
+                                <div class="mobile-menu__filter-group">
+                                    <div class="mobile-menu__filter-label">По материалу</div>
+                                    <div class="mobile-menu__filter-links">
+                                        <a href="catalog-listing.html">Деревянные стулья</a>
+                                        <a href="catalog-listing.html">Металлические стулья</a>
+                                        <a href="catalog-listing.html">Мягкие стулья</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Level 2 — Комнаты -->
+                        <div class="mobile-menu__level" data-level="rooms" data-title="Комнаты">
+                            <div class="mobile-menu__nav">
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Гостиная</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Спальня</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Кухня</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Кабинет</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Детская</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Прихожая</span></a>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Коллекции -->
+                        <div class="mobile-menu__level" data-level="collections2" data-title="Коллекции">
+                            <div class="mobile-menu__nav">
+                                <a href="single-collection.html" class="mobile-menu__nav-item"><span>Коллекция
+                                        Milano</span></a>
+                                <a href="single-collection.html" class="mobile-menu__nav-item"><span>Коллекция
+                                        Paris</span></a>
+                                <a href="single-collection.html" class="mobile-menu__nav-item"><span>Коллекция
+                                        London</span></a>
+                                <a href="single-collection.html" class="mobile-menu__nav-item"><span>Коллекция
+                                        Berlin</span></a>
+                                <a href="single-collection.html" class="mobile-menu__nav-item"><span>Коллекция
+                                        Tokyo</span></a>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Новинки -->
+                        <div class="mobile-menu__level" data-level="new-items" data-title="Новинки">
+                            <div class="mobile-menu__nav">
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Новинки
+                                        диванов</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Новинки
+                                        кресел</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Новинки
+                                        кроватей</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Новинки
+                                        стульев</span></a>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Акции -->
+                        <div class="mobile-menu__level" data-level="actions2" data-title="Акции">
+                            <div class="mobile-menu__nav">
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Распродажа</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Уценённые
+                                        товары</span></a>
+                                <a href="catalog-listing.html" class="mobile-menu__nav-item"><span>Подарочные
+                                        карты</span></a>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Сотрудничество -->
+                        <div class="mobile-menu__level" data-level="sotrudnichestvo" data-title="Сотрудничество">
+                            <div class="mobile-menu__nav">
+                                <a href="designers.html" class="mobile-menu__nav-item"><span>Дизайнерам</span></a>
+                                <a href="partnership.html" class="mobile-menu__nav-item"><span>Архитекторам</span></a>
+                                <a href="partnership.html" class="mobile-menu__nav-item"><span>Для бизнеса</span></a>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: О компании -->
+                        <div class="mobile-menu__level" data-level="o-kompanii" data-title="О компании">
+                            <div class="mobile-menu__nav">
+                                <a href="about.html" class="mobile-menu__nav-item"><span>История</span></a>
+                                <a href="production.html" class="mobile-menu__nav-item"><span>Производство</span></a>
+                                <a href="about.html" class="mobile-menu__nav-item"><span>Отзывы</span></a>
+                                <a href="contacts.html" class="mobile-menu__nav-item"><span>Реквизиты</span></a>
+                            </div>
+                        </div>
+    
+                        <!-- Sub-level: Покупателям -->
+                        <div class="mobile-menu__level" data-level="pokupatelyam" data-title="Покупателям">
+                            <div class="mobile-menu__nav">
+                                <a href="delivery.html" class="mobile-menu__nav-item"><span>Доставка</span></a>
+                                <a href="payment.html" class="mobile-menu__nav-item"><span>Оплата</span></a>
+                                <a href="warranty.html" class="mobile-menu__nav-item"><span>Возврат</span></a>
+                                <a href="warranty.html" class="mobile-menu__nav-item"><span>Гарантия</span></a>
+                                <a href="delivery.html" class="mobile-menu__nav-item"><span>FAQ</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="mobile-menu__footer" id="mobileMenuFooter">
+                    <button class="mobile-menu__account-btn">
+                        <svg viewBox="0 0 13 13" fill="none">
+                            <path
+                                d="M9.125 3.20968C9.125 4.70619 7.94975 5.91935 6.5 5.91935C5.05025 5.91935 3.875 4.70619 3.875 3.20968C3.875 1.71316 5.05025 0.5 6.5 0.5C7.94975 0.5 9.125 1.71316 9.125 3.20968Z"
+                                stroke="currentColor" stroke-width="0.8" />
+                            <path
+                                d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
+                                stroke="currentColor" stroke-width="0.8" />
+                        </svg>
+                        <span>В личный кабинет</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ===== MEGA MENU OVERLAY ===== -->
+    <div class="mega-menu__overlay" id="megaMenuOverlay"></div>
+    
+    <!-- ===== MEGA MENU ===== -->
+    <div class="mega-menu" id="megaMenu" aria-hidden="true">
+        <div class="mega-menu__container">
+            <!-- Sidebar — 25% -->
+            <nav class="mega-menu__sidebar" role="navigation" aria-label="Каталог товаров">
+                <a href="catalog.html" class="mega-menu__sidebar-item mega-menu__link has-children"
+                    data-panel="own-production">
+                    <span>Мебель собственного производства</span>
+                </a>
+                <a href="catalog.html" class="mega-menu__sidebar-item mega-menu__link has-children" data-panel="european">
+                    <span>Европейская мебель</span>
+                </a>
+                <a href="catalog.html" class="mega-menu__sidebar-item mega-menu__link has-children" data-panel="rooms">
+                    <span>Комнаты</span>
+                </a>
+                <a href="collections.html" class="mega-menu__sidebar-item mega-menu__link has-children"
+                    data-panel="collections">
+                    <span>Коллекции</span>
+                </a>
+                <a href="catalog-listing.html" class="mega-menu__sidebar-item mega-menu__link has-children"
+                    data-panel="new">
+                    <span>Новинки</span>
+                </a>
+                <a href="catalog-listing.html" class="mega-menu__sidebar-item mega-menu__link has-children"
+                    data-panel="promo">
+                    <span>Акции</span>
+                </a>
+            </nav>
+    
+            <!-- Content — 75% -->
+            <div class="mega-menu__content">
+                <!-- Body — 70% -->
+                <div class="mega-menu__content-body">
+                    <!-- Own production — Type 1 layout -->
+                    <div class="mega-menu__panel mega-menu__panel--type1" id="panel-own-production">
+                        <div class="mega-menu__type1-sidebar">
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="own-sofas"><span>Диваны</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="own-chairs"><span>Кресла</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="own-beds"><span>Кровати</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="own-stools"><span>Стулья</span></a>
+                        </div>
+                        <div class="mega-menu__type1-content">
+                            <div class="mega-menu__type1-panels">
+                                <!-- Sofas — single column -->
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-own-sofas">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По назначению</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны-кровати для
+                                            сна</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны для гостиной</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны для детской</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны для кухни</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По форме</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны прямые</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны угловые</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны модульные</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны без
+                                            подлокотников</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По спальному месту</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Односпальные диваны</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Полутороспальные
+                                            диваны</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Двуспальные диваны</a>
+                                    </div>
+                                </div>
+                                <!-- Chairs -->
+                                <div class="mega-menu__l3-panel os-custom" id="l3-own-chairs">
+                                    <div class="mega-menu__l3-grid">
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По назначению</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла для
+                                                гостиной</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла для
+                                                спальни</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла для
+                                                кабинета</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла для кухни</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По типу</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла с
+                                                подлокотниками</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла-кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла-качалки</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла-мешки</a>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- Beds -->
+                                <div class="mega-menu__l3-panel os-custom" id="l3-own-beds">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По размеру</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Односпальные кровати</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Полутороспальные
+                                            кровати</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Двуспальные кровати</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По материалу</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Деревянные кровати</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Металлические кровати</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кованые кровати</a>
+                                    </div>
+                                </div>
+                                <!-- Stools -->
+                                <div class="mega-menu__l3-panel os-custom" id="l3-own-stools">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По назначению</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Обеденные стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Барные стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Письменные стулья</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По материалу</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Деревянные стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Металлические стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Мягкие стулья</a>
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="mega-menu__banner-area">
+                                <a href="product-page.html" class="mega-menu__banner" id="banner-default">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/about-hero.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Собственное производство — лучшее соотношение
+                                        цены и
+                                        качества напрямую от производителя</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="own-sofas">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/production-photo-1.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Диваны собственного производства — от 3 дней в
+                                        производстве</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="own-chairs">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/production-photo-2.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Кресла собственного производства — эксклюзивный
+                                        дизайн</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="own-beds">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/production-photo-3.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Кровати собственного производства — натуральные
+                                        материалы</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="own-stools">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/production-photo-4.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Стулья собственного производства — прочность и
+                                        стиль</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- European furniture — Type 1 layout -->
+                    <div class="mega-menu__panel mega-menu__panel--type1" id="panel-european">
+                        <div class="mega-menu__type1-sidebar">
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="euro-sofas"><span>Диваны</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="euro-chairs"><span>Кресла</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="euro-beds"><span>Кровати</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="euro-stools"><span>Стулья</span></a>
+                        </div>
+                        <div class="mega-menu__type1-content">
+                            <div class="mega-menu__type1-panels">
+                                <!-- Sofas — split 2 columns, flex layout -->
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--flex os-custom" id="l3-euro-sofas">
+                                    <div class="mega-menu__l3-col">
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По назначению</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны-кровати для
+                                                сна</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны для
+                                                гостиной</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны для
+                                                детской</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны для кухни</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По форме</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны прямые</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны угловые</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны модульные</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны без
+                                                подлокотников</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По спальному месту</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Односпальные
+                                                диваны</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Полутороспальные
+                                                диваны</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Двуспальные
+                                                диваны</a>
+                                        </div>
+                                    </div>
+                                    <div class="mega-menu__l3-col">
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По размеру</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны большие</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны средние</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Диваны маленькие</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Мини-диваны</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">2-местные диваны</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">3-местные диваны</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">4-местные диваны</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По комнате</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Спальня</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Детская</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Гостинная</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>Коллекции</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Aura</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Basic</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Cosmo</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Duet</a>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <!-- Chairs — 8 items, 2 columns with scroll -->
+                                <div class="mega-menu__l3-panel os-custom" id="l3-euro-chairs">
+                                    <div class="mega-menu__l3-grid">
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По назначению</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла для
+                                                гостиной</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла для
+                                                спальни</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла для
+                                                кабинета</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла для кухни</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По типу</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла с
+                                                подлокотниками</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла-кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла-качалки</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кресла-мешки</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Beds -->
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--flex os-custom" id="l3-euro-beds">
+                                    <div class="mega-menu__l3-col">
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По размеру</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Односпальные
+                                                кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Полутороспальные
+                                                кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Двуспальные
+                                                кровати</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По материалу</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Деревянные
+                                                кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Металлические
+                                                кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кованые кровати</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По стилю</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати
+                                                классические</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати
+                                                современные</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати
+                                                скандинавские</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати лофт</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати прованс</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати
+                                                минимализм</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати ар-деко</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По типу основания</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">С ортопедическим
+                                                основанием</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">С реечным дном</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">С цельным
+                                                основанием</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">С мягким
+                                                изголовьем</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">С металлическим
+                                                каркасом</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По высоте</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Низкие кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Стандартные
+                                                кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Высокие кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати-чердаки</a>
+                                        </div>
+                                    </div>
+                                    <div class="mega-menu__l3-col">
+                                        <div class="mega-menu__l3-section">
+                                            <h4>С подъемным механизмом</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Газ-лифт</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Пружинный
+                                                механизм</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Ручной подъем</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>С ящиками для хранения</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">С выдвижными
+                                                ящиками</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">С нишей для белья</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">С полками в
+                                                изголовье</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По цвету</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Белые кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Серые кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Коричневые
+                                                кровати</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Черные кровати</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>По цене</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати до 30 000
+                                                ₽</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати 30 000–60 000
+                                                ₽</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати 60 000–100
+                                                000 ₽</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Кровати от 100 000
+                                                ₽</a>
+                                        </div>
+                                        <div class="mega-menu__l3-section">
+                                            <h4>Коллекции</h4>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Aura</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Basic</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Cosmo</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Duet</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Elegance</a>
+                                            <a href="catalog-listing.html" class="mega-menu__link">Florence</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Stools -->
+                                <div class="mega-menu__l3-panel os-custom" id="l3-euro-stools">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По назначению</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Обеденные стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Барные стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Письменные стулья</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По материалу</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Деревянные стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Металлические стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Мягкие стулья</a>
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="mega-menu__banner-area">
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="euro-sofas">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/product-img-1.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Европейские диваны премиум-класса — получите
+                                        upgrade
+                                        обивки до категории «люкс» бесплатно</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="euro-chairs">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/product-img-2.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Кресла из Европы — эксклюзивные модели в наличии
+                                        по цене производителя</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="euro-beds">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/product-img-3.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Европейские кровати — выберите модель премиум
+                                        и получите матрас в подарок</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="euro-stools">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/product-img-4.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Европейские стулья — создайте уют в столовой
+                                        с коллекцией премиум</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Rooms — type1 layout, no L3 (full-width banner) -->
+                    <div class="mega-menu__panel mega-menu__panel--type1" id="panel-rooms">
+                        <div class="mega-menu__type1-sidebar">
+                            <a href="catalog-listing.html" class="mega-menu__type1-sidebar-item mega-menu__link"
+                                data-l3="room-living"><span>Гостиная</span></a>
+                            <a href="catalog-listing.html" class="mega-menu__type1-sidebar-item mega-menu__link"
+                                data-l3="room-bedroom"><span>Спальня</span></a>
+                            <a href="catalog-listing.html" class="mega-menu__type1-sidebar-item mega-menu__link"
+                                data-l3="room-kitchen"><span>Кухня</span></a>
+                            <a href="catalog-listing.html" class="mega-menu__type1-sidebar-item mega-menu__link"
+                                data-l3="room-office"><span>Кабинет</span></a>
+                            <a href="catalog-listing.html" class="mega-menu__type1-sidebar-item mega-menu__link"
+                                data-l3="room-kids"><span>Детская</span></a>
+                            <a href="catalog-listing.html" class="mega-menu__type1-sidebar-item mega-menu__link"
+                                data-l3="room-hall"><span>Прихожая</span></a>
+                        </div>
+                        <div class="mega-menu__type1-content">
+                            <div class="mega-menu__type1-panels" style="display:none"></div>
+                            <div class="mega-menu__banner-area">
+                                <a href="catalog.html" class="mega-menu__banner visible" data-banner="room-living">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/room1.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Мебель для гостиной и других комнат</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="room-bedroom">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/room2.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Мебель для спальни</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="room-kitchen">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/room3.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Мебель для кухни</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="room-office">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/room4.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Мебель для кабинета</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="room-kids">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/category2.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Мебель для детской</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="room-hall">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/category3.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Мебель для прихожей</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Collections — type1 with L3 -->
+                    <div class="mega-menu__panel mega-menu__panel--type1" id="panel-collections">
+                        <div class="mega-menu__type1-sidebar">
+                            <a href="single-collection.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="collection-milano"><span>Коллекция Milano</span></a>
+                            <a href="single-collection.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="collection-paris"><span>Коллекция Paris</span></a>
+                            <a href="single-collection.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="collection-london"><span>Коллекция London</span></a>
+                            <a href="single-collection.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="collection-berlin"><span>Коллекция Berlin</span></a>
+                            <a href="single-collection.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="collection-tokyo"><span>Коллекция Tokyo</span></a>
+                        </div>
+                        <div class="mega-menu__type1-content">
+                            <div class="mega-menu__type1-panels">
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-collection-milano">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>Предметы</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны Milano</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кресла Milano</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кровати Milano</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Стулья Milano</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-collection-paris">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>Предметы</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны Paris</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кресла Paris</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кровати Paris</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Стулья Paris</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-collection-london">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>Предметы</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны London</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кресла London</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кровати London</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Стулья London</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-collection-berlin">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>Предметы</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны Berlin</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кресла Berlin</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кровати Berlin</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Стулья Berlin</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-collection-tokyo">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>Предметы</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны Tokyo</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кресла Tokyo</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кровати Tokyo</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Стулья Tokyo</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu__banner-area">
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="collection-milano">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/collection-cosmo-1.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Изысканная коллекция Milano</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="collection-paris">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/collection-cosmo-2.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Элегантная коллекция Paris</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="collection-london">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/collection-cosmo-3.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Классическая коллекция London</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="collection-berlin">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/category5.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Современная коллекция Berlin</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="collection-tokyo">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/category6.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Минималистичная коллекция Tokyo</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- New — type1 with L3 -->
+                    <div class="mega-menu__panel mega-menu__panel--type1" id="panel-new">
+                        <div class="mega-menu__type1-sidebar">
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="new-sofas"><span>Новинки диванов</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="new-chairs"><span>Новинки кресел</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="new-beds"><span>Новинки кроватей</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="new-stools"><span>Новинки стульев</span></a>
+                        </div>
+                        <div class="mega-menu__type1-content">
+                            <div class="mega-menu__type1-panels">
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-new-sofas">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По стилю</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Классические диваны</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Современные диваны</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Модульные диваны</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По цвету</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Светлые диваны</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Тёмные диваны</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Яркие диваны</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-new-chairs">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По стилю</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Классические кресла</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Современные кресла</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По цвету</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Светлые кресла</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Тёмные кресла</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom" id="l3-new-beds">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По стилю</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Классические кровати</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Современные кровати</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По размеру</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Односпальные</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Двуспальные</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-new-stools">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По стилю</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Классические стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Современные стулья</a>
+                                    </div>
+                                    <div class="mega-menu__l3-section">
+                                        <h4>По материалу</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Деревянные стулья</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Металлические стулья</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu__banner-area">
+                                <a href="catalog.html" class="mega-menu__banner visible" data-banner="new-sofas">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/product-img-5.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Новинки диванов — свежие поступления</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="new-chairs">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/product-img-6.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Новинки кресел — свежие поступления</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="new-beds">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/product-img-7.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Новинки кроватей — свежие поступления</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="new-stools">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/product-img-8.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Новинки стульев — свежие поступления</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Promo — type1 with L3 -->
+                    <div class="mega-menu__panel mega-menu__panel--type1" id="panel-promo">
+                        <div class="mega-menu__type1-sidebar">
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="promo-sale"><span>Распродажа</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="promo-discount"><span>Уценённые товары</span></a>
+                            <a href="catalog-listing.html"
+                                class="mega-menu__type1-sidebar-item mega-menu__link has-children"
+                                data-l3="promo-cards"><span>Подарочные карты</span></a>
+                        </div>
+                        <div class="mega-menu__type1-content">
+                            <div class="mega-menu__type1-panels">
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-promo-sale">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>Категории</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Диваны со скидкой</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кресла со скидкой</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Кровати со скидкой</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Стулья со скидкой</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-promo-discount">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>Категории</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Уценённые диваны</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Уценённые кресла</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Уценённые кровати</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Уценённые стулья</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu__l3-panel mega-menu__l3-panel--single-col os-custom"
+                                    id="l3-promo-cards">
+                                    <div class="mega-menu__l3-section">
+                                        <h4>Номинал</h4>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Подарочная карта 5 000
+                                            ₽</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Подарочная карта 10 000
+                                            ₽</a>
+                                        <a href="catalog-listing.html" class="mega-menu__link">Подарочная карта 25 000
+                                            ₽</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mega-menu__banner-area">
+                                <a href="catalog.html" class="mega-menu__banner visible" data-banner="promo-sale">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/promotions.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Распродажа — товары со скидкой</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="promo-discount">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/partner-banner.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Уценённые товары — выгодные предложения</div>
+                                </a>
+                                <a href="product-page.html" class="mega-menu__banner" data-banner="promo-cards">
+                                    <div class="mega-menu__banner-image" aria-hidden="true"
+                                        style="background-image: url('assets/images/contacts-banner.jpg')">
+                                    </div>
+                                    <div class="mega-menu__banner-text">Подарочные карты — лучший подарок</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
             </div>
         </div>
     </div>
@@ -592,7 +1913,7 @@
     <script src="js/lib/validate.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=34"></script>
+    <script src="js/main.js?v=35"></script>
     <script src="js/menu.js"></script>
     <script src="js/account.js"></script>
         <!-- ===== CITY POPUP ===== -->
