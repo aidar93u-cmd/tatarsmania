@@ -2709,8 +2709,8 @@ section.footer-banner {
 		padding: 30px 30px;
 		gap: var(--space-40);
 	}
-	.sidebar-contacts .body-l{		
-    font-size: 14px;
+	.sidebar-contacts .body-l {
+		font-size: 14px;
 	}
 	.sidebar-nav__dropdown {
 		display: block;
@@ -2728,10 +2728,10 @@ section.footer-banner {
 		color: var(--graphite);
 		text-align: left;
 		font: inherit;
-    font-size: 16px;
+		font-size: 16px;
 	}
 	.page-layout__main ul {
-    padding-left: 25px;
+		padding-left: 25px;
 	}
 	.sidebar-nav__dropdown-arrow {
 		flex-shrink: 0;
@@ -2934,7 +2934,7 @@ section.footer-banner {
 		gap: 30px 6px;
 		padding: 0;
 		margin-bottom: 30px;
-        align-items: flex-start;
+		align-items: flex-start;
 	}
 	.about-2__col {
 		display: none;
@@ -3009,7 +3009,7 @@ section.footer-banner {
 	.page-title__heading {
 		text-align: left;
 		margin-top: 27px;
-        line-height: 120%;
+		line-height: 120%;
 	}
 	.page-title__subtitle {
 		text-align: left;
@@ -4428,7 +4428,7 @@ section.footer-banner {
 		gap: 20px;
 	}
 	.checkbox__text {
-			font-size: 12px;
+		font-size: 12px;
 	}
 	.catalog-cat-s .carousel-section__nav,
 	.promotions .carousel-section__nav {
@@ -4443,12 +4443,18 @@ section.footer-banner {
 	.pagination__ellipsis {
 		width: 40px;
 	}
-	.page-layout{		
-    margin-top: 10px;
-        padding: 50px 0;
+	.page-layout {
+		margin-top: 10px;
+		padding: 50px 0;
 	}
 	.partnership-card__desc {
-    max-width: 230px;
-    margin-bottom: 20px;
-}
+		max-width: 230px;
+		margin-bottom: 20px;
+	}
+	.blog-card__body {
+		gap: 7px;
+	}
+	.article-text h4 {
+		font-size: 20px;
+	}
 }

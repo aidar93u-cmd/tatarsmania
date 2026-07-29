@@ -256,7 +256,7 @@
 	}
 
 	.article-text {
-		margin-bottom: 72px;
+		margin-bottom: 80px;
 	}
 	.article-photo-m__grid img {
 		aspect-ratio: 697 / 502;
@@ -270,7 +270,10 @@
 	.project-page .page-title__heading {
 	}
 	.article-text li {
-		margin-bottom: 24px;
+		margin-bottom: 8px;
+	}
+	.article-text-blockquote {
+		margin-bottom: 40px;
 	}
 	.article-product {
 		margin-bottom: 40px;
@@ -331,6 +334,19 @@
 
 	.carousel-section.hits .carousel-section__swiper {
 		overflow: visible;
+	}
+	.project-table__row {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding: 10px 13px;
+		background: var(--gray-lighter);
+		margin-bottom: 10px;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.project-table__row span:nth-child(2) {
+		font-size: 14px;
 	}
 }
 
