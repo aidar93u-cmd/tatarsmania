@@ -2760,11 +2760,6 @@ section.footer-banner {
 	.sidebar-nav__dropdown-link {
 		display: block;
 		padding: 10px var(--gutter);
-		color: var(--graphite);
-		text-decoration: none;
-		font-family: var(--font-family);
-		font-size: 14px;
-		font-weight: 400;
 		transition: background 0.4s, color 0.4s;
 	}
 	.sidebar-nav__dropdown-link:hover {
@@ -3014,6 +3009,7 @@ section.footer-banner {
 	.page-title__heading {
 		text-align: left;
 		margin-top: 27px;
+        line-height: 120%;
 	}
 	.page-title__subtitle {
 		text-align: left;
@@ -4451,4 +4447,8 @@ section.footer-banner {
     margin-top: 10px;
         padding: 50px 0;
 	}
+	.partnership-card__desc {
+    max-width: 230px;
+    margin-bottom: 20px;
+}
 }
