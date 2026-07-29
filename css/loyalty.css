@@ -84,7 +84,7 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .loyalty-banner {
-        padding: 24px var(--gutter);
+        padding: 30px;
         min-height: 160px;
     }
 

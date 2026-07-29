@@ -173,8 +173,7 @@
 
 @media (max-width: 768px) {
     .showrooms-tabs__nav {
-        gap: 22px;
-        flex-wrap: nowrap;
+        gap: 5px 22px;
         overflow-x: auto;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
@@ -186,7 +185,7 @@
         font-weight: 500;
     }
     .showrooms-tabs__line {
-        margin-top: 24px;
+        margin-top: 20px;
     }
     .showrooms-page .page-title__heading {
 
@@ -204,7 +203,6 @@
         gap: 12px;
     }
     .showrooms-tabs__nav {
-        gap: 22px;
-        margin-bottom: 20px;
+        margin-bottom: 26px;
     }
 }

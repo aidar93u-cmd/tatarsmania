@@ -2706,14 +2706,17 @@ section.footer-banner {
 		display: none;
 	}
 	.sidebar-contacts {
-		padding: var(--space-30) var(--gutter);
+		padding: 30px 30px;
 		gap: var(--space-40);
+	}
+	.sidebar-contacts .body-l{		
+    font-size: 14px;
 	}
 	.sidebar-nav__dropdown {
 		display: block;
 		position: relative;
 	}
-	.sidebar-nav__dropdown-btn {
+	html .sidebar-nav__dropdown-btn {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -2725,6 +2728,10 @@ section.footer-banner {
 		color: var(--graphite);
 		text-align: left;
 		font: inherit;
+    font-size: 16px;
+	}
+	.page-layout__main ul {
+    padding-left: 25px;
 	}
 	.sidebar-nav__dropdown-arrow {
 		flex-shrink: 0;
@@ -4439,5 +4446,9 @@ section.footer-banner {
 	}
 	.pagination__ellipsis {
 		width: 40px;
+	}
+	.page-layout{		
+    margin-top: 10px;
+        padding: 50px 0;
 	}
 }
