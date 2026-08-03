@@ -9,6 +9,9 @@
         var digits = field.value.replace(/\D/g, '')
         return digits.length >= 11 && digits.length <= 15
     }
+    hooks.valid_email = function (field) {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(field.value)
+    }
     function testRule(val, rule, param) {
         var field = { value: val }
         if (hooks[rule]) {
@@ -1513,7 +1516,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	/* ===== REGISTRATION POPUP ===== */
 	var regPhoneInput = document.getElementById('regPhone')
-	var regPhoneError = document.getElementById('regPhoneError')
 	var regPhoneStep3 = document.getElementById('regPhoneStep3')
 	var regStep1Next = document.getElementById('regStep1Next')
 	var regStep3Submit = document.getElementById('regStep3Submit')
@@ -1528,13 +1530,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	var regDataSection = document.getElementById('regDataSection')
 	var regPopupEl = document.querySelector('.reg-popup')
 	var regCodeInputs
-
-	var regNameInput = document.getElementById('regName')
-	var regNameError = document.getElementById('regNameError')
-	var regSurnameInput = document.getElementById('regSurname')
-	var regSurnameError = document.getElementById('regSurnameError')
-	var regEmailInput = document.getElementById('regEmail')
-	var regEmailError = document.getElementById('regEmailError')
 
 	var regTimerInterval
 	var regTimerValue = 43
@@ -1644,7 +1639,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				var diff = newLen - prevLen
 				regPhoneInput.setSelectionRange(cursor + diff, cursor + diff)
 			}
-			if (window.regClearPhoneError) window.regClearPhoneError()
 		})
 	}
 
@@ -1682,7 +1676,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		// Scroll to top of form-body
 		var body = document.querySelector('.reg-popup__form-body')
 		if (body) body.scrollTop = 0
-		if (window.regClearStep3Errors) window.regClearStep3Errors()
+		if (regDataForm) FormValidation.reset(regDataForm)
 	}
 
 	function regResetPopup() {
@@ -1696,12 +1690,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (regTimer) regTimer.style.display = 'none'
 		if (regResend) regResend.style.display = 'none'
 		regClearCodeError()
+		if (regPhoneForm) FormValidation.reset(regPhoneForm)
+		if (regDataForm) FormValidation.reset(regDataForm)
 		if (regPhoneInput) {
 			regPhoneInput.value = ''
 			regPhoneInput.classList.remove('reg-popup__input--error')
 		}
-		if (regPhoneError)
-			regPhoneError.classList.remove('reg-popup__error--visible')
 		var sections = document.querySelector('.reg-popup__sections')
 		if (sections) sections.style.minHeight = ''
 	}
@@ -1723,16 +1717,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		}, 1000)
 	}
 
-	if (regStep1Next) {
-		regStep1Next.addEventListener('click', function () {
-			if (!window.regValidatePhone || !window.regValidatePhone()) return
-			var consent = document.querySelector(
-				'.fancybox__content .checkbox input[type="checkbox"]',
-			)
-			if (!consent || !consent.checked) {
-				consent.closest('.checkbox').classList.add('is-invalid')
-				return
-			}
+	var regPhoneForm = document.getElementById('regPhoneForm')
+	var regDataForm = document.getElementById('regDataForm')
+	if (regPhoneForm) {
+		regPhoneForm.addEventListener('submit', function (e) {
+			e.preventDefault()
+			if (!FormValidation.validate(regPhoneForm)) return
 			regShowCodeSection()
 		})
 	}
@@ -1785,34 +1775,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		regCodeSubmit.addEventListener('click', regSubmitCode)
 	}
 
-	if (regStep3Submit) {
-		regStep3Submit.addEventListener('click', function () {
-			var ok = true
-			if (window.regValidateName) { if (!window.regValidateName()) ok = false }
-			if (window.regValidateSurname) { if (!window.regValidateSurname()) ok = false }
-			if (window.regValidateEmail) { if (!window.regValidateEmail()) ok = false }
-			var consent3 = document.querySelector(
-				'.checkbox input[type="checkbox"]',
-			)
-			if (!consent3 || !consent3.checked) {
-				var label = consent3
-					? consent3.closest('.checkbox')
-					: null
-				if (label) label.classList.add('is-invalid')
-				ok = false
-			}
-			if (!ok) return
+	if (regDataForm) {
+		regDataForm.addEventListener('submit', function (e) {
+			e.preventDefault()
+			if (!FormValidation.validate(regDataForm)) return
 			regCompleteAuth()
 		})
 	}
-
-	document.querySelectorAll('.checkbox input[type="checkbox"]').forEach(function (cb) {
-		cb.addEventListener('change', function () {
-			this.closest('.checkbox').classList.remove(
-				'is-invalid',
-			)
-		})
-	})
 
 	document.addEventListener('click', function (e) {
 		var btn = e.target.closest(

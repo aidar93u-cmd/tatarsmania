@@ -1725,9 +1725,13 @@ section.footer-banner {
 .page-title__back {
 	display: inline-flex;
 	align-items: center;
-	gap: var(--space-8);
+	gap: var(--space-12);
 	font-family: var(--font-family);
-	font-size: var(--body-base-size);
+	font-size: var(--body-l-size);
+	font-weight: 500;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	line-height: 120%;
 	color: var(--graphite);
 	text-decoration: none;
 	transition: all 0.4s;
@@ -1760,6 +1764,14 @@ section.footer-banner {
 }
 .page-title__status-dot--active {
 	background: var(--copper);
+}
+.page-title__statuses--complete .page-title__status,
+.page-title__statuses--complete .page-title__status--active {
+	color: var(--green);
+}
+.page-title__statuses--complete .page-title__status-dot,
+.page-title__statuses--complete .page-title__status-dot--active {
+	background: var(--green);
 }
 .page-title .orders-card__status {
 	font-size: var(--caption-size);
@@ -3587,6 +3599,12 @@ section.footer-banner {
 	position: relative;
 	margin-bottom: var(--space-12);
 }
+.reg-popup__phone-section .form-error__wrap {
+	margin-bottom: var(--space-16);
+}
+.reg-popup__data-section .form-error__wrap {
+	margin-bottom: var(--space-12);
+}
 .reg-popup__fields-row {
 	display: flex;
 	gap: var(--space-6);
@@ -4258,6 +4276,36 @@ section.footer-banner {
 }
 .checkbox.is-invalid .checkbox__mark {
 	border-color: #dc3545;
+}
+/* ===== Form Error (shared: span.form-error) =====
+ * Вставляется внутрь обёртки поля (`.form-error__wrap`).
+ * Плавное появление: высота + прозрачность + лёгкий сдвиг.
+ */
+.form-error__wrap {
+	display: block;
+	width: 100%;
+	min-width: 0;
+}
+.form-error {
+	position: relative;
+	display: block;
+	font-size: var(--caption-size);
+	font-weight: 500;
+	color: #d32f2f;
+	line-height: 120%;
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transform: translateY(-4px);
+	margin-top: 0;
+	transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease, margin-top 0.5s ease;
+	pointer-events: none;
+}
+.form-error.visible {
+	max-height: 2rem;
+	opacity: 1;
+	transform: translateY(0);
+	margin-top: var(--space-6);
 }
 .checkbox--dark {
 	color: #fff;

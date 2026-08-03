@@ -38,6 +38,9 @@ _restore.html
 Thumbs.db
 desktop.ini
 ._*
+*-backup.html
+*-backup.js
+*-backup.css
 
 # misc
 README.md
@@ -51,6 +54,11 @@ assets/fonts/TEST-*
 .graphify_python
 .graphify_uncached.txt
 graphify_*.py
+graphify_chunk_prep.py
+graphify_step1.py
+graphify_step2.py
+graphify_step3a.py
+graphify_temp.py
 
 # AI planning & screenshots
 .ai/

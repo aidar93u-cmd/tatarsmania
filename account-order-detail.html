@@ -1,4 +1,4 @@
-<html lang="ru">
+﻿<html lang="ru">
 
 <head>
     <meta charset="UTF-8" />
@@ -118,6 +118,7 @@
                         d="M6.26966 7.46774C4.62339 7.46774 3.16963 8.57609 2.68548 10.2003L2 12.5H11L10.3145 10.2003C9.83037 8.57609 8.37661 7.46774 6.73034 7.46774H6.26966Z"
                         stroke="white" stroke-width="0.8" />
                 </svg>
+                <span class="header__icon-name">Константин К.</span>
             </a>
             <a href="#" class="header__icon header__icon--cart" aria-label="Корзина" data-label="Корзина">
                 <svg viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1525,37 +1526,73 @@
                         <span class="breadcrumbs__sep">/</span>
                         <a href="account-orders.html" class="breadcrumbs__link breadcrumbs__link--faded">Личный кабинет</a>
                     </div>
+                    <!-- Mobile page nav (Fixed Navigation) -->
+                    <div class="account-fixed-nav mobile-only">
+                        <div class="sidebar-nav__dropdown">
+                            <button class="sidebar-nav__dropdown-btn" type="button">
+                                <span class="sidebar-nav__dropdown-text">История заказов</span>
+                                <svg class="sidebar-nav__dropdown-arrow" width="12" height="8" viewBox="0 0 12 8">
+                                    <path d="M1 1l5 5 5-5" stroke="#212121" stroke-width="1.5" fill="none" />
+                                </svg>
+                            </button>
+                            <ul class="sidebar-nav__dropdown-menu">
+                                <li><a href="account-dashboard.html" class="sidebar-nav__dropdown-link body-l">Данные профиля</a></li>
+                                <li><a href="account-orders.html" class="sidebar-nav__dropdown-link sidebar-nav__dropdown-link--active body-l">История заказов</a></li>
+                                <li><a href="account-newsletters.html" class="sidebar-nav__dropdown-link body-l">Рассылки</a></li>
+                                <li><a href="account-promocodes.html" class="sidebar-nav__dropdown-link body-l">Персональные промокоды</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <h1 class="page-title__heading h4">Заказ № 120139 от 29.12.2025</h1>
-                    <div class="page-title__statuses">
+                    <div class="page-title__statuses page-title__statuses--complete">
                         <span class="page-title__status page-title__status--active">Оплачен</span>
                         <span class="page-title__status-dot page-title__status-dot--active"></span>
                         <span class="page-title__status page-title__status--active">В обработке</span>
-                        <span class="page-title__status-dot"></span>
-                        <span class="page-title__status">В работе</span>
-                        <span class="page-title__status-dot"></span>
-                        <span class="page-title__status">Готов к отправке</span>
-                        <span class="page-title__status-dot"></span>
-                        <span class="page-title__status">В пути</span>
-                        <span class="page-title__status-dot"></span>
-                        <span class="page-title__status">Завершен</span>
+                        <span class="page-title__status-dot page-title__status-dot--active"></span>
+                        <span class="page-title__status page-title__status--active">В работе</span>
+                        <span class="page-title__status-dot page-title__status-dot--active"></span>
+                        <span class="page-title__status page-title__status--active">Готов к отправке</span>
+                        <span class="page-title__status-dot page-title__status-dot--active"></span>
+                        <span class="page-title__status page-title__status--active">В пути</span>
+                        <span class="page-title__status-dot page-title__status-dot--active"></span>
+                        <span class="page-title__status page-title__status--active">Завершен</span>
                     </div>
                     <a href="account-orders.html" class="page-title__back">
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 3L2 6.5L5 10" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2 6.5H11" stroke="#212121" stroke-width="0.8" stroke-linecap="round"/>
+                            <path d="M9.286 1.786L4.571 6.5L9.286 11.214L8.5 12L3.786 7.286L3 6.5L3.786 5.715L8.501 1L9.286 1.786Z" fill="#212121"/>
                         </svg>
-                        К списку заказов
+                        <span class="body-upper-l-strong">К списку заказов</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- ===== ORDER DETAIL MAIN ===== -->
-        <section class="account" data-aos="fade-up" data-aos-delay="200">
+        <section class="account">
             <div class="container">
                 <div class="account__inner">
                     <!-- Left sidebar navigation -->
-                    <aside class="account__sidebar">
+                    <aside class="account__sidebar"  data-aos="fade-up" data-aos-delay="200">
+                        <div class="sidebar-nav__dropdown">
+                            <button class="sidebar-nav__dropdown-btn" type="button">
+                                <span class="sidebar-nav__dropdown-text">История заказов</span>
+                                <svg class="sidebar-nav__dropdown-arrow" width="12" height="8" viewBox="0 0 12 8">
+                                    <path d="M1 1l5 5 5-5" stroke="#212121" stroke-width="1.5" fill="none" />
+                                </svg>
+                            </button>
+                            <ul class="sidebar-nav__dropdown-menu">
+                                <li><a href="account-dashboard.html" class="sidebar-nav__dropdown-link body-l">Данные профиля</a></li>
+                                <li><a href="account-orders.html" class="sidebar-nav__dropdown-link sidebar-nav__dropdown-link--active body-l">История заказов</a></li>
+                                <li><a href="account-newsletters.html" class="sidebar-nav__dropdown-link body-l">Рассылки</a></li>
+                                <li><a href="account-promocodes.html" class="sidebar-nav__dropdown-link body-l">Персональные промокоды</a></li>
+                                <li><a href="#" class="account-nav__link account-nav__link--logout">
+                                    выйти
+                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.5 4.4375L8.5625 6.5L6.5 8.5625M8.5625 6.5H1M1 3.23301V3.20013C1 2.43006 1 2.04474 1.14987 1.75061C1.28169 1.49189 1.49189 1.28169 1.75061 1.14987C2.04474 1 2.43006 1 3.20013 1H9.80013C10.5702 1 10.9547 1 11.2488 1.14987C11.5076 1.28169 11.7185 1.49189 11.8503 1.75061C12 2.04445 12 2.42931 12 3.19788V9.80246C12 10.571 12 10.9553 11.8503 11.2492C11.7185 11.5079 11.5076 11.7185 11.2488 11.8503C10.955 12 10.5707 12 9.80212 12H3.19788C2.42931 12 2.04445 12 1.75061 11.8503C1.49189 11.7185 1.28169 11.5077 1.14987 11.249C1 10.9548 1 10.5701 1 9.8V9.76562" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a></li>
+                            </ul>
+                        </div>
                         <nav class="account-nav">
                             <a href="account-dashboard.html" class="account-nav__link">Данные профиля</a>
                             <a href="account-orders.html" class="account-nav__link account-nav__link--active">История заказов</a>
@@ -1576,8 +1613,16 @@
                     <div class="account__content">
 
                         <!-- ===== 1. Order Details ===== -->
-                        <div class="od-section">
-                            <h2 class="od-section__title">Детали заказа</h2>
+                        <div class="od-section od-section--details od-section--acc" data-od-acc="closed"  data-aos="fade-up" data-aos-delay="200">
+                            <div class="od-section__header">
+                                <h2 class="od-section__title">Детали заказа</h2>
+                                <button class="od-section__acc-toggle" type="button" aria-label="Свернуть/развернуть">
+                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                        <line x1="3" y1="6.5" x2="10" y2="6.5" stroke="#212121" stroke-width="1.2" />
+                                        <line x1="6.5" y1="3" x2="6.5" y2="10" stroke="#212121" stroke-width="1.2" />
+                                    </svg>
+                                </button>
+                            </div>
                             <div class="account-card">
                                 <div class="account-card__body">
                                     <div class="od-field">
@@ -1605,8 +1650,16 @@
                         </div>
 
                         <!-- ===== 2. Products ===== -->
-                        <div class="od-section">
-                            <h2 class="od-section__title">Товары</h2>
+                        <div class="od-section od-section--products od-section--acc" data-od-acc="open" data-od-acc-static  data-aos="fade-up" data-aos-delay="200">
+                            <div class="od-section__header">
+                                <h2 class="od-section__title">Товары</h2>
+                                <button class="od-section__acc-toggle" type="button" aria-label="Свернуть/развернуть">
+                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                        <line x1="3" y1="6.5" x2="10" y2="6.5" stroke="#212121" stroke-width="1.2" />
+                                        <line x1="6.5" y1="3" x2="6.5" y2="10" stroke="#212121" stroke-width="1.2" />
+                                    </svg>
+                                </button>
+                            </div>
                             <div class="od-product-list">
                                 <div class="od-product">
                                     <div class="od-product__thumb">
@@ -1643,8 +1696,16 @@
                         </div>
 
                         <!-- ===== 3. Documentation ===== -->
-                        <div class="od-section">
-                            <h2 class="od-section__title">Документация</h2>
+                        <div class="od-section od-section--documents od-section--acc" data-od-acc="closed"  data-aos="fade-up" data-aos-delay="200">
+                            <div class="od-section__header">
+                                <h2 class="od-section__title">Документация</h2>
+                                <button class="od-section__acc-toggle" type="button" aria-label="Свернуть/развернуть">
+                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                        <line x1="3" y1="6.5" x2="10" y2="6.5" stroke="#212121" stroke-width="1.2" />
+                                        <line x1="6.5" y1="3" x2="6.5" y2="10" stroke="#212121" stroke-width="1.2" />
+                                    </svg>
+                                </button>
+                            </div>
                             <div class="od-doc-card">
                                 <div class="od-doc">
                                     <div class="od-doc__row">
@@ -1703,8 +1764,16 @@
                         </div>
 
                         <!-- ===== 4. Order Summary ===== -->
-                        <div class="od-section">
-                            <h2 class="od-section__title">Сумма заказа</h2>
+                        <div class="od-section od-section--summary od-section--acc" data-od-acc="open" data-od-acc-static  data-aos="fade-up" data-aos-delay="200">
+                            <div class="od-section__header">
+                                <h2 class="od-section__title">Сумма заказа</h2>
+                                <button class="od-section__acc-toggle" type="button" aria-label="Свернуть/развернуть">
+                                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                        <line x1="3" y1="6.5" x2="10" y2="6.5" stroke="#212121" stroke-width="1.2" />
+                                        <line x1="6.5" y1="3" x2="6.5" y2="10" stroke="#212121" stroke-width="1.2" />
+                                    </svg>
+                                </button>
+                            </div>
                             <div class="od-summary-card">
                                 <div class="od-summary__rows">
                                     <div class="od-summary__row">
@@ -1732,6 +1801,14 @@
                         </div>
 
                     </div>
+
+                    <!-- Mobile logout -->
+                    <a href="#" class="account-mobile-logout mobile-only">
+                        <span>Выйти</span>
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.5 4.4375L8.5625 6.5L6.5 8.5625M8.5625 6.5H1M1 3.23301V3.20013C1 2.43006 1 2.04474 1.14987 1.75061C1.28169 1.49189 1.49189 1.28169 1.75061 1.14987C2.04474 1 2.43006 1 3.20013 1H9.80013C10.5702 1 10.9547 1 11.2488 1.14987C11.5076 1.28169 11.7185 1.49189 11.8503 1.75061C12 2.04445 12 2.42931 12 3.19788V9.80246C12 10.571 12 10.9553 11.8503 11.2492C11.7185 11.5079 11.5076 11.7185 11.2488 11.8503C10.955 12 10.5707 12 9.80212 12H3.19788C2.42931 12 2.04445 12 1.75061 11.8503C1.49189 11.7185 1.28169 11.5077 1.14987 11.249C1 10.9548 1 10.5701 1 9.8V9.76562" stroke="#212121" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -2019,7 +2096,5 @@
 </body>
 
 </html>
-
-
 
 
