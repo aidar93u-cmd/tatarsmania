@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="css/lib/fancybox.css" />
     <link rel="stylesheet" href="css/lib/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="css/style.css?v=36">
-    <link rel="stylesheet" href="css/header.css?v=36" />
-    <link rel="stylesheet" href="css/footer.css?v=36" />
-    <link rel="stylesheet" href="css/mega-menu.css?v=36" />
-    <link rel="stylesheet" href="css/product-card.css?v=36" />
-    <link rel="stylesheet" href="css/cart.css?v=36">
+    <link rel="stylesheet" href="css/style.css?v=37">
+    <link rel="stylesheet" href="css/header.css?v=37" />
+    <link rel="stylesheet" href="css/footer.css?v=37" />
+    <link rel="stylesheet" href="css/mega-menu.css?v=37" />
+    <link rel="stylesheet" href="css/product-card.css?v=37" />
+    <link rel="stylesheet" href="css/cart.css?v=37">
 </head>
 
 <body class="page checkout-page">
@@ -2837,11 +2837,10 @@
                 <div class="footer__right">
                     <h3 class="footer__newsletter-title">Подписывайтесь на нашу рассылку</h3>
                     <p class="footer__newsletter-desc body">Главные новости, акции и советы по выбору мебели — одним письмом. Без спама, только польза</p>
-                    <form class="footer__newsletter-form" id="newsletterForm" novalidate>
-                        <div class="footer__email-wrap">
+                    <form class="footer__newsletter-form js-validate-form" id="newsletterForm" novalidate>
+                        <div class="footer__email-wrap form-error__wrap">
                             <input type="email" class="footer__email-input" id="newsletterEmail" placeholder="E-mail*"
-                                autocomplete="email">
-                            <span class="footer__email-error" id="newsletterError">Введите корректный e-mail</span>
+                                autocomplete="email" data-validate="required|valid_email" data-error="Введите корректный e-mail">
                         </div>
                         <button type="submit" class="btn footer__subscribe-btn">
                             <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
@@ -2849,14 +2848,13 @@
                             </svg>
                             <span>Подписаться</span>
                         </button>
-                    </form>
-                    <label class="checkbox">
-                        <input type="checkbox" name="agree" required>
-                        <span class="checkbox__mark"></span>
-                        <span class="checkbox__text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
-                                target="_blank">согласие на обработку персональных данных</a></span>
-                    </label>
-                </div>
+                        <label class="checkbox">
+                            <input type="checkbox" name="agree" required data-validate="required">
+                            <span class="checkbox__mark"></span>
+                            <span class="checkbox__text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
+                                    target="_blank">согласие на обработку персональных данных</a></span>
+                        </label>
+                    </form>                </div>
             </div>
             <div class="footer__menus">
                 <div class="footer__menus-left">
@@ -3136,26 +3134,37 @@
                 <div class="checkout-popup__inner">
                     <h4 class="checkout-popup__title body-l-strong">получатель</h4>
                     <div class="checkout-popup__divider"></div>
-                    <div class="checkout-popup__fields">
-                        <label class="checkout-popup__field">
-                            <span class="checkout-popup__field-label">Имя*</span>
-                            <input type="text" class="checkout-popup__field-input" id="recipientName" placeholder="Константин Константинопольский">
-                        </label>
-                        <label class="checkout-popup__field">
-                            <span class="checkout-popup__field-label">Телефон*</span>
-                            <input type="tel" class="checkout-popup__field-input" id="recipientPhone" placeholder="+7 (999) 999 99 99">
-                        </label>
-                        <label class="checkout-popup__field">
-                            <span class="checkout-popup__field-label">E-mail</span>
-                            <input type="email" class="checkout-popup__field-input" id="recipientEmail" placeholder="kostya@mail.ru">
-                        </label>
-                    </div>
-                    <button class="btn btn-primary checkout-popup__btn-primary" type="button" id="recipientPopupBtn">
+                    <form class="js-validate-form" id="recipientForm" novalidate>
+                        <div class="checkout-popup__fields">
+                            <div class="checkout-popup__field">
+                                <span class="checkout-popup__field-label">Имя*</span>
+                                <div class="form-error__wrap">
+                                    <input type="text" class="checkout-popup__field-input" id="recipientName" placeholder="Константин Константинопольский"
+                                        data-validate="required|rus_alpha" data-error="Введите имя">
+                                </div>
+                            </div>
+                            <div class="checkout-popup__field">
+                                <span class="checkout-popup__field-label">Телефон*</span>
+                                <div class="form-error__wrap">
+                                    <input type="tel" class="checkout-popup__field-input" id="recipientPhone" placeholder="+7 (999) 999 99 99"
+                                        data-validate="required|phone" data-error="Введите корректный телефон">
+                                </div>
+                            </div>
+                            <div class="checkout-popup__field">
+                                <span class="checkout-popup__field-label">E-mail</span>
+                                <div class="form-error__wrap">
+                                    <input type="email" class="checkout-popup__field-input" id="recipientEmail" placeholder="kostya@mail.ru"
+                                        data-validate="valid_email" data-optional data-error="Введите корректный e-mail">
+                                </div>
+                            </div>
+                        </div>
+                    <button class="btn btn-primary checkout-popup__btn-primary" type="submit" id="recipientPopupBtn">
                         <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
                             <path d="M2.876 1.141C2.207 1.166.62 1.216 0 1.495l1.253-1.14c.355-.075.859-.316 1.793-.351 1.127-.042 2.268.197 3.304.49C9.087 1.271 11.855.437 12 .356l-1.253 1.258c-.625.26-2.302.74-5.049-.04C4.576 1.256 3.671 1.112 2.876 1.141z" fill="#212121"/>
                         </svg>
                         <span>Сохранить</span>
                     </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -3235,10 +3244,11 @@
     <script src="js/lib/validate.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
-    <script src="js/main.js?v=36"></script>
-    <script src="js/menu.js?v=36"></script>
+    <script src="js/main.js?v=37"></script>
+    <script src="js/form-validation.js"></script>
+    <script src="js/menu.js?v=37"></script>
     <script src="js/map.js"></script>
-    <script src="js/cart.js?v=36"></script>
+    <script src="js/cart.js?v=37"></script>
         <!-- ===== CITY POPUP ===== -->
     <div id="cityPopup" style="display:none;">
         <div class="popup__title">Выберите ваш город</div>

@@ -2367,12 +2367,13 @@
     transition: all 0.4s;
     flex-shrink: 0;
     width: var(--space-12);
-    height: auto;
+    height: var(--space-12);
 }
 
 .promocode-card__copy span {
     transform: translateX(calc(-1 * var(--space-10)));
     transition: all 0.4s;
+    margin-top: 3px;
 }
 
 .promocode-card__copy-icon {

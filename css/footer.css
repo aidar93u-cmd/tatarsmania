@@ -75,9 +75,15 @@
 
 .footer__newsletter-form {
 	display: flex;
+	flex-wrap: wrap;
 	gap: var(--space-6);
 	margin-bottom: var(--space-16);
 	align-items: flex-start;
+}
+
+.footer__newsletter-form .checkbox {
+	flex: 1 1 100%;
+	margin-top: var(--space-10);
 }
 
 .footer__email-wrap {
@@ -108,37 +114,6 @@
 
 .footer__email-input:focus {
 	border-color: var(--graphite);
-}
-
-.footer__email-input.is-valid {
-	border-color: var(--green);
-	background-color: rgba(87, 170, 66, 0.04);
-}
-
-.footer__email-input.is-invalid {
-	border-color: var(--red);
-}
-
-.footer__email-error {
-	position: absolute;
-	/* top: calc(100% + var(--space-3)); */
-	left: 0;
-	right: 0;
-	display: block;
-	font-size: var(--body-base-size);
-	font-weight: 400;
-	color: var(--red);
-	line-height: 120%;
-	opacity: 0;
-	transform: translateY(var(--space-4));
-	transition: all 0.4s ease, 0.4s all;
-	pointer-events: none;
-}
-.footer__email-error.visible {
-	opacity: 1;
-	/* transform: translateY(0); */
-	position: relative;
-	margin-top: 5px;
 }
 
 .footer__email-success {

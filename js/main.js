@@ -1,37 +1,5 @@
-﻿/* ===== FormUtils (validate.js wrapper) ===== */
+﻿/* ===== Toast notifications ===== */
 ;(function () {
-    if (!window.FormValidator) return
-    var hooks = FormValidator.prototype._hooks
-    hooks.rus_alpha = function (field) {
-        return /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(field.value)
-    }
-    hooks.phone = function (field) {
-        var digits = field.value.replace(/\D/g, '')
-        return digits.length >= 11 && digits.length <= 15
-    }
-    hooks.valid_email = function (field) {
-        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(field.value)
-    }
-    function testRule(val, rule, param) {
-        var field = { value: val }
-        if (hooks[rule]) {
-            return param != null ? hooks[rule](field, param) : hooks[rule](field)
-        }
-        return true
-    }
-    window.FormUtils = {
-        test: function (val, rules) {
-            if (!rules) return true
-            var list = rules.split('|')
-            for (var i = 0; i < list.length; i++) {
-                var r = list[i].trim()
-                if (!r) continue
-                var match = r.match(/^(.+?)\[(.+)\]$/)
-                if (!testRule(val, match ? match[1] : r, match ? match[2] : null)) return false
-            }
-            return true
-        }
-    }
     window.showToast = function (text, type) {
         var container = document.getElementById('toastContainer')
         if (!container) {
@@ -56,15 +24,16 @@
     }
 })()
 
-/* ===== GALLERY HOVER — global functions, used by search-popup ===== */
-function initCompactCardGallery(root) {
+/* ===== GALLERY HOVER — shared card gallery (compact & default) ===== */
+function initCardGallery(cardSelector, root) {
 	root = root || document
-	root.querySelectorAll('.product-card--compact').forEach(function (card) {
-		var galleryEl = card.querySelector('.product-card--compact__gallery')
-		var progressEl = card.querySelector('.product-card--compact__progress')
+	var base = cardSelector.replace(/^\./, '')
+	root.querySelectorAll(cardSelector).forEach(function (card) {
+		var galleryEl = card.querySelector('.' + base + '__gallery')
+		var progressEl = card.querySelector('.' + base + '__progress')
 		var images = galleryEl ? galleryEl.querySelectorAll('img') : []
 		var bars = progressEl
-			? progressEl.querySelectorAll('.product-card--compact__progress-bar')
+			? progressEl.querySelectorAll('.' + base + '__progress-bar')
 			: []
 		var count = images.length
 		if (count < 2) return
@@ -94,41 +63,12 @@ function initCompactCardGallery(root) {
 	})
 }
 
+function initCompactCardGallery(root) {
+	initCardGallery('.product-card--compact', root)
+}
+
 function initCatalogCardGallery(root) {
-	root = root || document
-	root.querySelectorAll('.product-card--default').forEach(function (card) {
-		var galleryEl = card.querySelector('.product-card--default__gallery')
-		var progressEl = card.querySelector('.product-card--default__progress')
-		var images = galleryEl ? galleryEl.querySelectorAll('img') : []
-		var bars = progressEl
-			? progressEl.querySelectorAll('.product-card--default__progress-bar')
-			: []
-		var count = images.length
-		if (count < 2) return
-
-		function setActiveSlide(idx) {
-			if (idx < 0) idx = 0
-			if (idx >= count) idx = count - 1
-			images.forEach(function (img) {
-				img.classList.toggle('active', parseInt(img.dataset.index) === idx)
-			})
-			bars.forEach(function (bar, i) {
-				bar.classList.toggle('active', i === idx)
-			})
-		}
-
-		card.addEventListener('mousemove', function (e) {
-			var rect = card.getBoundingClientRect()
-			var x = e.clientX - rect.left
-			var zoneWidth = rect.width / count
-			var idx = Math.floor(x / zoneWidth)
-			setActiveSlide(idx)
-		})
-
-		card.addEventListener('mouseleave', function () {
-			setActiveSlide(0)
-		})
-	})
+	initCardGallery('.product-card--default', root)
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -306,16 +246,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// ===== CONTACTS / PARTNERSHIP FORM =====
 	document.querySelectorAll('.contacts-form__form').forEach(function (form) {
-		var nameInput = form.querySelector('input[type="text"]')
 		var phoneInput = form.querySelector('input[type="tel"]')
-		var emailInput = form.querySelector('input[type="email"]')
-		var checkboxInput = form.querySelector('.checkbox input[type="checkbox"]')
-
-		if (checkboxInput) {
-			checkboxInput.addEventListener('change', function () {
-				this.closest('.checkbox').classList.remove('is-invalid')
-			})
-		}
 
 		// ===== PHONE MASK =====
 		if (phoneInput) {
@@ -340,160 +271,26 @@ document.addEventListener('DOMContentLoaded', function () {
 			})
 		}
 
-		function getField(input) {
-			return input ? input.closest('.contacts-form__field') : null
-		}
-
-		function showErr(input, msg) {
-			var field = getField(input)
-			if (!field) return
-			var el = field.querySelector('.contacts-form__error')
-			if (!el) {
-				el = document.createElement('span')
-				el.className = 'contacts-form__error'
-				field.appendChild(el)
-			}
-			el.textContent = msg
-			el.classList.add('contacts-form__error--visible')
-		}
-
-		function hideErr(input) {
-			var field = getField(input)
-			if (!field) return
-			var el = field.querySelector('.contacts-form__error')
-			if (el) {
-				el.remove()
-			}
-			input.classList.remove('is-invalid', 'is-valid')
-		}
-
-		function clearFormValidation() {
-			form.querySelectorAll('.contacts-form__field').forEach(function (field) {
-				var el = field.querySelector('.contacts-form__error')
-				if (el) el.remove()
-			})
-			form.querySelectorAll('.contacts-form__input').forEach(function (inp) {
-				inp.classList.remove('is-invalid', 'is-valid')
-			})
-		}
-
-		form.querySelectorAll('.contacts-form__input').forEach(function (inp) {
-			inp.addEventListener('input', function () {
-				hideErr(this)
-			})
-		})
-
 		form.addEventListener('submit', function (e) {
 			e.preventDefault()
-			clearFormValidation()
-
-			var name = nameInput ? nameInput.value.trim() : ''
-			var phone = phoneInput ? phoneInput.value.trim() : ''
-			var email = emailInput ? emailInput.value.trim() : ''
-			var valid = true
-
-			if (nameInput && !name) {
-				nameInput.classList.add('is-invalid')
-				showErr(nameInput, 'Введите имя')
-				valid = false
-			} else if (nameInput) {
-				nameInput.classList.add('is-valid')
-			}
-
-			if (phoneInput && !phone) {
-				phoneInput.classList.add('is-invalid')
-				showErr(phoneInput, 'Введите телефон')
-				valid = false
-			} else if (phoneInput && !FormUtils.test(phone, 'phone')) {
-				phoneInput.classList.add('is-invalid')
-				showErr(phoneInput, 'Введите корректный телефон')
-				valid = false
-			} else if (phoneInput) {
-				phoneInput.classList.add('is-valid')
-			}
-
-			if (emailInput && email && !FormUtils.test(email, 'valid_email')) {
-				emailInput.classList.add('is-invalid')
-				showErr(emailInput, 'Введите корректный e-mail')
-				valid = false
-			} else if (emailInput && email) {
-				emailInput.classList.add('is-valid')
-			}
-
-			if (checkboxInput && !checkboxInput.checked) {
-				checkboxInput.closest('.checkbox').classList.add('is-invalid')
-				valid = false
-			}
-
-			if (!valid) return
-
+			if (!FormValidation.validate(form)) return
 			showToast('Спасибо! Мы свяжемся с вами в ближайшее время.', 'success')
-			if (nameInput) nameInput.value = ''
-			if (phoneInput) phoneInput.value = ''
-			if (emailInput) emailInput.value = ''
+			form.querySelectorAll('.contacts-form__input').forEach(function (inp) {
+				if (inp.type !== 'checkbox') inp.value = ''
+			})
+			FormValidation.reset(form)
 		})
 	})
 
 	// ===== NEWSLETTER =====
 	var emailForm = document.getElementById('newsletterForm')
 	if (emailForm) {
-		var emailInput = document.getElementById('newsletterEmail')
-		var errorMsg = document.getElementById('newsletterError')
-		var agreeCheckbox = emailForm.parentElement.querySelector(
-			'.checkbox input[type="checkbox"]',
-		)
-
-		function clearValidation() {
-			emailInput.classList.remove('is-valid', 'is-invalid')
-			errorMsg.classList.remove('visible')
-			if (agreeCheckbox)
-				agreeCheckbox
-					.closest('.checkbox')
-					.classList.remove('is-invalid')
-		}
-
-		emailInput.addEventListener('input', function () {
-			this.classList.remove('is-invalid', 'is-valid')
-			errorMsg.classList.remove('visible')
-		})
-
-		if (agreeCheckbox) {
-			agreeCheckbox.addEventListener('change', function () {
-				this.closest('.checkbox').classList.remove('is-invalid')
-			})
-		}
-
 		emailForm.addEventListener('submit', function (e) {
 			e.preventDefault()
-			var email = emailInput.value.trim()
-			var hasError = false
-
-			if (agreeCheckbox && !agreeCheckbox.checked) {
-				agreeCheckbox.closest('.checkbox').classList.add('is-invalid')
-				hasError = true
-			}
-
-			if (!email) {
-				emailInput.classList.remove('is-valid')
-				emailInput.classList.add('is-invalid')
-				errorMsg.textContent = 'Введите e-mail'
-				errorMsg.classList.add('visible')
-				hasError = true
-			} else if (!FormUtils.test(email, 'valid_email')) {
-				emailInput.classList.remove('is-valid')
-				emailInput.classList.add('is-invalid')
-				errorMsg.textContent = 'Введите корректный e-mail'
-				errorMsg.classList.add('visible')
-				hasError = true
-			}
-
-			if (hasError) return
-
-			emailInput.classList.remove('is-invalid')
-			emailInput.classList.add('is-valid')
-			errorMsg.classList.remove('visible')
+			if (!FormValidation.validate(emailForm)) return
 			showToast('Спасибо! Мы будем держать вас в курсе новостей.', 'success')
-			emailInput.value = ''
+			document.getElementById('newsletterEmail').value = ''
+			FormValidation.reset(emailForm)
 		})
 	}
 

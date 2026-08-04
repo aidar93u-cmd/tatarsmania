@@ -617,6 +617,7 @@
 	var phoneInput = document.getElementById('recipientPhone')
 	var emailInput = document.getElementById('recipientEmail')
 	var saveBtn = document.getElementById('recipientPopupBtn')
+	var form = document.getElementById('recipientForm')
 
 	if (!popup) return
 
@@ -624,53 +625,11 @@
 	var phoneDisplay = document.querySelector('.checkout-recipient__row:nth-child(2) .checkout-recipient__value')
 	var emailDisplay = document.querySelector('.checkout-recipient__row:nth-child(3) .checkout-recipient__value')
 
-	var recipientFields = [
-		{ el: nameInput, emptyMsg: 'Введите имя', validate: function (v) { return v.length > 0 } },
-		{ el: phoneInput, emptyMsg: 'Введите корректный телефон', validate: function (v) { return v.length > 0 && FormUtils.test(v, 'phone') } },
-		{ el: emailInput, emptyMsg: 'Введите корректный e-mail', validate: function (v) { return !v || FormUtils.test(v, 'valid_email') }, optional: true }
-	]
-
-	recipientFields.forEach(function (def) {
-		if (!def.el) return
-		var err = document.createElement('span')
-		err.className = 'checkout-popup__field-error'
-		def.el.parentNode.appendChild(err)
-		def._err = err
-	})
-
-	var recipientSubmitted = false
-
-	function setRecipientErr(def) {
-		def._err.textContent = def.emptyMsg
-		def._err.classList.add('visible')
-		def.el.classList.add('is-invalid')
-	}
-
-	function clearRecipientErr(def) {
-		def._err.classList.remove('visible')
-		def.el.classList.remove('is-invalid')
-	}
-
-	function validateRecipientDef(def) {
-		var val = def.el.value.trim()
-		if (def.optional && !val) {
-			clearRecipientErr(def)
-			return true
-		}
-		if (!def.validate(val)) {
-			setRecipientErr(def)
-			return false
-		}
-		clearRecipientErr(def)
-		return true
-	}
-
 	function open() {
 		if (nameInput && nameDisplay) nameInput.value = nameDisplay.textContent.trim()
 		if (phoneInput && phoneDisplay) phoneInput.value = phoneDisplay.textContent.trim()
 		if (emailInput && emailDisplay) emailInput.value = emailDisplay.textContent.trim()
-		recipientSubmitted = false
-		recipientFields.forEach(function (def) { clearRecipientErr(def) })
+		if (form) FormValidation.reset(form)
 		popup.classList.add('popup--open')
 		document.body.style.overflow = 'hidden'
 	}
@@ -687,28 +646,18 @@
 	if (closeBtn) closeBtn.addEventListener('click', close)
 	if (overlay) overlay.addEventListener('click', function (e) { if (e.target === overlay) close() })
 
-	if (saveBtn) {
-		saveBtn.addEventListener('click', function () {
-			recipientSubmitted = true
-			var allValid = true
-			recipientFields.forEach(function (def) {
-				if (!validateRecipientDef(def)) allValid = false
-			})
-			if (!allValid) return
+	if (form) {
+		form.addEventListener('submit', function (e) {
+			e.preventDefault()
+			if (!FormValidation.validate(form)) return
 			if (nameDisplay) nameDisplay.textContent = nameInput.value.trim()
 			if (phoneDisplay) phoneDisplay.textContent = phoneInput.value.trim()
 			if (emailDisplay) emailDisplay.textContent = emailInput.value.trim() || emailDisplay.textContent
 			close()
 		})
+	} else if (saveBtn) {
+		saveBtn.addEventListener('click', close)
 	}
-
-	/* ===== Real-time validation after first submit ===== */
-	recipientFields.forEach(function (def) {
-		def.el.addEventListener('input', function () {
-			if (!recipientSubmitted) return
-			validateRecipientDef(def)
-		})
-	})
 
 	/* ===== Escape key ===== */
 	document.addEventListener('keydown', function (e) {

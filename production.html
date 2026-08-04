@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/style.css?ver=2" />
     <link rel="stylesheet" href="css/header.css?ver=1" />
     <link rel="stylesheet" href="css/footer.css?ver=1" />
-    <link rel="stylesheet" href="css/mega-menu.css?v=36" />
+    <link rel="stylesheet" href="css/mega-menu.css?v=37" />
     <link rel="stylesheet" href="css/product-card.css?ver=1" />
     <link rel="stylesheet" href="css/catalog-listing.css?ver=3" />
     <link rel="stylesheet" href="css/production.css?ver=1" />
@@ -2238,11 +2238,10 @@
                     <h3 class="footer__newsletter-title">Подписывайтесь на нашу рассылку</h3>
                     <p class="footer__newsletter-desc body">Главные новости, акции и советы по выбору мебели — одним
                         письмом. Без спама, только польза</p>
-                    <form class="footer__newsletter-form" id="newsletterForm" novalidate>
-                        <div class="footer__email-wrap">
+                    <form class="footer__newsletter-form js-validate-form" id="newsletterForm" novalidate>
+                        <div class="footer__email-wrap form-error__wrap">
                             <input type="email" class="footer__email-input" id="newsletterEmail" placeholder="E-mail*"
-                                autocomplete="email">
-                            <span class="footer__email-error" id="newsletterError">Введите корректный e-mail</span>
+                                autocomplete="email" data-validate="required|valid_email" data-error="Введите корректный e-mail">
                         </div>
                         <button type="submit" class="btn footer__subscribe-btn">
                             <svg width="12" height="2" viewBox="0 0 12 2" fill="none">
@@ -2252,14 +2251,13 @@
                             </svg>
                             <span>Подписаться</span>
                         </button>
-                    </form>
-                    <label class="checkbox">
-                        <input type="checkbox" required>
-                        <span class="checkbox__mark"></span>
-                        <span class="checkbox__text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
-                                target="_blank">согласие на обработку персональных данных</a></span>
-                    </label>
-                </div>
+                        <label class="checkbox">
+                            <input type="checkbox" required data-validate="required">
+                            <span class="checkbox__mark"></span>
+                            <span class="checkbox__text body">Нажимая на кнопку «Подписаться», вы даете <a href="#"
+                                    target="_blank">согласие на обработку персональных данных</a></span>
+                        </label>
+                    </form>                </div>
             </div>
             <div class="footer__menus">
                 <div class="footer__menus-left">
@@ -2379,7 +2377,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.4.5/js/OverlayScrollbars.min.js"></script>
     <script src="js/main.js?ver=2"></script>
-    <script src="js/menu.js?v=36"></script>
+    <script src="js/form-validation.js"></script>
+    <script src="js/menu.js?v=37"></script>
     <script src="js/production.js?ver=3"></script>
         <!-- ===== CITY POPUP ===== -->
     <div id="cityPopup" style="display:none;">

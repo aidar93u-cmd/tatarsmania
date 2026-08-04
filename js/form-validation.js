@@ -1,3 +1,42 @@
+/* ===== FormUtils (validate.js wrapper) =====
+ * Обёртка правил validate.js: кастомные хуки rus_alpha/phone/valid_email + FormUtils.test().
+ * Зависимость: js/lib/validate.min.js (window.FormValidator) — грузится раньше.
+ */
+;(function () {
+    if (!window.FormValidator) return
+    var hooks = FormValidator.prototype._hooks
+    hooks.rus_alpha = function (field) {
+        return /^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(field.value)
+    }
+    hooks.phone = function (field) {
+        var digits = field.value.replace(/\D/g, '')
+        return digits.length >= 11 && digits.length <= 15
+    }
+    hooks.valid_email = function (field) {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(field.value)
+    }
+    function testRule(val, rule, param) {
+        var field = { value: val }
+        if (hooks[rule]) {
+            return param != null ? hooks[rule](field, param) : hooks[rule](field)
+        }
+        return true
+    }
+    window.FormUtils = {
+        test: function (val, rules) {
+            if (!rules) return true
+            var list = rules.split('|')
+            for (var i = 0; i < list.length; i++) {
+                var r = list[i].trim()
+                if (!r) continue
+                var match = r.match(/^(.+?)\[(.+)\]$/)
+                if (!testRule(val, match ? match[1] : r, match ? match[2] : null)) return false
+            }
+            return true
+        }
+    }
+})()
+
 /* ===== Form Validation (shared: form.js-validate-form) =====
  * Единая валидация форм. Поля: `[data-validate]` (правила validate.js через FormUtils.test),
  * текст ошибки `data-error`, контейнер — span.form-error под полем (автосоздаётся модулем).
